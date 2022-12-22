@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Spotify on d3b0o</title>
+        <link>https://d3b0o.github.io/tags/spotify/</link>
+        <description>Recent content in Spotify on d3b0o</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Tue, 29 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/spotify/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Módulo Polybar Spotify</title>
+        <link>https://d3b0o.github.io/p/m%C3%B3dulo-polybar-spotify/</link>
+        <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/m%C3%B3dulo-polybar-spotify/</guid>
+        <description>&lt;h2 id=&#34;qué-es&#34;&gt;¿Qué es?&lt;/h2&gt;
+&lt;p&gt;Es un simple módulo para la polybar que muestra que canción se está reproduciendo y se pueden añadir botones para pausar y pasar canciones.&lt;/p&gt;
+&lt;h2 id=&#34;como-añadirlo-a-la-polybar&#34;&gt;¿Como añadirlo a la polybar?&lt;/h2&gt;
+&lt;p&gt;Para añadirlo a la polybar se tienen que seguir los siguientes dos pasos: irte al archivo donde tengas los módulos de la polybar, en mi caso &lt;code&gt;~/.config/polybar/modules.ini&lt;/code&gt;, y abajo del todo copiar lo siguiente&lt;/p&gt;
+&lt;h3 id=&#34;módulos&#34;&gt;Módulos&lt;/h3&gt;
+&lt;h4 id=&#34;módulo-song&#34;&gt;Módulo Song&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Añádelo si quieres que salga la canción que se està reproduciendo&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;[module/song]
+type = custom/script
+exec = ~/.config/bin/song.sh
+interval = 1
+format-prefix = &amp;quot;  &amp;quot;
+format = &amp;lt;label&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;módulo-previous&#34;&gt;Módulo Previous&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Añádelo si quieres tener el botón para reproducir la canción anterior&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;[module/previous]
+type = custom/script
+exec = ~/.config/bin/previous.sh
+interval = 1
+;format-prefix = &amp;quot;  &amp;quot;
+format = &amp;lt;label&amp;gt;
+click-left = dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;módulo-next&#34;&gt;Módulo Next&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Añádelo si quieres tener el botón para reproducir la canción siguiente&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;[module/next]
+type = custom/script
+exec = ~/.config/bin/next.sh
+interval = 1
+;format-prefix = &amp;quot;  &amp;quot;
+format = &amp;lt;label&amp;gt;
+click-left = dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;módulo-play&#34;&gt;Módulo Play&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Añádelo si quieres tener el botón para parar y reproducir una canción&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;[module/play]
+type = custom/script
+exec = ~/.config/bin/play.sh
+interval = 1
+;format-prefix = &amp;quot;  &amp;quot;
+format = &amp;lt;label&amp;gt;
+click-left = dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;archivos&#34;&gt;Archivos&lt;/h3&gt;
+&lt;p&gt;Para que los módulos funcionen hay que poner los siguientes archivos en la carpeta &lt;code&gt;~/.config/bin/&lt;/code&gt; ¡Acuérdate de darle permisos de ejecución a todos con chmod +x!&lt;/p&gt;
+&lt;h4 id=&#34;songsh&#34;&gt;song.sh&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Contenido del archivo song.sh&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+
+if [[ &amp;quot;$(dbus-send --session --dest=org.freedesktop.DBus --type=method_call --print-reply /org/freedesktop/DBus org.freedesktop.DBus.ListNames)&amp;quot; == *org.mpris.MediaPlayer2.spotify* ]]; then
+	artist=$(dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:&#39;org.mpris.MediaPlayer2.Player&#39; string:&#39;Metadata&#39; | awk &#39;/artist/{getline; getline; split($0,a,&amp;quot;\&amp;quot;&amp;quot;); print a[2]}&#39;)
+	song=$(dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:&#39;org.mpris.MediaPlayer2.Player&#39; string:&#39;Metadata&#39; | awk &#39;/title/{getline; split($0,a,&amp;quot;\&amp;quot;&amp;quot;); print a[2]}&#39;)
+	echo $song - $artist
+else 
+	echo &amp;quot;&amp;quot;
+fi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;nextsh&#34;&gt;next.sh&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Contenido del archivo next.sh&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+
+if [[ &amp;quot;$(dbus-send --session --dest=org.freedesktop.DBus --type=method_call --print-reply /org/freedesktop/DBus org.freedesktop.DBus.ListNames)&amp;quot; == *org.mpris.MediaPlayer2.spotify* ]]; then
+        echo &amp;quot;&amp;quot;
+else 
+        echo &amp;quot;&amp;quot;
+fi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;previoussh&#34;&gt;previous.sh&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Contenido del archivo previous.sh&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+
+if [[ &amp;quot;$(dbus-send --session --dest=org.freedesktop.DBus --type=method_call --print-reply /org/freedesktop/DBus org.freedesktop.DBus.ListNames)&amp;quot; == *org.mpris.MediaPlayer2.spotify* ]]; then
+        echo &amp;quot;&amp;quot;
+else 
+        echo &amp;quot;&amp;quot;
+fi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;playsh&#34;&gt;play.sh&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Contenido del archivo play.sh&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+
+if [[ &amp;quot;$(dbus-send --session --dest=org.freedesktop.DBus --type=method_call --print-reply /org/freedesktop/DBus org.freedesktop.DBus.ListNames)&amp;quot; == *org.mpris.MediaPlayer2.spotify* ]]; then
+        echo &amp;quot;&amp;quot;
+else 
+        echo &amp;quot;&amp;quot;
+fi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;novedad-animated-song&#34;&gt;¡Novedad Animated Song!&lt;/h2&gt;
+&lt;p&gt;Algunas personas que usaron estos módulos me comentaron que al escuchar canciones muy largas, les ocupaba mucho espacio en la polybar, por eso hice con la ayuda de &lt;a class=&#34;link&#34; href=&#34;https://github.com/surfh4cker&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;
+surfh4cker&lt;/a&gt; el siguiente script, que básicamente lo que hace es animar el texto de la canción para que solo ocupe x caracteres previamente definidos&amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;configuración&#34;&gt;Configuración&lt;/h3&gt;
+&lt;p&gt;Para su configuración es casi igual que los otros módulos, los pasos son los siguientes&lt;/p&gt;
+&lt;h4 id=&#34;archivos-1&#34;&gt;Archivos&lt;/h4&gt;
+&lt;p&gt;Para su correcto funcionamiento hay que crear los siguientes archivos &lt;code&gt;~/.config/bin/&lt;/code&gt; y no te olvides de darles permiso de ejecución con chmod&lt;/p&gt;
+&lt;h5 id=&#34;animatedsh&#34;&gt;animated.sh&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;Contenido del animated.sh&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+
+lenght=15
+
+if [[ &amp;quot;$(dbus-send --session --dest=org.freedesktop.DBus --type=method_call --print-reply /org/freedesktop/DBus org.freedesktop.DBus.ListNames)&amp;quot; == *org.mpris.MediaPlayer2.spotify* ]]; then
+	artist=$(dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:&#39;org.mpris.MediaPlayer2.Player&#39; string:&#39;Metadata&#39; | awk &#39;/artist/{getline; getline; split($0,a,&amp;quot;\&amp;quot;&amp;quot;); print a[2]}&#39;)
+	song=$(dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:&#39;org.mpris.MediaPlayer2.Player&#39; string:&#39;Metadata&#39; | awk &#39;/title/{getline; split($0,a,&amp;quot;\&amp;quot;&amp;quot;); print a[2]}&#39;)
+	text=&amp;quot;阮 $song - $artist &amp;quot;
+    num_char=$(echo -n $text | wc -c)
+	text2=${text// /#}
+    
+
+    if [[ $lenght &amp;lt; $num_char ]];then
+        letter=$(cat ~/.config/bin/progress.txt)
+        times=0
+        result=()
+        for (( i=0 ; i &amp;lt; ${#text} ; i++ )) {
+            a[$i]=${text2:i:1}
+        }
+
+        until [ $lenght -lt $times ]; do
+            letter=$(($letter + 1))
+            times=$(($times + 1))
+            if [[ $letter -lt $num_char ]]; then
+                result+=(${a[$letter]})
+            
+            else
+                letter=-1
+
+            fi
+            
+        done
+
+        echo $(($letter - $times + 1)) &amp;gt; ~/.config/bin/progress.txt
+	    echo ${result[@]} | tr -d &amp;quot; &amp;quot; | tr &amp;quot;#&amp;quot; &amp;quot; &amp;quot; 
+
+    else
+        echo $text
+    fi
+
+else 
+	echo &amp;quot;&amp;quot;
+fi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;progresstxt&#34;&gt;progress.txt&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;Hace falta crear un archivo llamado progress.txt, tambien en ~/.config/bin/&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;módulo&#34;&gt;Módulo&lt;/h4&gt;
+&lt;p&gt;Para su correcto funcionamiento hay que añadirlo abajo del todo en el archivo de módulos de la polybar, en mi caso &lt;code&gt;~/.config/polybar/modules.ini&lt;/code&gt; y después activarlo en el &lt;code&gt;config.ini&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;[module/animated-song]
+type = custom/script
+exec = ~/.config/bin/animated.sh
+interval = 1
+format = &amp;lt;label&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Para graduar la velocidad se tiene que cambiar el valor de interval, el número de interval equivale a la velocidad por carácter.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Para modificar el máximo de caracteres se tiene que especificar en la variable lenght del animated.sh&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
