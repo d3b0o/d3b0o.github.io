@@ -12,7 +12,7 @@
         <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
         
         <guid>https://d3b0o.github.io/p/m%C3%B3dulo-polybar-spotify/</guid>
-        <description>&lt;h2 id=&#34;qué-es&#34;&gt;¿Qué es?&lt;/h2&gt;
+        <description>&lt;img src="https://d3b0o.github.io/p/m%C3%B3dulo-polybar-spotify/images/2.jpg" alt="Featured image of post Módulo Polybar Spotify" /&gt;&lt;h2 id=&#34;qué-es&#34;&gt;¿Qué es?&lt;/h2&gt;
 &lt;p&gt;Es un simple módulo para la polybar que muestra que canción se está reproduciendo y se pueden añadir botones para pausar y pasar canciones.&lt;/p&gt;
 &lt;h2 id=&#34;como-añadirlo-a-la-polybar&#34;&gt;¿Como añadirlo a la polybar?&lt;/h2&gt;
 &lt;p&gt;Para añadirlo a la polybar se tienen que seguir los siguientes dos pasos: irte al archivo donde tengas los módulos de la polybar, en mi caso &lt;code&gt;~/.config/polybar/modules.ini&lt;/code&gt;, y abajo del todo copiar lo siguiente&lt;/p&gt;

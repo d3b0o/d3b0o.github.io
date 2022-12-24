@@ -12,7 +12,7 @@
         <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
         
         <guid>https://d3b0o.github.io/p/m%C3%B3dulo-polybar-spotify/</guid>
-        <description>&lt;h2 id=&#34;qué-es&#34;&gt;¿Qué es?&lt;/h2&gt;
+        <description>&lt;img src="https://d3b0o.github.io/p/m%C3%B3dulo-polybar-spotify/images/2.jpg" alt="Featured image of post Módulo Polybar Spotify" /&gt;&lt;h2 id=&#34;qué-es&#34;&gt;¿Qué es?&lt;/h2&gt;
 &lt;p&gt;Es un simple módulo para la polybar que muestra que canción se está reproduciendo y se pueden añadir botones para pausar y pasar canciones.&lt;/p&gt;
 &lt;h2 id=&#34;como-añadirlo-a-la-polybar&#34;&gt;¿Como añadirlo a la polybar?&lt;/h2&gt;
 &lt;p&gt;Para añadirlo a la polybar se tienen que seguir los siguientes dos pasos: irte al archivo donde tengas los módulos de la polybar, en mi caso &lt;code&gt;~/.config/polybar/modules.ini&lt;/code&gt;, y abajo del todo copiar lo siguiente&lt;/p&gt;
@@ -200,7 +200,7 @@ format = &amp;lt;label&amp;gt;
         <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
         
         <guid>https://d3b0o.github.io/p/como-personalizar-tu-entorno-linux/</guid>
-        <description>&lt;p&gt;En esta guía explico como puedes crear tu propio entorno completamente personalizable y desde 0, para que puedas dar tu 100% en tu trabajo o estudios. ¡Aviso! Esta guía está pensada para distribuciones basadas en debían aunque se puede hacer en otras también, pero los comandos cambiaran&lt;/p&gt;
+        <description>&lt;img src="https://d3b0o.github.io/p/como-personalizar-tu-entorno-linux/images/portada2.png" alt="Featured image of post Como Personalizar Tu Entorno Linux" /&gt;&lt;p&gt;En esta guía explico como puedes crear tu propio entorno completamente personalizable y desde 0, para que puedas dar tu 100% en tu trabajo o estudios. ¡Aviso! Esta guía está pensada para distribuciones basadas en debían aunque se puede hacer en otras también, pero los comandos cambiaran&lt;/p&gt;
 &lt;p&gt;Ejemplos de entornos hechos por mí:&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/d3b0o/dotfiles&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Ejemplo 1&lt;/a&gt;&lt;/p&gt;

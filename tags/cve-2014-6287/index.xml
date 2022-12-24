@@ -12,7 +12,7 @@
         <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
         
         <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-optimum/</guid>
-        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-optimum/images/3.png" alt="Featured image of post Resolución Máquina Optimum" /&gt;&lt;p&gt;En este post explico paso por paso como hacer la máquina optimum de Hack The Box desde 0, es una máquina nivel Fácil, tiene windows y ya está retirada&lt;/p&gt;
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-optimum/images/4.png" alt="Featured image of post Resolución Máquina Optimum" /&gt;&lt;p&gt;En este post explico paso por paso como hacer la máquina optimum de Hack The Box desde 0, es una máquina nivel Fácil, tiene windows y ya está retirada&lt;/p&gt;
 &lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/strong&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ping -c 1 10.10.10.8

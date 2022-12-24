@@ -12,7 +12,7 @@
         <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
         
         <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/</guid>
-        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/1.png" alt="Featured image of post Resolución Gallery" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/chocolatefactory&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/3.png" alt="Featured image of post Resolución Gallery" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/chocolatefactory&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://tryhackme.com/room/chocolatefactory&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
 &lt;p&gt;IP víctima = 10.10.250.47&lt;/p&gt;
@@ -2918,7 +2918,7 @@ Nmap done: 1 IP address (1 host up) scanned in 7.55 seconds
         <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
         
         <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-optimum/</guid>
-        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-optimum/images/3.png" alt="Featured image of post Resolución Máquina Optimum" /&gt;&lt;p&gt;En este post explico paso por paso como hacer la máquina optimum de Hack The Box desde 0, es una máquina nivel Fácil, tiene windows y ya está retirada&lt;/p&gt;
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-optimum/images/4.png" alt="Featured image of post Resolución Máquina Optimum" /&gt;&lt;p&gt;En este post explico paso por paso como hacer la máquina optimum de Hack The Box desde 0, es una máquina nivel Fácil, tiene windows y ya está retirada&lt;/p&gt;
 &lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/strong&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ping -c 1 10.10.10.8
@@ -3020,7 +3020,7 @@ PS C:\Users\kostas\Desktop&amp;gt;
         <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
         
         <guid>https://d3b0o.github.io/p/cuidado-con-este-usb/</guid>
-        <description>&lt;h2 id=&#34;qué-es-un-usb-rubber-ducky&#34;&gt;¿Qué es un USB Rubber Ducky?&lt;/h2&gt;
+        <description>&lt;img src="https://d3b0o.github.io/p/cuidado-con-este-usb/images/2.jpg" alt="Featured image of post ¡Cuidado con este USB!" /&gt;&lt;h2 id=&#34;qué-es-un-usb-rubber-ducky&#34;&gt;¿Qué es un USB Rubber Ducky?&lt;/h2&gt;
 &lt;p&gt;Rubber ducky es un pendrive con unas características especiales, a diferencia de un pendrive normal en el que puedes guardar archivos, fotos, etc. El Rubber Ducky, es un dispositivo que inyecta pulsaciones de teclas previamente definidas. Fue desarrollado por &lt;a class=&#34;link&#34; href=&#34;https://hak5.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;hak5&lt;/a&gt; y se puede conseguir desde su web actualmente por &lt;a class=&#34;link&#34; href=&#34;https://hak5.org/products/usb-rubber-ducky&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;$79.99&lt;/a&gt;.&lt;/p&gt;
@@ -3241,7 +3241,7 @@ STRING Hola Mundo!!!
         <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
         
         <guid>https://d3b0o.github.io/p/m%C3%B3dulo-polybar-spotify/</guid>
-        <description>&lt;h2 id=&#34;qué-es&#34;&gt;¿Qué es?&lt;/h2&gt;
+        <description>&lt;img src="https://d3b0o.github.io/p/m%C3%B3dulo-polybar-spotify/images/2.jpg" alt="Featured image of post Módulo Polybar Spotify" /&gt;&lt;h2 id=&#34;qué-es&#34;&gt;¿Qué es?&lt;/h2&gt;
 &lt;p&gt;Es un simple módulo para la polybar que muestra que canción se está reproduciendo y se pueden añadir botones para pausar y pasar canciones.&lt;/p&gt;
 &lt;h2 id=&#34;como-añadirlo-a-la-polybar&#34;&gt;¿Como añadirlo a la polybar?&lt;/h2&gt;
 &lt;p&gt;Para añadirlo a la polybar se tienen que seguir los siguientes dos pasos: irte al archivo donde tengas los módulos de la polybar, en mi caso &lt;code&gt;~/.config/polybar/modules.ini&lt;/code&gt;, y abajo del todo copiar lo siguiente&lt;/p&gt;
@@ -3429,7 +3429,7 @@ format = &amp;lt;label&amp;gt;
         <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
         
         <guid>https://d3b0o.github.io/p/como-personalizar-tu-entorno-linux/</guid>
-        <description>&lt;p&gt;En esta guía explico como puedes crear tu propio entorno completamente personalizable y desde 0, para que puedas dar tu 100% en tu trabajo o estudios. ¡Aviso! Esta guía está pensada para distribuciones basadas en debían aunque se puede hacer en otras también, pero los comandos cambiaran&lt;/p&gt;
+        <description>&lt;img src="https://d3b0o.github.io/p/como-personalizar-tu-entorno-linux/images/portada2.png" alt="Featured image of post Como Personalizar Tu Entorno Linux" /&gt;&lt;p&gt;En esta guía explico como puedes crear tu propio entorno completamente personalizable y desde 0, para que puedas dar tu 100% en tu trabajo o estudios. ¡Aviso! Esta guía está pensada para distribuciones basadas en debían aunque se puede hacer en otras también, pero los comandos cambiaran&lt;/p&gt;
 &lt;p&gt;Ejemplos de entornos hechos por mí:&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/d3b0o/dotfiles&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Ejemplo 1&lt;/a&gt;&lt;/p&gt;
@@ -3717,7 +3717,7 @@ chmod +x setup.sh
         <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
         
         <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/</guid>
-        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/11.png" alt="Featured image of post Resolución Máquina Horizontall" /&gt;&lt;p&gt;En este post voy a explicar paso por paso como hacer la máquina horizontall de Hack The Box desde 0, es una máquina nivel Fácil, tiene Linux y ya está retirada&lt;/p&gt;
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/100.png" alt="Featured image of post Resolución Máquina Horizontall" /&gt;&lt;p&gt;En este post voy a explicar paso por paso como hacer la máquina horizontall de Hack The Box desde 0, es una máquina nivel Fácil, tiene Linux y ya está retirada&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/strong&gt;&lt;/p&gt;
