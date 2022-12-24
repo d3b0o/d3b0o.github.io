@@ -223,50 +223,53 @@ if (!doNotTrack) {
             <nav id="TableOfContents">
   <ol>
     <li><a href="#qué-es-un-usb-rubber-ducky">¿Qué es un USB Rubber Ducky?</a></li>
-  </ol>
-
-  <ol>
-    <li><a href="#duckyscript">DuckyScript</a>
+    <li><a href="#como-usarlo">¿Como usarlo?</a>
       <ol>
-        <li><a href="#rem-comentarios">REM (Comentarios)</a></li>
-        <li><a href="#delay">DELAY</a></li>
-        <li><a href="#string">STRING</a></li>
-        <li><a href="#stringln">STRINGLN</a></li>
-        <li><a href="#teclas-movimiento">Teclas movimiento</a></li>
-        <li><a href="#teclas-del-sistema">Teclas del sistema</a></li>
-        <li><a href="#teclas-de--modificación">Teclas de  modificación</a>
+        <li><a href="#duckyscript">DuckyScript</a>
           <ol>
-            <li><a href="#básicas">Básicas</a></li>
-            <li><a href="#avanzadas">Avanzadas</a></li>
-            <li><a href="#independientes">Independientes</a></li>
+            <li><a href="#rem-comentarios">REM (Comentarios)</a></li>
+            <li><a href="#delay">DELAY</a></li>
+            <li><a href="#string">STRING</a></li>
+            <li><a href="#stringln">STRINGLN</a></li>
+            <li><a href="#teclas-movimiento">Teclas movimiento</a></li>
+            <li><a href="#teclas-del-sistema">Teclas del sistema</a></li>
+            <li><a href="#teclas-de--modificación">Teclas de  modificación</a>
+              <ol>
+                <li><a href="#básicas">Básicas</a></li>
+                <li><a href="#avanzadas">Avanzadas</a></li>
+                <li><a href="#independientes">Independientes</a></li>
+              </ol>
+            </li>
+            <li><a href="#teclas-de-bloqueo">Teclas de Bloqueo</a></li>
+            <li><a href="#botón">Botón</a>
+              <ol>
+                <li><a href="#wait_for_button_press">WAIT_FOR_BUTTON_PRESS</a></li>
+                <li><a href="#button_def">BUTTON_DEF</a></li>
+                <li><a href="#disable_button-y-enable_button">DISABLE_BUTTON y ENABLE_BUTTON</a></li>
+              </ol>
+            </li>
+            <li><a href="#led">LED</a>
+              <ol>
+                <li><a href="#led_off">LED_OFF</a></li>
+                <li><a href="#led_r">LED_R</a></li>
+                <li><a href="#led_g">LED_G</a></li>
+              </ol>
+            </li>
           </ol>
         </li>
-        <li><a href="#teclas-de-bloqueo">Teclas de Bloqueo</a></li>
-        <li><a href="#botón">Botón</a>
-          <ol>
-            <li><a href="#wait_for_button_press">WAIT_FOR_BUTTON_PRESS</a></li>
-            <li><a href="#button_def">BUTTON_DEF</a></li>
-            <li><a href="#disable_button-y-enable_button">DISABLE_BUTTON y ENABLE_BUTTON</a></li>
-          </ol>
-        </li>
-        <li><a href="#led">LED</a>
-          <ol>
-            <li><a href="#led_off">LED_OFF</a></li>
-            <li><a href="#led_r">LED_R</a></li>
-            <li><a href="#led_g">LED_G</a></li>
-          </ol>
-        </li>
+        <li><a href="#dónde-programarlo">¿Dónde Programarlo?</a></li>
+        <li><a href="#cambiar-idioma-de-los-scripts">Cambiar idioma de los scripts</a></li>
+        <li><a href="#primer-hola-mundo">Primer hola mundo</a></li>
       </ol>
     </li>
-    <li><a href="#dónde-programarlo">¿Dónde Programarlo?</a></li>
-    <li><a href="#cambiar-idioma-de-los-scripts">Cambiar idioma de los scripts</a></li>
-    <li><a href="#primer-hola-mundo">Primer hola mundo</a></li>
-  </ol>
-
-  <ol>
-    <li><a href="#caso-1">Caso 1</a></li>
-    <li><a href="#caso-2">Caso 2</a></li>
-    <li><a href="#caso-3">Caso 3</a></li>
+    <li><a href="#posibles-casos-reales">Posibles casos reales</a>
+      <ol>
+        <li><a href="#caso-1">Caso 1</a></li>
+        <li><a href="#caso-2">Caso 2</a></li>
+        <li><a href="#caso-3">Caso 3</a></li>
+      </ol>
+    </li>
+    <li><a href="#como-protegerse">Como protegerse</a></li>
   </ol>
 </nav>
         </div>
@@ -365,7 +368,7 @@ if (!doNotTrack) {
 	
 >
 (Escena mr.robot)</p>
-<h1 id="como-usarlo">¿Como usarlo?</h1>
+<h2 id="como-usarlo">¿Como usarlo?</h2>
 <ol>
 <li>Lo primero es sacar la tarjeta micro sd que hay en su interior y meterla en el adaptador, para conectarlo al
 ordenador</li>
@@ -374,7 +377,7 @@ ordenador</li>
 <ol start="2">
 <li>Ahora toca crear los scripts para indicarle que es lo que tiene que hacer en cada momento. Para ello se usa el lenguaje de programación Duckyscript</li>
 </ol>
-<h2 id="duckyscript">DuckyScript</h2>
+<h3 id="duckyscript">DuckyScript</h3>
 <p>Es un lenguaje muy sencillo que se puede usar desde cualquier editor de texto.
 Además sirve para más dispositivos de hak5 como por ejemplo:</p>
 <div class="table-wrapper"><table>
@@ -399,24 +402,24 @@ Además sirve para más dispositivos de hak5 como por ejemplo:</p>
 </tr>
 </tbody>
 </table></div>
-<h3 id="rem-comentarios">REM (Comentarios)</h3>
+<h4 id="rem-comentarios">REM (Comentarios)</h4>
 <p>Para hacer comentarios se usa <code>REM</code></p>
 <pre><code class="language-bash">REM Esto no se va a interpretar
 </code></pre>
-<h3 id="delay">DELAY</h3>
+<h4 id="delay">DELAY</h4>
 <p>El comando <code>DELAY</code> índica al USB que se pare momentáneamente, esto es útil para scripts que por ejemplo abren una ventana o una aplicación y tiene que esperar a que cargue</p>
 <pre><code class="language-bash">DELAY 1000
 </code></pre>
-<h3 id="string">STRING</h3>
+<h4 id="string">STRING</h4>
 <p><code>STRING</code> sirve para que escriba una frase o palabra, el usb automáticamente aprieta el shift en las mayúsculas y la barra espaciadora para los espacios, pero no interpreta los espacios finales</p>
 <pre><code class="language-bash">STRING Hello world!
 </code></pre>
 <p>Lo que escribirá el RubberDucky</p>
 <pre><code class="language-plaintext">Hello world!
 </code></pre>
-<h3 id="stringln">STRINGLN</h3>
+<h4 id="stringln">STRINGLN</h4>
 <p>Es como el string pero al final hace un enter</p>
-<h3 id="teclas-movimiento">Teclas movimiento</h3>
+<h4 id="teclas-movimiento">Teclas movimiento</h4>
 <p>Se pueden usar para desplazarse por una ventana o aplicación.</p>
 <ul>
 <li>UP DOWN LEFT RIGHT</li>
@@ -426,7 +429,7 @@ Además sirve para más dispositivos de hak5 como por ejemplo:</p>
 <li>TAB</li>
 <li>SPACE</li>
 </ul>
-<h3 id="teclas-del-sistema">Teclas del sistema</h3>
+<h4 id="teclas-del-sistema">Teclas del sistema</h4>
 <p>Son utilizadas principalmente por el sistema operativo para funciones especiales y pueden usarse para interactuar con áreas de texto y navegar por la interfaz de usuario.</p>
 <ul>
 <li>ENTER</li>
@@ -436,8 +439,8 @@ Además sirve para más dispositivos de hak5 como por ejemplo:</p>
 <li>MENU APP</li>
 <li>F1 F2 F3 F4 F5 F6 F7 F8 F9 F0 F11 F12</li>
 </ul>
-<h3 id="teclas-de--modificación">Teclas de  modificación</h3>
-<h4 id="básicas">Básicas</h4>
+<h4 id="teclas-de--modificación">Teclas de  modificación</h4>
+<h5 id="básicas">Básicas</h5>
 <p>Son teclas que se combinan con otra tecla para realizar una función especial</p>
 <ul>
 <li>SHIFT</li>
@@ -457,7 +460,7 @@ ALT F4
 REM Pegar
 CTRL c
 </code></pre>
-<h4 id="avanzadas">Avanzadas</h4>
+<h5 id="avanzadas">Avanzadas</h5>
 <p>Se pueden combinar entre ellas</p>
 <ul>
 <li>CTRL SHIFT</li>
@@ -468,23 +471,23 @@ CTRL c
 <li>COMMAND OPTION SHIFT</li>
 <li>CONTROL ALT DELETE</li>
 </ul>
-<h4 id="independientes">Independientes</h4>
+<h5 id="independientes">Independientes</h5>
 <p>Para pulsar una tecla modificadora sola se tiene que poner antes <code>INJECT_MOD</code></p>
 <pre><code class="language-bash">REM Ejemplo presionando la tecla de Windows sola
 
 INJECT_MOD
 WINDOWS
 </code></pre>
-<h3 id="teclas-de-bloqueo">Teclas de Bloqueo</h3>
+<h4 id="teclas-de-bloqueo">Teclas de Bloqueo</h4>
 <p>Las teclas de bloqueo alternan entre activado y desactivado</p>
 <ul>
 <li>CAPSLOCK</li>
 <li>NUMLOCK</li>
 <li>SCROLLOCK</li>
 </ul>
-<h3 id="botón">Botón</h3>
+<h4 id="botón">Botón</h4>
 <p>Dentro del Rubber Ducky hay un pequeño botón el cual se puede combinar con los scripts, por defecto, al pulsarlo reinicia el script que tiene cargado, pero se puede modificar su función:</p>
-<h4 id="wait_for_button_press">WAIT_FOR_BUTTON_PRESS</h4>
+<h5 id="wait_for_button_press">WAIT_FOR_BUTTON_PRESS</h5>
 <p>Sirve para pausar el script hasta que se presione el botón</p>
 <pre><code class="language-bash">REM Ejemplo uso de WAIT_FOR_BUTTON_PRESS
 
@@ -492,13 +495,13 @@ STRING Hello World!
 WAIT_FOR_BUTTON_PRESS
 STRING Has presionado el botón...
 </code></pre>
-<h4 id="button_def">BUTTON_DEF</h4>
+<h5 id="button_def">BUTTON_DEF</h5>
 <p>Define una función que se ejecutará cuando se presione el botón en cualquier momento dentro del script, siempre que el botón no esté ya en uso por el comando <code>WAIT_FOR_BUTTON_PRESS</code> u otra función similar.</p>
 <pre><code class="language-bash">BUTTON_DEF
     STRING Has presionado el botón.
 END_BUTTON
 </code></pre>
-<h4 id="disable_button-y-enable_button">DISABLE_BUTTON y ENABLE_BUTTON</h4>
+<h5 id="disable_button-y-enable_button">DISABLE_BUTTON y ENABLE_BUTTON</h5>
 <p>Como su propio nombre indica, sirve para desactivar y activar el botón.</p>
 <pre><code class="language-bash">DISABLE_BUTTON
 REM Botón desactivado
@@ -506,59 +509,71 @@ REM Botón desactivado
 ENABLE_BUTTON
 REM Botón activado
 </code></pre>
-<h3 id="led">LED</h3>
+<h4 id="led">LED</h4>
 <p>El Ruber Ducky En su interior tiene un pequeño LED el cual se puede controlar en los scripts</p>
-<h4 id="led_off">LED_OFF</h4>
+<h5 id="led_off">LED_OFF</h5>
 <p>Apaga el led</p>
-<h4 id="led_r">LED_R</h4>
+<h5 id="led_r">LED_R</h5>
 <p>Pondrá el led rojo</p>
-<h4 id="led_g">LED_G</h4>
+<h5 id="led_g">LED_G</h5>
 <p>Pondrá el led verde</p>
-<h2 id="dónde-programarlo">¿Dónde Programarlo?</h2>
+<h3 id="dónde-programarlo">¿Dónde Programarlo?</h3>
 <p>En el apartado de <a class="link" href="https://downloads.hak5.org/ducky"  target="_blank" rel="noopener"
     >soporte del RubberDucky</a> se puede descargar un JSEncoder, es un archivo con extension <code>.html</code>. En linux se abre con <code>firefox jsencoder.html</code> y en windows: click derecho, abrir con, navegador</p>
-<p><img src="/images/RuberDucky/jsencoder.png"
-	
-	
-	
+<p><img src="/p/cuidado-con-este-usb/images/jsencoder.png"
+	width="1855"
+	height="755"
+	srcset="/p/cuidado-con-este-usb/images/jsencoder_huee88f63a96560996145a6229ed7deb40_43945_480x0_resize_box_3.png 480w, /p/cuidado-con-este-usb/images/jsencoder_huee88f63a96560996145a6229ed7deb40_43945_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
+		class="gallery-image" 
+		data-flex-grow="245"
+		data-flex-basis="589px"
+	
 ></p>
-<h2 id="cambiar-idioma-de-los-scripts">Cambiar idioma de los scripts</h2>
+<h3 id="cambiar-idioma-de-los-scripts">Cambiar idioma de los scripts</h3>
 <p>El Rubber Ducky tiene la distribución de teclado inglés por defecto, para poder cambiarlo hay que descargar el idioma deseado desde <a class="link" href="https://github.com/hak5/usbrubberducky-payloads/tree/master/languages"  target="_blank" rel="noopener"
     >https://github.com/hak5/usbrubberducky-payloads/tree/master/languages</a> para después ponerlo en el jsencoder</p>
-<p><img src="/images/RuberDucky/language.png"
-	
-	
-	
+<p><img src="/p/cuidado-con-este-usb/images/language.png"
+	width="651"
+	height="259"
+	srcset="/p/cuidado-con-este-usb/images/language_hub94f33e8b01a6495cd9a22d6abbd31e0_28038_480x0_resize_box_3.png 480w, /p/cuidado-con-este-usb/images/language_hub94f33e8b01a6495cd9a22d6abbd31e0_28038_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
+		class="gallery-image" 
+		data-flex-grow="251"
+		data-flex-basis="603px"
+	
 ></p>
-<h2 id="primer-hola-mundo">Primer hola mundo</h2>
+<h3 id="primer-hola-mundo">Primer hola mundo</h3>
 <p>Para que el Rubber Ducky haga un hola mundo, hay que poner en el jsencoder lo sieguiente:</p>
 <pre><code class="language-bash">DELAY 200
 STRING Hola Mundo!!!
 </code></pre>
-<p><img src="/images/RuberDucky/helloworld.png"
-	
-	
-	
+<p><img src="/p/cuidado-con-este-usb/images/helloworld.png"
+	width="599"
+	height="650"
+	srcset="/p/cuidado-con-este-usb/images/helloworld_hu1d455a84d21550103ce3a21df0e45f85_14759_480x0_resize_box_3.png 480w, /p/cuidado-con-este-usb/images/helloworld_hu1d455a84d21550103ce3a21df0e45f85_14759_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
+		class="gallery-image" 
+		data-flex-grow="92"
+		data-flex-basis="221px"
+	
 ></p>
 <p>Ahora solo hace falta clicar a generate payload y se descargará un archivo llamado inject.bin, el cual se tiene que poner en la tarjeta micro sd (solo puede haber un inject.bin, (borra los antiguos).</p>
-<h1 id="posibles-casos-reales">Posibles casos reales</h1>
-<h2 id="caso-1">Caso 1</h2>
+<h2 id="posibles-casos-reales">Posibles casos reales</h2>
+<h3 id="caso-1">Caso 1</h3>
 <p>Alguien deja un USB RubberDucky en el suelo de una oficina con una etiqueta en la cual pone algo que incite a la gente a querer ver su contenido, lo que va a provocar que alguien lo conecte a su ordenador de la oficina, ahora el atacante ya puede crear una revershell, meter un keylogger, etc&hellip;</p>
-<h2 id="caso-2">Caso 2</h2>
+<h3 id="caso-2">Caso 2</h3>
 <p>En un bar hay un señor trabajando y se va al baño y se deja el ordenador desbloqueado, un atacante le conecta el RubberDucky y como en el caso anterior le puede meter un keylogger, etc&hellip;</p>
-<h2 id="caso-3">Caso 3</h2>
+<h3 id="caso-3">Caso 3</h3>
 <p>En un gimnasio no hay nadie en recepción y los ordenadores están desbloqueados, un atacante conecta el USB y se descargas todos los datos de los clientes.</p>
 <p>Todos los casos se basan más o menos en lo mismo</p>
-<h1 id="como-protegerse">Como protegerse</h1>
+<h2 id="como-protegerse">Como protegerse</h2>
 <p>Lo primero y más obvio es no dejarte ordenadores, móviles, impresoras, etc&hellip; desbloqueados.</p>
 <p>Existe un programa para windows que se queda corriendo en segundo plano y te protege de el Rubber ducky y dispositivos similares. No lo e probado pero por lo que e visto por internet, cuando detecta el RubberDucky lo para, bloquea el ordenador y guarda todas las pulsaciones de teclado del RubberDucky para ver las intenciones del atacante</p>
 <p><a class="link" href="https://lospi.net/beamgun/"  target="_blank" rel="noopener"

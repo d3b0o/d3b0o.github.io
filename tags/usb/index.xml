@@ -27,7 +27,7 @@
 	
 &gt;
 (Escena mr.robot)&lt;/p&gt;
-&lt;h1 id=&#34;como-usarlo&#34;&gt;¿Como usarlo?&lt;/h1&gt;
+&lt;h2 id=&#34;como-usarlo&#34;&gt;¿Como usarlo?&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Lo primero es sacar la tarjeta micro sd que hay en su interior y meterla en el adaptador, para conectarlo al
 ordenador&lt;/li&gt;
@@ -36,7 +36,7 @@ ordenador&lt;/li&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Ahora toca crear los scripts para indicarle que es lo que tiene que hacer en cada momento. Para ello se usa el lenguaje de programación Duckyscript&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;duckyscript&#34;&gt;DuckyScript&lt;/h2&gt;
+&lt;h3 id=&#34;duckyscript&#34;&gt;DuckyScript&lt;/h3&gt;
 &lt;p&gt;Es un lenguaje muy sencillo que se puede usar desde cualquier editor de texto.
 Además sirve para más dispositivos de hak5 como por ejemplo:&lt;/p&gt;
 &lt;table&gt;
@@ -61,24 +61,24 @@ Además sirve para más dispositivos de hak5 como por ejemplo:&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;rem-comentarios&#34;&gt;REM (Comentarios)&lt;/h3&gt;
+&lt;h4 id=&#34;rem-comentarios&#34;&gt;REM (Comentarios)&lt;/h4&gt;
 &lt;p&gt;Para hacer comentarios se usa &lt;code&gt;REM&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;REM Esto no se va a interpretar
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;delay&#34;&gt;DELAY&lt;/h3&gt;
+&lt;h4 id=&#34;delay&#34;&gt;DELAY&lt;/h4&gt;
 &lt;p&gt;El comando &lt;code&gt;DELAY&lt;/code&gt; índica al USB que se pare momentáneamente, esto es útil para scripts que por ejemplo abren una ventana o una aplicación y tiene que esperar a que cargue&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;DELAY 1000
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;string&#34;&gt;STRING&lt;/h3&gt;
+&lt;h4 id=&#34;string&#34;&gt;STRING&lt;/h4&gt;
 &lt;p&gt;&lt;code&gt;STRING&lt;/code&gt; sirve para que escriba una frase o palabra, el usb automáticamente aprieta el shift en las mayúsculas y la barra espaciadora para los espacios, pero no interpreta los espacios finales&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;STRING Hello world!
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Lo que escribirá el RubberDucky&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-plaintext&#34;&gt;Hello world!
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;stringln&#34;&gt;STRINGLN&lt;/h3&gt;
+&lt;h4 id=&#34;stringln&#34;&gt;STRINGLN&lt;/h4&gt;
 &lt;p&gt;Es como el string pero al final hace un enter&lt;/p&gt;
-&lt;h3 id=&#34;teclas-movimiento&#34;&gt;Teclas movimiento&lt;/h3&gt;
+&lt;h4 id=&#34;teclas-movimiento&#34;&gt;Teclas movimiento&lt;/h4&gt;
 &lt;p&gt;Se pueden usar para desplazarse por una ventana o aplicación.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;UP DOWN LEFT RIGHT&lt;/li&gt;
@@ -88,7 +88,7 @@ Además sirve para más dispositivos de hak5 como por ejemplo:&lt;/p&gt;
 &lt;li&gt;TAB&lt;/li&gt;
 &lt;li&gt;SPACE&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;teclas-del-sistema&#34;&gt;Teclas del sistema&lt;/h3&gt;
+&lt;h4 id=&#34;teclas-del-sistema&#34;&gt;Teclas del sistema&lt;/h4&gt;
 &lt;p&gt;Son utilizadas principalmente por el sistema operativo para funciones especiales y pueden usarse para interactuar con áreas de texto y navegar por la interfaz de usuario.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ENTER&lt;/li&gt;
@@ -98,8 +98,8 @@ Además sirve para más dispositivos de hak5 como por ejemplo:&lt;/p&gt;
 &lt;li&gt;MENU APP&lt;/li&gt;
 &lt;li&gt;F1 F2 F3 F4 F5 F6 F7 F8 F9 F0 F11 F12&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;teclas-de--modificación&#34;&gt;Teclas de  modificación&lt;/h3&gt;
-&lt;h4 id=&#34;básicas&#34;&gt;Básicas&lt;/h4&gt;
+&lt;h4 id=&#34;teclas-de--modificación&#34;&gt;Teclas de  modificación&lt;/h4&gt;
+&lt;h5 id=&#34;básicas&#34;&gt;Básicas&lt;/h5&gt;
 &lt;p&gt;Son teclas que se combinan con otra tecla para realizar una función especial&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;SHIFT&lt;/li&gt;
@@ -119,7 +119,7 @@ ALT F4
 REM Pegar
 CTRL c
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;avanzadas&#34;&gt;Avanzadas&lt;/h4&gt;
+&lt;h5 id=&#34;avanzadas&#34;&gt;Avanzadas&lt;/h5&gt;
 &lt;p&gt;Se pueden combinar entre ellas&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;CTRL SHIFT&lt;/li&gt;
@@ -130,23 +130,23 @@ CTRL c
 &lt;li&gt;COMMAND OPTION SHIFT&lt;/li&gt;
 &lt;li&gt;CONTROL ALT DELETE&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;independientes&#34;&gt;Independientes&lt;/h4&gt;
+&lt;h5 id=&#34;independientes&#34;&gt;Independientes&lt;/h5&gt;
 &lt;p&gt;Para pulsar una tecla modificadora sola se tiene que poner antes &lt;code&gt;INJECT_MOD&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;REM Ejemplo presionando la tecla de Windows sola
 
 INJECT_MOD
 WINDOWS
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;teclas-de-bloqueo&#34;&gt;Teclas de Bloqueo&lt;/h3&gt;
+&lt;h4 id=&#34;teclas-de-bloqueo&#34;&gt;Teclas de Bloqueo&lt;/h4&gt;
 &lt;p&gt;Las teclas de bloqueo alternan entre activado y desactivado&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;CAPSLOCK&lt;/li&gt;
 &lt;li&gt;NUMLOCK&lt;/li&gt;
 &lt;li&gt;SCROLLOCK&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;botón&#34;&gt;Botón&lt;/h3&gt;
+&lt;h4 id=&#34;botón&#34;&gt;Botón&lt;/h4&gt;
 &lt;p&gt;Dentro del Rubber Ducky hay un pequeño botón el cual se puede combinar con los scripts, por defecto, al pulsarlo reinicia el script que tiene cargado, pero se puede modificar su función:&lt;/p&gt;
-&lt;h4 id=&#34;wait_for_button_press&#34;&gt;WAIT_FOR_BUTTON_PRESS&lt;/h4&gt;
+&lt;h5 id=&#34;wait_for_button_press&#34;&gt;WAIT_FOR_BUTTON_PRESS&lt;/h5&gt;
 &lt;p&gt;Sirve para pausar el script hasta que se presione el botón&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;REM Ejemplo uso de WAIT_FOR_BUTTON_PRESS
 
@@ -154,13 +154,13 @@ STRING Hello World!
 WAIT_FOR_BUTTON_PRESS
 STRING Has presionado el botón...
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;button_def&#34;&gt;BUTTON_DEF&lt;/h4&gt;
+&lt;h5 id=&#34;button_def&#34;&gt;BUTTON_DEF&lt;/h5&gt;
 &lt;p&gt;Define una función que se ejecutará cuando se presione el botón en cualquier momento dentro del script, siempre que el botón no esté ya en uso por el comando &lt;code&gt;WAIT_FOR_BUTTON_PRESS&lt;/code&gt; u otra función similar.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;BUTTON_DEF
     STRING Has presionado el botón.
 END_BUTTON
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;disable_button-y-enable_button&#34;&gt;DISABLE_BUTTON y ENABLE_BUTTON&lt;/h4&gt;
+&lt;h5 id=&#34;disable_button-y-enable_button&#34;&gt;DISABLE_BUTTON y ENABLE_BUTTON&lt;/h5&gt;
 &lt;p&gt;Como su propio nombre indica, sirve para desactivar y activar el botón.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;DISABLE_BUTTON
 REM Botón desactivado
@@ -168,59 +168,71 @@ REM Botón desactivado
 ENABLE_BUTTON
 REM Botón activado
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;led&#34;&gt;LED&lt;/h3&gt;
+&lt;h4 id=&#34;led&#34;&gt;LED&lt;/h4&gt;
 &lt;p&gt;El Ruber Ducky En su interior tiene un pequeño LED el cual se puede controlar en los scripts&lt;/p&gt;
-&lt;h4 id=&#34;led_off&#34;&gt;LED_OFF&lt;/h4&gt;
+&lt;h5 id=&#34;led_off&#34;&gt;LED_OFF&lt;/h5&gt;
 &lt;p&gt;Apaga el led&lt;/p&gt;
-&lt;h4 id=&#34;led_r&#34;&gt;LED_R&lt;/h4&gt;
+&lt;h5 id=&#34;led_r&#34;&gt;LED_R&lt;/h5&gt;
 &lt;p&gt;Pondrá el led rojo&lt;/p&gt;
-&lt;h4 id=&#34;led_g&#34;&gt;LED_G&lt;/h4&gt;
+&lt;h5 id=&#34;led_g&#34;&gt;LED_G&lt;/h5&gt;
 &lt;p&gt;Pondrá el led verde&lt;/p&gt;
-&lt;h2 id=&#34;dónde-programarlo&#34;&gt;¿Dónde Programarlo?&lt;/h2&gt;
+&lt;h3 id=&#34;dónde-programarlo&#34;&gt;¿Dónde Programarlo?&lt;/h3&gt;
 &lt;p&gt;En el apartado de &lt;a class=&#34;link&#34; href=&#34;https://downloads.hak5.org/ducky&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;soporte del RubberDucky&lt;/a&gt; se puede descargar un JSEncoder, es un archivo con extension &lt;code&gt;.html&lt;/code&gt;. En linux se abre con &lt;code&gt;firefox jsencoder.html&lt;/code&gt; y en windows: click derecho, abrir con, navegador&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/images/RuberDucky/jsencoder.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/cuidado-con-este-usb/images/jsencoder.png&#34;
+	width=&#34;1855&#34;
+	height=&#34;755&#34;
+	srcset=&#34;https://d3b0o.github.io/p/cuidado-con-este-usb/images/jsencoder_huee88f63a96560996145a6229ed7deb40_43945_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/cuidado-con-este-usb/images/jsencoder_huee88f63a96560996145a6229ed7deb40_43945_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;245&#34;
+		data-flex-basis=&#34;589px&#34;
+	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;cambiar-idioma-de-los-scripts&#34;&gt;Cambiar idioma de los scripts&lt;/h2&gt;
+&lt;h3 id=&#34;cambiar-idioma-de-los-scripts&#34;&gt;Cambiar idioma de los scripts&lt;/h3&gt;
 &lt;p&gt;El Rubber Ducky tiene la distribución de teclado inglés por defecto, para poder cambiarlo hay que descargar el idioma deseado desde &lt;a class=&#34;link&#34; href=&#34;https://github.com/hak5/usbrubberducky-payloads/tree/master/languages&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/hak5/usbrubberducky-payloads/tree/master/languages&lt;/a&gt; para después ponerlo en el jsencoder&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/images/RuberDucky/language.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/cuidado-con-este-usb/images/language.png&#34;
+	width=&#34;651&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://d3b0o.github.io/p/cuidado-con-este-usb/images/language_hub94f33e8b01a6495cd9a22d6abbd31e0_28038_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/cuidado-con-este-usb/images/language_hub94f33e8b01a6495cd9a22d6abbd31e0_28038_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;251&#34;
+		data-flex-basis=&#34;603px&#34;
+	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;primer-hola-mundo&#34;&gt;Primer hola mundo&lt;/h2&gt;
+&lt;h3 id=&#34;primer-hola-mundo&#34;&gt;Primer hola mundo&lt;/h3&gt;
 &lt;p&gt;Para que el Rubber Ducky haga un hola mundo, hay que poner en el jsencoder lo sieguiente:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;DELAY 200
 STRING Hola Mundo!!!
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/images/RuberDucky/helloworld.png&#34;
-	
-	
-	
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/cuidado-con-este-usb/images/helloworld.png&#34;
+	width=&#34;599&#34;
+	height=&#34;650&#34;
+	srcset=&#34;https://d3b0o.github.io/p/cuidado-con-este-usb/images/helloworld_hu1d455a84d21550103ce3a21df0e45f85_14759_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/cuidado-con-este-usb/images/helloworld_hu1d455a84d21550103ce3a21df0e45f85_14759_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;92&#34;
+		data-flex-basis=&#34;221px&#34;
+	
 &gt;&lt;/p&gt;
 &lt;p&gt;Ahora solo hace falta clicar a generate payload y se descargará un archivo llamado inject.bin, el cual se tiene que poner en la tarjeta micro sd (solo puede haber un inject.bin, (borra los antiguos).&lt;/p&gt;
-&lt;h1 id=&#34;posibles-casos-reales&#34;&gt;Posibles casos reales&lt;/h1&gt;
-&lt;h2 id=&#34;caso-1&#34;&gt;Caso 1&lt;/h2&gt;
+&lt;h2 id=&#34;posibles-casos-reales&#34;&gt;Posibles casos reales&lt;/h2&gt;
+&lt;h3 id=&#34;caso-1&#34;&gt;Caso 1&lt;/h3&gt;
 &lt;p&gt;Alguien deja un USB RubberDucky en el suelo de una oficina con una etiqueta en la cual pone algo que incite a la gente a querer ver su contenido, lo que va a provocar que alguien lo conecte a su ordenador de la oficina, ahora el atacante ya puede crear una revershell, meter un keylogger, etc&amp;hellip;&lt;/p&gt;
-&lt;h2 id=&#34;caso-2&#34;&gt;Caso 2&lt;/h2&gt;
+&lt;h3 id=&#34;caso-2&#34;&gt;Caso 2&lt;/h3&gt;
 &lt;p&gt;En un bar hay un señor trabajando y se va al baño y se deja el ordenador desbloqueado, un atacante le conecta el RubberDucky y como en el caso anterior le puede meter un keylogger, etc&amp;hellip;&lt;/p&gt;
-&lt;h2 id=&#34;caso-3&#34;&gt;Caso 3&lt;/h2&gt;
+&lt;h3 id=&#34;caso-3&#34;&gt;Caso 3&lt;/h3&gt;
 &lt;p&gt;En un gimnasio no hay nadie en recepción y los ordenadores están desbloqueados, un atacante conecta el USB y se descargas todos los datos de los clientes.&lt;/p&gt;
 &lt;p&gt;Todos los casos se basan más o menos en lo mismo&lt;/p&gt;
-&lt;h1 id=&#34;como-protegerse&#34;&gt;Como protegerse&lt;/h1&gt;
+&lt;h2 id=&#34;como-protegerse&#34;&gt;Como protegerse&lt;/h2&gt;
 &lt;p&gt;Lo primero y más obvio es no dejarte ordenadores, móviles, impresoras, etc&amp;hellip; desbloqueados.&lt;/p&gt;
 &lt;p&gt;Existe un programa para windows que se queda corriendo en segundo plano y te protege de el Rubber ducky y dispositivos similares. No lo e probado pero por lo que e visto por internet, cuando detecta el RubberDucky lo para, bloquea el ordenador y guarda todas las pulsaciones de teclado del RubberDucky para ver las intenciones del atacante&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://lospi.net/beamgun/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
