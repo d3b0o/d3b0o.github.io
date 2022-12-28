@@ -12,7 +12,9 @@
         <pubDate>Wed, 28 Dec 2022 00:00:00 +0000</pubDate>
         
         <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-wgel/</guid>
-        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-wgel/images/2.png" alt="Featured image of post Resolución Wgel" /&gt;&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-wgel/images/2.png" alt="Featured image of post Resolución Wgel" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/wgelctf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/wgelctf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
 &lt;p&gt;IP víctima = 10.10.176.77&lt;/p&gt;
 &lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
 &lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
