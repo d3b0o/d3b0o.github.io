@@ -6,7 +6,93 @@
         <description>Recent content in Posts on d3b0o</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 28 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 29 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Escaneo de directorios con filtrado de estado y longitud de contenido en Python</title>
+        <link>https://d3b0o.github.io/p/escaneo-de-directorios-con-filtrado-de-estado-y-longitud-de-contenido-en-python/</link>
+        <pubDate>Thu, 29 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/escaneo-de-directorios-con-filtrado-de-estado-y-longitud-de-contenido-en-python/</guid>
+        <description>&lt;h2 id=&#34;que-és&#34;&gt;¿Que és?&lt;/h2&gt;
+&lt;p&gt;Este programa es un script de exploración de directorios, también conocido como &amp;ldquo;directory buster&amp;rdquo;. Se utiliza para buscar subdirectorios ocultos en un sitio web específico. El script toma dos argumentos obligatorios: una lista de palabras y una URL. Utiliza la lista de palabras como su diccionario y hace una solicitud HTTP GET a la URL con cada palabra en la lista como subdirectorio. Si la solicitud tiene éxito, es decir, si el servidor devuelve un código de estado HTTP 200, el subdirectorio se considera existente y se muestra en pantalla. Si el servidor devuelve un código de estado HTTP 404, significa que el subdirectorio no existe y se omite. Además, el script permite ignorar ciertos códigos de estado y subdirectorios con una cantidad específica de caracteres.&lt;/p&gt;
+&lt;h2 id=&#34;como-funciona&#34;&gt;¿Como funciona?&lt;/h2&gt;
+&lt;p&gt;El script comienza importando varias bibliotecas. La biblioteca &amp;ldquo;requests&amp;rdquo; se utiliza para hacer las solicitudes HTTP, la biblioteca &amp;ldquo;argparse&amp;rdquo; se utiliza para manejar los argumentos de la línea de comandos, la biblioteca &amp;ldquo;time&amp;rdquo; se utiliza para obtener la fecha y la hora actuales y la biblioteca &amp;ldquo;signal&amp;rdquo; se utiliza para manejar la señal de interrupción del sistema (CTRL + C).&lt;/p&gt;
+&lt;p&gt;Luego, se define una función &amp;ldquo;def_handler&amp;rdquo; que se ejecuta cuando se presiona CTRL + C. Esta función muestra el valor de la variable &amp;ldquo;times&amp;rdquo; (que luego se explicará) y sale del programa. A continuación, se configura la señal de interrupción del sistema para que utilice la función &amp;ldquo;def_handler&amp;rdquo; como manejador.&lt;/p&gt;
+&lt;p&gt;Luego, se define una función &amp;ldquo;parse_numbers&amp;rdquo; que convierte una cadena de números separados por comas en una lista de números. Esta función se utiliza para convertir los argumentos &amp;ldquo;-s&amp;rdquo; y &amp;ldquo;-c&amp;rdquo; en listas.&lt;/p&gt;
+&lt;p&gt;A continuación, se crea un objeto &amp;ldquo;parser&amp;rdquo; de la clase &amp;ldquo;ArgumentParser&amp;rdquo; y se definen los argumentos que puede tomar el script. El argumento &amp;ldquo;-w&amp;rdquo; o &amp;ldquo;&amp;ndash;wordlist&amp;rdquo; es la ruta de la lista de palabras, el argumento &amp;ldquo;-u&amp;rdquo; o &amp;ldquo;&amp;ndash;url&amp;rdquo; es la URL objetivo y los argumentos &amp;ldquo;-s&amp;rdquo; o &amp;ldquo;&amp;ndash;status&amp;rdquo; y &amp;ldquo;-c&amp;rdquo; o &amp;ldquo;&amp;ndash;characters&amp;rdquo; son listas opcionales de códigos de estado HTTP y cantidades de caracteres a ignorar, respectivamente.&lt;/p&gt;
+&lt;p&gt;Luego, se procesan los argumentos y se asignan a variables. La variable &amp;ldquo;wordlist&amp;rdquo; almacena la ruta de la lista de palabras, la variable &amp;ldquo;url&amp;rdquo; almacena la URL objetivo, la variable &amp;ldquo;invalid_status&amp;rdquo; almacena la lista de códigos de estado a ignorar y la variable &amp;ldquo;invalid_characters&amp;rdquo; almacena la lista de cantidades de caracteres a ignorar.&lt;/p&gt;
+&lt;p&gt;A continuación, se imprime un mensaje de inicio de exploración junto con la fecha y la hora actuales, la URL objetivo y la ruta de la lista de palabras. Luego, se imprime un encabezado para los resultados.&lt;/p&gt;
+&lt;p&gt;Luego, se define la función &amp;ldquo;main&amp;rdquo; que toma dos argumentos: la URL objetivo y la ruta de la lista de palabras. Dentro de la función, se crea una variable &amp;ldquo;times&amp;rdquo; inicializada en 0. Esta variable se utiliza para contar el número de palabras procesadas.&lt;/p&gt;
+&lt;p&gt;A continuación, se abre el archivo de la lista de palabras en modo de lectura y se itera sobre cada línea del archivo. Cada línea se almacena en la variable &amp;ldquo;word&amp;rdquo;, se eliminan los espacios en blanco al principio y al final de la cadena y se asigna a una variable &amp;ldquo;test_url&amp;rdquo; que es la URL objettivo más la palabra actual. Luego, se realiza una solicitud GET a la URL &amp;ldquo;test_url&amp;rdquo; y se almacena la respuesta en la variable &amp;ldquo;response&amp;rdquo;. Se crea una variable &amp;ldquo;content&amp;rdquo; que almacena el contenido de la respuesta.&lt;/p&gt;
+&lt;p&gt;A continuación, se verifica si el código de estado de la respuesta se encuentra en la lista de códigos de estado a ignorar o si la longitud del contenido se encuentra en la lista de cantidades de caracteres a ignorar. Si cualquiera de estas condiciones se cumple, se asigna a la variable &amp;ldquo;mostrar&amp;rdquo; el valor &amp;ldquo;False&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Si &amp;ldquo;mostrar&amp;rdquo; sigue siendo &amp;ldquo;True&amp;rdquo;, se verifica el código de estado de la respuesta. Si el código de estado es 200, se imprime la línea en verde. Si el código de estado es 404, se imprime la línea en rojo. Si el código de estado es distinto a 200 o 404, se imprime la línea en amarillo.&lt;/p&gt;
+&lt;p&gt;Finalmente, se llama a la función &amp;ldquo;main&amp;rdquo; con la URL objetivo y la ruta de la lista de palabras como argumentos.&lt;/p&gt;
+&lt;h2 id=&#34;programa&#34;&gt;Programa&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;import requests, argparse, time, sys, signal
+
+def def_handler(sig, frame):
+    print(&amp;quot;\n\n[!] Saliendo... \n&amp;quot;)
+    sys.exit(1)
+
+signal.signal(signal.SIGINT, def_handler)
+
+def parse_numbers(s):
+    return [int(number) for number in s.split(&amp;quot;,&amp;quot;)]
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument(&amp;quot;-w&amp;quot;, &amp;quot;--wordlist&amp;quot;, type=str, required=True, help=&amp;quot;Dictionary location&amp;quot;)
+parser.add_argument(&amp;quot;-u&amp;quot;, &amp;quot;--url&amp;quot;, type=str, required=True, help=&amp;quot;Target Url&amp;quot;)
+parser.add_argument(&amp;quot;-s&amp;quot;, &amp;quot;--status&amp;quot;, type=parse_numbers, default=[], help=&amp;quot;Ignored status codes&amp;quot;)
+parser.add_argument(&amp;quot;-c&amp;quot;, &amp;quot;--characters&amp;quot;, type=parse_numbers, default=[], help=&amp;quot;Pages with x characters will not be displayed&amp;quot;)
+
+args = parser.parse_args()
+
+wordlist = args.wordlist
+url = args.url
+invalid_status = args.status
+invalid_characters = args.characters
+
+print(&amp;quot;\nScan started on {} at {}&amp;quot;.format(time.strftime(&amp;quot;%d/%m/%y&amp;quot;),time.strftime(&amp;quot;%H:%M:%S&amp;quot;)))
+print(&amp;quot;\nTarget: {}&amp;quot;.format(url))
+print(&amp;quot;Wordlist: {}&amp;quot;.format(wordlist))
+
+header = &amp;quot;Status \t Char \t Times \t Payload&amp;quot;
+print(&amp;quot;\n{}\n{}\n{}&amp;quot;.format(&amp;quot;-&amp;quot; * (len(header) + 2), header, &amp;quot;-&amp;quot; * (len(header) + 2)))
+
+def main(url, wordlist):
+    times = 0
+    with open(wordlist, &amp;quot;r&amp;quot;) as f:
+        for word in f:
+            times += 1
+            mostrar = True
+            word = word.strip()
+
+            test_url = url + &amp;quot;/&amp;quot; + word
+
+            response = requests.get(test_url)
+            content = response.text
+
+
+            if response.status_code in invalid_status:
+                mostrar = False
+
+            if len(content) in invalid_characters:
+                mostrar = False
+
+            if mostrar:
+                if response.status_code == 200:
+                    print(&amp;quot;\033[0;32m{}\033[0m \t \033[0;36m{}\033[0m \t {} \t &#39;/{}&#39;&amp;quot;.format(response.status_code, len(content),times, word))
+                elif response.status_code == 404:
+                    print(&amp;quot;\033[0;31m{}\033[0m \t \033[0;36m{}\033[0m \t {} \t &#39;/{}&#39;&amp;quot;.format(response.status_code, len(content),times, word))
+                else:
+                    print(&amp;quot;\033[1;33m{}\033[0m \t \033[0;36m{}\033[0m \t {} \t &#39;/{}&#39;&amp;quot;.format(response.status_code, len(content),times, word))
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    main(url, wordlist)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        </item>
+        <item>
         <title>¡Cuidado con este USB!</title>
         <link>https://d3b0o.github.io/p/cuidado-con-este-usb/</link>
         <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
