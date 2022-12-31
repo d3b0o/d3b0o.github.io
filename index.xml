@@ -4767,6 +4767,93 @@ make
         <guid>https://d3b0o.github.io/search/</guid>
         <description></description>
         </item>
+        <item>
+        <title>Whomai</title>
+        <link>https://d3b0o.github.io/whomai/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/whomai/</guid>
+        <description>&lt;h2 id=&#34;qué-es-esta-web&#34;&gt;¿Qué es esta web?&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/whomai/images/me.png&#34;
+	width=&#34;230&#34;
+	height=&#34;230&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;100&#34;
+		data-flex-basis=&#34;240px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Mi nombre es d3b0o y soy el creador de esta página web personal de apuntes sobre programación, linux y ciberseguridad en plataformas como Try Hack Me, Hack The Box y Vulnhub. Mi objetivo es compartir las cosas que voy aprendiendo a través de mis apuntes y writeups detallados sobre las máquinas que voy haciendo. Espero que te sean útiles y te inspiren a aprender más sobre estos temas.&lt;/p&gt;
+&lt;h2 id=&#34;estudios&#34;&gt;Estudios&lt;/h2&gt;
+&lt;h3 id=&#34;completados&#34;&gt;Completados&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Inicio&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Final&lt;/th&gt;
+&lt;th&gt;Curso&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2018&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2022&lt;/td&gt;
+&lt;td&gt;ESO&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2021&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2021&lt;/td&gt;
+&lt;td&gt;Curso Mastermind: Aprende a programar con Python&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2021&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2021&lt;/td&gt;
+&lt;td&gt;Curso Mastermind: ¡Linux: de Noob a Pro en 9 horas!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2022&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2022&lt;/td&gt;
+&lt;td&gt;Curso Mastermind: Curso de HTML y CSS básico&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;aspiraciones&#34;&gt;Aspiraciones&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Inicio&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Final&lt;/th&gt;
+&lt;th&gt;Curso&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2022&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;td&gt;FP Sistemas microinformáticos y redes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;td&gt;Certificación eJPT&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;td&gt;FP Superior de Ciberseguridad&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;td&gt;Certificación OSCP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        </item>
         
     </channel>
 </rss>
