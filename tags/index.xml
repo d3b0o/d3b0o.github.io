@@ -6,7 +6,47 @@
         <description>Recent content in Tags on d3b0o</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sat, 31 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 07 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>CTF</title>
+        <link>https://d3b0o.github.io/tags/ctf/</link>
+        <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/tags/ctf/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>CVE-2020-1938</title>
+        <link>https://d3b0o.github.io/tags/cve-2020-1938/</link>
+        <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/tags/cve-2020-1938/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Fácil</title>
+        <link>https://d3b0o.github.io/tags/f%C3%A1cil/</link>
+        <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/tags/f%C3%A1cil/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Linux</title>
+        <link>https://d3b0o.github.io/tags/linux/</link>
+        <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/tags/linux/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>zip</title>
+        <link>https://d3b0o.github.io/tags/zip/</link>
+        <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/tags/zip/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>crontab</title>
         <link>https://d3b0o.github.io/tags/crontab/</link>
         <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
@@ -15,51 +55,11 @@
         <description></description>
         </item>
         <item>
-        <title>CTF</title>
-        <link>https://d3b0o.github.io/tags/ctf/</link>
-        <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/ctf/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Fácil</title>
-        <link>https://d3b0o.github.io/tags/f%C3%A1cil/</link>
-        <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/f%C3%A1cil/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Linux</title>
-        <link>https://d3b0o.github.io/tags/linux/</link>
-        <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/linux/</guid>
-        <description></description>
-        </item>
-        <item>
         <title>Python</title>
         <link>https://d3b0o.github.io/tags/python/</link>
         <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
         
         <guid>https://d3b0o.github.io/tags/python/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>CVE-2020-1938</title>
-        <link>https://d3b0o.github.io/tags/cve-2020-1938/</link>
-        <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/cve-2020-1938/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>zip</title>
-        <link>https://d3b0o.github.io/tags/zip/</link>
-        <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/zip/</guid>
         <description></description>
         </item>
         <item>

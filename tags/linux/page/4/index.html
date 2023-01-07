@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='CTF Player, Cybersecurity enthusiast'>
+<title>Tag: Linux - d3b0o</title>
+
+<link rel='canonical' href='https://d3b0o.github.io/tags/linux/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Tag: Linux - d3b0o'>
+<meta property='og:description' content='CTF Player, Cybersecurity enthusiast'>
+<meta property='og:url' content='https://d3b0o.github.io/tags/linux/'>
+<meta property='og:site_name' content='d3b0o'>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2023-01-07T00:00:00&#43;00:00 '/>
+<meta name="twitter:title" content="Tag: Linux - d3b0o">
+<meta name="twitter:description" content="CTF Player, Cybersecurity enthusiast"><link rel="alternate" type="application/rss&#43;xml" href="https://d3b0o.github.io/tags/linux/index.xml">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKTZJ16NWQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-WKTZJ16NWQ', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "dark");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/me_hu8ce9295535d46137a41121f9fb5616e1_5792_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">👨‍💻</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">d3b0o</a></h1>
+            <h2 class="site-description">CTF Player, Cybersecurity enthusiast</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://discord.gg/h455Yfm7cA'
+                        target="_blank"
+                        title="Discord"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64" width="48px" height="48px"><path d="M 28.541016 12.441406 C 21.305016 13.049406 15.693359 16.132812 15.693359 16.132812 C 15.693359 16.132812 8 24.196828 8 39.423828 L 8 44.294922 L 9.8164062 45.478516 C 15.655406 49.284516 19.816594 51.212891 22.183594 51.212891 L 24.287109 51.212891 L 27.035156 47.21875 C 28.545156 47.48475 30.227 47.666016 32 47.666016 C 33.773 47.666016 35.453844 47.48475 36.964844 47.21875 L 39.712891 51.212891 L 41.816406 51.212891 C 44.183406 51.212891 48.344594 49.283516 54.183594 45.478516 L 56 44.294922 L 56 39.423828 C 56 24.379828 48.306641 16.132812 48.306641 16.132812 C 48.306641 16.132813 43.048031 13.140406 35.457031 12.441406 L 34.248047 14.732422 C 33.572047 14.675422 32.812047 14.636719 31.998047 14.636719 C 31.184047 14.636719 30.425047 14.676422 29.748047 14.732422 L 28.541016 12.441406 z M 26.3125 16.787109 L 27.523438 19.083984 C 27.523437 19.083984 29.449953 18.638672 32.001953 18.638672 C 34.553953 18.638672 36.478516 19.083984 36.478516 19.083984 L 37.689453 16.787109 C 41.593453 17.326109 45.820312 19.373047 45.820312 19.373047 C 45.820312 19.373047 52 26.530828 52 39.423828 L 52 42.126953 C 52 42.126953 44.194453 47.213891 41.814453 47.212891 L 39.507812 43.857422 C 40.941812 43.215422 42.898438 42.099609 42.898438 42.099609 L 42.183594 41.546875 C 42.183594 41.546875 37.609047 43.664062 31.998047 43.664062 C 26.387047 43.664063 21.814453 41.546875 21.814453 41.546875 L 21.099609 42.099609 C 21.099609 42.099609 23.056234 43.215422 24.490234 43.857422 L 22.183594 47.212891 C 19.805594 47.212891 12 42.126953 12 42.126953 L 12 39.423828 C 12 26.530828 18.181641 19.373047 18.181641 19.373047 C 18.181641 19.373047 22.4085 17.325109 26.3125 16.787109 z M 24.009766 29.044922 C 21.649766 29.044922 19.734375 31.194703 19.734375 33.845703 C 19.734375 36.497703 21.649766 38.646484 24.009766 38.646484 C 26.369766 38.646484 28.283203 36.497703 28.283203 33.845703 C 28.283203 31.193703 26.369766 29.044922 24.009766 29.044922 z M 39.990234 29.044922 C 37.629234 29.044922 35.716797 31.194703 35.716797 33.845703 C 35.716797 36.497703 37.630234 38.646484 39.990234 38.646484 C 42.351234 38.646484 44.265625 36.497703 44.265625 33.845703 C 44.265625 31.193703 42.351234 29.044922 39.990234 29.044922 z"/></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/d3b0o'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64" width="48px" height="48px"><path d="M 32 10 C 19.85 10 10 19.85 10 32 C 10 44.15 19.85 54 32 54 C 44.15 54 54 44.15 54 32 C 54 19.85 44.15 10 32 10 z M 32 14 C 41.941 14 50 22.059 50 32 C 50 40.238706 44.458716 47.16934 36.904297 49.306641 C 36.811496 49.1154 36.747844 48.905917 36.753906 48.667969 C 36.784906 47.458969 36.753906 44.637563 36.753906 43.601562 C 36.753906 41.823563 35.628906 40.5625 35.628906 40.5625 C 35.628906 40.5625 44.453125 40.662094 44.453125 31.246094 C 44.453125 27.613094 42.554688 25.720703 42.554688 25.720703 C 42.554688 25.720703 43.551984 21.842266 42.208984 20.197266 C 40.703984 20.034266 38.008422 21.634812 36.857422 22.382812 C 36.857422 22.382813 35.034 21.634766 32 21.634766 C 28.966 21.634766 27.142578 22.382812 27.142578 22.382812 C 25.991578 21.634813 23.296016 20.035266 21.791016 20.197266 C 20.449016 21.842266 21.445312 25.720703 21.445312 25.720703 C 21.445312 25.720703 19.546875 27.611141 19.546875 31.244141 C 19.546875 40.660141 28.371094 40.5625 28.371094 40.5625 C 28.371094 40.5625 27.366329 41.706312 27.265625 43.345703 C 26.675939 43.553637 25.872132 43.798828 25.105469 43.798828 C 23.255469 43.798828 21.849984 42.001922 21.333984 41.169922 C 20.825984 40.348922 19.7845 39.660156 18.8125 39.660156 C 18.1725 39.660156 17.859375 39.981656 17.859375 40.347656 C 17.859375 40.713656 18.757609 40.968484 19.349609 41.646484 C 20.597609 43.076484 20.574484 46.292969 25.021484 46.292969 C 25.547281 46.292969 26.492043 46.171872 27.246094 46.068359 C 27.241926 47.077908 27.230199 48.046135 27.246094 48.666016 C 27.251958 48.904708 27.187126 49.114952 27.09375 49.306641 C 19.540258 47.168741 14 40.238046 14 32 C 14 22.059 22.059 14 32 14 z"/></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='#'
+                        target="_blank"
+                        title="PayPal"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64" width="48px" height="48px"><path d="M 21.193359 10 C 17.999359 9.998 16.790687 11.666891 16.304688 13.962891 C 14.873688 20.712891 10.576172 40.962891 10.576172 40.962891 C 10.000172 42.999891 10.999797 47 15.466797 47 L 19.302734 47 L 18.816406 49.15625 C 17.999406 51.99925 20.000125 55 23.703125 55 L 28.496094 55 C 30.852094 55 32.883813 53.415937 33.382812 51.210938 L 34.964844 46.380859 C 35.032844 46.025859 35.926 45 37 45 L 42 45 C 45.522 45 48.832312 43.610844 51.320312 41.089844 C 53.735312 38.642844 55.041047 35.470203 54.998047 32.158203 C 54.924728 26.555952 51.856527 21.372267 46.472656 20.246094 C 45.364903 14.644546 41.218812 10.001498 36.003906 10.013672 C 36.003906 10.013672 24.895359 10.002 21.193359 10 z M 21.193359 14 L 35.636719 14 C 39.069942 14 41.395721 16.643375 42.320312 20.011719 L 29.431641 20 C 27.096641 20 25.040922 21.594969 24.544922 23.792969 L 20.207031 43 L 15.466797 43 C 15.051797 43 14.090328 42.949969 14.486328 41.792969 L 20.214844 14.792969 C 20.312844 14.333969 20.723359 14 21.193359 14 z M 29.431641 24 L 42.720703 24 C 42.120402 29.369368 35.800674 32 33.480469 32 L 26.792969 32 L 28.447266 24.673828 C 28.534266 24.289828 28.957641 24 29.431641 24 z M 46.666016 24.648438 C 49.264867 25.927319 50.95499 28.939349 50.998047 32.210938 C 51.028047 34.445937 50.131609 36.600297 48.474609 38.279297 C 46.742609 40.033297 44.444 41 42 41 L 37 41 C 34.035 41 31.579359 43.285656 31.068359 45.472656 L 29.484375 50.304688 C 29.408375 50.700687 28.983094 51 28.496094 51 L 23.703125 51 C 23.000125 51 22.661703 50.297109 22.720703 50.037109 L 25.890625 36 L 33.480469 36 C 36.775335 36 45.64394 32.531911 46.666016 24.648438 z"/></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/whomai/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Whomai</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                <form action="/search/" class="search-form widget" >
+        <p>
+            <label>Búsqueda</label>
+            <input name="keyword" required placeholder="Teclea algo..." />
+        
+            <button title="Búsqueda">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+            </button>
+        </p>
+    </form>
+            
+        
+            
+                <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Archivo</h2>
+
+        
+        
+        
+        
+        
+        <div class="widget-archive--list">
+            <div class="archives-year">
+                    <a href="/archives/#2023">
+                        
+                            <span class="year">2023</span>
+                            <span class="count">1</span>
+                        
+                    </a> 
+                </div>
+            <div class="archives-year">
+                    <a href="/archives/#2022">
+                        
+                            <span class="year">2022</span>
+                            <span class="count">19</span>
+                        
+                    </a> 
+                </div>
+            
+        </div>
+    </section>
+            
+        
+            
+                <section class="widget tagCloud">
+    <div class="widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+    </div>
+    <h2 class="widget-title section-title">Categorías</h2>
+
+    <div class="tagCloud-tags">
+        
+            <a href="/categories/thm/" class="font_size_14">
+                THM
+            </a>
+        
+            <a href="/categories/htb/" class="font_size_2">
+                HTB
+            </a>
+        
+            <a href="/categories/personalizaci%C3%B3n/" class="font_size_2">
+                Personalización
+            </a>
+        
+            <a href="/categories/herramientas/" class="font_size_1">
+                Herramientas
+            </a>
+        
+            <a href="/categories/proyectos/" class="font_size_1">
+                Proyectos
+            </a>
+        
+    </div>
+</section>
+
+            
+        
+            
+                <section class="widget tagCloud">
+    <div class="widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
+  <circle cx="9" cy="9" r="2" />
+</svg>
+
+
+
+    </div>
+    <h2 class="widget-title section-title">Etiquetas</h2>
+
+    <div class="tagCloud-tags">
+        
+            <a href="/tags/linux/" class="font_size_16">
+                Linux
+            </a>
+        
+            <a href="/tags/ctf/" class="font_size_15">
+                CTF
+            </a>
+        
+            <a href="/tags/f%C3%A1cil/" class="font_size_15">
+                Fácil
+            </a>
+        
+            <a href="/tags/archivos-ocultos/" class="font_size_3">
+                Archivos ocultos
+            </a>
+        
+            <a href="/tags/fuerza-bruta/" class="font_size_3">
+                Fuerza bruta
+            </a>
+        
+            <a href="/tags/python/" class="font_size_3">
+                Python
+            </a>
+        
+            <a href="/tags/cve-2020-1938/" class="font_size_2">
+                CVE-2020-1938
+            </a>
+        
+            <a href="/tags/php/" class="font_size_2">
+                php
+            </a>
+        
+            <a href="/tags/polybar/" class="font_size_2">
+                polybar
+            </a>
+        
+            <a href="/tags/zip/" class="font_size_2">
+                zip
+            </a>
+        
+            <a href="/tags/bash/" class="font_size_1">
+                bash
+            </a>
+        
+            <a href="/tags/bspwm/" class="font_size_1">
+                bspwm
+            </a>
+        
+            <a href="/tags/crontab/" class="font_size_1">
+                crontab
+            </a>
+        
+            <a href="/tags/cve-2014-6287/" class="font_size_1">
+                CVE-2014-6287
+            </a>
+        
+            <a href="/tags/cve-2019-14287/" class="font_size_1">
+                CVE-2019-14287
+            </a>
+        
+            <a href="/tags/cve-2021-4034/" class="font_size_1">
+                CVE-2021-4034
+            </a>
+        
+            <a href="/tags/hak5/" class="font_size_1">
+                hak5
+            </a>
+        
+            <a href="/tags/hash-md5/" class="font_size_1">
+                hash md5
+            </a>
+        
+            <a href="/tags/hash-raw-md5/" class="font_size_1">
+                hash raw-md5
+            </a>
+        
+            <a href="/tags/hash-sha512/" class="font_size_1">
+                hash sha512
+            </a>
+        
+            <a href="/tags/less/" class="font_size_1">
+                less
+            </a>
+        
+            <a href="/tags/mediana/" class="font_size_1">
+                Mediana
+            </a>
+        
+            <a href="/tags/nmap/" class="font_size_1">
+                nmap
+            </a>
+        
+            <a href="/tags/picom/" class="font_size_1">
+                picom
+            </a>
+        
+            <a href="/tags/rofi/" class="font_size_1">
+                rofi
+            </a>
+        
+            <a href="/tags/spotify/" class="font_size_1">
+                Spotify
+            </a>
+        
+            <a href="/tags/strapi/" class="font_size_1">
+                Strapi
+            </a>
+        
+            <a href="/tags/sxhkd/" class="font_size_1">
+                sxhkd
+            </a>
+        
+            <a href="/tags/usb/" class="font_size_1">
+                USB
+            </a>
+        
+            <a href="/tags/vi/" class="font_size_1">
+                vi
+            </a>
+        
+            <a href="/tags/walkthroughs/" class="font_size_1">
+                Walkthroughs
+            </a>
+        
+            <a href="/tags/wget/" class="font_size_1">
+                wget
+            </a>
+        
+            <a href="/tags/windows/" class="font_size_1">
+                Windows
+            </a>
+        
+    </div>
+</section>
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <header>
+        <h3 class="section-title">
+            
+                Tags
+            
+        </h3>
+
+        <div class="section-card">
+            <div class="section-details">
+                <h3 class="section-count">16 páginas</h3>
+                <h1 class="section-term">Linux</h1>
+                
+            </div>
+        </div>
+    </header>
+    
+    <section class="article-list--compact">
+        
+            <article>
+    <a href="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/">
+        <div class="article-details">
+            <h2 class="article-title">Resolución Máquina Horizontall</h2>
+            <footer class="article-time">
+                <time datetime='2022-11-22T00:00:00Z'>Nov 22, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/100.png" 
+                        width="1914"
+                        height="874" 
+                        alt="Resolución Máquina Horizontall"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
+        
+    </section>
+    <nav class='pagination'>
+        
+        
+
+        
+            
+                    <a class='page-link' href='/tags/linux/'>1</a>
+                
+            
+            
+                    
+                        
+                        <span class='page-link dots'>&hellip;</span>
+                    
+                
+            
+            
+                    <a class='page-link' href='/tags/linux/page/3/'>3</a>
+                
+            
+            
+                <span class='page-link current'>4</span>
+                
+            
+    </nav>
+
+<footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 d3b0o
+    </section>
+    
+    <section class="powerby">
+        Creado con <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> diseñado por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
