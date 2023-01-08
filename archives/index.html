@@ -29,7 +29,9 @@ if (!doNotTrack) {
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
-            localStorage.setItem(colorSchemeKey, "dark");
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
         })();
     </script><script>
     (function() {
@@ -212,6 +214,26 @@ if (!doNotTrack) {
         <div class="menu-bottom-section">
             
             
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo oscuro</span>
+                </li>
+            
         </div>
     </ol>
 </aside>
@@ -380,6 +402,26 @@ if (!doNotTrack) {
     <div class="archives-group" id="2023">
         <h2 class="archives-date section-title"><a href="/archives/#2023">2023</a></h2>
         <div class="article-list--compact">
+            
+                <article>
+    <a href="/p/resoluci%C3%B3n-bounty-hacker/">
+        <div class="article-details">
+            <h2 class="article-title">Resolución Bounty Hacker</h2>
+            <footer class="article-time">
+                <time datetime='2023-01-08T00:00:00Z'>Jan 08, 2023</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-bounty-hacker/images/portada.png" 
+                        width="1914"
+                        height="874" 
+                        alt="Resolución Bounty Hacker"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
             
                 <article>
     <a href="/p/resoluci%C3%B3n-overpass/">

