@@ -372,6 +372,20 @@ if (!doNotTrack) {
         
 
         
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    5 minutos a leer
+                </time>
+            </div>
+        
     </footer>
     
 
@@ -434,20 +448,44 @@ Además sirve para más dispositivos de hak5 como por ejemplo:</p>
 </table></div>
 <h4 id="rem-comentarios">REM (Comentarios)</h4>
 <p>Para hacer comentarios se usa <code>REM</code></p>
-<pre><code class="language-bash">REM Esto no se va a interpretar
-</code></pre>
-<h4 id="delay">DELAY</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">REM Esto no se va a interpretar
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="delay">DELAY</h4>
 <p>El comando <code>DELAY</code> índica al USB que se pare momentáneamente, esto es útil para scripts que por ejemplo abren una ventana o una aplicación y tiene que esperar a que cargue</p>
-<pre><code class="language-bash">DELAY 1000
-</code></pre>
-<h4 id="string">STRING</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">DELAY <span class="m">1000</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="string">STRING</h4>
 <p><code>STRING</code> sirve para que escriba una frase o palabra, el usb automáticamente aprieta el shift en las mayúsculas y la barra espaciadora para los espacios, pero no interpreta los espacios finales</p>
-<pre><code class="language-bash">STRING Hello world!
-</code></pre>
-<p>Lo que escribirá el RubberDucky</p>
-<pre><code class="language-plaintext">Hello world!
-</code></pre>
-<h4 id="stringln">STRINGLN</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">STRING Hello world!
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Lo que escribirá el RubberDucky</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">Hello world!
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="stringln">STRINGLN</h4>
 <p>Es como el string pero al final hace un enter</p>
 <h4 id="teclas-movimiento">Teclas movimiento</h4>
 <p>Se pueden usar para desplazarse por una ventana o aplicación.</p>
@@ -479,18 +517,33 @@ Además sirve para más dispositivos de hak5 como por ejemplo:</p>
 <li>COMMAND</li>
 <li>WINDOWS GUI</li>
 </ul>
-<pre><code class="language-bash">REM Ejemplo de teclas de modificación
-
-REM Windows Run
-GUI r
-
-REM Cerrar Ventana
-ALT F4
-
-REM Pegar
-CTRL c
-</code></pre>
-<h5 id="avanzadas">Avanzadas</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">REM Ejemplo de teclas de modificación
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">REM Windows Run
+</span></span><span class="line"><span class="cl">GUI r
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">REM Cerrar Ventana
+</span></span><span class="line"><span class="cl">ALT F4
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">REM Pegar
+</span></span><span class="line"><span class="cl">CTRL c
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="avanzadas">Avanzadas</h5>
 <p>Se pueden combinar entre ellas</p>
 <ul>
 <li>CTRL SHIFT</li>
@@ -503,12 +556,21 @@ CTRL c
 </ul>
 <h5 id="independientes">Independientes</h5>
 <p>Para pulsar una tecla modificadora sola se tiene que poner antes <code>INJECT_MOD</code></p>
-<pre><code class="language-bash">REM Ejemplo presionando la tecla de Windows sola
-
-INJECT_MOD
-WINDOWS
-</code></pre>
-<h4 id="teclas-de-bloqueo">Teclas de Bloqueo</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">REM Ejemplo presionando la tecla de Windows sola
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">INJECT_MOD
+</span></span><span class="line"><span class="cl">WINDOWS
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="teclas-de-bloqueo">Teclas de Bloqueo</h4>
 <p>Las teclas de bloqueo alternan entre activado y desactivado</p>
 <ul>
 <li>CAPSLOCK</li>
@@ -519,27 +581,55 @@ WINDOWS
 <p>Dentro del Rubber Ducky hay un pequeño botón el cual se puede combinar con los scripts, por defecto, al pulsarlo reinicia el script que tiene cargado, pero se puede modificar su función:</p>
 <h5 id="wait_for_button_press">WAIT_FOR_BUTTON_PRESS</h5>
 <p>Sirve para pausar el script hasta que se presione el botón</p>
-<pre><code class="language-bash">REM Ejemplo uso de WAIT_FOR_BUTTON_PRESS
-
-STRING Hello World!
-WAIT_FOR_BUTTON_PRESS
-STRING Has presionado el botón...
-</code></pre>
-<h5 id="button_def">BUTTON_DEF</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">REM Ejemplo uso de WAIT_FOR_BUTTON_PRESS
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">STRING Hello World!
+</span></span><span class="line"><span class="cl">WAIT_FOR_BUTTON_PRESS
+</span></span><span class="line"><span class="cl">STRING Has presionado el botón...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="button_def">BUTTON_DEF</h5>
 <p>Define una función que se ejecutará cuando se presione el botón en cualquier momento dentro del script, siempre que el botón no esté ya en uso por el comando <code>WAIT_FOR_BUTTON_PRESS</code> u otra función similar.</p>
-<pre><code class="language-bash">BUTTON_DEF
-    STRING Has presionado el botón.
-END_BUTTON
-</code></pre>
-<h5 id="disable_button-y-enable_button">DISABLE_BUTTON y ENABLE_BUTTON</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">BUTTON_DEF
+</span></span><span class="line"><span class="cl">    STRING Has presionado el botón.
+</span></span><span class="line"><span class="cl">END_BUTTON
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="disable_button-y-enable_button">DISABLE_BUTTON y ENABLE_BUTTON</h5>
 <p>Como su propio nombre indica, sirve para desactivar y activar el botón.</p>
-<pre><code class="language-bash">DISABLE_BUTTON
-REM Botón desactivado
-
-ENABLE_BUTTON
-REM Botón activado
-</code></pre>
-<h4 id="led">LED</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">DISABLE_BUTTON
+</span></span><span class="line"><span class="cl">REM Botón desactivado
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ENABLE_BUTTON
+</span></span><span class="line"><span class="cl">REM Botón activado
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="led">LED</h4>
 <p>El Ruber Ducky En su interior tiene un pequeño LED el cual se puede controlar en los scripts</p>
 <h5 id="led_off">LED_OFF</h5>
 <p>Apaga el led</p>
@@ -579,10 +669,17 @@ REM Botón activado
 ></p>
 <h3 id="primer-hola-mundo">Primer hola mundo</h3>
 <p>Para que el Rubber Ducky haga un hola mundo, hay que poner en el jsencoder lo sieguiente:</p>
-<pre><code class="language-bash">DELAY 200
-STRING Hola Mundo!!!
-</code></pre>
-<p><img src="/p/cuidado-con-este-usb/images/helloworld.png"
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">DELAY <span class="m">200</span>
+</span></span><span class="line"><span class="cl">STRING Hola Mundo!!!
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/cuidado-con-este-usb/images/helloworld.png"
 	width="599"
 	height="650"
 	

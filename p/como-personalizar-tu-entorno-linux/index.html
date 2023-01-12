@@ -405,6 +405,20 @@ if (!doNotTrack) {
         
 
         
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    6 minutos a leer
+                </time>
+            </div>
+        
     </footer>
     
 
@@ -451,39 +465,74 @@ if (!doNotTrack) {
 <h3 id="qué-es">¿Qué es?</h3>
 <p>Bspwm es un gestor de ventanas tipo mosaico, lo cual va muy bien para escribir y programar. Aunque si necesitas hacer tareas en las cuales necesites otro entorno de escritorio, puedes cambiarlo en el menú de login.</p>
 <h3 id="cómo-se-instala">¿Cómo se instala?</h3>
-<pre><code class="language-bash">sudo apt install bspwm
-</code></pre>
-<h3 id="configuración">Configuración</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install bspwm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="configuración">Configuración</h3>
 <p>El archivo de configuración de bspwm se tiene que mover a <strong>~/.config/bspwm/bspwmrc</strong></p>
 <p><em>bspwmrc default:</em></p>
-<pre><code class="language-bash">#! /bin/sh
-
-pgrep -x sxhkd &gt; /dev/null || sxhkd &amp;
-
-bspc monitor -d I II III IV V VI VII VIII IX X
-
-bspc config border_width         2
-bspc config window_gap          12
-
-bspc config split_ratio          0.52
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
-
-bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
-</code></pre>
-<p>Ahí puedes personalizar la cantidad de espacios de trabajo que quieras, puedes poner programas que se ejecuten al abrir bspwm, configurar bordes, etc&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#! /bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">pgrep -x sxhkd &gt; /dev/null <span class="o">||</span> sxhkd <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bspc monitor -d I II III IV V VI VII VIII IX X
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bspc config border_width         <span class="m">2</span>
+</span></span><span class="line"><span class="cl">bspc config window_gap          <span class="m">12</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bspc config split_ratio          0.52
+</span></span><span class="line"><span class="cl">bspc config borderless_monocle   <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">bspc config gapless_monocle      <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bspc rule -a Gimp <span class="nv">desktop</span><span class="o">=</span><span class="s1">&#39;^8&#39;</span> <span class="nv">state</span><span class="o">=</span>floating <span class="nv">follow</span><span class="o">=</span>on
+</span></span><span class="line"><span class="cl">bspc rule -a Chromium <span class="nv">desktop</span><span class="o">=</span><span class="s1">&#39;^2&#39;</span>
+</span></span><span class="line"><span class="cl">bspc rule -a mplayer2 <span class="nv">state</span><span class="o">=</span>floating
+</span></span><span class="line"><span class="cl">bspc rule -a Kupfer.py <span class="nv">focus</span><span class="o">=</span>on
+</span></span><span class="line"><span class="cl">bspc rule -a Screenkey <span class="nv">manage</span><span class="o">=</span>off
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ahí puedes personalizar la cantidad de espacios de trabajo que quieras, puedes poner programas que se ejecuten al abrir bspwm, configurar bordes, etc&hellip;</p>
 <hr>
 <h2 id="polybar">Polybar</h2>
 <h3 id="qué-es-1">¿Qué es?</h3>
 <p>Polybar es una herramienta para crear la barra de estado, es totalmente personalizable, las únicas dos limitaciones que tiene es que no la puedes poner a la derecha o a la izquierda y que no puedes poner imágenes.</p>
 <h3 id="cómo-se-instala-1">¿Cómo se instala?</h3>
-<pre><code class="language-bash">sudo apt install polybar
-</code></pre>
-<h3 id="configuración-1">Configuración</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install polybar
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="configuración-1">Configuración</h3>
 <p>La Polybar se divide en diferentes módulos como por ejemplo el módulo de la fecha, wifi, etc&hellip; puedes usar los de los temas, añadir módulos extras o crearlos todos desde 0</p>
 <h4 id="temas">Temas</h4>
 <p>Existen muchos temas ya creados para la polybar como por ejemplo</p>
@@ -501,21 +550,42 @@ bspc rule -a Screenkey manage=off
 <p>Si os gustan o los usáis no olvidéis apoyar al creador dándole una estrella en github</p>
 <h5 id="cómo-instalar-los-temas">¿Cómo instalar los temas?:</h5>
 <p><em>adi1090x</em></p>
-<pre><code class="language-bash">#Clonar el Repositorio
-git clone https://github.com/adi1090x/polybar-themes
-#Y entrar en la carpeta, dar permisos de ejecución al setup.sh y ejecutarlo.
-cd polybar-themes
-chmod +x setup.sh
-./setup.sh
-</code></pre>
-<p><em>Mi tema</em></p>
-<pre><code class="language-bash">#Clonar el repositorio
-git clone https://github.com/d3b0o/dotfiles
-#Crear la carpeta de configuraciones de la polybar y mover la configuración ahí.
-cd dotfiles
-mv polybar ~/.config/polybar
-</code></pre>
-<p>Ahora en el ~/.config/polybar/ tenéis todos los temas instalados.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#Clonar el Repositorio</span>
+</span></span><span class="line"><span class="cl">git clone https://github.com/adi1090x/polybar-themes
+</span></span><span class="line"><span class="cl"><span class="c1">#Y entrar en la carpeta, dar permisos de ejecución al setup.sh y ejecutarlo.</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> polybar-themes
+</span></span><span class="line"><span class="cl">chmod +x setup.sh
+</span></span><span class="line"><span class="cl">./setup.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><em>Mi tema</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#Clonar el repositorio</span>
+</span></span><span class="line"><span class="cl">git clone https://github.com/d3b0o/dotfiles
+</span></span><span class="line"><span class="cl"><span class="c1">#Crear la carpeta de configuraciones de la polybar y mover la configuración ahí.</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> dotfiles
+</span></span><span class="line"><span class="cl">mv polybar ~/.config/polybar
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ahora en el ~/.config/polybar/ tenéis todos los temas instalados.</p>
 <h4 id="qué-hace-cada-archivo">¿Qué hace cada archivo?</h4>
 <p>Cada tema tiene los siguientes archivos (Algunos temas tienen otros archivos, pero al final todos tienen lo mismo)</p>
 <div class="table-wrapper"><table>
@@ -587,18 +657,35 @@ mv polybar ~/.config/polybar
 </table></div>
 <h5 id="cómo-crear-un-módulo">¿Cómo crear un módulo?</h5>
 <h6 id="plantilla-para-módulo-script">Plantilla para módulo script</h6>
-<pre><code class="language-bash">[module/]
-type = custom/script
-interval = 
-exec = 
-</code></pre>
-<p>En exec se tiene que poner el script que quieres que el output salga en la polybar</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>module/<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">type</span> <span class="o">=</span> custom/script
+</span></span><span class="line"><span class="cl"><span class="nv">interval</span> <span class="o">=</span> 
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> <span class="o">=</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>En exec se tiene que poner el script que quieres que el output salga en la polybar</p>
 <h6 id="plantilla-para-módulo-texto">Plantilla para módulo texto</h6>
-<pre><code class="language-bash">[module/]
-type = custom/text
-content = 
-</code></pre>
-<p>En content va el texto que quieres que salga en la polybar</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>module/<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">type</span> <span class="o">=</span> custom/text
+</span></span><span class="line"><span class="cl"><span class="nv">content</span> <span class="o">=</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>En content va el texto que quieres que salga en la polybar</p>
 <p>En los módulos puedes añadir que al clicar ejecute algo&hellip;</p>
 <div class="table-wrapper"><table>
 <thead>
@@ -634,38 +721,75 @@ content =
 <h3 id="qué-es-2">¿Qué es?</h3>
 <p>sxhkd es un simple servicio de combinaciones de teclas usables dentro de bspwm, requerido para comunicarse con bspwm y lanzar aplicaciones a elección.</p>
 <h3 id="cómo-se-instala-2">¿Cómo se instala?</h3>
-<pre><code class="language-bash">git clone https://github.com/baskerville/sxhkd.git
-cd sxhkd
-make
-</code></pre>
-<h3 id="configuración-2">Configuración</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/baskerville/sxhkd.git
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> sxhkd
+</span></span><span class="line"><span class="cl">make
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="configuración-2">Configuración</h3>
 <p>Para la configuración hay que tener el siguiente archivo en <strong>~/.config/sxhkd/sxhkdrc</strong></p>
 <p><a class="link" href="https://github.com/baskerville/bspwm/blob/master/examples/sxhkdrc"  target="_blank" rel="noopener"
     >https://github.com/baskerville/bspwm/blob/master/examples/sxhkdrc</a></p>
 <h4 id="cómo-añadir-comandos-personalizados">¿Cómo añadir comandos personalizados?</h4>
 <p>Abajo del archivo de configuración (~/.config/sxhkd/sxhkdrc)</p>
-<pre><code class="language-bash">#combinación de teclas
-    #que ejecutara
-
-#Ejemplo
-super + shift + g
-    google-chrome
-</code></pre>
-<h2 id="picom">Picom</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#combinación de teclas</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#que ejecutara</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#Ejemplo</span>
+</span></span><span class="line"><span class="cl">super + <span class="nb">shift</span> + g
+</span></span><span class="line"><span class="cl">    google-chrome
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="picom">Picom</h2>
 <h3 id="qué-es-3">¿Qué es?</h3>
 <p>Picom, es lo que se conoce como un compositor para Xorg. Se trata de un fork de compton que a su vez es un fork de otros compositorios. Este compositor te permite utilizar tanto sombras, como transparencias, como redondear bordes, etc&hellip;</p>
 <h3 id="cómo-se-instala-3">¿Cómo se instala?</h3>
-<pre><code class="language-bash">#dependencias
-sudo apt install libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev meson
-</code></pre>
-<pre><code class="language-bash">git clone https://github.com/ibhagwan/picom.git
-cd picom
-git submodule update --init --recursive
-meson --buildtype=release . build
-ninja -C build
-sudo ninja -C build install
-</code></pre>
-<h3 id="configuración-3">Configuración</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#dependencias</span>
+</span></span><span class="line"><span class="cl">sudo apt install libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev meson
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/ibhagwan/picom.git
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> picom
+</span></span><span class="line"><span class="cl">git submodule update --init --recursive
+</span></span><span class="line"><span class="cl">meson --buildtype<span class="o">=</span>release . build
+</span></span><span class="line"><span class="cl">ninja -C build
+</span></span><span class="line"><span class="cl">sudo ninja -C build install
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="configuración-3">Configuración</h3>
 <p>El archivo de configuración de picom está en ~/.config/picom/picom.conf, en él puedes modificar los bordes, sombras, transparencias, etc&hellip;</p>
 <p>Esto es lo que contiene el picom.conf</p>
 <p><a class="link" href="https://gist.github.com/scheckley/b91d7b50c7f372ba7107baf01127da3a"  target="_blank" rel="noopener"
@@ -675,9 +799,15 @@ sudo ninja -C build install
 <p>Rofi comenzó como un clon de simpleswitcher, escrito por Sean Pringle, un conmutador de ventana emergente basado aproximadamente en superswitcher. Simpleswitcher sentó las bases y, por lo tanto, Sean Pringle merece la mayor parte del crédito por esta herramienta. Rofi (renombrado, ya que perdió la propiedad simple) se ha ampliado con funciones adicionales, como un iniciador de aplicaciones y un iniciador de ssh, y puede actuar como un reemplazo de dmenu directo, lo que lo convierte en una herramienta muy versátil.</p>
 <p>Rofi, como dmenu, proporcionará al usuario una lista textual de opciones donde se pueden seleccionar una o más. Esto puede ser ejecutar una aplicación, seleccionar una ventana u opciones proporcionadas por un script externo.</p>
 <h3 id="cómo-se-instala-4">¿Cómo se instala?</h3>
-<pre><code class="language-bash">sudo apt install rofi
-</code></pre>
-<h3 id="configuración-4">Configuración</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install rofi
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="configuración-4">Configuración</h3>
 <h4 id="temas-1">Temas</h4>
 <p>Al igual que la polybar hay muchos temas ya creados como por ejemplo:</p>
 <ul>
@@ -687,12 +817,21 @@ sudo ninja -C build install
 </ul>
 <p>Si usáis u os gustan los temas no olvidéis darle una estrella en github</p>
 <p>Para instalar el tema es simplemente:</p>
-<pre><code class="language-bash">git clone 2--depth=1 https://github.com/adi1090x/rofi.git
-cd rofi
-chmod +x setup.sh
-./setup.sh
-</code></pre>
-<h4 id="configuración-temas">Configuración temas</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone 2--depth<span class="o">=</span><span class="m">1</span> https://github.com/adi1090x/rofi.git
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> rofi
+</span></span><span class="line"><span class="cl">chmod +x setup.sh
+</span></span><span class="line"><span class="cl">./setup.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="configuración-temas">Configuración temas</h4>
 <p>Todos los temas están en el ~/.config/rofi</p>
 <p>En el github de los temas hay fotos de todos los temas y puedes escoger el que más te guste</p>
 <p>Para abrir rofi simplemente tienes que ejecutar él .sh que hay en la carpeta de los temas</p>

