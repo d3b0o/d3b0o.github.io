@@ -708,7 +708,7 @@ Vemos que saca la foto de un subdirectorio llamado <strong>img</strong></p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="escalada-a-hatter">Escalada a hatter</h3>
-<p>En <code>/home/rabbit/</code> hay un archivo llamado <code>teaParty</code></p>
+<p>En <code>/home/rabbit/</code> hay un archivo llamado <code>teaParty</code> que es un binario con permisos suid</p>
 <p>-rwsr-sr-x 1 root root 16816 May 25  2020 teaParty</p>
 <p>Al ejecutarlo vemos lo siguiente:</p>
 <div class="highlight"><div class="chroma">
@@ -727,8 +727,7 @@ Vemos que saca la foto de un subdirectorio llamado <strong>img</strong></p>
 </span></span><span class="line"><span class="cl">Ask very nicely, and I will give you some tea while you wait for him
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Al hacerle un cat vemos que es un binario</p>
-<p>Con el comando strings podemos ver cadenas de texto legible. Podemos ver que usa el comando date sin poner la ruta completa.</p>
+</div><p>Con el comando strings podemos ver cadenas de texto legible. Podemos ver que usa el comando date se ejecuta con la ruta relativa. Ejemplo (/bin/echo: Ruta absoluta / echo: Ruta relativa).</p>
 <p>Nos podemos aprovechar de esto ejecutando lo siguiente:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -811,6 +810,30 @@ Vemos que saca la foto de un subdirectorio llamado <strong>img</strong></p>
     <h2 class="section-title">Contenidos relacionados</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/resoluci%C3%B3n-tech_supp0rt-1/">
+        
+        
+            <div class="article-image">
+                <img src="/p/resoluci%C3%B3n-tech_supp0rt-1/images/portada.98cd254e6b14b0bbd1af5ae7a3c55ba5.png" 
+                        width="1914" 
+                        height="874" 
+                        loading="lazy"
+                        alt="Featured image of post Resolución Tech_Supp0rt: 1"
+                        
+                        data-hash="md5-mM0lTmsUsLvRr1rno8VbpQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Resolución Tech_Supp0rt: 1</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="has-image">
@@ -903,30 +926,6 @@ Vemos que saca la foto de un subdirectorio llamado <strong>img</strong></p>
 
         <div class="article-details">
             <h2 class="article-title">Resolución Bounty Hacker</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/resoluci%C3%B3n-overpass/">
-        
-        
-            <div class="article-image">
-                <img src="/p/resoluci%C3%B3n-overpass/images/portada.5dbbd86e8c5dc982a5dd1228e4b03e41.png" 
-                        width="1914" 
-                        height="874" 
-                        loading="lazy"
-                        alt="Featured image of post Resolución Overpass"
-                        
-                        data-hash="md5-XbvYboxdyYKl3RIo5LA&#43;QQ==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Resolución Overpass</h2>
         </div>
     </a>
 </article>

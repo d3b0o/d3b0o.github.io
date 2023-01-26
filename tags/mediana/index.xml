@@ -706,7 +706,7 @@ Vemos que saca la foto de un subdirectorio llamado &lt;strong&gt;img&lt;/strong&
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;escalada-a-hatter&#34;&gt;Escalada a hatter&lt;/h3&gt;
-&lt;p&gt;En &lt;code&gt;/home/rabbit/&lt;/code&gt; hay un archivo llamado &lt;code&gt;teaParty&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;En &lt;code&gt;/home/rabbit/&lt;/code&gt; hay un archivo llamado &lt;code&gt;teaParty&lt;/code&gt; que es un binario con permisos suid&lt;/p&gt;
 &lt;p&gt;-rwsr-sr-x 1 root root 16816 May 25  2020 teaParty&lt;/p&gt;
 &lt;p&gt;Al ejecutarlo vemos lo siguiente:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -725,8 +725,7 @@ Vemos que saca la foto de un subdirectorio llamado &lt;strong&gt;img&lt;/strong&
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Ask very nicely, and I will give you some tea while you wait for him
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Al hacerle un cat vemos que es un binario&lt;/p&gt;
-&lt;p&gt;Con el comando strings podemos ver cadenas de texto legible. Podemos ver que usa el comando date sin poner la ruta completa.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Con el comando strings podemos ver cadenas de texto legible. Podemos ver que usa el comando date se ejecuta con la ruta relativa. Ejemplo (/bin/echo: Ruta absoluta / echo: Ruta relativa).&lt;/p&gt;
 &lt;p&gt;Nos podemos aprovechar de esto ejecutando lo siguiente:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
