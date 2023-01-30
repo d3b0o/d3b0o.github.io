@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sqli on d3b0o</title>
+    <link>https://d3b0o.github.io/tags/sqli/</link>
+    <description>Recent content in sqli on d3b0o</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Wed, 21 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/sqli/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Resolución Gallery</title>
+      <link>https://d3b0o.github.io/thm/gallery/</link>
+      <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/thm/gallery/</guid>
+      <description>https://tryhackme.com/room/gallery666
+IP Atacante = 10.10.10.10
+IP víctima = 10.10.250.47
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+❯ ping -c 1 10.</description>
+    </item>
+    
+  </channel>
+</rss>

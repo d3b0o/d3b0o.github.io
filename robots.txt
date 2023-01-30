@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://d3b0o.github.io/sitemap.xml

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>file upload on d3b0o</title>
+    <link>https://d3b0o.github.io/tags/file-upload/</link>
+    <description>Recent content in file upload on d3b0o</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Wed, 14 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/file-upload/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Resolución Lazy admin</title>
+      <link>https://d3b0o.github.io/thm/lazyadmin/</link>
+      <pubDate>Wed, 14 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/thm/lazyadmin/</guid>
+      <description>Máquina fácil Linux para practicar tus habilidades.
+https://tryhackme.com/room/lazyadmin
+IP Atacante = 10.10.10.10
+IP víctima = 10.10.192.128
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+    </item>
+    
+    <item>
+      <title>Resolución CTF RootMe</title>
+      <link>https://d3b0o.github.io/thm/rootme/</link>
+      <pubDate>Sun, 11 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/thm/rootme/</guid>
+      <description>Un ctf para principiantes, me puedes rootear?
+https://tryhackme.com/room/rrootme
+IP Atacante = 10.10.10.10
+IP víctima = 10.10.108.243
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+    </item>
+    
+  </channel>
+</rss>

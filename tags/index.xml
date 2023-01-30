@@ -1,323 +1,407 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Tags on d3b0o</title>
-        <link>https://d3b0o.github.io/tags/</link>
-        <description>Recent content in Tags on d3b0o</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <lastBuildDate>Thu, 26 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>CTF</title>
-        <link>https://d3b0o.github.io/tags/ctf/</link>
-        <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/ctf/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>CVE-2018-19422</title>
-        <link>https://d3b0o.github.io/tags/cve-2018-19422/</link>
-        <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/cve-2018-19422/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Fácil</title>
-        <link>https://d3b0o.github.io/tags/f%C3%A1cil/</link>
-        <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/f%C3%A1cil/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>iconv</title>
-        <link>https://d3b0o.github.io/tags/iconv/</link>
-        <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/iconv/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Linux</title>
-        <link>https://d3b0o.github.io/tags/linux/</link>
-        <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/linux/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>smb</title>
-        <link>https://d3b0o.github.io/tags/smb/</link>
-        <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/smb/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>cron</title>
-        <link>https://d3b0o.github.io/tags/cron/</link>
-        <pubDate>Fri, 20 Jan 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/cron/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Mediana</title>
-        <link>https://d3b0o.github.io/tags/mediana/</link>
-        <pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/mediana/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>xxe</title>
-        <link>https://d3b0o.github.io/tags/xxe/</link>
-        <pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/xxe/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>tar</title>
-        <link>https://d3b0o.github.io/tags/tar/</link>
-        <pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/tar/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>crontab</title>
-        <link>https://d3b0o.github.io/tags/crontab/</link>
-        <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/crontab/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Python</title>
-        <link>https://d3b0o.github.io/tags/python/</link>
-        <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/python/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>CVE-2020-1938</title>
-        <link>https://d3b0o.github.io/tags/cve-2020-1938/</link>
-        <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/cve-2020-1938/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>zip</title>
-        <link>https://d3b0o.github.io/tags/zip/</link>
-        <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/zip/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>wget</title>
-        <link>https://d3b0o.github.io/tags/wget/</link>
-        <pubDate>Wed, 28 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/wget/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Fuerza bruta</title>
-        <link>https://d3b0o.github.io/tags/fuerza-bruta/</link>
-        <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/fuerza-bruta/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>hash raw-md5</title>
-        <link>https://d3b0o.github.io/tags/hash-raw-md5/</link>
-        <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/hash-raw-md5/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>nmap</title>
-        <link>https://d3b0o.github.io/tags/nmap/</link>
-        <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/nmap/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>php</title>
-        <link>https://d3b0o.github.io/tags/php/</link>
-        <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/php/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Walkthroughs</title>
-        <link>https://d3b0o.github.io/tags/walkthroughs/</link>
-        <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/walkthroughs/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>less</title>
-        <link>https://d3b0o.github.io/tags/less/</link>
-        <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/less/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Archivos ocultos</title>
-        <link>https://d3b0o.github.io/tags/archivos-ocultos/</link>
-        <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/archivos-ocultos/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>CVE-2019-14287</title>
-        <link>https://d3b0o.github.io/tags/cve-2019-14287/</link>
-        <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/cve-2019-14287/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>hash md5</title>
-        <link>https://d3b0o.github.io/tags/hash-md5/</link>
-        <pubDate>Wed, 14 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/hash-md5/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>hash sha512</title>
-        <link>https://d3b0o.github.io/tags/hash-sha512/</link>
-        <pubDate>Tue, 13 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/hash-sha512/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>vi</title>
-        <link>https://d3b0o.github.io/tags/vi/</link>
-        <pubDate>Tue, 13 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/vi/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>CVE-2014-6287</title>
-        <link>https://d3b0o.github.io/tags/cve-2014-6287/</link>
-        <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/cve-2014-6287/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Windows</title>
-        <link>https://d3b0o.github.io/tags/windows/</link>
-        <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/windows/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>hak5</title>
-        <link>https://d3b0o.github.io/tags/hak5/</link>
-        <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/hak5/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>USB</title>
-        <link>https://d3b0o.github.io/tags/usb/</link>
-        <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/usb/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>bash</title>
-        <link>https://d3b0o.github.io/tags/bash/</link>
-        <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/bash/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>polybar</title>
-        <link>https://d3b0o.github.io/tags/polybar/</link>
-        <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/polybar/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Spotify</title>
-        <link>https://d3b0o.github.io/tags/spotify/</link>
-        <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/spotify/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>bspwm</title>
-        <link>https://d3b0o.github.io/tags/bspwm/</link>
-        <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/bspwm/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>picom</title>
-        <link>https://d3b0o.github.io/tags/picom/</link>
-        <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/picom/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>rofi</title>
-        <link>https://d3b0o.github.io/tags/rofi/</link>
-        <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/rofi/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>sxhkd</title>
-        <link>https://d3b0o.github.io/tags/sxhkd/</link>
-        <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/sxhkd/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>CVE-2021-4034</title>
-        <link>https://d3b0o.github.io/tags/cve-2021-4034/</link>
-        <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/cve-2021-4034/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Strapi</title>
-        <link>https://d3b0o.github.io/tags/strapi/</link>
-        <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://d3b0o.github.io/tags/strapi/</guid>
-        <description></description>
-        </item>
-        
-    </channel>
+  <channel>
+    <title>Tags on d3b0o</title>
+    <link>https://d3b0o.github.io/tags/</link>
+    <description>Recent content in Tags on d3b0o</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Thu, 26 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CTF</title>
+      <link>https://d3b0o.github.io/tags/ctf/</link>
+      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/ctf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CVE-2018-19422</title>
+      <link>https://d3b0o.github.io/tags/cve-2018-19422/</link>
+      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/cve-2018-19422/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fácil</title>
+      <link>https://d3b0o.github.io/tags/f%C3%A1cil/</link>
+      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/f%C3%A1cil/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iconv</title>
+      <link>https://d3b0o.github.io/tags/iconv/</link>
+      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/iconv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://d3b0o.github.io/tags/linux/</link>
+      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>smb</title>
+      <link>https://d3b0o.github.io/tags/smb/</link>
+      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/smb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cron</title>
+      <link>https://d3b0o.github.io/tags/cron/</link>
+      <pubDate>Fri, 20 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/cron/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CVE-2019-15107</title>
+      <link>https://d3b0o.github.io/tags/cve-2019-15107/</link>
+      <pubDate>Thu, 19 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/cve-2019-15107/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CVE-2019-15231</title>
+      <link>https://d3b0o.github.io/tags/cve-2019-15231/</link>
+      <pubDate>Thu, 19 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/cve-2019-15231/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mediana</title>
+      <link>https://d3b0o.github.io/tags/mediana/</link>
+      <pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/mediana/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xxe</title>
+      <link>https://d3b0o.github.io/tags/xxe/</link>
+      <pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/xxe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tar</title>
+      <link>https://d3b0o.github.io/tags/tar/</link>
+      <pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/tar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>crontab</title>
+      <link>https://d3b0o.github.io/tags/crontab/</link>
+      <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/crontab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://d3b0o.github.io/tags/python/</link>
+      <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CVE-2020-1938</title>
+      <link>https://d3b0o.github.io/tags/cve-2020-1938/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/cve-2020-1938/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zip</title>
+      <link>https://d3b0o.github.io/tags/zip/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/zip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wget</title>
+      <link>https://d3b0o.github.io/tags/wget/</link>
+      <pubDate>Wed, 28 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/wget/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>flie upload</title>
+      <link>https://d3b0o.github.io/tags/flie-upload/</link>
+      <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/flie-upload/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sqli</title>
+      <link>https://d3b0o.github.io/tags/sqli/</link>
+      <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/sqli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fuerza bruta</title>
+      <link>https://d3b0o.github.io/tags/fuerza-bruta/</link>
+      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/fuerza-bruta/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hash raw-md5</title>
+      <link>https://d3b0o.github.io/tags/hash-raw-md5/</link>
+      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/hash-raw-md5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nmap</title>
+      <link>https://d3b0o.github.io/tags/nmap/</link>
+      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/nmap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>php</title>
+      <link>https://d3b0o.github.io/tags/php/</link>
+      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Walkthroughs</title>
+      <link>https://d3b0o.github.io/tags/walkthroughs/</link>
+      <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/walkthroughs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>less</title>
+      <link>https://d3b0o.github.io/tags/less/</link>
+      <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/less/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Archivos ocultos</title>
+      <link>https://d3b0o.github.io/tags/archivos-ocultos/</link>
+      <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/archivos-ocultos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CVE-2019-14287</title>
+      <link>https://d3b0o.github.io/tags/cve-2019-14287/</link>
+      <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/cve-2019-14287/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>file upload</title>
+      <link>https://d3b0o.github.io/tags/file-upload/</link>
+      <pubDate>Wed, 14 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/file-upload/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hash md5</title>
+      <link>https://d3b0o.github.io/tags/hash-md5/</link>
+      <pubDate>Wed, 14 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/hash-md5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hash sha512</title>
+      <link>https://d3b0o.github.io/tags/hash-sha512/</link>
+      <pubDate>Tue, 13 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/hash-sha512/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vi</title>
+      <link>https://d3b0o.github.io/tags/vi/</link>
+      <pubDate>Tue, 13 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/vi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CVE-2014-6287</title>
+      <link>https://d3b0o.github.io/tags/cve-2014-6287/</link>
+      <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/cve-2014-6287/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>https://d3b0o.github.io/tags/windows/</link>
+      <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hak5</title>
+      <link>https://d3b0o.github.io/tags/hak5/</link>
+      <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/hak5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>USB</title>
+      <link>https://d3b0o.github.io/tags/usb/</link>
+      <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/usb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bash</title>
+      <link>https://d3b0o.github.io/tags/bash/</link>
+      <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>polybar</title>
+      <link>https://d3b0o.github.io/tags/polybar/</link>
+      <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/polybar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spotify</title>
+      <link>https://d3b0o.github.io/tags/spotify/</link>
+      <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/spotify/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bspwm</title>
+      <link>https://d3b0o.github.io/tags/bspwm/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/bspwm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>picom</title>
+      <link>https://d3b0o.github.io/tags/picom/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/picom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rofi</title>
+      <link>https://d3b0o.github.io/tags/rofi/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/rofi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sxhkd</title>
+      <link>https://d3b0o.github.io/tags/sxhkd/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/sxhkd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CVE-2021-4034</title>
+      <link>https://d3b0o.github.io/tags/cve-2021-4034/</link>
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/cve-2021-4034/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Strapi</title>
+      <link>https://d3b0o.github.io/tags/strapi/</link>
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/strapi/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
 </rss>
