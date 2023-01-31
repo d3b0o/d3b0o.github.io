@@ -72,12 +72,13 @@ IP Víctima = 10.10.76.5
 Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 &gt; ping -c 1 10." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://d3b0o.github.io/thm/startup/" /><meta property="article:section" content="THM" />
+<meta property="og:url" content="https://d3b0o.github.io/thm/startup/" /><meta property="og:image" content="https://d3b0o.github.io/thm/startup/cover.jpg"/><meta property="article:section" content="THM" />
 <meta property="article:published_time" content="2023-01-20T00:00:00+00:00" />
 <meta property="article:modified_time" content="2023-01-20T00:00:00+00:00" /><meta property="og:site_name" content="d3b0o" />
 
 
-  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://d3b0o.github.io/thm/startup/cover.jpg"/>
 <meta name="twitter:title" content="Resolución Startup"/>
 <meta name="twitter:description" content="https://tryhackme.com/room/startup
 IP Atacante = 10.10.10.10
@@ -570,6 +571,31 @@ if (!doNotTrack) {
     
       
 
+
+<div id="hero" class="h-[150px] md:h-[200px]"></div>
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/thm/startup/cover_hu1aa8e062571280947bc608a86f9c124c_67423_1200x0_resize_q75_box.jpg);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<script>
+    window.addEventListener('scroll', function (e) {
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var background_blur = document.getElementById('background-blur');
+        background_blur.style.opacity = (scroll / 300)
+    });
+</script>
 
     
   
