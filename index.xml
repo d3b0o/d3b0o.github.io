@@ -32,7 +32,7 @@ IP Atacante = 10.10.10.10
 IP Víctima = 10.10.76.5
 Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 &amp;gt; ping -c 1 10.</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/startup/cover.jpg" />
     </item>
     
     <item>
@@ -60,7 +60,7 @@ IP Atacante = 10.10.10.10
 IP Víctima = 10.10.3.160
 Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ping -c 1 10.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/mustacchio/cover.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/mustacchio/cover.webp" />
     </item>
     
     <item>
@@ -88,7 +88,7 @@ IP Atacante = 10.10.10.10
 IP Víctima = 10.10.131.60
 Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/bountyhacker/cover.jpg" />
     </item>
     
     <item>
@@ -102,7 +102,7 @@ IP Atacante = 10.10.10.10
 IP Víctima = 10.10.170.40
 Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/overpass/cover.png" />
     </item>
     
     <item>
@@ -115,7 +115,7 @@ Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la m
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.139.165
 Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/develpy/cover.png" />
     </item>
     
     <item>
@@ -128,7 +128,7 @@ Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la m
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.126.65
 Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/tomghost/cover.png" />
     </item>
     
     <item>
@@ -166,7 +166,7 @@ IP Atacante = 10.10.10.10
 IP víctima = 10.10.250.47
 Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/gallery/cover.jpg" />
     </item>
     
     <item>
@@ -349,7 +349,7 @@ Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la m
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/whoami/</guid>
-      <description>Mi nombre es Arnau y soy el creador de esta página web personal de apuntes sobre programación, linux y ciberseguridad en plataformas como TryHackMe, HackTheBox y Vulnhub. Mi objetivo es compartir las cosas que voy aprendiendo a través de mis apuntes y writeups sobre las máquinas que voy haciendo.</description>
+      <description>¿Quien soy?&gt; ¿Quien soy? # Mi nombre es Arnau, desde pequeño me han gustado los ordenadores y siempre he tenido mucha curiosidad por aprender cosas del tema. Tenía muchas dudas y pocas respuestas, y a medida que iba creciendo tenía la esperanza de que me enseñaran cosas sobre el tema, pero no fue así.</description>
       
     </item>
     

@@ -103,7 +103,7 @@
     "keywords": ["Python"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "911"
+    "wordCount": "204"
   }]
   </script>
 
@@ -636,7 +636,7 @@ if (!doNotTrack) {
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2022-12-29 00:00:00 &#43;0000 UTC">29/12/2022</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+  <time datetime="2022-12-29 00:00:00 &#43;0000 UTC">29/12/2022</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
   
 
   
@@ -721,8 +721,6 @@ if (!doNotTrack) {
     <nav id="TableOfContents">
   <ul>
     <li><a href="#programa">Programa</a></li>
-    <li><a href="#que-és">¿Que és?</a></li>
-    <li><a href="#como-funciona">¿Como funciona?</a></li>
   </ul>
 </nav>
   </div>
@@ -737,8 +735,6 @@ if (!doNotTrack) {
     <nav id="TableOfContents">
   <ul>
     <li><a href="#programa">Programa</a></li>
-    <li><a href="#que-és">¿Que és?</a></li>
-    <li><a href="#como-funciona">¿Como funciona?</a></li>
   </ul>
 </nav>
   </div>
@@ -880,33 +876,7 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">wordlist</span><span class="p">)</span>
-</span></span></code></pre></div><div id="que-és" class="anchor">¿Que és?></div>
-<h2 class="relative group">¿Que és? 
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#que-%c3%a9s" aria-label="Anchor">#</a></span>        
-    
-</h2><p>Este programa es un script de exploración de directorios, también conocido como &ldquo;directory buster&rdquo;. Se utiliza para buscar subdirectorios ocultos en un sitio web específico. El script toma dos argumentos obligatorios: una lista de palabras y una URL. Utiliza la lista de palabras como su diccionario y hace una solicitud HTTP GET a la URL con cada palabra en la lista como subdirectorio. Si la solicitud tiene éxito, es decir, si el servidor devuelve un código de estado HTTP 200, el subdirectorio se considera existente y se muestra en pantalla. Si el servidor devuelve un código de estado HTTP 404, significa que el subdirectorio no existe y se omite. Además, el script permite ignorar ciertos códigos de estado y subdirectorios con una cantidad específica de caracteres.</p>
-<div id="como-funciona" class="anchor">¿Como funciona?></div>
-<h2 class="relative group">¿Como funciona? 
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#como-funciona" aria-label="Anchor">#</a></span>        
-    
-</h2><p>El script comienza importando varias bibliotecas. La biblioteca &ldquo;requests&rdquo; se utiliza para hacer las solicitudes HTTP, la biblioteca &ldquo;argparse&rdquo; se utiliza para manejar los argumentos de la línea de comandos, la biblioteca &ldquo;time&rdquo; se utiliza para obtener la fecha y la hora actuales y la biblioteca &ldquo;signal&rdquo; se utiliza para manejar la señal de interrupción del sistema (CTRL + C).</p>
-<p>Luego, se define una función &ldquo;def_handler&rdquo; que se ejecuta cuando se presiona CTRL + C. Esta función muestra el valor de la variable &ldquo;times&rdquo; (que luego se explicará) y sale del programa. A continuación, se configura la señal de interrupción del sistema para que utilice la función &ldquo;def_handler&rdquo; como manejador.</p>
-<p>Luego, se define una función &ldquo;parse_numbers&rdquo; que convierte una cadena de números separados por comas en una lista de números. Esta función se utiliza para convertir los argumentos &ldquo;-s&rdquo; y &ldquo;-c&rdquo; en listas.</p>
-<p>A continuación, se crea un objeto &ldquo;parser&rdquo; de la clase &ldquo;ArgumentParser&rdquo; y se definen los argumentos que puede tomar el script. El argumento &ldquo;-w&rdquo; o &ldquo;&ndash;wordlist&rdquo; es la ruta de la lista de palabras, el argumento &ldquo;-u&rdquo; o &ldquo;&ndash;url&rdquo; es la URL objetivo y los argumentos &ldquo;-s&rdquo; o &ldquo;&ndash;status&rdquo; y &ldquo;-c&rdquo; o &ldquo;&ndash;characters&rdquo; son listas opcionales de códigos de estado HTTP y cantidades de caracteres a ignorar, respectivamente.</p>
-<p>Luego, se procesan los argumentos y se asignan a variables. La variable &ldquo;wordlist&rdquo; almacena la ruta de la lista de palabras, la variable &ldquo;url&rdquo; almacena la URL objetivo, la variable &ldquo;invalid_status&rdquo; almacena la lista de códigos de estado a ignorar y la variable &ldquo;invalid_characters&rdquo; almacena la lista de cantidades de caracteres a ignorar.</p>
-<p>A continuación, se imprime un mensaje de inicio de exploración junto con la fecha y la hora actuales, la URL objetivo y la ruta de la lista de palabras. Luego, se imprime un encabezado para los resultados.</p>
-<p>Luego, se define la función &ldquo;main&rdquo; que toma dos argumentos: la URL objetivo y la ruta de la lista de palabras. Dentro de la función, se crea una variable &ldquo;times&rdquo; inicializada en 0. Esta variable se utiliza para contar el número de palabras procesadas.</p>
-<p>A continuación, se abre el archivo de la lista de palabras en modo de lectura y se itera sobre cada línea del archivo. Cada línea se almacena en la variable &ldquo;word&rdquo;, se eliminan los espacios en blanco al principio y al final de la cadena y se asigna a una variable &ldquo;test_url&rdquo; que es la URL objettivo más la palabra actual. Luego, se realiza una solicitud GET a la URL &ldquo;test_url&rdquo; y se almacena la respuesta en la variable &ldquo;response&rdquo;. Se crea una variable &ldquo;content&rdquo; que almacena el contenido de la respuesta.</p>
-<p>A continuación, se verifica si el código de estado de la respuesta se encuentra en la lista de códigos de estado a ignorar o si la longitud del contenido se encuentra en la lista de cantidades de caracteres a ignorar. Si cualquiera de estas condiciones se cumple, se asigna a la variable &ldquo;mostrar&rdquo; el valor &ldquo;False&rdquo;.</p>
-<p>Si &ldquo;mostrar&rdquo; sigue siendo &ldquo;True&rdquo;, se verifica el código de estado de la respuesta. Si el código de estado es 200, se imprime la línea en verde. Si el código de estado es 404, se imprime la línea en rojo. Si el código de estado es distinto a 200 o 404, se imprime la línea en amarillo.</p>
-<p>Finalmente, se llama a la función &ldquo;main&rdquo; con la URL objetivo y la ruta de la lista de palabras como argumentos.</p>
-
+</span></span></code></pre></div>
         </br></br>
         
 
