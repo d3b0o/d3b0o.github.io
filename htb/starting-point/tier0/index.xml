@@ -8,6 +8,16 @@
     <language>es</language>
     <lastBuildDate>Wed, 01 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/htb/starting-point/tier0/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Dancing</title>
+      <link>https://d3b0o.github.io/htb/starting-point/tier0/dancing/</link>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/htb/starting-point/tier0/dancing/</guid>
+      <description>What does the 3-letter acronym SMB stand for?&gt; What does the 3-letter acronym SMB stand for? # Server Message Block
+What port does SMB use to operate at?&gt; What port does SMB use to operate at?</description>
+    </item>
+    
+    <item>
       <title>Fawn</title>
       <link>https://d3b0o.github.io/htb/starting-point/tier0/fawn/</link>
       <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>

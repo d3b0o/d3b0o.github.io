@@ -22,6 +22,15 @@
   
     
       <url>
+            <loc>https://d3b0o.github.io/htb/starting-point/tier0/dancing/</loc>
+            <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
             <loc>https://d3b0o.github.io/htb/starting-point/tier0/fawn/</loc>
             <lastmod>2023-02-01T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
@@ -67,7 +76,25 @@
   
     
       <url>
+            <loc>https://d3b0o.github.io/tags/linux/</loc>
+            <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
             <loc>https://d3b0o.github.io/htb/starting-point/tier0/meow/</loc>
+            <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/tags/smb/</loc>
             <lastmod>2023-02-01T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -157,25 +184,7 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/tags/linux/</loc>
-            <lastmod>2023-01-26T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
             <loc>https://d3b0o.github.io/thm/tech_supp0rt-1/</loc>
-            <lastmod>2023-01-26T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/tags/smb/</loc>
             <lastmod>2023-01-26T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
