@@ -6,7 +6,20 @@
     <description>Recent content in file upload on d3b0o</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 14 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/file-upload/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/file-upload/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Resolución Startup</title>
+      <link>https://d3b0o.github.io/thm/startup/</link>
+      <pubDate>Fri, 20 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/thm/startup/</guid>
+      <description>https://tryhackme.com/room/startup
+IP Atacante = 10.10.10.10
+IP Víctima = 10.10.76.5
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+&amp;gt; ping -c 1 10.</description>
+    </item>
+    
     <item>
       <title>Resolución Lazy admin</title>
       <link>https://d3b0o.github.io/thm/lazyadmin/</link>

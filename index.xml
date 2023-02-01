@@ -46,7 +46,7 @@ IP Atacante = 10.10.10.10
 IP Víctima = 10.10.16.237
 Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ping -c 1 10.</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/source/cover.png" />
     </item>
     
     <item>
@@ -152,7 +152,7 @@ IP Atacante = 10.10.10.10
 IP víctima = 10.10.176.77
 Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/wgel/cover.png" />
     </item>
     
     <item>

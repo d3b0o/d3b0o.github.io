@@ -121,6 +121,15 @@
   
     
       <url>
+            <loc>https://d3b0o.github.io/tags/file-upload/</loc>
+            <lastmod>2023-01-20T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
             <loc>https://d3b0o.github.io/thm/startup/</loc>
             <lastmod>2023-01-20T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
@@ -456,15 +465,6 @@
       <url>
             <loc>https://d3b0o.github.io/thm/agentsudo/</loc>
             <lastmod>2022-12-15T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/tags/file-upload/</loc>
-            <lastmod>2022-12-14T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
