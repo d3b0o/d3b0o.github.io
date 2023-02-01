@@ -5,7 +5,7 @@
     
       <url>
             <loc>https://d3b0o.github.io/</loc>
-            <lastmod>2023-01-26T00:00:00+00:00</lastmod>
+            <lastmod>2023-02-01T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
@@ -14,7 +14,79 @@
     
       <url>
             <loc>https://d3b0o.github.io/categories/</loc>
-            <lastmod>2023-01-26T00:00:00+00:00</lastmod>
+            <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/tags/fuerza-bruta/</loc>
+            <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/htb/</loc>
+            <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/categories/htb/</loc>
+            <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/categories/starting-point/</loc>
+            <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/htb/starting-point/</loc>
+            <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/tags/</loc>
+            <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/htb/starting-point/tier0/</loc>
+            <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/htb/starting-point/tier0/meow/</loc>
+            <lastmod>2023-02-01T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
@@ -77,15 +149,6 @@
     
       <url>
             <loc>https://d3b0o.github.io/tags/smb/</loc>
-            <lastmod>2023-01-26T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/tags/</loc>
             <lastmod>2023-01-26T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -355,15 +418,6 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/tags/fuerza-bruta/</loc>
-            <lastmod>2022-12-20T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
             <loc>https://d3b0o.github.io/tags/hash-raw-md5/</loc>
             <lastmod>2022-12-20T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
@@ -544,15 +598,6 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/categories/htb/</loc>
-            <lastmod>2022-12-09T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
             <loc>https://d3b0o.github.io/optimum/</loc>
             <lastmod>2022-12-09T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
@@ -698,15 +743,6 @@
     
       <url>
             <loc>https://d3b0o.github.io/tags/cve-2021-4034/</loc>
-            <lastmod>2022-11-22T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/htb/</loc>
             <lastmod>2022-11-22T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>

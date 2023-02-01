@@ -6,7 +6,16 @@
     <description>Recent content in Tags on d3b0o</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 26 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fuerza bruta</title>
+      <link>https://d3b0o.github.io/tags/fuerza-bruta/</link>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/fuerza-bruta/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>CTF</title>
       <link>https://d3b0o.github.io/tags/ctf/</link>
@@ -184,15 +193,6 @@
       <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/tags/sqli/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Fuerza bruta</title>
-      <link>https://d3b0o.github.io/tags/fuerza-bruta/</link>
-      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://d3b0o.github.io/tags/fuerza-bruta/</guid>
       <description></description>
     </item>
     
