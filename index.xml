@@ -165,16 +165,6 @@ Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la m
     </item>
     
     <item>
-      <title>Escaneo de directorios con filtrado de estado y longitud de contenido en Python</title>
-      <link>https://d3b0o.github.io/articles/fuzzing-python/</link>
-      <pubDate>Thu, 29 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://d3b0o.github.io/articles/fuzzing-python/</guid>
-      <description>d3b0o/escaneo-directorios-pythom Python 2 0 Programa&gt; Programa # import requests, argparse, time, sys, signal def def_handler(sig, frame): print(&amp;#34;\n\n[!] Saliendo... \n&amp;#34;) sys.exit(1) signal.signal(signal.SIGINT, def_handler) def parse_numbers(s): return [int(number) for number in s.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/articles/fuzzing-python/cover.png" />
-    </item>
-    
-    <item>
       <title>Resolución Wgel</title>
       <link>https://d3b0o.github.io/thm/wgel/</link>
       <pubDate>Wed, 28 Dec 2022 00:00:00 +0000</pubDate>
