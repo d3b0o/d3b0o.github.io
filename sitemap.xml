@@ -802,14 +802,6 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/authors/secondauthor/</loc>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
             <loc>https://d3b0o.github.io/categories/herramientas/</loc>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -827,14 +819,6 @@
     
       <url>
             <loc>https://d3b0o.github.io/tags/muy-f%C3%A1cil/</loc>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/authors/nunocoracao/</loc>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
