@@ -169,6 +169,29 @@ if (!doNotTrack) {
   
   
   
+  
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script>
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCUepZBFatWcpE-07i-IEDH2vCFdb6oeN0",
+      authDomain: "AIzaSyCUepZBFatWcpE-07i-IEDH2vCFdb6oeN0",
+      projectId: "d3b0o-2936b",
+      storageBucket: "d3b0o-2936b.appspot.com",
+      messagingSenderId: "551103105699",
+      appId: "1:551103105699:web:254b1338e38b6bd362cd16",
+      measurementId: "G-R680D2G6Q4"
+    };
+
+    var app = firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    var auth = firebase.auth();
+
+  </script>
+  
+  
 </head>
 <body
   class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
@@ -721,11 +744,11 @@ if (!doNotTrack) {
         
 
         
-<h3 id="typeit-1675622769335183052"></h3>
+<h3 id="typeit-1675628672625538049"></h3>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-      new TypeIt("#typeit-1675622769335183052", {
+      new TypeIt("#typeit-1675628672625538049", {
         strings: ["","$ whoami","","\u003e d3b0o ",""],
         speed:  150 ,
         lifeLike:  false ,
