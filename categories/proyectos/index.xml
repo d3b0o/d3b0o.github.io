@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 29 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/categories/proyectos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Módulo Polybar Spotify</title>
-      <link>https://d3b0o.github.io/articles/polybarspotify/</link>
+      <link>https://d3b0o.github.io/posts/polybarspotify/</link>
       <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://d3b0o.github.io/articles/polybarspotify/</guid>
+      <guid>https://d3b0o.github.io/posts/polybarspotify/</guid>
       <description>¿Qué es?&gt; ¿Qué es? # Es un simple módulo para la polybar que muestra que canción se está reproduciendo y se pueden añadir botones para pausar y pasar canciones.
 ¿Como añadirlo a la polybar?</description>
     </item>
