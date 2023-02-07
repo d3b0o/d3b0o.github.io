@@ -6,7 +6,17 @@
     <description>Recent content in HTB on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 01 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/categories/htb/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/categories/htb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redeemer</title>
+      <link>https://d3b0o.github.io/htb/starting-point/tier0/redeemer/</link>
+      <pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/htb/starting-point/tier0/redeemer/</guid>
+      <description>Which TCP port is open on the machine?&gt; Which TCP port is open on the machine? # Para escanear los puertos vamos a usar nmap
+$ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.</description>
+    </item>
+    
     <item>
       <title>Dancing</title>
       <link>https://d3b0o.github.io/htb/starting-point/tier0/dancing/</link>

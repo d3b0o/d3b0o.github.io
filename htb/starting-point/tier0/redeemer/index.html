@@ -17,7 +17,7 @@
   
   
   
-  <link rel="canonical" href="https://d3b0o.github.io/whoami/" />
+  <link rel="canonical" href="https://d3b0o.github.io/htb/starting-point/tier0/redeemer/" />
   
   
   
@@ -63,44 +63,47 @@
   
   
   
-  <meta property="og:title" content="Whomai" />
-<meta property="og:description" content="¿Quien soy?&gt; ¿Quien soy? # Mi nombre es Arnau, desde pequeño me han gustado los ordenadores y siempre he tenido mucha curiosidad por aprender cosas del tema. Tenía muchas dudas y pocas respuestas, y a medida que iba creciendo tenía la esperanza de que me enseñaran cosas sobre el tema, pero no fue así." />
+  <meta property="og:title" content="Redeemer" />
+<meta property="og:description" content="Which TCP port is open on the machine?&gt; Which TCP port is open on the machine? # Para escanear los puertos vamos a usar nmap
+$ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://d3b0o.github.io/whoami/" /><meta property="article:section" content="" />
+<meta property="og:url" content="https://d3b0o.github.io/htb/starting-point/tier0/redeemer/" /><meta property="og:image" content="https://d3b0o.github.io/htb/starting-point/tier0/redeemer/cover.png"/><meta property="article:section" content="HTB" />
+<meta property="article:published_time" content="2023-02-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-07T00:00:00+00:00" />
 
 
-
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Whomai"/>
-<meta name="twitter:description" content="¿Quien soy?&gt; ¿Quien soy? # Mi nombre es Arnau, desde pequeño me han gustado los ordenadores y siempre he tenido mucha curiosidad por aprender cosas del tema. Tenía muchas dudas y pocas respuestas, y a medida que iba creciendo tenía la esperanza de que me enseñaran cosas sobre el tema, pero no fue así."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://d3b0o.github.io/htb/starting-point/tier0/redeemer/cover.png"/>
+<meta name="twitter:title" content="Redeemer"/>
+<meta name="twitter:description" content="Which TCP port is open on the machine?&gt; Which TCP port is open on the machine? # Para escanear los puertos vamos a usar nmap
+$ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10."/>
 
   
   <script type="application/ld+json">
   [{
     "@context": "https://schema.org",
     "@type": "Article",
-    "articleSection": "",
-    "name": "Whomai",
-    "headline": "Whomai",
+    "articleSection": "HackTheBox",
+    "name": "Redeemer",
+    "headline": "Redeemer",
     
-    "abstract": "¿Quien soy?\u003e ¿Quien soy? # Mi nombre es Arnau, desde pequeño me han gustado los ordenadores y siempre he tenido mucha curiosidad por aprender cosas del tema. Tenía muchas dudas y pocas respuestas, y a medida que iba creciendo tenía la esperanza de que me enseñaran cosas sobre el tema, pero no fue así.",
+    "abstract": "Which TCP port is open on the machine?\u003e Which TCP port is open on the machine? # Para escanear los puertos vamos a usar nmap\n$ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.",
     "inLanguage": "en",
-    "url" : "https:\/\/d3b0o.github.io\/whoami\/",
+    "url" : "https:\/\/d3b0o.github.io\/htb\/starting-point\/tier0\/redeemer\/",
     "author" : {
       "@type": "Person",
       "name": "d3b0o"
     },
+    "copyrightYear": "2023",
+    "dateCreated": "2023-02-07T00:00:00\u002b00:00",
+    "datePublished": "2023-02-07T00:00:00\u002b00:00",
     
+    "dateModified": "2023-02-07T00:00:00\u002b00:00",
     
-    
-    
-    
-    
-    
+    "keywords": ["Linux","redis"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "290"
+    "wordCount": "452"
   }]
   </script>
 
@@ -135,9 +138,6 @@
 
 
 
-
-
-<script defer src="/lib/typeit/typeit.umd.js" integrity=""></script>
 
 
 
@@ -597,6 +597,31 @@ if (!doNotTrack) {
       
 
 
+<div id="hero" class="h-[150px] md:h-[200px]"></div>
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/htb/starting-point/tier0/redeemer/cover_hu7c7ae89eea469f7ac66945581324dc56_168314_1200x0_resize_box_3.png);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<script>
+    window.addEventListener('scroll', function (e) {
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var background_blur = document.getElementById('background-blur');
+        background_blur.style.opacity = (scroll / 300)
+    });
+</script>
+
     
   
   
@@ -604,6 +629,12 @@ if (!doNotTrack) {
     
     <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
   
+  
+    
+  
+    
+  
+    
   
     
   
@@ -616,11 +647,38 @@ if (!doNotTrack) {
   </li>
 
   
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/htb/"
+      >HackTheBox</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/htb/starting-point/"
+      >Starting Point</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/htb/starting-point/tier0/"
+      >Tier 0</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/whoami/"
-      >Whomai</a
+      href="/htb/starting-point/tier0/redeemer/"
+      >Redeemer</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -629,7 +687,7 @@ if (!doNotTrack) {
 
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Whomai
+      Redeemer
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -663,8 +721,14 @@ if (!doNotTrack) {
 
 
 
+
+
+
+
 <div class="flex flex-row flex-wrap items-center">
   
+  
+  <time datetime="2023-02-07 00:00:00 &#43;0000 UTC">07/02/2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
   
 
   
@@ -696,9 +760,57 @@ if (!doNotTrack) {
   
   
   
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/htb/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    HTB
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/starting-point/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    Starting point
+  </span>
+</span>
+
+  </span>
   
   
   
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linux/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    Linux
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/redis/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    redis
+  </span>
+</span>
+
+  </span>
   
   
   
@@ -722,16 +834,16 @@ if (!doNotTrack) {
     class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#quien-soy">¿Quien soy?</a></li>
-    <li><a href="#por-qué-he-creado-esta-web">¿Por qué he creado esta web?</a></li>
-    <li><a href="#estudios">Estudios</a>
-      <ul>
-        <li><a href="#completados">Completados</a></li>
-        <li><a href="#aspiraciones">Aspiraciones</a></li>
-      </ul>
-    </li>
-    <li><a href="#tryhackme-thm">TryHackMe (THM)</a></li>
-    <li><a href="#hackthebox-htb">HackTheBox (HTB)</a></li>
+    <li><a href="#which-tcp-port-is-open-on-the-machine">Which TCP port is open on the machine?</a></li>
+    <li><a href="#which-service-is-running-on-the-port-that-is-open-on-the-machine">Which service is running on the port that is open on the machine?</a></li>
+    <li><a href="#what-type-of-database-is-redis-choose-from-the-following-options-i-in-memory-database-ii-traditional-database">What type of database is Redis? Choose from the following options: (i) In-memory Database, (ii) Traditional Database</a></li>
+    <li><a href="#which-command-line-utility-is-used-to-interact-with-the-redis-server-enter-the-program-name-you-would-enter-into-the-terminal-without-any-arguments">Which command-line utility is used to interact with the Redis server? Enter the program name you would enter into the terminal without any arguments.</a></li>
+    <li><a href="#which-flag-is-used-with-the-redis-command-line-utility-to-specify-the-hostname">Which flag is used with the Redis command-line utility to specify the hostname?</a></li>
+    <li><a href="#once-connected-to-a-redis-server-which-command-is-used-to-obtain-the-information-and-statistics-about-the-redis-server">Once connected to a Redis server, which command is used to obtain the information and statistics about the Redis server?</a></li>
+    <li><a href="#what-is-the-version-of-the-redis-server-being-used-on-the-target-machine">What is the version of the Redis server being used on the target machine?</a></li>
+    <li><a href="#which-command-is-used-to-select-the-desired-database-in-redis">Which command is used to select the desired database in Redis?</a></li>
+    <li><a href="#how-many-keys-are-present-inside-the-database-with-index-0">How many keys are present inside the database with index 0?</a></li>
+    <li><a href="#submit-root-flag">Submit root flag</a></li>
   </ul>
 </nav>
   </div>
@@ -745,16 +857,16 @@ if (!doNotTrack) {
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#quien-soy">¿Quien soy?</a></li>
-    <li><a href="#por-qué-he-creado-esta-web">¿Por qué he creado esta web?</a></li>
-    <li><a href="#estudios">Estudios</a>
-      <ul>
-        <li><a href="#completados">Completados</a></li>
-        <li><a href="#aspiraciones">Aspiraciones</a></li>
-      </ul>
-    </li>
-    <li><a href="#tryhackme-thm">TryHackMe (THM)</a></li>
-    <li><a href="#hackthebox-htb">HackTheBox (HTB)</a></li>
+    <li><a href="#which-tcp-port-is-open-on-the-machine">Which TCP port is open on the machine?</a></li>
+    <li><a href="#which-service-is-running-on-the-port-that-is-open-on-the-machine">Which service is running on the port that is open on the machine?</a></li>
+    <li><a href="#what-type-of-database-is-redis-choose-from-the-following-options-i-in-memory-database-ii-traditional-database">What type of database is Redis? Choose from the following options: (i) In-memory Database, (ii) Traditional Database</a></li>
+    <li><a href="#which-command-line-utility-is-used-to-interact-with-the-redis-server-enter-the-program-name-you-would-enter-into-the-terminal-without-any-arguments">Which command-line utility is used to interact with the Redis server? Enter the program name you would enter into the terminal without any arguments.</a></li>
+    <li><a href="#which-flag-is-used-with-the-redis-command-line-utility-to-specify-the-hostname">Which flag is used with the Redis command-line utility to specify the hostname?</a></li>
+    <li><a href="#once-connected-to-a-redis-server-which-command-is-used-to-obtain-the-information-and-statistics-about-the-redis-server">Once connected to a Redis server, which command is used to obtain the information and statistics about the Redis server?</a></li>
+    <li><a href="#what-is-the-version-of-the-redis-server-being-used-on-the-target-machine">What is the version of the Redis server being used on the target machine?</a></li>
+    <li><a href="#which-command-is-used-to-select-the-desired-database-in-redis">Which command is used to select the desired database in Redis?</a></li>
+    <li><a href="#how-many-keys-are-present-inside-the-database-with-index-0">How many keys are present inside the database with index 0?</a></li>
+    <li><a href="#submit-root-flag">Submit root flag</a></li>
   </ul>
 </nav>
   </div>
@@ -767,125 +879,125 @@ if (!doNotTrack) {
       <div class="min-w-0 min-h-0 max-w-prose">
         
 
-        
-<h3 id="typeit-1675804001747352247"></h3>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-      new TypeIt("#typeit-1675804001747352247", {
-        strings: ["","$ whoami","","\u003e d3b0o ",""],
-        speed:  150 ,
-        lifeLike:  false ,
-        startDelay:  0 ,
-        breakLines:  false ,
-        waitUntilVisible:  true ,
-        loop:  true 
-      }).go();
-    });
-</script>
-<div id="quien-soy" class="anchor">¿Quien soy?></div>
-<h2 class="relative group">¿Quien soy? 
+        <div id="which-tcp-port-is-open-on-the-machine" class="anchor">Which TCP port is open on the machine?></div>
+<h2 class="relative group">Which TCP port is open on the machine? 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#quien-soy" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#which-tcp-port-is-open-on-the-machine" aria-label="Anchor">#</a></span>        
     
-</h2><p>Mi nombre es Arnau, desde pequeño me han gustado los ordenadores y siempre he tenido mucha curiosidad por aprender cosas del tema. Tenía muchas dudas y pocas respuestas, y a medida que iba creciendo tenía la esperanza de que me enseñaran cosas sobre el tema, pero no fue así. Así que hace un año, más o menos, decidí empezar a aprender por mi cuenta aparte de los estudios y ahí fue cuando me empezó a llamar la atención la ciberseguridad, hasta el día de hoy.</p>
-<p>Tengo un conocimiento sólido en programación en Python, incluyendo la manipulación de bases de datos. Además, también tengo experiencia en el manejo de distribuciones Linux, lo que me permite trabajar de manera eficiente en entornos de servidor y automatizar tareas mediante scripts. Estos conocimientos me permiten desarrollar soluciones informáticas complejas y manejar grandes cantidades de información de manera eficiente.</p>
-<div id="por-qué-he-creado-esta-web" class="anchor">¿Por qué he creado esta web?></div>
-<h2 class="relative group">¿Por qué he creado esta web? 
+</h2><p>Para escanear los puertos vamos a usar nmap</p>
+<pre tabindex="0"><code>$ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.64.250
+
+PORT     STATE SERVICE REASON
+6379/tcp open  redis   syn-ack ttl 63
+</code></pre><p>Nos reporta el puerto 6379 abierto</p>
+<div id="which-service-is-running-on-the-port-that-is-open-on-the-machine" class="anchor">Which service is running on the port that is open on the machine?></div>
+<h2 class="relative group">Which service is running on the port that is open on the machine? 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#por-qu%c3%a9-he-creado-esta-web" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#which-service-is-running-on-the-port-that-is-open-on-the-machine" aria-label="Anchor">#</a></span>        
     
-</h2><p>He creado esta web para ir documentando las máquinas que voy haciendo de tryhackme, hackthebox y vulnhub. Para así entender mejor como se resuelven. Aparte de resoluciones de máquinas, también subo posts de linux, de momento solo de personalización. Por último, subo posts de programación, proyectos o cosas que voy aprendiendo.</p>
-<div id="estudios" class="anchor">Estudios></div>
-<h2 class="relative group">Estudios 
+</h2><p>En el escaneo de la pregunta anterior podemos ver que el servicio que corre por el puerto 6379 es <strong>redis</strong></p>
+<div id="what-type-of-database-is-redis-choose-from-the-following-options-i-in-memory-database-ii-traditional-database" class="anchor">What type of database is Redis? Choose from the following options: (i) In-memory Database, (ii) Traditional Database></div>
+<h2 class="relative group">What type of database is Redis? Choose from the following options: (i) In-memory Database, (ii) Traditional Database 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#estudios" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#what-type-of-database-is-redis-choose-from-the-following-options-i-in-memory-database-ii-traditional-database" aria-label="Anchor">#</a></span>        
     
-</h2><div id="completados" class="anchor">Completados></div>
-<h3 class="relative group">Completados 
+</h2><p><strong>In-memory Database</strong></p>
+<div id="which-command-line-utility-is-used-to-interact-with-the-redis-server-enter-the-program-name-you-would-enter-into-the-terminal-without-any-arguments" class="anchor">Which command-line utility is used to interact with the Redis server? Enter the program name you would enter into the terminal without any arguments.></div>
+<h2 class="relative group">Which command-line utility is used to interact with the Redis server? Enter the program name you would enter into the terminal without any arguments. 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#completados" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#which-command-line-utility-is-used-to-interact-with-the-redis-server-enter-the-program-name-you-would-enter-into-the-terminal-without-any-arguments" aria-label="Anchor">#</a></span>        
     
-</h3><ul>
-<li><strong>2018-2022</strong> ESO</li>
-<li><strong>2021</strong> <a href="https://www.mastermind.ac/courses/iniciacion-python"   target="_blank">
-    Aprende a programar con Python</a> (mastermind)</li>
-<li><strong>2021</strong> <a href="https://www.mastermind.ac/courses/linux-de-noob-a-pro-en-nueve-horas"   target="_blank">
-    ¡Linux: de Noob a Pro en 9 horas!</a> (mastermind)</li>
-<li><strong>2022</strong> <a href="https://www.mastermind.ac/courses/curso-de-html-y-css-basico"   target="_blank">
-    Curso de HTML y CSS básico</a> (mastermind)</li>
-<li><strong>2023</strong> <a href="https://learndigital.withgoogle.com/activate/course/cybersecurity-remote-work"   target="_blank">
-    Protege tu Negocio: Ciberseguridad en el Teletrabajo</a> (google)</li>
-</ul>
-<div id="aspiraciones" class="anchor">Aspiraciones></div>
-<h3 class="relative group">Aspiraciones 
+</h2><p><strong>redis-cli</strong></p>
+<div id="which-flag-is-used-with-the-redis-command-line-utility-to-specify-the-hostname" class="anchor">Which flag is used with the Redis command-line utility to specify the hostname?></div>
+<h2 class="relative group">Which flag is used with the Redis command-line utility to specify the hostname? 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#aspiraciones" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#which-flag-is-used-with-the-redis-command-line-utility-to-specify-the-hostname" aria-label="Anchor">#</a></span>        
     
-</h3><ul>
-<li><strong>2022-2024</strong> CFGM Sistemas microinformáticos y redes</li>
-<li><strong>2023</strong> <a href="https://ine.com/learning/certifications/internal/elearnsecurity-junior-penetration-tester-v2"   target="_blank">
-    eJPTv2</a> (Certificación de eLearn Security)</li>
-<li><strong>2024-2026</strong> CFGS de Ciberseguridad</li>
-<li><strong>2024</strong> <a href="https://www.offensive-security.com/courses/pen-200/"   target="_blank">
-    OSCP</a> (Certificación de Offensive Security)</li>
-</ul>
-<div id="tryhackme-thm" class="anchor">TryHackMe (THM)></div>
-<h2 class="relative group">TryHackMe (THM) 
+</h2><p>Si ejecutamos redis-cli -h podemos ver el panel de ayuda</p>
+<pre tabindex="0"><code>$ redis-cli -h
+
+  -h &lt;hostname&gt;      Server hostname (default: 127.0.0.1).
+</code></pre><p>Podemos ver que el parámetro <strong>-h</strong> sirve para especificar el host.</p>
+<p>Ejemplo: <code>redis-cli -h 10.10.10.10</code></p>
+<div id="once-connected-to-a-redis-server-which-command-is-used-to-obtain-the-information-and-statistics-about-the-redis-server" class="anchor">Once connected to a Redis server, which command is used to obtain the information and statistics about the Redis server?></div>
+<h2 class="relative group">Once connected to a Redis server, which command is used to obtain the information and statistics about the Redis server? 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#tryhackme-thm" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#once-connected-to-a-redis-server-which-command-is-used-to-obtain-the-information-and-statistics-about-the-redis-server" aria-label="Anchor">#</a></span>        
     
-</h2><p><a href="https://tryhackme.com/p/d3b0o"   target="_blank">
-    
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" src="https://tryhackme-badges.s3.amazonaws.com/d3b0o.png" alt="TryHackMe d3b0o" />
-    
-  </figure>
-
-</a></p>
-<div id="hackthebox-htb" class="anchor">HackTheBox (HTB)></div>
-<h2 class="relative group">HackTheBox (HTB) 
+</h2><p><strong>info</strong></p>
+<pre tabindex="0"><code>$ redis-cli -h 10.129.64.250
+10.129.64.250:6379&gt; info
+# Server
+redis_version:5.0.7
+redis_git_sha1:00000000
+redis_git_dirty:0
+redis_build_id:66bd629f924ac924
+redis_mode:standalone
+...
+</code></pre><div id="what-is-the-version-of-the-redis-server-being-used-on-the-target-machine" class="anchor">What is the version of the Redis server being used on the target machine?></div>
+<h2 class="relative group">What is the version of the Redis server being used on the target machine? 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#hackthebox-htb" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#what-is-the-version-of-the-redis-server-being-used-on-the-target-machine" aria-label="Anchor">#</a></span>        
     
-</h2><p><a href="https://app.hackthebox.com/profile/822100"   target="_blank">
+</h2><p>Usando el comando anterior podemos ver que la versión que corre de redis es: <strong>5.0.7</strong>.</p>
+<div id="which-command-is-used-to-select-the-desired-database-in-redis" class="anchor">Which command is used to select the desired database in Redis?></div>
+<h2 class="relative group">Which command is used to select the desired database in Redis? 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#which-command-is-used-to-select-the-desired-database-in-redis" aria-label="Anchor">#</a></span>        
     
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" src="https://www.hackthebox.eu/badge/image/822100" alt="Hackthebox d3b0o" />
+</h2><pre tabindex="0"><code>select &lt;db_index&gt;
+</code></pre><p>Ejemplo:</p>
+<pre tabindex="0"><code>select 0
+</code></pre><div id="how-many-keys-are-present-inside-the-database-with-index-0" class="anchor">How many keys are present inside the database with index 0?></div>
+<h2 class="relative group">How many keys are present inside the database with index 0? 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#how-many-keys-are-present-inside-the-database-with-index-0" aria-label="Anchor">#</a></span>        
     
-  </figure>
-
-</a></p>
-
+</h2><p>Podemos usar el comando <code>keys *</code> para ver todas las keys</p>
+<pre tabindex="0"><code>10.129.64.250:6379&gt; select 0
+OK
+10.129.64.250:6379&gt; keys *
+1) &#34;numb&#34;
+2) &#34;stor&#34;
+3) &#34;flag&#34;
+4) &#34;temp&#34;
+</code></pre><div id="submit-root-flag" class="anchor">Submit root flag></div>
+<h2 class="relative group">Submit root flag 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#submit-root-flag" aria-label="Anchor">#</a></span>        
+    
+</h2><p>Para ver el contenido de la key flag podemos usar el comando <code>get</code></p>
+<pre tabindex="0"><code>get &lt;key_name&gt;
+</code></pre><p>En este caso:</p>
+<pre tabindex="0"><code>get flag
+</code></pre>
         </br></br>
         
 
       </div>
       <script>
-        var oid = "views_whoami\/index.md"
-        var oid_likes = "likes_whoami\/index.md"
+        var oid = "views_HTB\/Starting-point\/Tier0\/Redeemer\/index.md"
+        var oid_likes = "likes_HTB\/Starting-point\/Tier0\/Redeemer\/index.md"
       </script>
       
       
@@ -912,7 +1024,7 @@ if (!doNotTrack) {
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://d3b0o.github.io/whoami/&amp;title=Whomai"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://d3b0o.github.io/htb/starting-point/tier0/redeemer/&amp;title=Redeemer"
       title="Share on LinkedIn"
       aria-label="Share on LinkedIn"
       >
@@ -931,7 +1043,7 @@ if (!doNotTrack) {
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=https://d3b0o.github.io/whoami/&amp;text=Whomai"
+      href="https://twitter.com/intent/tweet/?url=https://d3b0o.github.io/htb/starting-point/tier0/redeemer/&amp;text=Redeemer"
       title="Tweet on Twitter"
       aria-label="Tweet on Twitter"
       >
@@ -950,7 +1062,7 @@ if (!doNotTrack) {
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://reddit.com/submit/?url=https://d3b0o.github.io/whoami/&amp;resubmit=true&amp;title=Whomai"
+      href="https://reddit.com/submit/?url=https://d3b0o.github.io/htb/starting-point/tier0/redeemer/&amp;resubmit=true&amp;title=Redeemer"
       title="Submit to Reddit"
       aria-label="Submit to Reddit"
       >
@@ -971,7 +1083,7 @@ if (!doNotTrack) {
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.facebook.com/sharer/sharer.php?u=https://d3b0o.github.io/whoami/&amp;quote=Whomai"
+      href="https://www.facebook.com/sharer/sharer.php?u=https://d3b0o.github.io/htb/starting-point/tier0/redeemer/&amp;quote=Redeemer"
       title="Share on Facebook"
       aria-label="Share on Facebook"
       >
@@ -994,6 +1106,9 @@ if (!doNotTrack) {
     
     
     
+      
+      
+    
     <div class="pt-8">
       <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
       <div class="flex justify-between pt-3">
@@ -1002,13 +1117,15 @@ if (!doNotTrack) {
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/optimum/">
+            <a class="flex text-right group ml-3" href="/htb/starting-point/tier0/dancing/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Resolución Máquina Optimum</span
+                  >Dancing</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2023-02-01 00:00:00 &#43;0000 UTC">01/02/2023</time>
                   
                 </span>
               </span>
