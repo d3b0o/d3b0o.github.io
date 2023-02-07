@@ -166,6 +166,15 @@
   
     
       <url>
+            <loc>https://d3b0o.github.io/tags/windows/</loc>
+            <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
             <loc>https://d3b0o.github.io/tags/ctf/</loc>
             <lastmod>2023-01-26T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
@@ -626,15 +635,6 @@
     
       <url>
             <loc>https://d3b0o.github.io/optimum/</loc>
-            <lastmod>2022-12-09T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/tags/windows/</loc>
             <lastmod>2022-12-09T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
