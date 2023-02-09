@@ -1,16 +1,52 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on </title>
+    <title>Tags on d3b0o</title>
     <link>https://d3b0o.github.io/tags/</link>
-    <description>Recent content in Tags on </description>
+    <description>Recent content in Tags on d3b0o</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 07 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CTF</title>
+      <link>https://d3b0o.github.io/tags/ctf/</link>
+      <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/ctf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Directory Traversal</title>
+      <link>https://d3b0o.github.io/tags/directory-traversal/</link>
+      <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/directory-traversal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fácil</title>
+      <link>https://d3b0o.github.io/tags/f%C3%A1cil/</link>
+      <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/f%C3%A1cil/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fuzzing</title>
+      <link>https://d3b0o.github.io/tags/fuzzing/</link>
+      <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/fuzzing/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Linux</title>
       <link>https://d3b0o.github.io/tags/linux/</link>
-      <pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/tags/linux/</guid>
       <description></description>
@@ -71,29 +107,11 @@
     </item>
     
     <item>
-      <title>CTF</title>
-      <link>https://d3b0o.github.io/tags/ctf/</link>
-      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://d3b0o.github.io/tags/ctf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>CVE-2018-19422</title>
       <link>https://d3b0o.github.io/tags/cve-2018-19422/</link>
       <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/tags/cve-2018-19422/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Fácil</title>
-      <link>https://d3b0o.github.io/tags/f%C3%A1cil/</link>
-      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://d3b0o.github.io/tags/f%C3%A1cil/</guid>
       <description></description>
     </item>
     

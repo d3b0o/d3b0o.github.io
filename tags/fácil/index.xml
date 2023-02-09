@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Fácil on </title>
+    <title>Fácil on d3b0o</title>
     <link>https://d3b0o.github.io/tags/f%C3%A1cil/</link>
-    <description>Recent content in Fácil on </description>
+    <description>Recent content in Fácil on d3b0o</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 26 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/f%C3%A1cil/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/f%C3%A1cil/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Resolución Team</title>
+      <link>https://d3b0o.github.io/thm/team/</link>
+      <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/thm/team/</guid>
+      <description>https://tryhackme.com/room/teamcw
+IP Atacante = 10.10.10.10
+IP Víctima = 10.10.67.245
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+$ ping -c 1 10.</description>
+    </item>
+    
     <item>
       <title>Resolución Tech_Supp0rt: 1</title>
       <link>https://d3b0o.github.io/thm/tech_supp0rt-1/</link>
