@@ -22,6 +22,15 @@
   
     
       <url>
+            <loc>https://d3b0o.github.io/tags/cronjob/</loc>
+            <lastmod>2023-02-09T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
             <loc>https://d3b0o.github.io/tags/ctf/</loc>
             <lastmod>2023-02-09T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>

