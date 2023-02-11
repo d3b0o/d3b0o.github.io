@@ -6,7 +6,16 @@
     <description>Recent content in Starting point on d3b0o</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 10 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/categories/starting-point/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/categories/starting-point/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Preignition</title>
+      <link>https://d3b0o.github.io/htb/starting-point/tier0/preignition/</link>
+      <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/htb/starting-point/tier0/preignition/</guid>
+      <description>Directory Brute-forcing is a technique used to check a lot of paths on a web server to find hidden pages. Which is another name for this? (i) Local File Inclusion, (ii) dir busting, (iii) hash cracking.</description>
+    </item>
+    
     <item>
       <title>Explosion</title>
       <link>https://d3b0o.github.io/htb/starting-point/tier0/explosion/</link>

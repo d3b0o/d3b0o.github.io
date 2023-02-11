@@ -17,7 +17,7 @@
   
   
   
-  <link rel="canonical" href="https://d3b0o.github.io/whoami/" />
+  <link rel="canonical" href="https://d3b0o.github.io/htb/starting-point/tier0/preignition/" />
   
   
   
@@ -63,44 +63,45 @@
   
   
   
-  <meta property="og:title" content="Whomai" />
-<meta property="og:description" content="¿Quien soy?&gt; ¿Quien soy? # Mi nombre es Arnau, desde pequeño me han gustado los ordenadores y siempre he tenido mucha curiosidad por aprender cosas del tema. Tenía muchas dudas y pocas respuestas, y a medida que iba creciendo tenía la esperanza de que me enseñaran cosas sobre el tema, pero no fue así." />
+  <meta property="og:title" content="Preignition" />
+<meta property="og:description" content="Directory Brute-forcing is a technique used to check a lot of paths on a web server to find hidden pages. Which is another name for this? (i) Local File Inclusion, (ii) dir busting, (iii) hash cracking." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://d3b0o.github.io/whoami/" /><meta property="article:section" content="" />
+<meta property="og:url" content="https://d3b0o.github.io/htb/starting-point/tier0/preignition/" /><meta property="og:image" content="https://d3b0o.github.io/htb/starting-point/tier0/preignition/cover.png"/><meta property="article:section" content="HTB" />
+<meta property="article:published_time" content="2023-02-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-11T00:00:00+00:00" /><meta property="og:site_name" content="d3b0o" />
 
-<meta property="og:site_name" content="d3b0o" />
 
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Whomai"/>
-<meta name="twitter:description" content="¿Quien soy?&gt; ¿Quien soy? # Mi nombre es Arnau, desde pequeño me han gustado los ordenadores y siempre he tenido mucha curiosidad por aprender cosas del tema. Tenía muchas dudas y pocas respuestas, y a medida que iba creciendo tenía la esperanza de que me enseñaran cosas sobre el tema, pero no fue así."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://d3b0o.github.io/htb/starting-point/tier0/preignition/cover.png"/>
+<meta name="twitter:title" content="Preignition"/>
+<meta name="twitter:description" content="Directory Brute-forcing is a technique used to check a lot of paths on a web server to find hidden pages. Which is another name for this? (i) Local File Inclusion, (ii) dir busting, (iii) hash cracking."/>
 
   
   <script type="application/ld+json">
   [{
     "@context": "https://schema.org",
     "@type": "Article",
-    "articleSection": "",
-    "name": "Whomai",
-    "headline": "Whomai",
+    "articleSection": "HackTheBox",
+    "name": "Preignition",
+    "headline": "Preignition",
     
-    "abstract": "¿Quien soy?\u003e ¿Quien soy? # Mi nombre es Arnau, desde pequeño me han gustado los ordenadores y siempre he tenido mucha curiosidad por aprender cosas del tema. Tenía muchas dudas y pocas respuestas, y a medida que iba creciendo tenía la esperanza de que me enseñaran cosas sobre el tema, pero no fue así.",
+    "abstract": "Directory Brute-forcing is a technique used to check a lot of paths on a web server to find hidden pages. Which is another name for this? (i) Local File Inclusion, (ii) dir busting, (iii) hash cracking.",
     "inLanguage": "en",
-    "url" : "https:\/\/d3b0o.github.io\/whoami\/",
+    "url" : "https:\/\/d3b0o.github.io\/htb\/starting-point\/tier0\/preignition\/",
     "author" : {
       "@type": "Person",
       "name": "d3b0o"
     },
+    "copyrightYear": "2023",
+    "dateCreated": "2023-02-11T00:00:00\u002b00:00",
+    "datePublished": "2023-02-11T00:00:00\u002b00:00",
     
+    "dateModified": "2023-02-11T00:00:00\u002b00:00",
     
-    
-    
-    
-    
-    
+    "keywords": ["VIP","Linux","gobuster"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "290"
+    "wordCount": "411"
   }]
   </script>
 
@@ -135,9 +136,6 @@
 
 
 
-
-
-<script defer src="/lib/typeit/typeit.umd.js" integrity=""></script>
 
 
 
@@ -585,6 +583,31 @@ if (!doNotTrack) {
       
 
 
+<div id="hero" class="h-[150px] md:h-[200px]"></div>
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/htb/starting-point/tier0/preignition/cover_hu3f426c5ec03471c59ffd27464c220f44_143372_1200x0_resize_box_3.png);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<script>
+    window.addEventListener('scroll', function (e) {
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var background_blur = document.getElementById('background-blur');
+        background_blur.style.opacity = (scroll / 300)
+    });
+</script>
+
     
   
   
@@ -592,6 +615,12 @@ if (!doNotTrack) {
     
     <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
   
+  
+    
+  
+    
+  
+    
   
     
   
@@ -604,11 +633,38 @@ if (!doNotTrack) {
   </li>
 
   
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/htb/"
+      >HackTheBox</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/htb/starting-point/"
+      >Starting Point</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/htb/starting-point/tier0/"
+      >Tier 0</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/whoami/"
-      >Whomai</a
+      href="/htb/starting-point/tier0/preignition/"
+      >Preignition</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -617,7 +673,7 @@ if (!doNotTrack) {
 
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Whomai
+      Preignition
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -651,8 +707,14 @@ if (!doNotTrack) {
 
 
 
+
+
+
+
 <div class="flex flex-row flex-wrap items-center">
   
+  
+  <time datetime="2023-02-11 00:00:00 &#43;0000 UTC">11/02/2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
   
 
   
@@ -684,9 +746,68 @@ if (!doNotTrack) {
   
   
   
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/htb/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    HTB
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/starting-point/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    Starting point
+  </span>
+</span>
+
+  </span>
   
   
   
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/vip/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    VIP
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linux/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    Linux
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/gobuster/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    gobuster
+  </span>
+</span>
+
+  </span>
   
   
   
@@ -710,16 +831,15 @@ if (!doNotTrack) {
     class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#quien-soy">¿Quien soy?</a></li>
-    <li><a href="#por-qué-he-creado-esta-web">¿Por qué he creado esta web?</a></li>
-    <li><a href="#estudios">Estudios</a>
-      <ul>
-        <li><a href="#completados">Completados</a></li>
-        <li><a href="#aspiraciones">Aspiraciones</a></li>
-      </ul>
-    </li>
-    <li><a href="#tryhackme-thm">TryHackMe (THM)</a></li>
-    <li><a href="#hackthebox-htb">HackTheBox (HTB)</a></li>
+    <li><a href="#directory-brute-forcing-is-a-technique-used-to-check-a-lot-of-paths-on-a-web-server-to-find-hidden-pages-which-is-another-name-for-this-i-local-file-inclusion-ii-dir-busting-iii-hash-cracking">Directory Brute-forcing is a technique used to check a lot of paths on a web server to find hidden pages. Which is another name for this? (i) Local File Inclusion, (ii) dir busting, (iii) hash cracking.</a></li>
+    <li><a href="#what-switch-do-we-use-for-nmaps-scan-to-specify-that-we-want-to-perform-version-detection">What switch do we use for nmap&rsquo;s scan to specify that we want to perform version detection</a></li>
+    <li><a href="#what-does-nmap-report-is-the-service-identified-as-running-on-port-80tcp">What does Nmap report is the service identified as running on port 80/tcp?</a></li>
+    <li><a href="#what-server-name-and-version-of-service-is-running-on-port-80tcp">What server name and version of service is running on port 80/tcp?</a></li>
+    <li><a href="#what-switch-do-we-use-to-specify-to-gobuster-we-want-to-perform-dir-busting-specifically">What switch do we use to specify to Gobuster we want to perform dir busting specifically?</a></li>
+    <li><a href="#when-using-gobuster-to-dir-bust-what-switch-do-we-add-to-make-sure-it-finds-php-pages">When using gobuster to dir bust, what switch do we add to make sure it finds PHP pages?</a></li>
+    <li><a href="#what-page-is-found-during-our-dir-busting-activities">What page is found during our dir busting activities?</a></li>
+    <li><a href="#what-is-the-http-status-code-reported-by-gobuster-for-the-discovered-page">What is the HTTP status code reported by Gobuster for the discovered page?</a></li>
+    <li><a href="#submit-root-flag">Submit root flag</a></li>
   </ul>
 </nav>
   </div>
@@ -733,16 +853,15 @@ if (!doNotTrack) {
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#quien-soy">¿Quien soy?</a></li>
-    <li><a href="#por-qué-he-creado-esta-web">¿Por qué he creado esta web?</a></li>
-    <li><a href="#estudios">Estudios</a>
-      <ul>
-        <li><a href="#completados">Completados</a></li>
-        <li><a href="#aspiraciones">Aspiraciones</a></li>
-      </ul>
-    </li>
-    <li><a href="#tryhackme-thm">TryHackMe (THM)</a></li>
-    <li><a href="#hackthebox-htb">HackTheBox (HTB)</a></li>
+    <li><a href="#directory-brute-forcing-is-a-technique-used-to-check-a-lot-of-paths-on-a-web-server-to-find-hidden-pages-which-is-another-name-for-this-i-local-file-inclusion-ii-dir-busting-iii-hash-cracking">Directory Brute-forcing is a technique used to check a lot of paths on a web server to find hidden pages. Which is another name for this? (i) Local File Inclusion, (ii) dir busting, (iii) hash cracking.</a></li>
+    <li><a href="#what-switch-do-we-use-for-nmaps-scan-to-specify-that-we-want-to-perform-version-detection">What switch do we use for nmap&rsquo;s scan to specify that we want to perform version detection</a></li>
+    <li><a href="#what-does-nmap-report-is-the-service-identified-as-running-on-port-80tcp">What does Nmap report is the service identified as running on port 80/tcp?</a></li>
+    <li><a href="#what-server-name-and-version-of-service-is-running-on-port-80tcp">What server name and version of service is running on port 80/tcp?</a></li>
+    <li><a href="#what-switch-do-we-use-to-specify-to-gobuster-we-want-to-perform-dir-busting-specifically">What switch do we use to specify to Gobuster we want to perform dir busting specifically?</a></li>
+    <li><a href="#when-using-gobuster-to-dir-bust-what-switch-do-we-add-to-make-sure-it-finds-php-pages">When using gobuster to dir bust, what switch do we add to make sure it finds PHP pages?</a></li>
+    <li><a href="#what-page-is-found-during-our-dir-busting-activities">What page is found during our dir busting activities?</a></li>
+    <li><a href="#what-is-the-http-status-code-reported-by-gobuster-for-the-discovered-page">What is the HTTP status code reported by Gobuster for the discovered page?</a></li>
+    <li><a href="#submit-root-flag">Submit root flag</a></li>
   </ul>
 </nav>
   </div>
@@ -755,125 +874,127 @@ if (!doNotTrack) {
       <div class="min-w-0 min-h-0 max-w-prose">
         
 
-        
-<h3 id="typeit-1676149081202276383"></h3>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-      new TypeIt("#typeit-1676149081202276383", {
-        strings: ["","$ whoami","","\u003e d3b0o ",""],
-        speed:  150 ,
-        lifeLike:  false ,
-        startDelay:  0 ,
-        breakLines:  false ,
-        waitUntilVisible:  true ,
-        loop:  true 
-      }).go();
-    });
-</script>
-<div id="quien-soy" class="anchor">¿Quien soy?></div>
-<h2 class="relative group">¿Quien soy? 
+        <div id="directory-brute-forcing-is-a-technique-used-to-check-a-lot-of-paths-on-a-web-server-to-find-hidden-pages-which-is-another-name-for-this-i-local-file-inclusion-ii-dir-busting-iii-hash-cracking" class="anchor">Directory Brute-forcing is a technique used to check a lot of paths on a web server to find hidden pages. Which is another name for this? (i) Local File Inclusion, (ii) dir busting, (iii) hash cracking.></div>
+<h2 class="relative group">Directory Brute-forcing is a technique used to check a lot of paths on a web server to find hidden pages. Which is another name for this? (i) Local File Inclusion, (ii) dir busting, (iii) hash cracking. 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#quien-soy" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#directory-brute-forcing-is-a-technique-used-to-check-a-lot-of-paths-on-a-web-server-to-find-hidden-pages-which-is-another-name-for-this-i-local-file-inclusion-ii-dir-busting-iii-hash-cracking" aria-label="Anchor">#</a></span>        
     
-</h2><p>Mi nombre es Arnau, desde pequeño me han gustado los ordenadores y siempre he tenido mucha curiosidad por aprender cosas del tema. Tenía muchas dudas y pocas respuestas, y a medida que iba creciendo tenía la esperanza de que me enseñaran cosas sobre el tema, pero no fue así. Así que hace un año, más o menos, decidí empezar a aprender por mi cuenta aparte de los estudios y ahí fue cuando me empezó a llamar la atención la ciberseguridad, hasta el día de hoy.</p>
-<p>Tengo un conocimiento sólido en programación en Python, incluyendo la manipulación de bases de datos. Además, también tengo experiencia en el manejo de distribuciones Linux, lo que me permite trabajar de manera eficiente en entornos de servidor y automatizar tareas mediante scripts. Estos conocimientos me permiten desarrollar soluciones informáticas complejas y manejar grandes cantidades de información de manera eficiente.</p>
-<div id="por-qué-he-creado-esta-web" class="anchor">¿Por qué he creado esta web?></div>
-<h2 class="relative group">¿Por qué he creado esta web? 
+</h2><p><strong>dir busting</strong></p>
+<div id="what-switch-do-we-use-for-nmaps-scan-to-specify-that-we-want-to-perform-version-detection" class="anchor">What switch do we use for nmap&rsquo;s scan to specify that we want to perform version detection></div>
+<h2 class="relative group">What switch do we use for nmap&rsquo;s scan to specify that we want to perform version detection 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#por-qu%c3%a9-he-creado-esta-web" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#what-switch-do-we-use-for-nmaps-scan-to-specify-that-we-want-to-perform-version-detection" aria-label="Anchor">#</a></span>        
     
-</h2><p>He creado esta web para ir documentando las máquinas que voy haciendo de tryhackme, hackthebox y vulnhub. Para así entender mejor como se resuelven. Aparte de resoluciones de máquinas, también subo posts de linux, de momento solo de personalización. Por último, subo posts de programación, proyectos o cosas que voy aprendiendo.</p>
-<div id="estudios" class="anchor">Estudios></div>
-<h2 class="relative group">Estudios 
+</h2><p>Con <code>nmap -h</code> podemos ver el panel de ayuda, y pone que el parámetro para ver la versión de los servicios es <strong>-sV</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ nmap -h
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  -sV: Probe open ports to determine service/version info
+</span></span></code></pre></div><div id="what-does-nmap-report-is-the-service-identified-as-running-on-port-80tcp" class="anchor">What does Nmap report is the service identified as running on port 80/tcp?></div>
+<h2 class="relative group">What does Nmap report is the service identified as running on port 80/tcp? 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#estudios" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#what-does-nmap-report-is-the-service-identified-as-running-on-port-80tcp" aria-label="Anchor">#</a></span>        
     
-</h2><div id="completados" class="anchor">Completados></div>
-<h3 class="relative group">Completados 
+</h2><p><strong>http</strong></p>
+<div id="what-server-name-and-version-of-service-is-running-on-port-80tcp" class="anchor">What server name and version of service is running on port 80/tcp?></div>
+<h2 class="relative group">What server name and version of service is running on port 80/tcp? 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#completados" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#what-server-name-and-version-of-service-is-running-on-port-80tcp" aria-label="Anchor">#</a></span>        
     
-</h3><ul>
-<li><strong>2018-2022</strong> ESO</li>
-<li><strong>2021</strong> <a href="https://www.mastermind.ac/courses/iniciacion-python"   target="_blank">
-    Aprende a programar con Python</a> (mastermind)</li>
-<li><strong>2021</strong> <a href="https://www.mastermind.ac/courses/linux-de-noob-a-pro-en-nueve-horas"   target="_blank">
-    ¡Linux: de Noob a Pro en 9 horas!</a> (mastermind)</li>
-<li><strong>2022</strong> <a href="https://www.mastermind.ac/courses/curso-de-html-y-css-basico"   target="_blank">
-    Curso de HTML y CSS básico</a> (mastermind)</li>
-<li><strong>2023</strong> <a href="https://learndigital.withgoogle.com/activate/course/cybersecurity-remote-work"   target="_blank">
-    Protege tu Negocio: Ciberseguridad en el Teletrabajo</a> (google)</li>
-</ul>
-<div id="aspiraciones" class="anchor">Aspiraciones></div>
-<h3 class="relative group">Aspiraciones 
+</h2><p>Para ver la versión del servicio que corre por el puerto 80 podemos usar nmap con el parámetro -sV</p>
+<pre tabindex="0"><code>$ nmap -p80 -sV 10.129.109.97
+
+PORT   STATE SERVICE VERSION
+80/tcp open  http    nginx 1.14.2
+</code></pre><div id="what-switch-do-we-use-to-specify-to-gobuster-we-want-to-perform-dir-busting-specifically" class="anchor">What switch do we use to specify to Gobuster we want to perform dir busting specifically?></div>
+<h2 class="relative group">What switch do we use to specify to Gobuster we want to perform dir busting specifically? 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#aspiraciones" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#what-switch-do-we-use-to-specify-to-gobuster-we-want-to-perform-dir-busting-specifically" aria-label="Anchor">#</a></span>        
     
-</h3><ul>
-<li><strong>2022-2024</strong> CFGM Sistemas microinformáticos y redes</li>
-<li><strong>2023</strong> <a href="https://ine.com/learning/certifications/internal/elearnsecurity-junior-penetration-tester-v2"   target="_blank">
-    eJPTv2</a> (Certificación de eLearn Security)</li>
-<li><strong>2024-2026</strong> CFGS de Ciberseguridad</li>
-<li><strong>2024</strong> <a href="https://www.offensive-security.com/courses/pen-200/"   target="_blank">
-    OSCP</a> (Certificación de Offensive Security)</li>
-</ul>
-<div id="tryhackme-thm" class="anchor">TryHackMe (THM)></div>
-<h2 class="relative group">TryHackMe (THM) 
+</h2><pre tabindex="0"><code>$ gobuster -h
+
+Available Commands:
+  dir         Uses directory/file enumeration mode
+</code></pre><div id="when-using-gobuster-to-dir-bust-what-switch-do-we-add-to-make-sure-it-finds-php-pages" class="anchor">When using gobuster to dir bust, what switch do we add to make sure it finds PHP pages?></div>
+<h2 class="relative group">When using gobuster to dir bust, what switch do we add to make sure it finds PHP pages? 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#tryhackme-thm" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#when-using-gobuster-to-dir-bust-what-switch-do-we-add-to-make-sure-it-finds-php-pages" aria-label="Anchor">#</a></span>        
     
-</h2><p><a href="https://tryhackme.com/p/d3b0o"   target="_blank">
-    
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" src="https://tryhackme-badges.s3.amazonaws.com/d3b0o.png" alt="TryHackMe d3b0o" />
-    
-  </figure>
-
-</a></p>
-<div id="hackthebox-htb" class="anchor">HackTheBox (HTB)></div>
-<h2 class="relative group">HackTheBox (HTB) 
+</h2><p><strong>-x php</strong></p>
+<div id="what-page-is-found-during-our-dir-busting-activities" class="anchor">What page is found during our dir busting activities?></div>
+<h2 class="relative group">What page is found during our dir busting activities? 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#hackthebox-htb" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#what-page-is-found-during-our-dir-busting-activities" aria-label="Anchor">#</a></span>        
     
-</h2><p><a href="https://app.hackthebox.com/profile/822100"   target="_blank">
+</h2><pre tabindex="0"><code>$ gobuster dir -u 10.129.109.97 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php
+
+    /admin.php            (Status: 200) [Size: 999]
+</code></pre><div id="what-is-the-http-status-code-reported-by-gobuster-for-the-discovered-page" class="anchor">What is the HTTP status code reported by Gobuster for the discovered page?></div>
+<h2 class="relative group">What is the HTTP status code reported by Gobuster for the discovered page? 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#what-is-the-http-status-code-reported-by-gobuster-for-the-discovered-page" aria-label="Anchor">#</a></span>        
     
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" src="https://www.hackthebox.eu/badge/image/822100" alt="Hackthebox d3b0o" />
+</h2><p>Como podemos ver el la pregunta anterior <strong>200</strong></p>
+<div id="submit-root-flag" class="anchor">Submit root flag></div>
+<h2 class="relative group">Submit root flag 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#submit-root-flag" aria-label="Anchor">#</a></span>        
     
-  </figure>
+</h2><p>Al entrar al subdirectorio que econtró gobuster vemos un panel para iniciar sesión</p>
+<p>
 
-</a></p>
+
+
+
+  
+  
+    
+  
+  
+    <figure>
+      
+      <img
+        class="my-0 rounded-md"
+        srcset="
+        /htb/starting-point/tier0/preignition/images/admin_hueba051a802079270294c98884fdcd90e_19830_330x0_resize_box_3.png 330w,
+        /htb/starting-point/tier0/preignition/images/admin_hueba051a802079270294c98884fdcd90e_19830_660x0_resize_box_3.png 660w,
+        /htb/starting-point/tier0/preignition/images/admin_hueba051a802079270294c98884fdcd90e_19830_1024x0_resize_box_3.png 1024w,
+        /htb/starting-point/tier0/preignition/images/admin_hueba051a802079270294c98884fdcd90e_19830_1320x0_resize_box_3.png 2x"
+        src="/htb/starting-point/tier0/preignition/images/admin_hueba051a802079270294c98884fdcd90e_19830_660x0_resize_box_3.png"
+        alt=""
+      />
+      
+      
+    </figure>
+  
+
+</p>
+<p>Probamos con credenciales típicas como admin:admin y nos muestra la flag</p>
 
         </br></br>
         
 
       </div>
       <script>
-        var oid = "views_whoami\/index.md"
-        var oid_likes = "likes_whoami\/index.md"
+        var oid = "views_HTB\/Starting-point\/Tier0\/Preignition\/index.md"
+        var oid_likes = "likes_HTB\/Starting-point\/Tier0\/Preignition\/index.md"
       </script>
       
       
@@ -882,95 +1003,6 @@ if (!doNotTrack) {
   <footer class="pt-8 max-w-prose print:hidden">
 
     
-  <div class="flex">
-    
-      
-      
-        
-        <img
-          class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4"
-          width="96"
-          height="96"
-          alt="d3b0o"
-          src="/img/logo_hu8fdb6ed6c070590c3f1d9317bb81a702_368777_192x192_fill_box_center_3.png"
-        />
-      
-    
-    <div class="place-self-center">
-      
-        <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
-          Author
-        </div>
-        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
-          d3b0o
-        </div>
-      
-      
-        <div class="text-sm text-neutral-700 dark:text-neutral-400">CTF Player, Cybersecurity enthusiast</div>
-      
-      <div class="text-2xl sm:text-lg">
-  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="#"
-          target="_blank"
-          aria-label="Linkedin"
-          rel="me noopener noreferrer"
-          ><span class="inline-block align-text-bottom">
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
-
-  </span>
-
-</span></a
-        >
-      
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://github.com/d3b0o"
-          target="_blank"
-          aria-label="Github"
-          rel="me noopener noreferrer"
-          ><span class="inline-block align-text-bottom">
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-
-  </span>
-
-</span></a
-        >
-      
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://discord.gg/ZyRhY3JeQ6"
-          target="_blank"
-          aria-label="Discord"
-          rel="me noopener noreferrer"
-          ><span class="inline-block align-text-bottom">
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"/></svg>
-
-  </span>
-
-</span></a
-        >
-      
-    
-  </div>
-
-</div>
-    </div>
-  </div>
-
 
 
     
@@ -989,7 +1021,7 @@ if (!doNotTrack) {
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://d3b0o.github.io/whoami/&amp;title=Whomai"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://d3b0o.github.io/htb/starting-point/tier0/preignition/&amp;title=Preignition"
       title="Share on LinkedIn"
       aria-label="Share on LinkedIn"
       >
@@ -1008,7 +1040,7 @@ if (!doNotTrack) {
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=https://d3b0o.github.io/whoami/&amp;text=Whomai"
+      href="https://twitter.com/intent/tweet/?url=https://d3b0o.github.io/htb/starting-point/tier0/preignition/&amp;text=Preignition"
       title="Tweet on Twitter"
       aria-label="Tweet on Twitter"
       >
@@ -1027,7 +1059,7 @@ if (!doNotTrack) {
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://reddit.com/submit/?url=https://d3b0o.github.io/whoami/&amp;resubmit=true&amp;title=Whomai"
+      href="https://reddit.com/submit/?url=https://d3b0o.github.io/htb/starting-point/tier0/preignition/&amp;resubmit=true&amp;title=Preignition"
       title="Submit to Reddit"
       aria-label="Submit to Reddit"
       >
@@ -1048,7 +1080,7 @@ if (!doNotTrack) {
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.facebook.com/sharer/sharer.php?u=https://d3b0o.github.io/whoami/&amp;quote=Whomai"
+      href="https://www.facebook.com/sharer/sharer.php?u=https://d3b0o.github.io/htb/starting-point/tier0/preignition/&amp;quote=Preignition"
       title="Share on Facebook"
       aria-label="Share on Facebook"
       >
