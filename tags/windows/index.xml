@@ -6,11 +6,21 @@
     <description>Recent content in Windows on d3b0o</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 01 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Explosion</title>
+      <link>https://d3b0o.github.io/htb/starting-point/tier0/explosion/</link>
+      <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/htb/starting-point/tier0/explosion/</guid>
+      <description>What does the 3-letter acronym RDP stand for?&gt; What does the 3-letter acronym RDP stand for? # Remote Desktop Protocol
+What is a 3-letter acronym that refers to interaction with the host through a command line interface?</description>
+    </item>
+    
     <item>
       <title>Starting Point</title>
       <link>https://d3b0o.github.io/htb/starting-point/</link>
-      <pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/htb/starting-point/</guid>
       <description></description>
@@ -19,7 +29,7 @@
     <item>
       <title>Tier 0</title>
       <link>https://d3b0o.github.io/htb/starting-point/tier0/</link>
-      <pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/htb/starting-point/tier0/</guid>
       <description></description>

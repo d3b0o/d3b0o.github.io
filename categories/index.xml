@@ -6,20 +6,11 @@
     <description>Recent content in Categories on d3b0o</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 09 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>THM</title>
-      <link>https://d3b0o.github.io/categories/thm/</link>
-      <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://d3b0o.github.io/categories/thm/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Fri, 10 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTB</title>
       <link>https://d3b0o.github.io/categories/htb/</link>
-      <pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/categories/htb/</guid>
       <description></description>
@@ -28,9 +19,18 @@
     <item>
       <title>Starting point</title>
       <link>https://d3b0o.github.io/categories/starting-point/</link>
-      <pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/categories/starting-point/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>THM</title>
+      <link>https://d3b0o.github.io/categories/thm/</link>
+      <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/categories/thm/</guid>
       <description></description>
     </item>
     

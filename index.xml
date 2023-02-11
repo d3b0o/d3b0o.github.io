@@ -6,7 +6,18 @@
     <description>Recent content on d3b0o</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 09 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Explosion</title>
+      <link>https://d3b0o.github.io/htb/starting-point/tier0/explosion/</link>
+      <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/htb/starting-point/tier0/explosion/</guid>
+      <description>What does the 3-letter acronym RDP stand for?&gt; What does the 3-letter acronym RDP stand for? # Remote Desktop Protocol
+What is a 3-letter acronym that refers to interaction with the host through a command line interface?</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/htb/starting-point/tier0/explosion/cover.png" />
+    </item>
+    
     <item>
       <title>Resolución Team</title>
       <link>https://d3b0o.github.io/thm/team/</link>

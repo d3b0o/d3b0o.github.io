@@ -101,7 +101,7 @@
     "keywords": ["USB","hak5"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1069"
+    "wordCount": "917"
   }]
   </script>
 
@@ -692,7 +692,7 @@ if (!doNotTrack) {
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2022-12-05 00:00:00 &#43;0000 UTC">05/12/2022</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
+  <time datetime="2022-12-05 00:00:00 &#43;0000 UTC">05/12/2022</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
   
 
   
@@ -814,13 +814,6 @@ if (!doNotTrack) {
         <li><a href="#primer-hola-mundo">Primer hola mundo</a></li>
       </ul>
     </li>
-    <li><a href="#posibles-casos-reales">Posibles casos reales</a>
-      <ul>
-        <li><a href="#caso-1">Caso 1</a></li>
-        <li><a href="#caso-2">Caso 2</a></li>
-        <li><a href="#caso-3">Caso 3</a></li>
-      </ul>
-    </li>
     <li><a href="#como-protegerse">Como protegerse</a></li>
   </ul>
 </nav>
@@ -875,13 +868,6 @@ if (!doNotTrack) {
         <li><a href="#primer-hola-mundo">Primer hola mundo</a></li>
       </ul>
     </li>
-    <li><a href="#posibles-casos-reales">Posibles casos reales</a>
-      <ul>
-        <li><a href="#caso-1">Caso 1</a></li>
-        <li><a href="#caso-2">Caso 2</a></li>
-        <li><a href="#caso-3">Caso 3</a></li>
-      </ul>
-    </li>
     <li><a href="#como-protegerse">Como protegerse</a></li>
   </ul>
 </nav>
@@ -914,9 +900,22 @@ if (!doNotTrack) {
 
   
   
+    
+  
   
     <figure>
-      <img class="my-0 rounded-md" src="/images/RuberDucky/mrrobot.png" alt="" />
+      
+      <img
+        class="my-0 rounded-md"
+        srcset="
+        /posts/rubberducky/images/mrrobot_huf90c1f0cdffc87305506a3982349186f_583866_330x0_resize_box_3.png 330w,
+        /posts/rubberducky/images/mrrobot_huf90c1f0cdffc87305506a3982349186f_583866_660x0_resize_box_3.png 660w,
+        /posts/rubberducky/images/mrrobot_huf90c1f0cdffc87305506a3982349186f_583866_1024x0_resize_box_3.png 1024w,
+        /posts/rubberducky/images/mrrobot_huf90c1f0cdffc87305506a3982349186f_583866_1320x0_resize_box_3.png 2x"
+        src="/posts/rubberducky/images/mrrobot_huf90c1f0cdffc87305506a3982349186f_583866_660x0_resize_box_3.png"
+        alt=""
+      />
+      
       
     </figure>
   
@@ -1302,38 +1301,6 @@ Además sirve para más dispositivos de hak5 como por ejemplo:</p>
 
 </p>
 <p>Ahora solo hace falta clicar a generate payload y se descargará un archivo llamado inject.bin, el cual se tiene que poner en la tarjeta micro sd (solo puede haber un inject.bin, (borra los antiguos).</p>
-<div id="posibles-casos-reales" class="anchor">Posibles casos reales></div>
-<h2 class="relative group">Posibles casos reales 
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#posibles-casos-reales" aria-label="Anchor">#</a></span>        
-    
-</h2><div id="caso-1" class="anchor">Caso 1></div>
-<h3 class="relative group">Caso 1 
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#caso-1" aria-label="Anchor">#</a></span>        
-    
-</h3><p>Alguien deja un USB RubberDucky en el suelo de una oficina con una etiqueta en la cual pone algo que incite a la gente a querer ver su contenido, lo que va a provocar que alguien lo conecte a su ordenador de la oficina, ahora el atacante ya puede crear una revershell, meter un keylogger, etc&hellip;</p>
-<div id="caso-2" class="anchor">Caso 2></div>
-<h3 class="relative group">Caso 2 
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#caso-2" aria-label="Anchor">#</a></span>        
-    
-</h3><p>En un bar hay un señor trabajando y se va al baño y se deja el ordenador desbloqueado, un atacante le conecta el RubberDucky y como en el caso anterior le puede meter un keylogger, etc&hellip;</p>
-<div id="caso-3" class="anchor">Caso 3></div>
-<h3 class="relative group">Caso 3 
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#caso-3" aria-label="Anchor">#</a></span>        
-    
-</h3><p>En un gimnasio no hay nadie en recepción y los ordenadores están desbloqueados, un atacante conecta el USB y se descargas todos los datos de los clientes.</p>
-<p>Todos los casos se basan más o menos en lo mismo</p>
 <div id="como-protegerse" class="anchor">Como protegerse></div>
 <h2 class="relative group">Como protegerse 
     <span

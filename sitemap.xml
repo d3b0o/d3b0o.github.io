@@ -5,7 +5,7 @@
     
       <url>
             <loc>https://d3b0o.github.io/</loc>
-            <lastmod>2023-02-09T00:00:00+00:00</lastmod>
+            <lastmod>2023-02-10T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
@@ -14,7 +14,97 @@
     
       <url>
             <loc>https://d3b0o.github.io/categories/</loc>
-            <lastmod>2023-02-09T00:00:00+00:00</lastmod>
+            <lastmod>2023-02-10T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/htb/starting-point/tier0/explosion/</loc>
+            <lastmod>2023-02-10T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/htb/</loc>
+            <lastmod>2023-02-10T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/categories/htb/</loc>
+            <lastmod>2023-02-10T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/tags/rdp/</loc>
+            <lastmod>2023-02-10T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/categories/starting-point/</loc>
+            <lastmod>2023-02-10T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/htb/starting-point/</loc>
+            <lastmod>2023-02-10T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/tags/</loc>
+            <lastmod>2023-02-10T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/htb/starting-point/tier0/</loc>
+            <lastmod>2023-02-10T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/tags/vip/</loc>
+            <lastmod>2023-02-10T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/tags/windows/</loc>
+            <lastmod>2023-02-10T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
@@ -85,15 +175,6 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/tags/</loc>
-            <lastmod>2023-02-09T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
             <loc>https://d3b0o.github.io/categories/thm/</loc>
             <lastmod>2023-02-09T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
@@ -112,24 +193,6 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/htb/</loc>
-            <lastmod>2023-02-07T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/categories/htb/</loc>
-            <lastmod>2023-02-07T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
             <loc>https://d3b0o.github.io/htb/starting-point/tier0/redeemer/</loc>
             <lastmod>2023-02-07T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
@@ -140,33 +203,6 @@
     
       <url>
             <loc>https://d3b0o.github.io/tags/redis/</loc>
-            <lastmod>2023-02-07T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/categories/starting-point/</loc>
-            <lastmod>2023-02-07T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/htb/starting-point/</loc>
-            <lastmod>2023-02-07T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/htb/starting-point/tier0/</loc>
             <lastmod>2023-02-07T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -230,15 +266,6 @@
     
       <url>
             <loc>https://d3b0o.github.io/tags/telnet/</loc>
-            <lastmod>2023-02-01T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/tags/windows/</loc>
             <lastmod>2023-02-01T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
