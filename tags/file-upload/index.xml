@@ -21,6 +21,19 @@ Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la m
     </item>
     
     <item>
+      <title>Resolución Gallery</title>
+      <link>https://d3b0o.github.io/thm/gallery/</link>
+      <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/thm/gallery/</guid>
+      <description>https://tryhackme.com/room/gallery666
+IP Atacante = 10.10.10.10
+IP víctima = 10.10.250.47
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+❯ ping -c 1 10.</description>
+    </item>
+    
+    <item>
       <title>Resolución Lazy admin</title>
       <link>https://d3b0o.github.io/thm/lazyadmin/</link>
       <pubDate>Wed, 14 Dec 2022 00:00:00 +0000</pubDate>
