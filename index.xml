@@ -6,7 +6,17 @@
     <description>Recent content on d3b0o</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mongod</title>
+      <link>https://d3b0o.github.io/htb/starting-point/tier0/mongod/</link>
+      <pubDate>Tue, 14 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/htb/starting-point/tier0/mongod/</guid>
+      <description>How many TCP ports are open on the machine?&gt; How many TCP ports are open on the machine? # Para ver cuantos puertos tiene abiertos vamos a usar nmap con el siguiente comando:</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/htb/starting-point/tier0/mongod/cover.png" />
+    </item>
+    
     <item>
       <title>Preignition</title>
       <link>https://d3b0o.github.io/htb/starting-point/tier0/preignition/</link>
@@ -414,11 +424,34 @@ Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la m
     
     <item>
       <title>Whomai</title>
-      <link>https://d3b0o.github.io/whoami/</link>
+      <link>https://d3b0o.github.io/whoami_cat/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://d3b0o.github.io/whoami/</guid>
-      <description>¿Por qué he creado esta web?&gt; ¿Por qué he creado esta web? # He creado esta web para ir documentando las máquinas que voy haciendo de tryhackme, hackthebox y vulnhub.</description>
+      <guid>https://d3b0o.github.io/whoami_cat/</guid>
+      <description>link
+¿Por qué he creado esta web?&gt; ¿Por qué he creado esta web? # He ceado esta web para ir documentando las máquinas que voy haciendo de tryhackme, hackthebox y vulnhub.</description>
+      
+    </item>
+    
+    <item>
+      <title>Whomai</title>
+      <link>https://d3b0o.github.io/whoami_en/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/whoami_en/</guid>
+      <description>link
+¿Por qué he creado esta web?&gt; ¿Por qué he creado esta web? # He ceado esta web para ir documentando las máquinas que voy haciendo de tryhackme, hackthebox y vulnhub.</description>
+      
+    </item>
+    
+    <item>
+      <title>Whomai</title>
+      <link>https://d3b0o.github.io/whoami_es/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/whoami_es/</guid>
+      <description>Traducciones disponibles: :us: (En construcción)
+¿Quien soy?&gt; ¿Quien soy? # Mi nombre es Arnau, desde pequeño me han gustado los ordenadores y siempre he tenido mucha curiosidad por aprender cosas del tema.</description>
       
     </item>
     
