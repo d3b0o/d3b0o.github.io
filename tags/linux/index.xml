@@ -13,7 +13,25 @@
       <pubDate>Tue, 14 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/htb/starting-point/tier0/mongod/</guid>
-      <description>How many TCP ports are open on the machine?&gt; How many TCP ports are open on the machine? # Para ver cuantos puertos tiene abiertos vamos a usar nmap con el siguiente comando:</description>
+      <description>How many TCP ports are open on the machine? How many TCP ports are open on the machine? # Para ver cuantos puertos tiene abiertos vamos a usar nmap con el siguiente comando:</description>
+    </item>
+    
+    <item>
+      <title>Starting Point</title>
+      <link>https://d3b0o.github.io/htb/starting-point/</link>
+      <pubDate>Tue, 14 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/htb/starting-point/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tier 0</title>
+      <link>https://d3b0o.github.io/htb/starting-point/tier0/</link>
+      <pubDate>Tue, 14 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/htb/starting-point/tier0/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -34,7 +52,7 @@
       <description>https://tryhackme.com/room/teamcw
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.67.245
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 $ ping -c 1 10.</description>
     </item>
     
@@ -44,7 +62,7 @@ $ ping -c 1 10.</description>
       <pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/htb/starting-point/tier0/redeemer/</guid>
-      <description>Which TCP port is open on the machine?&gt; Which TCP port is open on the machine? # Para escanear los puertos vamos a usar nmap
+      <description>Which TCP port is open on the machine? Which TCP port is open on the machine? # Para escanear los puertos vamos a usar nmap
 $ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.</description>
     </item>
     
@@ -54,8 +72,8 @@ $ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.</description>
       <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/htb/starting-point/tier0/fawn/</guid>
-      <description>What does the 3-letter acronym FTP stand for?&gt; What does the 3-letter acronym FTP stand for? # File Transfer Protocol
-Which port does the FTP service listen on usually?&gt; Which port does the FTP service listen on usually?</description>
+      <description>What does the 3-letter acronym FTP stand for? What does the 3-letter acronym FTP stand for? # File Transfer Protocol
+Which port does the FTP service listen on usually? Which port does the FTP service listen on usually?</description>
     </item>
     
     <item>
@@ -64,21 +82,8 @@ Which port does the FTP service listen on usually?&gt; Which port does the FTP s
       <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/htb/starting-point/tier0/meow/</guid>
-      <description>What does the acronym VM stand for?&gt; What does the acronym VM stand for? # Virtual Machine
+      <description>What does the acronym VM stand for? What does the acronym VM stand for? # Virtual Machine
 What tool do we use to interact with the operating system in order to issue commands via the command line, such as the one to start our VPN connection?</description>
-    </item>
-    
-    <item>
-      <title>Resolución Tech_Supp0rt: 1</title>
-      <link>https://d3b0o.github.io/thm/tech_supp0rt-1/</link>
-      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://d3b0o.github.io/thm/tech_supp0rt-1/</guid>
-      <description>https://tryhackme.com/room/techsupp0rt1
-IP Atacante = 10.10.10.10
-IP Víctima = 10.10.149.4
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-$ ping -c 1 10.</description>
     </item>
     
     <item>
@@ -90,7 +95,7 @@ $ ping -c 1 10.</description>
       <description>https://tryhackme.com/room/startup
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.76.5
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 &amp;gt; ping -c 1 10.</description>
     </item>
     
@@ -103,7 +108,7 @@ Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la m
       <description>https://tryhackme.com/room/source
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.16.237
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ping -c 1 10.</description>
     </item>
     
@@ -116,7 +121,7 @@ ping -c 1 10.</description>
       <description>https://tryhackme.com/room/mustacchio
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.3.160
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ping -c 1 10.</description>
     </item>
     
@@ -129,7 +134,7 @@ ping -c 1 10.</description>
       <description>https://tryhackme.com/room/wonderland
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.3.160
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
     </item>
     
@@ -142,7 +147,7 @@ Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la m
       <description>https://tryhackme.com/room/cowboyhacker
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.131.60
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
     </item>
     
@@ -155,7 +160,7 @@ Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la m
       <description>https://tryhackme.com/room/overpass
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.170.40
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
     </item>
     
@@ -168,7 +173,7 @@ Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la m
       <description>Link de la máquina
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.139.165
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
     </item>
     
     <item>
@@ -180,7 +185,7 @@ Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la m
       <description>Link de la máquina
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.126.65
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
     </item>
     
     <item>
@@ -192,7 +197,7 @@ Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la m
       <description>https://tryhackme.com/room/wgelctf
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.176.77
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
     </item>
     
@@ -205,7 +210,7 @@ Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la m
       <description>https://tryhackme.com/room/gallery666
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.250.47
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
     </item>
     
@@ -218,7 +223,7 @@ Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la m
       <description>https://tryhackme.com/room/mrrobot
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.193.138
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
     </item>
     
@@ -232,7 +237,7 @@ Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la m
 https://tryhackme.com/room/vulnversity
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.23.174
-Reconocimiento&gt; Reconocimiento # Para la fase de Reconocimiento vamos a usar nmap.</description>
+Reconocimiento Reconocimiento # Para la fase de Reconocimiento vamos a usar nmap.</description>
     </item>
     
     <item>
@@ -244,7 +249,7 @@ Reconocimiento&gt; Reconocimiento # Para la fase de Reconocimiento vamos a usar 
       <description>https://tryhackme.com/room/brooklynninenine
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.243.15
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
     </item>
     
@@ -258,7 +263,7 @@ Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la m
 https://tryhackme.com/room/agentsudoctf
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.92.221
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
     </item>
     
     <item>
@@ -271,7 +276,7 @@ Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la m
 https://tryhackme.com/room/lazyadmin
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.192.128
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
     </item>
     
     <item>
@@ -295,7 +300,7 @@ Para empezar lo primero es comprobar si la máquina está activa y que OS tiene<
 https://tryhackme.com/room/rrootme
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.108.243
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
     </item>
     
     <item>
@@ -315,7 +320,7 @@ Este desafío temático de Rick y Morty requiere explotar un servidor web para e
       <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/posts/polybarspotify/</guid>
-      <description>¿Qué es?&gt; ¿Qué es? # Es un simple módulo para la polybar que muestra que canción se está reproduciendo y se pueden añadir botones para pausar y pasar canciones.
+      <description>¿Qué es? ¿Qué es? # Es un simple módulo para la polybar que muestra que canción se está reproduciendo y se pueden añadir botones para pausar y pasar canciones.
 ¿Como añadirlo a la polybar?</description>
     </item>
     
@@ -335,24 +340,6 @@ Este desafío temático de Rick y Morty requiere explotar un servidor web para e
       
       <guid>https://d3b0o.github.io/htb/horizontall/</guid>
       <description>En este post voy a explicar paso por paso como hacer la máquina horizontall de Hack The Box desde 0, es una máquina nivel Fácil, tiene Linux y ya está retirada</description>
-    </item>
-    
-    <item>
-      <title>Starting Point</title>
-      <link>https://d3b0o.github.io/htb/starting-point/</link>
-      <pubDate>Tue, 14 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://d3b0o.github.io/htb/starting-point/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tier 0</title>
-      <link>https://d3b0o.github.io/htb/starting-point/tier0/</link>
-      <pubDate>Tue, 14 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://d3b0o.github.io/htb/starting-point/tier0/</guid>
-      <description></description>
     </item>
     
   </channel>

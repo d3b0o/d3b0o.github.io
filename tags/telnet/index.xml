@@ -8,16 +8,6 @@
     <language>en</language>
     <lastBuildDate>Wed, 01 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/telnet/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Meow</title>
-      <link>https://d3b0o.github.io/htb/starting-point/tier0/meow/</link>
-      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://d3b0o.github.io/htb/starting-point/tier0/meow/</guid>
-      <description>What does the acronym VM stand for?&gt; What does the acronym VM stand for? # Virtual Machine
-What tool do we use to interact with the operating system in order to issue commands via the command line, such as the one to start our VPN connection?</description>
-    </item>
-    
-    <item>
       <title>Starting Point</title>
       <link>https://d3b0o.github.io/htb/starting-point/</link>
       <pubDate>Tue, 14 Feb 2023 00:00:00 +0000</pubDate>
@@ -33,6 +23,16 @@ What tool do we use to interact with the operating system in order to issue comm
       
       <guid>https://d3b0o.github.io/htb/starting-point/tier0/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Meow</title>
+      <link>https://d3b0o.github.io/htb/starting-point/tier0/meow/</link>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/htb/starting-point/tier0/meow/</guid>
+      <description>What does the acronym VM stand for? What does the acronym VM stand for? # Virtual Machine
+What tool do we use to interact with the operating system in order to issue commands via the command line, such as the one to start our VPN connection?</description>
     </item>
     
   </channel>

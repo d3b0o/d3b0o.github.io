@@ -58,7 +58,7 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/categories/starting-point/</loc>
+            <loc>https://d3b0o.github.io/htb/starting-point/</loc>
             <lastmod>2023-02-14T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -67,7 +67,7 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/htb/starting-point/</loc>
+            <loc>https://d3b0o.github.io/categories/starting-point/</loc>
             <lastmod>2023-02-14T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -175,7 +175,7 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/tags/f%C3%A1cil/</loc>
+            <loc>https://d3b0o.github.io/tags/fuzzing/</loc>
             <lastmod>2023-02-09T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -184,7 +184,7 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/tags/fuzzing/</loc>
+            <loc>https://d3b0o.github.io/tags/f%C3%A1cil/</loc>
             <lastmod>2023-02-09T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -294,33 +294,6 @@
       <url>
             <loc>https://d3b0o.github.io/tags/telnet/</loc>
             <lastmod>2023-02-01T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/tags/cve-2018-19422/</loc>
-            <lastmod>2023-01-26T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/tags/iconv/</loc>
-            <lastmod>2023-01-26T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/thm/tech_supp0rt-1/</loc>
-            <lastmod>2023-01-26T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
@@ -724,15 +697,6 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/posts/rubberducky/</loc>
-            <lastmod>2022-12-05T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
             <loc>https://d3b0o.github.io/tags/hak5/</loc>
             <lastmod>2022-12-05T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
@@ -752,6 +716,15 @@
     
       <url>
             <loc>https://d3b0o.github.io/tags/usb/</loc>
+            <lastmod>2022-12-05T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/posts/rubberducky/</loc>
             <lastmod>2022-12-05T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -901,6 +874,14 @@
   
     
       <url>
+            <loc>https://d3b0o.github.io/authors/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
             <loc>https://d3b0o.github.io/categories/herramientas/</loc>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -934,6 +915,14 @@
     
       <url>
             <loc>https://d3b0o.github.io/tags/starting-point/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/authors/test/</loc>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>

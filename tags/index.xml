@@ -80,20 +80,20 @@
     </item>
     
     <item>
-      <title>Fácil</title>
-      <link>https://d3b0o.github.io/tags/f%C3%A1cil/</link>
-      <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://d3b0o.github.io/tags/f%C3%A1cil/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Fuzzing</title>
       <link>https://d3b0o.github.io/tags/fuzzing/</link>
       <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/tags/fuzzing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fácil</title>
+      <link>https://d3b0o.github.io/tags/f%C3%A1cil/</link>
+      <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/tags/f%C3%A1cil/</guid>
       <description></description>
     </item>
     
@@ -139,24 +139,6 @@
       <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/tags/telnet/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CVE-2018-19422</title>
-      <link>https://d3b0o.github.io/tags/cve-2018-19422/</link>
-      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://d3b0o.github.io/tags/cve-2018-19422/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>iconv</title>
-      <link>https://d3b0o.github.io/tags/iconv/</link>
-      <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://d3b0o.github.io/tags/iconv/</guid>
       <description></description>
     </item>
     
