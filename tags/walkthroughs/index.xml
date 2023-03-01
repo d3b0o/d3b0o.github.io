@@ -17,7 +17,7 @@
 https://tryhackme.com/room/vulnversity
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.23.174
-Reconocimiento Reconocimiento # Para la fase de Reconocimiento vamos a usar nmap.</description>
+Reconocimiento&gt; Reconocimiento # Para la fase de Reconocimiento vamos a usar nmap.</description>
     </item>
     
   </channel>

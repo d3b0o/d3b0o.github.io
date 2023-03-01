@@ -16,7 +16,7 @@
       <description>https://tryhackme.com/room/mustacchio
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.3.160
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ping -c 1 10.</description>
     </item>
     
@@ -29,7 +29,7 @@ ping -c 1 10.</description>
       <description>https://tryhackme.com/room/wonderland
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.3.160
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
     </item>
     
@@ -42,7 +42,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <description>https://tryhackme.com/room/mrrobot
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.193.138
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
     </item>
     

