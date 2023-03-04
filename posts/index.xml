@@ -5,12 +5,21 @@
     <link>https://d3b0o.github.io/posts/</link>
     <description>Recent content in Posts on d3b0o</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 02 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <language>es</language>
+    <lastBuildDate>Sun, 05 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reverse shell con el USB RuberDucky</title>
+      <link>https://d3b0o.github.io/posts/reverseshellconelusbruberducky/</link>
+      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/posts/reverseshellconelusbruberducky/</guid>
+      <description>¿Qué es una reverse shell? ¿Qué es una reverse shell? # Una reverse shell (conexión inversa), es una técnica utilizada en hacking para obtener acceso remoto a un dispositivo comprometido.</description>
+    </item>
+    
     <item>
       <title>Phishing</title>
       <link>https://d3b0o.github.io/posts/phising/</link>
-      <pubDate>Thu, 02 Feb 2023 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 04 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/posts/phising/</guid>
       <description>¿Qué es? ¿Qué es? # Consiste en crear un correo, web o mensaje que se haga pasar por una empresa legítima como un banco, empresa, &amp;hellip; Para que la víctima introduzca datos importantes creyéndose que lo está haciendo en el sitio real</description>
