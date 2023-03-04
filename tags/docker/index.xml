@@ -16,7 +16,7 @@
       <description>https://tryhackme.com/room/chillhack
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.11.182
-Reconocimiento&gt; Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 $ ping -c 1 10.</description>
     </item>
     

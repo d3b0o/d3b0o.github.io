@@ -28,15 +28,12 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.190378c3e0c2bece176090ffdacfc74896432431f64d10f1673ecf3b69aff3487ae0721145f8b5c9dfb86b0110015932ac5bed2af9a76add8bd979539d6ad216.css"
-    integrity="sha512-GQN4w&#43;DCvs4XYJD/2s/HSJZDJDH2TRDxZz7PO2mv80h64HIRRfi1yd&#43;4awEQAVkyrFvtKvmnat2L2XlTnWrSFg==" />
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.ba3c93eed0aeb98782cc7facff4061766b882098397aef2ad5b6fcc9c9c188720d602d8f19bc39a3160688e4f626e8019106275a1f81f9a73021cd49edf8082a.css"
+    integrity="sha512-ujyT7tCuuYeCzH&#43;s/0BhdmuIIJg5eu8q1bb8ycnBiHINYC2PGbw5oxYGiOT2JugBkQYnWh&#43;B&#43;acwIc1J7fgIKg==" />
   
   
-  <script type="text/javascript" src="/js/appearance.min.f94f4c4636d9e3ec8f5ee53cdc8ffa3d01bf87cd92ac85e6797550b1e2b80dc9118d838f3eb24c55109352455e72ff082dfe560283154e5a8f87fd75107b59c4.js"
-    integrity="sha512-&#43;U9MRjbZ4&#43;yPXuU83I/6PQG/h82SrIXmeXVQseK4DckRjYOPPrJMVRCTUkVecv8ILf5WAoMVTlqPh/11EHtZxA=="></script>
-  
-  
-  
+  <script type="text/javascript" src="/js/appearance.min.49025a779c36ad37a5bf9f1cc6bffd35ccb69ce15560ef1b10057ddf31576265b19f8bcc1733207336c9144926f7b18aea2e5895f29e858b24271332a2fa5cd5.js"
+    integrity="sha512-SQJad5w2rTelv58cxr/9Ncy2nOFVYO8bEAV93zFXYmWxn4vMFzMgczbJFEkm97GK6i5YlfKehYskJxMyovpc1Q=="></script>
   
   
   
@@ -46,8 +43,11 @@
   
   
   
-  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.3ddcf04f5b0d4c32f72e726d3c12eebccd8c3c9f9daa9a13414808895de0ae1e1cdddda6849680d5bd96dbb60d0b1e0b24c29f5c83e5631e55e7e6bc02015490.js"
-    integrity="sha512-PdzwT1sNTDL3LnJtPBLuvM2MPJ&#43;dqpoTQUgIiV3grh4c3d2mhJaA1b2W27YNCx4LJMKfXIPlYx5V5&#43;a8AgFUkA==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.34ee8372ff77835535e486c6ed01ff6993374a1cec8108898cad793fc6ae7520778e24db68e085c762d25af6fa7d00b57d7a791438dc68b676581f8c8344f6e0.js"
+    integrity="sha512-NO6Dcv93g1U15IbG7QH/aZM3ShzsgQiJjK15P8audSB3jiTbaOCFx2LSWvb6fQC1fXp5FDjcaLZ2WB&#43;Mg0T24A==" data-copy="" data-copied=""></script>
   
   <script src="/js/zoom.min.js"></script>
   
@@ -69,6 +69,7 @@
 <meta property="og:url" content="https://d3b0o.github.io/posts/comopersonalizartuentornolinux/" /><meta property="og:image" content="https://d3b0o.github.io/posts/comopersonalizartuentornolinux/cover.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-11-25T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-11-25T00:00:00+00:00" /><meta property="og:site_name" content="d3b0o" />
+
 
   <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://d3b0o.github.io/posts/comopersonalizartuentornolinux/cover.png"/>
@@ -1068,8 +1069,8 @@ if (!doNotTrack) {
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#c%c3%b3mo-se-instala" aria-label="Anchor">#</a></span>        
     
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install bspwm
-</span></span></code></pre></div><div id="configuración" class="anchor">Configuración></div>
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install bspwm
+</code></pre></div><div id="configuración" class="anchor">Configuración></div>
 <h3 class="relative group">Configuración 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
@@ -1078,25 +1079,25 @@ if (!doNotTrack) {
     
 </h3><p>El archivo de configuración de bspwm se tiene que mover a <strong>~/.config/bspwm/bspwmrc</strong></p>
 <p><em>bspwmrc default:</em></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#! /bin/sh
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl">pgrep -x sxhkd &gt; /dev/null <span class="o">||</span> sxhkd <span class="p">&amp;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">bspc monitor -d I II III IV V VI VII VIII IX X
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">bspc config border_width         <span class="m">2</span>
-</span></span><span class="line"><span class="cl">bspc config window_gap          <span class="m">12</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">bspc config split_ratio          0.52
-</span></span><span class="line"><span class="cl">bspc config borderless_monocle   <span class="nb">true</span>
-</span></span><span class="line"><span class="cl">bspc config gapless_monocle      <span class="nb">true</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">bspc rule -a Gimp <span class="nv">desktop</span><span class="o">=</span><span class="s1">&#39;^8&#39;</span> <span class="nv">state</span><span class="o">=</span>floating <span class="nv">follow</span><span class="o">=</span>on
-</span></span><span class="line"><span class="cl">bspc rule -a Chromium <span class="nv">desktop</span><span class="o">=</span><span class="s1">&#39;^2&#39;</span>
-</span></span><span class="line"><span class="cl">bspc rule -a mplayer2 <span class="nv">state</span><span class="o">=</span>floating
-</span></span><span class="line"><span class="cl">bspc rule -a Kupfer.py <span class="nv">focus</span><span class="o">=</span>on
-</span></span><span class="line"><span class="cl">bspc rule -a Screenkey <span class="nv">manage</span><span class="o">=</span>off
-</span></span></code></pre></div><p>Ahí puedes personalizar la cantidad de espacios de trabajo que quieras, puedes poner programas que se ejecuten al abrir bspwm, configurar bordes, etc&hellip;</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#! /bin/sh
+</span><span class="cp"></span>
+pgrep -x sxhkd &gt; /dev/null <span class="o">||</span> sxhkd <span class="p">&amp;</span>
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+bspc config border_width         <span class="m">2</span>
+bspc config window_gap          <span class="m">12</span>
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   <span class="nb">true</span>
+bspc config gapless_monocle      <span class="nb">true</span>
+
+bspc rule -a Gimp <span class="nv">desktop</span><span class="o">=</span><span class="s1">&#39;^8&#39;</span> <span class="nv">state</span><span class="o">=</span>floating <span class="nv">follow</span><span class="o">=</span>on
+bspc rule -a Chromium <span class="nv">desktop</span><span class="o">=</span><span class="s1">&#39;^2&#39;</span>
+bspc rule -a mplayer2 <span class="nv">state</span><span class="o">=</span>floating
+bspc rule -a Kupfer.py <span class="nv">focus</span><span class="o">=</span>on
+bspc rule -a Screenkey <span class="nv">manage</span><span class="o">=</span>off
+</code></pre></div><p>Ahí puedes personalizar la cantidad de espacios de trabajo que quieras, puedes poner programas que se ejecuten al abrir bspwm, configurar bordes, etc&hellip;</p>
 <hr>
 <div id="polybar" class="anchor">Polybar></div>
 <h2 class="relative group">Polybar 
@@ -1120,8 +1121,8 @@ if (!doNotTrack) {
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#c%c3%b3mo-se-instala-1" aria-label="Anchor">#</a></span>        
     
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install polybar
-</span></span></code></pre></div><div id="configuración-1" class="anchor">Configuración></div>
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install polybar
+</code></pre></div><div id="configuración-1" class="anchor">Configuración></div>
 <h3 class="relative group">Configuración 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
@@ -1177,7 +1178,7 @@ if (!doNotTrack) {
 
       </span>
       <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        4858
+        4863
       </div>
 
       <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
@@ -1190,7 +1191,7 @@ if (!doNotTrack) {
 
       </span>
       <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        383
+        384
       </div>
 
     </div>
@@ -1206,19 +1207,19 @@ if (!doNotTrack) {
             style="text-decoration-line: none !important;" href="#c%c3%b3mo-instalar-los-temas" aria-label="Anchor">#</a></span>        
     
 </h5><p><em>adi1090x</em></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#Clonar el Repositorio</span>
-</span></span><span class="line"><span class="cl">git clone https://github.com/adi1090x/polybar-themes
-</span></span><span class="line"><span class="cl"><span class="c1">#Y entrar en la carpeta, dar permisos de ejecución al setup.sh y ejecutarlo.</span>
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> polybar-themes
-</span></span><span class="line"><span class="cl">chmod +x setup.sh
-</span></span><span class="line"><span class="cl">./setup.sh
-</span></span></code></pre></div><p><em>Mi tema</em></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#Clonar el repositorio</span>
-</span></span><span class="line"><span class="cl">git clone https://github.com/d3b0o/dotfiles
-</span></span><span class="line"><span class="cl"><span class="c1">#Crear la carpeta de configuraciones de la polybar y mover la configuración ahí.</span>
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> dotfiles
-</span></span><span class="line"><span class="cl">mv polybar ~/.config/polybar
-</span></span></code></pre></div><p>Ahora en el ~/.config/polybar/ tenéis todos los temas instalados.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#Clonar el Repositorio</span>
+git clone https://github.com/adi1090x/polybar-themes
+<span class="c1">#Y entrar en la carpeta, dar permisos de ejecución al setup.sh y ejecutarlo.</span>
+<span class="nb">cd</span> polybar-themes
+chmod +x setup.sh
+./setup.sh
+</code></pre></div><p><em>Mi tema</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#Clonar el repositorio</span>
+git clone https://github.com/d3b0o/dotfiles
+<span class="c1">#Crear la carpeta de configuraciones de la polybar y mover la configuración ahí.</span>
+<span class="nb">cd</span> dotfiles
+mv polybar ~/.config/polybar
+</code></pre></div><p>Ahora en el ~/.config/polybar/ tenéis todos los temas instalados.</p>
 <div id="qué-hace-cada-archivo" class="anchor">¿Qué hace cada archivo?></div>
 <h4 class="relative group">¿Qué hace cada archivo? 
     <span
@@ -1320,11 +1321,11 @@ if (!doNotTrack) {
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#plantilla-para-m%c3%b3dulo-script" aria-label="Anchor">#</a></span>        
     
-</h6><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>module/<span class="o">]</span>
-</span></span><span class="line"><span class="cl"><span class="nb">type</span> <span class="o">=</span> custom/script
-</span></span><span class="line"><span class="cl"><span class="nv">interval</span> <span class="o">=</span> 
-</span></span><span class="line"><span class="cl"><span class="nb">exec</span> <span class="o">=</span> 
-</span></span></code></pre></div><p>En exec se tiene que poner el script que quieres que el output salga en la polybar</p>
+</h6><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>module/<span class="o">]</span>
+<span class="nb">type</span> <span class="o">=</span> custom/script
+<span class="nv">interval</span> <span class="o">=</span> 
+<span class="nb">exec</span> <span class="o">=</span> 
+</code></pre></div><p>En exec se tiene que poner el script que quieres que el output salga en la polybar</p>
 <div id="plantilla-para-módulo-texto" class="anchor">Plantilla para módulo texto></div>
 <h6 class="relative group">Plantilla para módulo texto 
     <span
@@ -1332,10 +1333,10 @@ if (!doNotTrack) {
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#plantilla-para-m%c3%b3dulo-texto" aria-label="Anchor">#</a></span>        
     
-</h6><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>module/<span class="o">]</span>
-</span></span><span class="line"><span class="cl"><span class="nb">type</span> <span class="o">=</span> custom/text
-</span></span><span class="line"><span class="cl"><span class="nv">content</span> <span class="o">=</span> 
-</span></span></code></pre></div><p>En content va el texto que quieres que salga en la polybar</p>
+</h6><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>module/<span class="o">]</span>
+<span class="nb">type</span> <span class="o">=</span> custom/text
+<span class="nv">content</span> <span class="o">=</span> 
+</code></pre></div><p>En content va el texto que quieres que salga en la polybar</p>
 <p>En los módulos puedes añadir que al clicar ejecute algo&hellip;</p>
 <table>
 <thead>
@@ -1389,10 +1390,10 @@ if (!doNotTrack) {
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#c%c3%b3mo-se-instala-2" aria-label="Anchor">#</a></span>        
     
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/baskerville/sxhkd.git
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> sxhkd
-</span></span><span class="line"><span class="cl">make
-</span></span></code></pre></div><div id="configuración-2" class="anchor">Configuración></div>
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/baskerville/sxhkd.git
+<span class="nb">cd</span> sxhkd
+make
+</code></pre></div><div id="configuración-2" class="anchor">Configuración></div>
 <h3 class="relative group">Configuración 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
@@ -1410,13 +1411,13 @@ if (!doNotTrack) {
             style="text-decoration-line: none !important;" href="#c%c3%b3mo-a%c3%b1adir-comandos-personalizados" aria-label="Anchor">#</a></span>        
     
 </h4><p>Abajo del archivo de configuración (~/.config/sxhkd/sxhkdrc)</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#combinación de teclas</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">#que ejecutara</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#Ejemplo</span>
-</span></span><span class="line"><span class="cl">super + <span class="nb">shift</span> + g
-</span></span><span class="line"><span class="cl">    google-chrome
-</span></span></code></pre></div><div id="picom" class="anchor">Picom></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#combinación de teclas</span>
+    <span class="c1">#que ejecutara</span>
+
+<span class="c1">#Ejemplo</span>
+super + <span class="nb">shift</span> + g
+    google-chrome
+</code></pre></div><div id="picom" class="anchor">Picom></div>
 <h2 class="relative group">Picom 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
@@ -1438,15 +1439,15 @@ if (!doNotTrack) {
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#c%c3%b3mo-se-instala-3" aria-label="Anchor">#</a></span>        
     
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#dependencias</span>
-</span></span><span class="line"><span class="cl">sudo apt install libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev meson
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/ibhagwan/picom.git
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> picom
-</span></span><span class="line"><span class="cl">git submodule update --init --recursive
-</span></span><span class="line"><span class="cl">meson --buildtype<span class="o">=</span>release . build
-</span></span><span class="line"><span class="cl">ninja -C build
-</span></span><span class="line"><span class="cl">sudo ninja -C build install
-</span></span></code></pre></div><div id="configuración-3" class="anchor">Configuración></div>
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#dependencias</span>
+sudo apt install libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev meson
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/ibhagwan/picom.git
+<span class="nb">cd</span> picom
+git submodule update --init --recursive
+meson --buildtype<span class="o">=</span>release . build
+ninja -C build
+sudo ninja -C build install
+</code></pre></div><div id="configuración-3" class="anchor">Configuración></div>
 <h3 class="relative group">Configuración 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
@@ -1480,8 +1481,8 @@ if (!doNotTrack) {
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#c%c3%b3mo-se-instala-4" aria-label="Anchor">#</a></span>        
     
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install rofi
-</span></span></code></pre></div><div id="configuración-4" class="anchor">Configuración></div>
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install rofi
+</code></pre></div><div id="configuración-4" class="anchor">Configuración></div>
 <h3 class="relative group">Configuración 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
@@ -1536,7 +1537,7 @@ if (!doNotTrack) {
 
       </span>
       <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        4865
+        4874
       </div>
 
       <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
@@ -1558,11 +1559,11 @@ if (!doNotTrack) {
 </a>
 <p>Si usáis u os gustan los temas no olvidéis darle una estrella en github</p>
 <p>Para instalar el tema es simplemente:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone 2--depth<span class="o">=</span><span class="m">1</span> https://github.com/adi1090x/rofi.git
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> rofi
-</span></span><span class="line"><span class="cl">chmod +x setup.sh
-</span></span><span class="line"><span class="cl">./setup.sh
-</span></span></code></pre></div><div id="configuración-temas" class="anchor">Configuración temas></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git clone 2--depth<span class="o">=</span><span class="m">1</span> https://github.com/adi1090x/rofi.git
+<span class="nb">cd</span> rofi
+chmod +x setup.sh
+./setup.sh
+</code></pre></div><div id="configuración-temas" class="anchor">Configuración temas></div>
 <h4 class="relative group">Configuración temas 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
@@ -1583,7 +1584,7 @@ if (!doNotTrack) {
       </script>
       
       
-      <script type="text/javascript" src="/js/page.min.0e49973b4ad0a382c7c6012d8bff8226316642daabc4f8a20477bd08674f3da6e2fa993bc20ad4f51e7c5bb68e6f913a207a7c4fe37ea0e7b806894afce0a64e.js" integrity="sha512-DkmXO0rQo4LHxgEti/&#43;CJjFmQtqrxPiiBHe9CGdPPabi&#43;pk7wgrU9R58W7aOb5E6IHp8T&#43;N&#43;oOe4BolK/OCmTg=="></script>
+      <script type="text/javascript" src="/js/page.min.e81cc025d61acff630909044f33df3ded3f4b7c917bf3db3ab7bef2ed26c7baf9be84ffedc2c4ee9dff8bbc1f3ad63ccb7d489d7f43e56a00a2b14bdeaaee7e1.js" integrity="sha512-6BzAJdYaz/YwkJBE8z3z3tP0t8kXvz2zq3vvLtJse6&#43;b6E/&#43;3CxO6d/4u8HzrWPMt9SJ1/Q&#43;VqAKKxS96q7n4Q=="></script>
   </section>
   <footer class="pt-8 max-w-prose print:hidden">
 
@@ -1829,7 +1830,7 @@ if (!doNotTrack) {
   </script>
   
   
-  <script type="text/javascript" src="/js/process.min.2166d3adac1679c00a75161830ab5725d3efc0e3d3f8c2453fb01d0907948436c25f0f8a7ad824322fa22f3f9c85fd4d0a1d5c856f53b862157da25a57dc3d52.js" integrity="sha512-IWbTrawWecAKdRYYMKtXJdPvwOPT&#43;MJFP7AdCQeUhDbCXw&#43;KetgkMi&#43;iLz&#43;chf1NCh1chW9TuGIVfaJaV9w9Ug=="></script>
+  <script type="text/javascript" src="/js/process.min.e7c3599dbb1cedb20b622602837cde52ffd76433ccf3544defb2f071860d81580f68eb150111f9b7fabdeda3aacb803d34d2d8a0a0a9f10410e9d20b98b1f4a1.js" integrity="sha512-58NZnbsc7bILYiYCg3zeUv/XZDPM81RN77LwcYYNgVgPaOsVARH5t/q97aOqy4A9NNLYoKCp8QQQ6dILmLH0oQ=="></script>
   
   
 </footer><div

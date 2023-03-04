@@ -148,7 +148,7 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/categories/starting-point/</loc>
+            <loc>https://d3b0o.github.io/htb/starting-point/</loc>
             <lastmod>2023-02-14T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -157,7 +157,7 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/htb/starting-point/</loc>
+            <loc>https://d3b0o.github.io/categories/starting-point/</loc>
             <lastmod>2023-02-14T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -276,6 +276,33 @@
       <url>
             <loc>https://d3b0o.github.io/tags/redis/</loc>
             <lastmod>2023-02-07T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/tags/ingenieria-social/</loc>
+            <lastmod>2023-02-02T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/posts/phising/</loc>
+            <lastmod>2023-02-02T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/posts/</loc>
+            <lastmod>2023-02-02T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
@@ -742,15 +769,6 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/posts/rubberducky/</loc>
-            <lastmod>2022-12-05T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
             <loc>https://d3b0o.github.io/tags/hak5/</loc>
             <lastmod>2022-12-05T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
@@ -760,7 +778,7 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/posts/</loc>
+            <loc>https://d3b0o.github.io/tags/usb/</loc>
             <lastmod>2022-12-05T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -769,7 +787,7 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/tags/usb/</loc>
+            <loc>https://d3b0o.github.io/posts/rubberducky/</loc>
             <lastmod>2022-12-05T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
