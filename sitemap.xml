@@ -301,7 +301,7 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/posts/reverseshellconelusbruberducky/</loc>
+            <loc>https://d3b0o.github.io/posts/reverseshellconelusbrubberducky/</loc>
             <lastmod>2023-02-05T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -310,7 +310,7 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/series/ruber-ducky/</loc>
+            <loc>https://d3b0o.github.io/series/rubber-ducky/</loc>
             <lastmod>2023-02-05T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -798,6 +798,15 @@
       <url>
             <loc>https://d3b0o.github.io/optimum/</loc>
             <lastmod>2022-12-09T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/series/ruber-ducky/</loc>
+            <lastmod>2022-12-05T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
