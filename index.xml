@@ -103,7 +103,7 @@ $ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.</description>
       <pubDate>Sat, 04 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/posts/phising/</guid>
-      <description>¿Qué es? ¿Qué es? # Consiste en crear un correo, web o mensaje que se haga pasar por una empresa legítima como un banco, empresa, &amp;hellip; Para que la víctima introduzca datos importantes creyéndose que lo está haciendo en el sitio real</description>
+      <description>¿Qué es? ¿Qué es? # Consiste en crear un correo, web o mensaje que se haga pasar por una empresa legítima, para que la víctima introduzca datos importantes creyéndose que lo está haciendo en el sitio real</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/posts/phising/cover.jpg" />
     </item>
     
@@ -468,7 +468,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/whoami_cat/</guid>
-      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678043846863315986&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
+      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678045649382583018&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
       
     </item>
     
@@ -478,7 +478,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/whoami_en/</guid>
-      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678043846863321509&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
+      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678045649382552508&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
       
     </item>
     
@@ -488,7 +488,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/whoami_es/</guid>
-      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678043846863383754&#34;, { strings: [&#34;&#34;,&#34;$ /usr/bin/whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 100 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: false }).</description>
+      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678045649382742488&#34;, { strings: [&#34;&#34;,&#34;$ /usr/bin/whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 100 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: false }).</description>
       
     </item>
     
