@@ -16,5 +16,14 @@
       <description>¿Qué es una reverse shell? ¿Qué es una reverse shell? # Una reverse shell (conexión inversa), es una técnica utilizada en hacking para obtener acceso remoto a un dispositivo comprometido.</description>
     </item>
     
+    <item>
+      <title>¡Cuidado con este USB!</title>
+      <link>https://d3b0o.github.io/posts/rubberducky/</link>
+      <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/posts/rubberducky/</guid>
+      <description>¿Qué es un USB Rubber Ducky? ¿Qué es un USB Rubber Ducky? # Rubber ducky es un pendrive con unas características especiales, a diferencia de un pendrive normal en el que puedes guardar archivos, fotos, etc.</description>
+    </item>
+    
   </channel>
 </rss>
