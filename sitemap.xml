@@ -283,6 +283,15 @@
   
     
       <url>
+            <loc>https://d3b0o.github.io/posts/saycheese/</loc>
+            <lastmod>2023-02-05T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
             <loc>https://d3b0o.github.io/tags/hak5/</loc>
             <lastmod>2023-02-05T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
@@ -293,6 +302,15 @@
     
       <url>
             <loc>https://d3b0o.github.io/posts/</loc>
+            <lastmod>2023-02-05T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/tags/reverse-shell/</loc>
             <lastmod>2023-02-05T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -320,6 +338,15 @@
     
       <url>
             <loc>https://d3b0o.github.io/series/</loc>
+            <lastmod>2023-02-05T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/tags/usb/</loc>
             <lastmod>2023-02-05T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -798,15 +825,6 @@
       <url>
             <loc>https://d3b0o.github.io/optimum/</loc>
             <lastmod>2022-12-09T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/tags/usb/</loc>
-            <lastmod>2022-12-05T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>

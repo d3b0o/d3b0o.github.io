@@ -8,6 +8,15 @@
     <language>es</language>
     <lastBuildDate>Sun, 05 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Como pueden espiarte con solo pinchar un enlace (saycheese)</title>
+      <link>https://d3b0o.github.io/posts/saycheese/</link>
+      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/posts/saycheese/</guid>
+      <description>¿Qué es la herramienta saycheese? ¿Qué es la herramienta saycheese? # La herramienta saycheese lo que hace es crear una web simple, la cual saca fotos desde la webcam de la víctima que la abre</description>
+    </item>
+    
+    <item>
       <title>Reverse shell con el USB RubberDucky</title>
       <link>https://d3b0o.github.io/posts/reverseshellconelusbrubberducky/</link>
       <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>

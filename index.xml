@@ -78,6 +78,16 @@ $ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.</description>
     </item>
     
     <item>
+      <title>Como pueden espiarte con solo pinchar un enlace (saycheese)</title>
+      <link>https://d3b0o.github.io/posts/saycheese/</link>
+      <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/posts/saycheese/</guid>
+      <description>¿Qué es la herramienta saycheese? ¿Qué es la herramienta saycheese? # La herramienta saycheese lo que hace es crear una web simple, la cual saca fotos desde la webcam de la víctima que la abre</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/posts/saycheese/cover.jpg" />
+    </item>
+    
+    <item>
       <title>Reverse shell con el USB RubberDucky</title>
       <link>https://d3b0o.github.io/posts/reverseshellconelusbrubberducky/</link>
       <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
@@ -458,7 +468,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/whoami_cat/</guid>
-      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678020164562343862&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
+      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678043846863315986&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
       
     </item>
     
@@ -468,7 +478,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/whoami_en/</guid>
-      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678020164562345305&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
+      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678043846863321509&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
       
     </item>
     
@@ -478,7 +488,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/whoami_es/</guid>
-      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678020164561996554&#34;, { strings: [&#34;&#34;,&#34;$ /usr/bin/whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 100 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: false }).</description>
+      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678043846863383754&#34;, { strings: [&#34;&#34;,&#34;$ /usr/bin/whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 100 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: false }).</description>
       
     </item>
     
