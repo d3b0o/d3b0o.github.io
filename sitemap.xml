@@ -5,7 +5,16 @@
     
       <url>
             <loc>https://d3b0o.github.io/</loc>
-            <lastmod>2023-03-01T00:00:00+00:00</lastmod>
+            <lastmod>2023-03-06T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/tags/awk/</loc>
+            <lastmod>2023-03-06T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
@@ -14,7 +23,7 @@
     
       <url>
             <loc>https://d3b0o.github.io/categories/</loc>
-            <lastmod>2023-03-01T00:00:00+00:00</lastmod>
+            <lastmod>2023-03-06T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
@@ -23,7 +32,7 @@
     
       <url>
             <loc>https://d3b0o.github.io/tags/ctf/</loc>
-            <lastmod>2023-03-01T00:00:00+00:00</lastmod>
+            <lastmod>2023-03-06T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
@@ -31,8 +40,8 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/tags/docker/</loc>
-            <lastmod>2023-03-01T00:00:00+00:00</lastmod>
+            <loc>https://d3b0o.github.io/tags/directory-traversal/</loc>
+            <lastmod>2023-03-06T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
@@ -41,7 +50,25 @@
     
       <url>
             <loc>https://d3b0o.github.io/tags/f%C3%A1cil/</loc>
-            <lastmod>2023-03-01T00:00:00+00:00</lastmod>
+            <lastmod>2023-03-06T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/categories/hackmyvm/</loc>
+            <lastmod>2023-03-06T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/hackmyvm/</loc>
+            <lastmod>2023-03-06T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
@@ -50,6 +77,42 @@
     
       <url>
             <loc>https://d3b0o.github.io/tags/linux/</loc>
+            <lastmod>2023-03-06T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/tags/python/</loc>
+            <lastmod>2023-03-06T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/hackmyvm/jabita/</loc>
+            <lastmod>2023-03-06T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/tags/</loc>
+            <lastmod>2023-03-06T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/tags/docker/</loc>
             <lastmod>2023-03-01T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -77,15 +140,6 @@
     
       <url>
             <loc>https://d3b0o.github.io/tags/steganography/</loc>
-            <lastmod>2023-03-01T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/tags/</loc>
             <lastmod>2023-03-01T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -230,15 +284,6 @@
     
       <url>
             <loc>https://d3b0o.github.io/tags/cronjob/</loc>
-            <lastmod>2023-02-09T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/tags/directory-traversal/</loc>
             <lastmod>2023-02-09T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -555,15 +600,6 @@
       <url>
             <loc>https://d3b0o.github.io/thm/overpass/</loc>
             <lastmod>2023-01-07T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/tags/python/</loc>
-            <lastmod>2022-12-31T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
