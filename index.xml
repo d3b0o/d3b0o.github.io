@@ -18,7 +18,7 @@ IP Atacante = 192.168.1.138
 IP víctima = 192.168.1.141
 Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
 ❯ ping -c 1 192.</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://d3b0o.github.io/hackmyvm/jabita/cover.png" />
     </item>
     
     <item>
@@ -482,7 +482,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/whoami_cat/</guid>
-      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678129885579517845&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
+      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678184905826924578&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
       
     </item>
     
@@ -492,7 +492,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/whoami_en/</guid>
-      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678129885588238391&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
+      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678184905827027325&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
       
     </item>
     
@@ -502,7 +502,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/whoami_es/</guid>
-      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678129885575434320&#34;, { strings: [&#34;&#34;,&#34;$ /usr/bin/whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 100 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: false }).</description>
+      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678184905827151647&#34;, { strings: [&#34;&#34;,&#34;$ /usr/bin/whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 100 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: false }).</description>
       
     </item>
     
