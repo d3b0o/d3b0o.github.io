@@ -482,7 +482,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/whoami_cat/</guid>
-      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678208451468575815&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
+      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678301907394143146&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
       
     </item>
     
@@ -492,7 +492,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/whoami_en/</guid>
-      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678208451468893526&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
+      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678301907393963642&#34;, { strings: [&#34;&#34;,&#34;$ whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 150 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: true }).</description>
       
     </item>
     
@@ -502,7 +502,7 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://d3b0o.github.io/whoami_es/</guid>
-      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678208451468584323&#34;, { strings: [&#34;&#34;,&#34;$ /usr/bin/whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 100 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: false }).</description>
+      <description>document.addEventListener(&#34;DOMContentLoaded&#34;, function () { new TypeIt(&#34;#typeit-1678301907393842979&#34;, { strings: [&#34;&#34;,&#34;$ /usr/bin/whoami&#34;,&#34;&#34;,&#34;\u003e d3b0o &#34;,&#34;&#34;], speed: 100 , lifeLike: false , startDelay: 0 , breakLines: false , waitUntilVisible: true , loop: false }).</description>
       
     </item>
     
