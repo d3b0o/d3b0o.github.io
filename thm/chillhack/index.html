@@ -202,7 +202,7 @@ if (!doNotTrack) {
   <div id="the-top" class="absolute flex self-center">
     <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
       href="#main-content"><span
-        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Ir al contenido</a>
   </div>
   
   
@@ -700,7 +700,7 @@ if (!doNotTrack) {
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2023-03-01 00:00:00 &#43;0000 UTC">01/03/2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">9 mins</span>
+  <time datetime="2023-03-01 00:00:00 &#43;0000 UTC">01/03/2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Tiempo de lectura">9 mins</span>
   
 
   
@@ -844,7 +844,7 @@ if (!doNotTrack) {
         <details open class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
   <summary
     class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
+    Tabla de contenido
   </summary>
   <div
     class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
@@ -882,7 +882,7 @@ if (!doNotTrack) {
 <details class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
   <summary
     class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
+    Tabla de contenido
   </summary>
   <div
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
@@ -934,7 +934,7 @@ if (!doNotTrack) {
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#reconocimiento" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#reconocimiento" aria-label="Ancla">#</a></span>        
     
 </h2><p>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ ping -c <span class="m">1</span> 10.10.11.182
@@ -950,7 +950,7 @@ rtt min/avg/max/mdev <span class="o">=</span> 558.208/558.208/558.208/0.000 ms
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#escaneo-de-puertos-nmap" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#escaneo-de-puertos-nmap" aria-label="Ancla">#</a></span>        
     
 </h3><p>Ahora empezamos con un escaneo de puertos</p>
 <pre tabindex="0"><code>$ sudo nmap -p- --open -sS --min-rate 5000 -n -Pn -vvv 10.10.11.182 -oG allPorts
@@ -1069,7 +1069,7 @@ Service Info: OSs: Unix, Linux<span class="p">;</span> CPE: cpe:/o:linux:linux_k
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#ftp" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#ftp" aria-label="Ancla">#</a></span>        
     
 </h2><p>Lo primero que nos reporta nmap es que el usuario anonymous está permitido y hay un archivo llamado <code>note.txt</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ ftp 10.10.11.182                     <span class="c1"># Nos conectamos por ftp</span>
@@ -1107,14 +1107,14 @@ local: note.txt remote: note.txt
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#http" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#http" aria-label="Ancla">#</a></span>        
     
 </h2><div id="subdirectorios" class="anchor">Subdirectorios></div>
 <h3 class="relative group">Subdirectorios 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#subdirectorios" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#subdirectorios" aria-label="Ancla">#</a></span>        
     
 </h3><p>Para encontrar subdirectorios vamos a usar la herramienta <strong>gobuster</strong> con el siguiente comando</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.11.182/
@@ -1244,7 +1244,7 @@ local: note.txt remote: note.txt
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#intrusi%c3%b3n" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#intrusi%c3%b3n" aria-label="Ancla">#</a></span>        
     
 </h3><p>Al poner un comando válido, como por ejemplo pwd, &ldquo;;&rdquo; y un comando bloqueado, nos ejecuta los 2.</p>
 <p>De tal forma que quedaría así: <strong>pwd;ls</strong></p>
@@ -1339,7 +1339,7 @@ ip a
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#tratamiento-de-la-tty" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#tratamiento-de-la-tty" aria-label="Ancla">#</a></span>        
     
 </h2><p>Antes de nada para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">script /dev/null -c bash
@@ -1354,14 +1354,14 @@ ip a
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#escalada-de-privilegios" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#escalada-de-privilegios" aria-label="Ancla">#</a></span>        
     
 </h2><div id="apaar" class="anchor">Apaar></div>
 <h3 class="relative group">Apaar 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#apaar" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#apaar" aria-label="Ancla">#</a></span>        
     
 </h3><p>Con un <strong>sudo -l</strong> vemos que podemos ejecutar el archivo <code>.helpline.sh</code> que está en el <code>/home/apaar/</code> como apaar</p>
 <pre tabindex="0"><code>www-data@ubuntu:/var/www/html/secret$ sudo -l
@@ -1402,14 +1402,14 @@ apaar
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#anurodh" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#anurodh" aria-label="Ancla">#</a></span>        
     
 </h3><div id="mysql-rabbit-hole" class="anchor">mysql (rabbit hole)></div>
 <h4 class="relative group">mysql (rabbit hole) 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#mysql-rabbit-hole" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#mysql-rabbit-hole" aria-label="Ancla">#</a></span>        
     
 </h4><p>Para la escalada vamos a usar la herramienta <a href="https://linpeas.sh/"   target="_blank">
     https://linpeas.sh/</a> que es un script que automatiza el proceso de la escalada de privilegios</p>
@@ -1483,7 +1483,7 @@ john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt hash2
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#steganography" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#steganography" aria-label="Ancla">#</a></span>        
     
 </h4><p>Dentro del directorio <code>/var/www/files</code> hay un archivo llamado <code>hacker.php</code> el cual llama la atención</p>
 <p>Dentro del hacker.php:</p>
@@ -1514,7 +1514,7 @@ john --show <span class="nb">hash</span>
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#root" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#root" aria-label="Ancla">#</a></span>        
     
 </h3><p>Al hacer un id vemos que pertenecemos al grupo de docker</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">anurodh@ubuntu:/var/www/files/images$ id 
@@ -1557,8 +1557,8 @@ john --show <span class="nb">hash</span>
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://d3b0o.github.io/thm/chillhack/&amp;title=Resoluci%c3%b3n%20Chill%20Hack"
-      title="Share on LinkedIn"
-      aria-label="Share on LinkedIn"
+      title="Compartir en LinkedIn"
+      aria-label="Compartir en LinkedIn"
       >
       
 
@@ -1576,8 +1576,8 @@ john --show <span class="nb">hash</span>
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://twitter.com/intent/tweet/?url=https://d3b0o.github.io/thm/chillhack/&amp;text=Resoluci%c3%b3n%20Chill%20Hack"
-      title="Tweet on Twitter"
-      aria-label="Tweet on Twitter"
+      title="Tuitear en Twitter"
+      aria-label="Tuitear en Twitter"
       >
       
 
@@ -1595,8 +1595,8 @@ john --show <span class="nb">hash</span>
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://reddit.com/submit/?url=https://d3b0o.github.io/thm/chillhack/&amp;resubmit=true&amp;title=Resoluci%c3%b3n%20Chill%20Hack"
-      title="Submit to Reddit"
-      aria-label="Submit to Reddit"
+      title="Publicar en Reddit"
+      aria-label="Publicar en Reddit"
       >
       
 
@@ -1616,8 +1616,8 @@ john --show <span class="nb">hash</span>
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://www.facebook.com/sharer/sharer.php?u=https://d3b0o.github.io/thm/chillhack/&amp;quote=Resoluci%c3%b3n%20Chill%20Hack"
-      title="Share on Facebook"
-      aria-label="Share on Facebook"
+      title="Compartir en Facebook"
+      aria-label="Compartir en Facebook"
       >
       
 
@@ -1672,7 +1672,7 @@ john --show <span class="nb">hash</span>
     <p class="text-xs text-neutral-500 dark:text-neutral-400">
       
       
-      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+      Desarrollada con <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
         href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
         href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
     </p>
@@ -1719,14 +1719,14 @@ john --show <span class="nb">hash</span>
           type="search"
           id="search-query"
           class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
-          placeholder="Search"
+          placeholder="Buscar"
           tabindex="0"
         />
       </form>
       <button
         id="close-search-button"
         class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-        title="Close (Esc)"
+        title="Cerrar (Esc)"
       >
         
 

@@ -202,7 +202,7 @@ if (!doNotTrack) {
   <div id="the-top" class="absolute flex self-center">
     <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
       href="#main-content"><span
-        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Ir al contenido</a>
   </div>
   
   
@@ -700,7 +700,7 @@ if (!doNotTrack) {
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2022-12-15 00:00:00 &#43;0000 UTC">15/12/2022</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
+  <time datetime="2022-12-15 00:00:00 &#43;0000 UTC">15/12/2022</time><span class="px-2 text-primary-500">&middot;</span><span title="Tiempo de lectura">6 mins</span>
   
 
   
@@ -833,7 +833,7 @@ if (!doNotTrack) {
         <details open class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
   <summary
     class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
+    Tabla de contenido
   </summary>
   <div
     class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
@@ -864,7 +864,7 @@ if (!doNotTrack) {
 <details class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
   <summary
     class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
+    Tabla de contenido
   </summary>
   <div
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
@@ -910,7 +910,7 @@ if (!doNotTrack) {
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#reconocimiento" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#reconocimiento" aria-label="Ancla">#</a></span>        
     
 </h2><p>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</p>
 <pre tabindex="0"><code>❯ ping -c 1 10.10.92.221
@@ -926,7 +926,7 @@ rtt min/avg/max/mdev = 127.854/127.854/127.854/0.000 ms
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#escaneo-de-puertos-nmap" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#escaneo-de-puertos-nmap" aria-label="Ancla">#</a></span>        
     
 </h3><p>Ahora empezamos con un escaneo de puertos</p>
 <pre tabindex="0"><code>❯ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.10.92.221 -oG allPort
@@ -1026,7 +1026,7 @@ Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#puerto-80" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#puerto-80" aria-label="Ancla">#</a></span>        
     
 </h3><p>Hay una web con el siguiente texto en la página principal:</p>
 <hr>
@@ -1110,14 +1110,14 @@ Agent R</p>
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#infiltraci%c3%b3n" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#infiltraci%c3%b3n" aria-label="Ancla">#</a></span>        
     
 </h2><div id="puerto-21" class="anchor">Puerto 21></div>
 <h3 class="relative group">Puerto 21 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#puerto-21" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#puerto-21" aria-label="Ancla">#</a></span>        
     
 </h3><p>El hydra encuentra la contraseña y ya podemos conectarnos por ftp como chris, dentro hay 3 archivos: To_agentJ.txt, cute-alien.jpg y cutie.png. Con <code>get archivo</code> nos los podemos pasar a nuestra máquina.</p>
 <p>Contenido de To_agentJ.txt</p>
@@ -1137,7 +1137,7 @@ Agent C</p>
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#cute-alienjpg" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#cute-alienjpg" aria-label="Ancla">#</a></span>        
     
 </h3><p>El Agente C dice que dentro de esta foto hay la contraseña de inicio de session del Agente J. Con steghide podemos intentar ver su contenido</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ steghide extract -sf cute-alien.jpg
@@ -1156,7 +1156,7 @@ StegSeek 0.6 - https://github.com/RickdeJager/StegSeek
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#messagetxt" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#messagetxt" aria-label="Ancla">#</a></span>        
     
 </h4><p>Contenido del archivo message.txt renombrado a cute-alien.jpg.out</p>
 <hr>
@@ -1177,7 +1177,7 @@ chris</p>
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#puerto-22" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#puerto-22" aria-label="Ancla">#</a></span>        
     
 </h3><p>Ahora ya tenemos las credenciales de james y nos podemos conectar por ssh</p>
 <p>Ya podemos ver la flag de user.txt</p>
@@ -1186,7 +1186,7 @@ chris</p>
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#escalada-de-privilegios" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#escalada-de-privilegios" aria-label="Ancla">#</a></span>        
     
 </h2><p>con <code>sudo -l</code> podemos ver que puede ejecutar como root</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">james@agent-sudo:~$ sudo -l
@@ -1234,8 +1234,8 @@ Sudo version 1.8.21p2
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://d3b0o.github.io/thm/agentsudo/&amp;title=Resoluci%c3%b3n%20Agent%20sudo"
-      title="Share on LinkedIn"
-      aria-label="Share on LinkedIn"
+      title="Compartir en LinkedIn"
+      aria-label="Compartir en LinkedIn"
       >
       
 
@@ -1253,8 +1253,8 @@ Sudo version 1.8.21p2
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://twitter.com/intent/tweet/?url=https://d3b0o.github.io/thm/agentsudo/&amp;text=Resoluci%c3%b3n%20Agent%20sudo"
-      title="Tweet on Twitter"
-      aria-label="Tweet on Twitter"
+      title="Tuitear en Twitter"
+      aria-label="Tuitear en Twitter"
       >
       
 
@@ -1272,8 +1272,8 @@ Sudo version 1.8.21p2
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://reddit.com/submit/?url=https://d3b0o.github.io/thm/agentsudo/&amp;resubmit=true&amp;title=Resoluci%c3%b3n%20Agent%20sudo"
-      title="Submit to Reddit"
-      aria-label="Submit to Reddit"
+      title="Publicar en Reddit"
+      aria-label="Publicar en Reddit"
       >
       
 
@@ -1293,8 +1293,8 @@ Sudo version 1.8.21p2
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://www.facebook.com/sharer/sharer.php?u=https://d3b0o.github.io/thm/agentsudo/&amp;quote=Resoluci%c3%b3n%20Agent%20sudo"
-      title="Share on Facebook"
-      aria-label="Share on Facebook"
+      title="Compartir en Facebook"
+      aria-label="Compartir en Facebook"
       >
       
 
@@ -1349,7 +1349,7 @@ Sudo version 1.8.21p2
     <p class="text-xs text-neutral-500 dark:text-neutral-400">
       
       
-      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+      Desarrollada con <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
         href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
         href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
     </p>
@@ -1396,14 +1396,14 @@ Sudo version 1.8.21p2
           type="search"
           id="search-query"
           class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
-          placeholder="Search"
+          placeholder="Buscar"
           tabindex="0"
         />
       </form>
       <button
         id="close-search-button"
         class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-        title="Close (Esc)"
+        title="Cerrar (Esc)"
       >
         
 

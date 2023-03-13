@@ -202,7 +202,7 @@ if (!doNotTrack) {
   <div id="the-top" class="absolute flex self-center">
     <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
       href="#main-content"><span
-        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Ir al contenido</a>
   </div>
   
   
@@ -700,7 +700,7 @@ if (!doNotTrack) {
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2023-01-20 00:00:00 &#43;0000 UTC">20/01/2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span>
+  <time datetime="2023-01-20 00:00:00 &#43;0000 UTC">20/01/2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Tiempo de lectura">4 mins</span>
   
 
   
@@ -822,7 +822,7 @@ if (!doNotTrack) {
         <details open class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
   <summary
     class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
+    Tabla de contenido
   </summary>
   <div
     class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
@@ -854,7 +854,7 @@ if (!doNotTrack) {
 <details class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
   <summary
     class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
+    Tabla de contenido
   </summary>
   <div
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
@@ -900,7 +900,7 @@ if (!doNotTrack) {
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#reconocimiento" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#reconocimiento" aria-label="Ancla">#</a></span>        
     
 </h2><p>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">&gt; ping -c <span class="m">1</span> 10.10.76.5
@@ -916,7 +916,7 @@ rtt min/avg/max/mdev <span class="o">=</span> 116.037/116.037/116.037/0.000 ms
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#escaneo-de-puertos-nmap" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#escaneo-de-puertos-nmap" aria-label="Ancla">#</a></span>        
     
 </h3><p>Ahora empezamos con un escaneo de puertos</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nmap -p- --open -sS --min-rate <span class="m">5000</span> -n -vvv -Pn 10.10.76.5 -oG allPorts
@@ -1010,7 +1010,7 @@ PORT   STATE SERVICE VERSION
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#puerto-21-ftp" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#puerto-21-ftp" aria-label="Ancla">#</a></span>        
     
 </h2><p>El nmap ha reportado que nos podemos conectar por ftp como anonymous. Dentro del ftp hay tres archivos: <code>.test_log</code>, <code>important.jpg</code> y <code>notice.txt</code>, también hay un directorio llamado <code>ftp</code> en el cual tenemos permisos de escritura.</p>
 <p>Nos pasamos los tres archivos con <code>get &quot;archivo&quot;</code> para analizarlos desde nuestra máquina. Ningún archivo contienen información relevante</p>
@@ -1019,14 +1019,14 @@ PORT   STATE SERVICE VERSION
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#puerto-80-http" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#puerto-80-http" aria-label="Ancla">#</a></span>        
     
 </h2><div id="subdirectorios" class="anchor">Subdirectorios></div>
 <h3 class="relative group">Subdirectorios 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#subdirectorios" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#subdirectorios" aria-label="Ancla">#</a></span>        
     
 </h3><p>Empezamos con un escaneo de subdirectorios, vamos a usar dirb</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">dirb 10.10.76.5
@@ -1036,7 +1036,7 @@ PORT   STATE SERVICE VERSION
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#intrusi%c3%b3n" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#intrusi%c3%b3n" aria-label="Ancla">#</a></span>        
     
 </h2><p>Nos bajamos el .php</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php
@@ -1049,7 +1049,7 @@ PORT   STATE SERVICE VERSION
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#tratamiento-de-tty" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#tratamiento-de-tty" aria-label="Ancla">#</a></span>        
     
 </h2><p>Antes para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">script /dev/null -c bash
@@ -1064,14 +1064,14 @@ PORT   STATE SERVICE VERSION
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#escalda-de-privilegios" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#escalda-de-privilegios" aria-label="Ancla">#</a></span>        
     
 </h2><div id="lennie" class="anchor">Lennie></div>
 <h3 class="relative group">Lennie 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#lennie" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#lennie" aria-label="Ancla">#</a></span>        
     
 </h3><p>En <code>/incidents</code> vemos un archivo el cual parece que contiene un historial de los comandos que se han ejecutado, buscando un poco vemos un sitio donde salen unas credenciales&hellip;</p>
 <div id="root" class="anchor">Root></div>
@@ -1079,7 +1079,7 @@ PORT   STATE SERVICE VERSION
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#root" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#root" aria-label="Ancla">#</a></span>        
     
 </h3><p>Con la herramienta pspy podemos ver como se ejecuta automáticamente como root el archivo /home/lennie/scripts/planner.sh.</p>
 <p>No tenemos permisos de escritura para este archivo, pero ese archivo ejecuta otro archivo: <code>/etc/printf.sh</code>, en este sí que tenemos permisos de escritura.</p>
@@ -1120,8 +1120,8 @@ PORT   STATE SERVICE VERSION
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://d3b0o.github.io/thm/startup/&amp;title=Resoluci%c3%b3n%20Startup"
-      title="Share on LinkedIn"
-      aria-label="Share on LinkedIn"
+      title="Compartir en LinkedIn"
+      aria-label="Compartir en LinkedIn"
       >
       
 
@@ -1139,8 +1139,8 @@ PORT   STATE SERVICE VERSION
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://twitter.com/intent/tweet/?url=https://d3b0o.github.io/thm/startup/&amp;text=Resoluci%c3%b3n%20Startup"
-      title="Tweet on Twitter"
-      aria-label="Tweet on Twitter"
+      title="Tuitear en Twitter"
+      aria-label="Tuitear en Twitter"
       >
       
 
@@ -1158,8 +1158,8 @@ PORT   STATE SERVICE VERSION
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://reddit.com/submit/?url=https://d3b0o.github.io/thm/startup/&amp;resubmit=true&amp;title=Resoluci%c3%b3n%20Startup"
-      title="Submit to Reddit"
-      aria-label="Submit to Reddit"
+      title="Publicar en Reddit"
+      aria-label="Publicar en Reddit"
       >
       
 
@@ -1179,8 +1179,8 @@ PORT   STATE SERVICE VERSION
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://www.facebook.com/sharer/sharer.php?u=https://d3b0o.github.io/thm/startup/&amp;quote=Resoluci%c3%b3n%20Startup"
-      title="Share on Facebook"
-      aria-label="Share on Facebook"
+      title="Compartir en Facebook"
+      aria-label="Compartir en Facebook"
       >
       
 
@@ -1235,7 +1235,7 @@ PORT   STATE SERVICE VERSION
     <p class="text-xs text-neutral-500 dark:text-neutral-400">
       
       
-      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+      Desarrollada con <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
         href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
         href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
     </p>
@@ -1282,14 +1282,14 @@ PORT   STATE SERVICE VERSION
           type="search"
           id="search-query"
           class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
-          placeholder="Search"
+          placeholder="Buscar"
           tabindex="0"
         />
       </form>
       <button
         id="close-search-button"
         class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-        title="Close (Esc)"
+        title="Cerrar (Esc)"
       >
         
 

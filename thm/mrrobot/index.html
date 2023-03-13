@@ -202,7 +202,7 @@ if (!doNotTrack) {
   <div id="the-top" class="absolute flex self-center">
     <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
       href="#main-content"><span
-        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Ir al contenido</a>
   </div>
   
   
@@ -700,7 +700,7 @@ if (!doNotTrack) {
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2022-12-20 00:00:00 &#43;0000 UTC">20/12/2022</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
+  <time datetime="2022-12-20 00:00:00 &#43;0000 UTC">20/12/2022</time><span class="px-2 text-primary-500">&middot;</span><span title="Tiempo de lectura">6 mins</span>
   
 
   
@@ -844,7 +844,7 @@ if (!doNotTrack) {
         <details open class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
   <summary
     class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
+    Tabla de contenido
   </summary>
   <div
     class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
@@ -871,7 +871,7 @@ if (!doNotTrack) {
 <details class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
   <summary
     class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
+    Tabla de contenido
   </summary>
   <div
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
@@ -912,7 +912,7 @@ if (!doNotTrack) {
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#reconocimiento" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#reconocimiento" aria-label="Ancla">#</a></span>        
     
 </h2><p>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</p>
 <pre tabindex="0"><code>❯ ping -c 1 10.10.193.138
@@ -928,7 +928,7 @@ rtt min/avg/max/mdev = 56.631/56.631/56.631/0.000 ms
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#escaneo-de-puertos-nmap" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#escaneo-de-puertos-nmap" aria-label="Ancla">#</a></span>        
     
 </h3><p>Ahora empezamos con un escaneo de puertos</p>
 <pre tabindex="0"><code>❯ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.10.193.138 -oG allPort
@@ -1005,7 +1005,7 @@ PORT    STATE SERVICE  VERSION
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#web" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#web" aria-label="Ancla">#</a></span>        
     
 </h3><p>Con el whatweb podemos ver mas información sobre la web</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ whatweb 10.10.193.138
@@ -1074,7 +1074,7 @@ http://10.10.193.138 <span class="o">[</span><span class="m">200</span> OK<span 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#buscando-subdirectorios" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#buscando-subdirectorios" aria-label="Ancla">#</a></span>        
     
 </h3><p>Para ver si hay subdirectorios vamos a usar la herramienta gpbuster para fusear mediante un diccionario que está en <code>/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt</code> con el siguiente comando:</p>
 <pre tabindex="0"><code>❯ gobuster dir -u http://10.10.46.125 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
@@ -1114,7 +1114,7 @@ http://10.10.193.138 <span class="o">[</span><span class="m">200</span> OK<span 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#robots" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#robots" aria-label="Ancla">#</a></span>        
     
 </h4><p>Contenido del <code>/robots/</code></p>
 <pre tabindex="0"><code>User-agent: *
@@ -1131,7 +1131,7 @@ key-1-of-3.txt
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#wp-admin" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#wp-admin" aria-label="Ancla">#</a></span>        
     
 </h4><p>En <code>wp-admin</code> hay un panel de login de WordPress, probamos con las típicas credenciales admin:admin, no funcionan pero hay un pequeño detalle importante</p>
 <p>
@@ -1168,7 +1168,7 @@ key-1-of-3.txt
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#intrusion" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#intrusion" aria-label="Ancla">#</a></span>        
     
 </h2><p>Con hydra vamos a probar con los usuarios de el dicionario que nos descargamos de <code>/fsocity.dic/</code> con la contraseña test</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ hydra -L fsocity.dic -p <span class="nb">test</span> 10.10.193.138 http-post-form <span class="s2">&#34;/wp-login.php:log=^USER^&amp;pwd=^PWD^:Invalid username&#34;</span> -t <span class="m">30</span>
@@ -1333,7 +1333,7 @@ key-1-of-3.txt
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#escalada-de-privilegios" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#escalada-de-privilegios" aria-label="Ancla">#</a></span>        
     
 </h2><p>En el directorio <code>/home/robot</code> esta la segunda flag, también hay un archivo con un hash raw-md5</p>
 <pre tabindex="0"><code>❯ john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
@@ -1389,8 +1389,8 @@ robot@linux:/$
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://d3b0o.github.io/thm/mrrobot/&amp;title=Resoluci%c3%b3n%20CTF%20Mr.Robot"
-      title="Share on LinkedIn"
-      aria-label="Share on LinkedIn"
+      title="Compartir en LinkedIn"
+      aria-label="Compartir en LinkedIn"
       >
       
 
@@ -1408,8 +1408,8 @@ robot@linux:/$
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://twitter.com/intent/tweet/?url=https://d3b0o.github.io/thm/mrrobot/&amp;text=Resoluci%c3%b3n%20CTF%20Mr.Robot"
-      title="Tweet on Twitter"
-      aria-label="Tweet on Twitter"
+      title="Tuitear en Twitter"
+      aria-label="Tuitear en Twitter"
       >
       
 
@@ -1427,8 +1427,8 @@ robot@linux:/$
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://reddit.com/submit/?url=https://d3b0o.github.io/thm/mrrobot/&amp;resubmit=true&amp;title=Resoluci%c3%b3n%20CTF%20Mr.Robot"
-      title="Submit to Reddit"
-      aria-label="Submit to Reddit"
+      title="Publicar en Reddit"
+      aria-label="Publicar en Reddit"
       >
       
 
@@ -1448,8 +1448,8 @@ robot@linux:/$
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://www.facebook.com/sharer/sharer.php?u=https://d3b0o.github.io/thm/mrrobot/&amp;quote=Resoluci%c3%b3n%20CTF%20Mr.Robot"
-      title="Share on Facebook"
-      aria-label="Share on Facebook"
+      title="Compartir en Facebook"
+      aria-label="Compartir en Facebook"
       >
       
 
@@ -1504,7 +1504,7 @@ robot@linux:/$
     <p class="text-xs text-neutral-500 dark:text-neutral-400">
       
       
-      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+      Desarrollada con <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
         href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
         href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
     </p>
@@ -1551,14 +1551,14 @@ robot@linux:/$
           type="search"
           id="search-query"
           class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
-          placeholder="Search"
+          placeholder="Buscar"
           tabindex="0"
         />
       </form>
       <button
         id="close-search-button"
         class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-        title="Close (Esc)"
+        title="Cerrar (Esc)"
       >
         
 

@@ -1,0 +1,182 @@
+---
+title: Resolución Máquina Blue (THM)
+published: true
+date: 2023-03-13
+image: "images/100.png"
+categories: [THM]
+tags: ["# Road to ejpt", CTF, Fácil, Windows, ms17-010, eternalblue, smb]
+series: ["Road to eJPTv2"]
+series_order: 2
+author: d3b0o
+---
+
+## Reconocimiento
+
+Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+
+```bash
+❯ ping -c 1 10.10.220.86
+PING 10.10.220.86 (10.10.220.86) 56(84) bytes of data.
+64 bytes from 10.10.220.86: icmp_seq=1 ttl=125 time=311 ms
+
+--- 10.10.220.86 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 310.739/310.739/310.739/0.000 ms
+```
+
+En este caso da un ttl (time to live) de **127**, entendiendo que **ttl=64: Linux** / **ttl=128: Windows**. Esta máquina es **Windows** por aproximación
+
+### Escaneo de puertos (nmap)
+
+Ahora empezamos con un escaneo de puertos
+
+```
+$ sudo nmap -p- --open -sS --min-rate 5000 -n -Pn -vvv 10.10.220.86 -oG allPorts
+```
+
+| Parámetro | Función |
+| --------- | ------- |
+| -p- | Para que el escaneo sea a todos los puertos (65536) |
+| --open | Para que solo reporte los puertos abiertos |
+| --min-rate 5000 | Definir el tiempo del escaneo |
+| -n | Omitir resolución DNS |
+| -vvv | Para que vaya reportando lo que encuentre por consola |
+| -Pn | Skip host discovery |
+| -oG allPorts | Para que guarde el escaneo en format grepeable en un archivo llamado allPort |
+
+Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual
+
+[Función extractPorts](https://pastebin.com/tYpwpauW) de [@s4vitar](https://s4vitar.github.io)
+
+```
+$ extractPorts allPorts
+───────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       │ File: extractPorts.tmp
+───────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   1   │ 
+   2   │ [*] Extracting information...
+   3   │ 
+   4   │     [*] IP Address: 10.10.220.86
+   5   │     [*] Open ports: 135,139,445,3389,49153,49154,49158,49161
+   6   │ 
+   7   │ [*] Ports copied to clipboard
+   8   │ 
+───────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+```
+
+Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos
+
+```bash
+$ nmap -p135,139,445,3389,49153,49154,49158,49161 -sC -sV 10.10.220.86 -oN versions
+
+PORT      STATE SERVICE            VERSION
+135/tcp   open  msrpc              Microsoft Windows RPC
+139/tcp   open  netbios-ssn        Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds       Windows 7 Professional 7601 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)
+3389/tcp  open  ssl/ms-wbt-server?
+|_ssl-date: 2023-03-13T21:38:54+00:00; +2s from scanner time.
+| ssl-cert: Subject: commonName=Jon-PC
+| Not valid before: 2023-03-12T18:12:17
+|_Not valid after:  2023-09-11T18:12:17
+| rdp-ntlm-info: 
+|   Target_Name: JON-PC
+|   NetBIOS_Domain_Name: JON-PC
+|   NetBIOS_Computer_Name: JON-PC
+|   DNS_Domain_Name: Jon-PC
+|   DNS_Computer_Name: Jon-PC
+|   Product_Version: 6.1.7601
+|_  System_Time: 2023-03-13T21:38:43+00:00
+49153/tcp open  msrpc              Microsoft Windows RPC
+49154/tcp open  msrpc              Microsoft Windows RPC
+49158/tcp open  msrpc              Microsoft Windows RPC
+49161/tcp open  msrpc              Microsoft Windows RPC
+Service Info: Host: JON-PC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: 1h00m01s, deviation: 2h14m10s, median: 1s
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_nbstat: NetBIOS name: JON-PC, NetBIOS user: <unknown>, NetBIOS MAC: 02c0de388f81 (unknown)
+| smb2-security-mode: 
+|   210: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2023-03-13T21:38:42
+|_  start_date: 2023-03-13T18:31:03
+| smb-os-discovery: 
+|   OS: Windows 7 Professional 7601 Service Pack 1 (Windows 7 Professional 6.1)
+|   OS CPE: cpe:/o:microsoft:windows_7::sp1:professional
+|   Computer name: Jon-PC
+|   NetBIOS computer name: JON-PC\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2023-03-13T16:38:42-05:00
+
+```
+
+| Parámetro | Función |
+| :---------: | ------- |
+| -p | Especificamos los puertos abiertos que hemos encontrado con el escaneo anterior |
+| -sC | Para que realice scripts básicos de reconocimiento |
+| -sV | Proporciona la versión e información de los servicios que corren por los puertos |
+
+---
+
+## Intrusión
+
+El escaneo de nmap ha reportado que es un windows 7 con un servidor samba
+
+Con nmap podemos ver si es vulnerable
+
+```bash
+❯ nmap --script "vuln and safe" -p445 10.10.220.86
+Starting Nmap 7.93 ( https://nmap.org ) at 2023-03-13 22:53 CET
+Nmap scan report for 10.10.220.86
+Host is up (0.37s latency).
+
+PORT    STATE SERVICE
+445/tcp open  microsoft-ds
+
+Host script results:
+| smb-vuln-ms17-010: 
+|   VULNERABLE:
+|   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2017-0143
+|     Risk factor: HIGH
+|       A critical remote code execution vulnerability exists in Microsoft SMBv1
+|        servers (ms17-010).
+|           
+|     Disclosure date: 2017-03-14
+|     References:
+|       https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
+|       https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
+```
+
+Es vulnerable. Ahora vamos a usar un exploit de metasploit
+
+Primero abrimos metasploit
+
+```
+msfconsole
+```
+
+Buscamos exploits para ms17-010
+
+```bash
+msf6 > search ms17-010
+
+Matching Modules
+================
+
+   #  Name                                      Disclosure Date  Rank     Check  Description
+   -  ----                                      ---------------  ----     -----  -----------
+   0  exploit/windows/smb/ms17_010_eternalblue  2017-03-14       average  Yes    MS17-010 EternalBlue SMB Remote Windows Kernel Pool Corruption
+   1  exploit/windows/smb/ms17_010_psexec       2017-03-14       normal   Yes    MS17-010 EternalRomance/EternalSynergy/EternalChampion SMB Remote Windows Code Execution
+   2  auxiliary/admin/smb/ms17_010_command      2017-03-14       normal   No     MS17-010 EternalRomance/EternalSynergy/EternalChampion SMB Remote Windows Command Execution
+   3  auxiliary/scanner/smb/smb_ms17_010                         normal   No     MS17-010 SMB RCE Detection
+   4  exploit/windows/smb/smb_doublepulsar_rce  2017-04-14       great    Yes    SMB DOUBLEPULSAR Remote Code Execution
+```

