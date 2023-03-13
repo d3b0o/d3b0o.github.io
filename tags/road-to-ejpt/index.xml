@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Road to ejpt on d3b0o</title>
+    <link>https://d3b0o.github.io/tags/road-to-ejpt/</link>
+    <description>Recent content in Road to ejpt on d3b0o</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Mon, 13 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/tags/road-to-ejpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Resolución Máquina Blue</title>
+      <link>https://d3b0o.github.io/htb/blue/</link>
+      <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/htb/blue/</guid>
+      <description>Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+❯ ping -c 1 10.10.10.40 PING 10.10.10.40 (10.10.10.40) 56(84) bytes of data. 64 bytes from 10.</description>
+    </item>
+    
+  </channel>
+</rss>
