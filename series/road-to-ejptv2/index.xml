@@ -6,7 +6,17 @@
     <description>Recent content in Road to eJPTv2 on d3b0o</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Mon, 13 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/series/road-to-ejptv2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://d3b0o.github.io/series/road-to-ejptv2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Resolución Máquina Blue (THM)</title>
+      <link>https://d3b0o.github.io/thm/blue/</link>
+      <pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/thm/blue/</guid>
+      <description>Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+❯ ping -c 1 10.10.220.86 PING 10.10.220.86 (10.10.220.86) 56(84) bytes of data. 64 bytes from 10.</description>
+    </item>
+    
     <item>
       <title>Resolución Máquina Blue (HTB)</title>
       <link>https://d3b0o.github.io/htb/blue/</link>
