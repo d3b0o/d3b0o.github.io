@@ -21,6 +21,19 @@ Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máqu
     </item>
     
     <item>
+      <title>Resolución Wonderland</title>
+      <link>https://d3b0o.github.io/thm/wonderland/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://d3b0o.github.io/thm/wonderland/</guid>
+      <description>https://tryhackme.com/room/wonderland
+IP Atacante = 10.10.10.10
+IP Víctima = 10.10.3.160
+Reconocimiento Reconocimiento # Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+❯ ping -c 1 10.</description>
+    </item>
+    
+    <item>
       <title>Resolución Develpy</title>
       <link>https://d3b0o.github.io/thm/develpy/</link>
       <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>

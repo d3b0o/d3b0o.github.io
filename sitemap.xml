@@ -625,6 +625,24 @@
   
     
       <url>
+            <loc>https://d3b0o.github.io/tags/bash/</loc>
+            <lastmod>2023-01-11T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://d3b0o.github.io/tags/perl/</loc>
+            <lastmod>2023-01-11T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
             <loc>https://d3b0o.github.io/thm/wonderland/</loc>
             <lastmod>2023-01-11T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
@@ -940,15 +958,6 @@
   
     
       <url>
-            <loc>https://d3b0o.github.io/tags/bash/</loc>
-            <lastmod>2022-11-29T00:00:00+00:00</lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
             <loc>https://d3b0o.github.io/posts/polybarspotify/</loc>
             <lastmod>2022-11-29T00:00:00+00:00</lastmod>
             <changefreq>daily</changefreq>
@@ -1130,22 +1139,6 @@
     
       <url>
             <loc>https://d3b0o.github.io/categories/vulnhub/</loc>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/whoami_cat/</loc>
-            <changefreq>daily</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://d3b0o.github.io/whoami_en/</loc>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
