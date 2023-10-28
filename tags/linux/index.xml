@@ -1,1 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on d3b0o</title><link>/tags/linux/</link><description>Recent content in Linux on d3b0o</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright (c) 2023 Hyas</copyright><lastBuildDate>Tue, 29 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Módulo Polybar Spotify</title><link>/blog/m%C3%B3dulo-polybar-spotify/</link><pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate><guid>/blog/m%C3%B3dulo-polybar-spotify/</guid><description>¿Qué es? Es un simple módulo para la polybar que muestra que canción se está reproduciendo y se pueden añadir botones para pausar y pasar canciones.</description></item><item><title>Como Personalizar Tu Entorno Linux</title><link>/blog/como-personalizar-tu-entorno-linux/</link><pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate><guid>/blog/como-personalizar-tu-entorno-linux/</guid><description>En esta guía explico como puedes crear tu propio entorno completamente personalizable y desde 0, para que puedas dar tu 100% en tu trabajo o estudios.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on d3b0o</title><link>/tags/linux/</link><description>Recent content in Linux on d3b0o</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright (c) 2023 Hyas</copyright><lastBuildDate>Mon, 06 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Jabita</title><link>/writeups/hackmyvm/jabita/</link><pubDate>Mon, 06 Mar 2023 00:00:00 +0000</pubDate><guid>/writeups/hackmyvm/jabita/</guid><description>https://hackmyvm.eu/machines/machine.php?vm=Jabita
+IP Atacante = 192.168.1.138
+IP víctima = 192.168.1.141
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Chill Hack</title><link>/writeups/tryhackme/chill-hack/</link><pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/chill-hack/</guid><description>https://tryhackme.com/room/chillhack
+IP Atacante = 10.10.10.10
+IP víctima = 10.10.11.182
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Team</title><link>/writeups/tryhackme/team/</link><pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/team/</guid><description>https://tryhackme.com/room/teamcw
+IP Atacante = 10.10.10.10
+IP Víctima = 10.10.67.245
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Startup</title><link>/writeups/tryhackme/startup/</link><pubDate>Fri, 20 Jan 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/startup/</guid><description>https://tryhackme.com/room/startup
+IP Atacante = 10.10.10.10
+IP Víctima = 10.10.76.5
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Source</title><link>/writeups/tryhackme/source/</link><pubDate>Thu, 19 Jan 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/source/</guid><description>https://tryhackme.com/room/source
+IP Atacante = 10.10.10.10
+IP Víctima = 10.10.16.237
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Mustacchio</title><link>/writeups/tryhackme/mustacchio/</link><pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/mustacchio/</guid><description>https://tryhackme.com/room/mustacchio
+IP Atacante = 10.10.10.10
+IP Víctima = 10.10.3.160
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Wonderland</title><link>/writeups/tryhackme/wonderland/</link><pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/wonderland/</guid><description>https://tryhackme.com/room/wonderland
+IP Atacante = 10.10.10.10
+IP Víctima = 10.10.3.160
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Bounty Hacker</title><link>/writeups/tryhackme/bounty-hacker/</link><pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/bounty-hacker/</guid><description>https://tryhackme.com/room/cowboyhacker
+IP Atacante = 10.10.10.10
+IP Víctima = 10.10.131.60
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Overpass</title><link>/writeups/tryhackme/overpass/</link><pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/overpass/</guid><description>https://tryhackme.com/room/overpass
+IP Atacante = 10.10.10.10
+IP Víctima = 10.10.170.40
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Develpy</title><link>/writeups/tryhackme/develpy/</link><pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/develpy/</guid><description>Link de la máquina
+IP Atacante = 10.10.10.10
+IP Víctima = 10.10.139.165
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item></channel></rss>

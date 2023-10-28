@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>python on d3b0o</title><link>/tags/python/</link><description>Recent content in python on d3b0o</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright (c) 2023 Hyas</copyright><lastBuildDate>Mon, 06 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>Jabita</title><link>/writeups/hackmyvm/jabita/</link><pubDate>Mon, 06 Mar 2023 00:00:00 +0000</pubDate><guid>/writeups/hackmyvm/jabita/</guid><description>https://hackmyvm.eu/machines/machine.php?vm=Jabita
+IP Atacante = 192.168.1.138
+IP víctima = 192.168.1.141
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Wonderland</title><link>/writeups/tryhackme/wonderland/</link><pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/wonderland/</guid><description>https://tryhackme.com/room/wonderland
+IP Atacante = 10.10.10.10
+IP Víctima = 10.10.3.160
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Develpy</title><link>/writeups/tryhackme/develpy/</link><pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/develpy/</guid><description>Link de la máquina
+IP Atacante = 10.10.10.10
+IP Víctima = 10.10.139.165
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>RootMe</title><link>/writeups/tryhackme/rootme/</link><pubDate>Sun, 11 Dec 2022 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/rootme/</guid><description>Un ctf para principiantes, me puedes rootear?
+https://tryhackme.com/room/rrootme
+IP Atacante = 10.10.10.10
+IP víctima = 10.10.108.243
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item></channel></rss>
