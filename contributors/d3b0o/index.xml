@@ -1,1 +1,103 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>d3b0o</title><link>/contributors/d3b0o/</link><description>Recent content on d3b0o</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright (c) 2023 Hyas</copyright><lastBuildDate>Wed, 30 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="/contributors/d3b0o/index.xml" rel="self" type="application/rss+xml"/><item><title>Pandora (Video)</title><link>/writeups/hackthebox/pandora-video/</link><pubDate>Wed, 30 Aug 2023 00:00:00 +0000</pubDate><guid>/writeups/hackthebox/pandora-video/</guid><description/></item><item><title>Horizontall (Video)</title><link>/writeups/hackthebox/horizontall-video/</link><pubDate>Tue, 29 Aug 2023 00:00:00 +0000</pubDate><guid>/writeups/hackthebox/horizontall-video/</guid><description/></item><item><title>Bashed (Video)</title><link>/writeups/hackthebox/bashed-video/</link><pubDate>Mon, 28 Aug 2023 00:00:00 +0000</pubDate><guid>/writeups/hackthebox/bashed-video/</guid><description/></item><item><title>Friendly III (Video)</title><link>/writeups/hackmyvm/friendly-iii-video/</link><pubDate>Sun, 27 Aug 2023 00:00:00 +0000</pubDate><guid>/writeups/hackmyvm/friendly-iii-video/</guid><description/></item><item><title>Visions (Video)</title><link>/writeups/hackmyvm/visions-video/</link><pubDate>Sat, 03 Jun 2023 00:00:00 +0000</pubDate><guid>/writeups/hackmyvm/visions-video/</guid><description/></item><item><title>Friendly II (Video)</title><link>/writeups/hackmyvm/friendly-ii-video/</link><pubDate>Fri, 02 Jun 2023 00:00:00 +0000</pubDate><guid>/writeups/hackmyvm/friendly-ii-video/</guid><description/></item><item><title>Five (Video)</title><link>/writeups/hackmyvm/five-video/</link><pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate><guid>/writeups/hackmyvm/five-video/</guid><description/></item><item><title>Doc (Video)</title><link>/writeups/hackmyvm/doc-video/</link><pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate><guid>/writeups/hackmyvm/doc-video/</guid><description/></item><item><title>Literal (Video)</title><link>/writeups/hackmyvm/literal-video/</link><pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate><guid>/writeups/hackmyvm/literal-video/</guid><description/></item><item><title>Jabita (Video)</title><link>/writeups/hackmyvm/jabita-video/</link><pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate><guid>/writeups/hackmyvm/jabita-video/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>d3b0o</title>
+    <link>/contributors/d3b0o/</link>
+    <description>Recent content on d3b0o</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright (c) 2023 Hyas</copyright>
+    <lastBuildDate>Sun, 29 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/contributors/d3b0o/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Toolbox</title>
+      <link>/writeups/hackthebox/toolbox/</link>
+      <pubDate>Sun, 29 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/hackthebox/toolbox/</guid>
+      <description>Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+ping -c 1 10.10.10.236 PING 10.</description>
+    </item>
+    
+    <item>
+      <title>Pandora (Video)</title>
+      <link>/writeups/hackthebox/pandora-video/</link>
+      <pubDate>Wed, 30 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/hackthebox/pandora-video/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Horizontall (Video)</title>
+      <link>/writeups/hackthebox/horizontall-video/</link>
+      <pubDate>Tue, 29 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/hackthebox/horizontall-video/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Bashed (Video)</title>
+      <link>/writeups/hackthebox/bashed-video/</link>
+      <pubDate>Mon, 28 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/hackthebox/bashed-video/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Friendly III (Video)</title>
+      <link>/writeups/hackmyvm/friendly-iii-video/</link>
+      <pubDate>Sun, 27 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/hackmyvm/friendly-iii-video/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Visions (Video)</title>
+      <link>/writeups/hackmyvm/visions-video/</link>
+      <pubDate>Sat, 03 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/hackmyvm/visions-video/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Friendly II (Video)</title>
+      <link>/writeups/hackmyvm/friendly-ii-video/</link>
+      <pubDate>Fri, 02 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/hackmyvm/friendly-ii-video/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Five (Video)</title>
+      <link>/writeups/hackmyvm/five-video/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/hackmyvm/five-video/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Doc (Video)</title>
+      <link>/writeups/hackmyvm/doc-video/</link>
+      <pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/hackmyvm/doc-video/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Literal (Video)</title>
+      <link>/writeups/hackmyvm/literal-video/</link>
+      <pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/hackmyvm/literal-video/</guid>
+      <description> </description>
+    </item>
+    
+  </channel>
+</rss>

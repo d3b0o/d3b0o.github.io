@@ -1,7 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Archivos ocultos on d3b0o</title><link>/tags/archivos-ocultos/</link><description>Recent content in Archivos ocultos on d3b0o</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright (c) 2023 Hyas</copyright><lastBuildDate>Thu, 15 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/archivos-ocultos/index.xml" rel="self" type="application/rss+xml"/><item><title>Agent sudo</title><link>/writeups/tryhackme/agent-sudo/</link><pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/agent-sudo/</guid><description>Bienvenido a otra sala CTF exclusiva de THM. Tu tarea es simple, captura las banderas. ¡Que te diviertas!
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Archivos ocultos on d3b0o</title>
+    <link>/tags/archivos-ocultos/</link>
+    <description>Recent content in Archivos ocultos on d3b0o</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright (c) 2023 Hyas</copyright>
+    <lastBuildDate>Thu, 15 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/archivos-ocultos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent sudo</title>
+      <link>/writeups/tryhackme/agent-sudo/</link>
+      <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/tryhackme/agent-sudo/</guid>
+      <description>Bienvenido a otra sala CTF exclusiva de THM. Tu tarea es simple, captura las banderas. ¡Que te diviertas!
 https://tryhackme.com/room/agentsudoctf
-IP Atacante = 10.</description></item><item><title>Lazy admin</title><link>/writeups/tryhackme/lazy-admin/</link><pubDate>Wed, 14 Dec 2022 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/lazy-admin/</guid><description>Máquina fácil Linux para practicar tus habilidades.
+IP Atacante = 10.</description>
+    </item>
+    
+    <item>
+      <title>Lazy admin</title>
+      <link>/writeups/tryhackme/lazy-admin/</link>
+      <pubDate>Wed, 14 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/tryhackme/lazy-admin/</guid>
+      <description>Máquina fácil Linux para practicar tus habilidades.
 https://tryhackme.com/room/lazyadmin
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.192.128
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Chocolate Factory</title><link>/writeups/tryhackme/chocolate-factory/</link><pubDate>Tue, 13 Dec 2022 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/chocolate-factory/</guid><description>Un ctf temática de Charlie y la fábrica de chocolate, vuelve a visitar la fábrica de chocolate de Willy Wonka.</description></item></channel></rss>
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+    </item>
+    
+    <item>
+      <title>Chocolate Factory</title>
+      <link>/writeups/tryhackme/chocolate-factory/</link>
+      <pubDate>Tue, 13 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/tryhackme/chocolate-factory/</guid>
+      <description>Un ctf temática de Charlie y la fábrica de chocolate, vuelve a visitar la fábrica de chocolate de Willy Wonka.</description>
+    </item>
+    
+  </channel>
+</rss>

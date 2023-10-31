@@ -1,1 +1,102 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tags on d3b0o</title><link>/tags/</link><description>Recent content in Tags on d3b0o</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright (c) 2023 Hyas</copyright><lastBuildDate>Tue, 14 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml"/><item><title>CTF</title><link>/tags/ctf/</link><pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate><guid>/tags/ctf/</guid><description/></item><item><title>eternalblue</title><link>/tags/eternalblue/</link><pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate><guid>/tags/eternalblue/</guid><description/></item><item><title>Fácil</title><link>/tags/f%C3%A1cil/</link><pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate><guid>/tags/f%C3%A1cil/</guid><description/></item><item><title>metasploit</title><link>/tags/metasploit/</link><pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate><guid>/tags/metasploit/</guid><description/></item><item><title>ms17-010</title><link>/tags/ms17-010/</link><pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate><guid>/tags/ms17-010/</guid><description/></item><item><title>smb</title><link>/tags/smb/</link><pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate><guid>/tags/smb/</guid><description/></item><item><title>Windows</title><link>/tags/windows/</link><pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate><guid>/tags/windows/</guid><description/></item><item><title>awk</title><link>/tags/awk/</link><pubDate>Mon, 06 Mar 2023 00:00:00 +0000</pubDate><guid>/tags/awk/</guid><description/></item><item><title>Directory Traversal</title><link>/tags/directory-traversal/</link><pubDate>Mon, 06 Mar 2023 00:00:00 +0000</pubDate><guid>/tags/directory-traversal/</guid><description/></item><item><title>Linux</title><link>/tags/linux/</link><pubDate>Mon, 06 Mar 2023 00:00:00 +0000</pubDate><guid>/tags/linux/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on d3b0o</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on d3b0o</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright (c) 2023 Hyas</copyright>
+    <lastBuildDate>Sun, 29 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CTF</title>
+      <link>/tags/ctf/</link>
+      <pubDate>Sun, 29 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/ctf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>/tags/docker/</link>
+      <pubDate>Sun, 29 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RCE</title>
+      <link>/tags/rce/</link>
+      <pubDate>Sun, 29 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rce/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLI</title>
+      <link>/tags/sqli/</link>
+      <pubDate>Sun, 29 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/sqli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>/tags/windows/</link>
+      <pubDate>Sun, 29 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>eternalblue</title>
+      <link>/tags/eternalblue/</link>
+      <pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/eternalblue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fácil</title>
+      <link>/tags/f%C3%A1cil/</link>
+      <pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/f%C3%A1cil/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>metasploit</title>
+      <link>/tags/metasploit/</link>
+      <pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/metasploit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ms17-010</title>
+      <link>/tags/ms17-010/</link>
+      <pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/ms17-010/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>smb</title>
+      <link>/tags/smb/</link>
+      <pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/smb/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

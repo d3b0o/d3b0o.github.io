@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tar on d3b0o</title><link>/tags/tar/</link><description>Recent content in tar on d3b0o</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright (c) 2023 Hyas</copyright><lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/tar/index.xml" rel="self" type="application/rss+xml"/><item><title>Bounty Hacker</title><link>/writeups/tryhackme/bounty-hacker/</link><pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/bounty-hacker/</guid><description>https://tryhackme.com/room/cowboyhacker
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tar on d3b0o</title>
+    <link>/tags/tar/</link>
+    <description>Recent content in tar on d3b0o</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright (c) 2023 Hyas</copyright>
+    <lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/tar/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bounty Hacker</title>
+      <link>/writeups/tryhackme/bounty-hacker/</link>
+      <pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/tryhackme/bounty-hacker/</guid>
+      <description>https://tryhackme.com/room/cowboyhacker
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.131.60
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item></channel></rss>
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Steganography on d3b0o</title><link>/tags/steganography/</link><description>Recent content in Steganography on d3b0o</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright (c) 2023 Hyas</copyright><lastBuildDate>Wed, 01 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/steganography/index.xml" rel="self" type="application/rss+xml"/><item><title>Chill Hack</title><link>/writeups/tryhackme/chill-hack/</link><pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/chill-hack/</guid><description>https://tryhackme.com/room/chillhack
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Steganography on d3b0o</title>
+    <link>/tags/steganography/</link>
+    <description>Recent content in Steganography on d3b0o</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright (c) 2023 Hyas</copyright>
+    <lastBuildDate>Wed, 01 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/steganography/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chill Hack</title>
+      <link>/writeups/tryhackme/chill-hack/</link>
+      <pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/tryhackme/chill-hack/</guid>
+      <description>https://tryhackme.com/room/chillhack
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.11.182
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item></channel></rss>
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+    </item>
+    
+  </channel>
+</rss>

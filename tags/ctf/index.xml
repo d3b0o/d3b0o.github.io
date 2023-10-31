@@ -1,27 +1,126 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CTF on d3b0o</title><link>/tags/ctf/</link><description>Recent content in CTF on d3b0o</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright (c) 2023 Hyas</copyright><lastBuildDate>Tue, 14 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ctf/index.xml" rel="self" type="application/rss+xml"/><item><title>Blue</title><link>/writeups/tryhackme/blue/</link><pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/blue/</guid><description>Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-❯ ping -c 1 10.</description></item><item><title>Blue</title><link>/writeups/hackthebox/blue/</link><pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate><guid>/writeups/hackthebox/blue/</guid><description>Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-❯ ping -c 1 10.</description></item><item><title>Jabita</title><link>/writeups/hackmyvm/jabita/</link><pubDate>Mon, 06 Mar 2023 00:00:00 +0000</pubDate><guid>/writeups/hackmyvm/jabita/</guid><description>https://hackmyvm.eu/machines/machine.php?vm=Jabita
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CTF on d3b0o</title>
+    <link>/tags/ctf/</link>
+    <description>Recent content in CTF on d3b0o</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright (c) 2023 Hyas</copyright>
+    <lastBuildDate>Sun, 29 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Toolbox</title>
+      <link>/writeups/hackthebox/toolbox/</link>
+      <pubDate>Sun, 29 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/hackthebox/toolbox/</guid>
+      <description>Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+ping -c 1 10.10.10.236 PING 10.</description>
+    </item>
+    
+    <item>
+      <title>Blue</title>
+      <link>/writeups/tryhackme/blue/</link>
+      <pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/tryhackme/blue/</guid>
+      <description>Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+❯ ping -c 1 10.</description>
+    </item>
+    
+    <item>
+      <title>Blue</title>
+      <link>/writeups/hackthebox/blue/</link>
+      <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/hackthebox/blue/</guid>
+      <description>Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
+❯ ping -c 1 10.</description>
+    </item>
+    
+    <item>
+      <title>Jabita</title>
+      <link>/writeups/hackmyvm/jabita/</link>
+      <pubDate>Mon, 06 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/hackmyvm/jabita/</guid>
+      <description>https://hackmyvm.eu/machines/machine.php?vm=Jabita
 IP Atacante = 192.168.1.138
 IP víctima = 192.168.1.141
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Chill Hack</title><link>/writeups/tryhackme/chill-hack/</link><pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/chill-hack/</guid><description>https://tryhackme.com/room/chillhack
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+    </item>
+    
+    <item>
+      <title>Chill Hack</title>
+      <link>/writeups/tryhackme/chill-hack/</link>
+      <pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/tryhackme/chill-hack/</guid>
+      <description>https://tryhackme.com/room/chillhack
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.11.182
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Team</title><link>/writeups/tryhackme/team/</link><pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/team/</guid><description>https://tryhackme.com/room/teamcw
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+    </item>
+    
+    <item>
+      <title>Team</title>
+      <link>/writeups/tryhackme/team/</link>
+      <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/tryhackme/team/</guid>
+      <description>https://tryhackme.com/room/teamcw
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.67.245
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Startup</title><link>/writeups/tryhackme/startup/</link><pubDate>Fri, 20 Jan 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/startup/</guid><description>https://tryhackme.com/room/startup
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+    </item>
+    
+    <item>
+      <title>Startup</title>
+      <link>/writeups/tryhackme/startup/</link>
+      <pubDate>Fri, 20 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/tryhackme/startup/</guid>
+      <description>https://tryhackme.com/room/startup
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.76.5
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Source</title><link>/writeups/tryhackme/source/</link><pubDate>Thu, 19 Jan 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/source/</guid><description>https://tryhackme.com/room/source
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+    </item>
+    
+    <item>
+      <title>Source</title>
+      <link>/writeups/tryhackme/source/</link>
+      <pubDate>Thu, 19 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/tryhackme/source/</guid>
+      <description>https://tryhackme.com/room/source
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.16.237
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Mustacchio</title><link>/writeups/tryhackme/mustacchio/</link><pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/mustacchio/</guid><description>https://tryhackme.com/room/mustacchio
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+    </item>
+    
+    <item>
+      <title>Mustacchio</title>
+      <link>/writeups/tryhackme/mustacchio/</link>
+      <pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/tryhackme/mustacchio/</guid>
+      <description>https://tryhackme.com/room/mustacchio
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.3.160
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Wonderland</title><link>/writeups/tryhackme/wonderland/</link><pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/wonderland/</guid><description>https://tryhackme.com/room/wonderland
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+    </item>
+    
+    <item>
+      <title>Wonderland</title>
+      <link>/writeups/tryhackme/wonderland/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/writeups/tryhackme/wonderland/</guid>
+      <description>https://tryhackme.com/room/wonderland
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.3.160
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Bounty Hacker</title><link>/writeups/tryhackme/bounty-hacker/</link><pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/bounty-hacker/</guid><description>https://tryhackme.com/room/cowboyhacker
-IP Atacante = 10.10.10.10
-IP Víctima = 10.10.131.60
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item></channel></rss>
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
+    </item>
+    
+  </channel>
+</rss>
