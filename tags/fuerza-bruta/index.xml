@@ -1,47 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Fuerza bruta on d3b0o</title>
-    <link>/tags/fuerza-bruta/</link>
-    <description>Recent content in Fuerza bruta on d3b0o</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>Copyright (c) 2023 Hyas</copyright>
-    <lastBuildDate>Tue, 20 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/fuerza-bruta/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Mr.Robot</title>
-      <link>/writeups/tryhackme/mr.robot/</link>
-      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/writeups/tryhackme/mr.robot/</guid>
-      <description>https://tryhackme.com/room/mrrobot
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fuerza bruta on d3b0o</title><link>/tags/fuerza-bruta/</link><description>Recent content in Fuerza bruta on d3b0o</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright (c) 2023 Hyas</copyright><lastBuildDate>Tue, 20 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/fuerza-bruta/index.xml" rel="self" type="application/rss+xml"/><item><title>Mr.Robot</title><link>/writeups/tryhackme/mr.robot/</link><pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/mr.robot/</guid><description>https://tryhackme.com/room/mrrobot
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.193.138
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
-    </item>
-    
-    <item>
-      <title>Brooklyn Nine Nine</title>
-      <link>/writeups/tryhackme/brooklyn-nine-nine/</link>
-      <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/writeups/tryhackme/brooklyn-nine-nine/</guid>
-      <description>https://tryhackme.com/room/brooklynninenine
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Brooklyn Nine Nine</title><link>/writeups/tryhackme/brooklyn-nine-nine/</link><pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/brooklyn-nine-nine/</guid><description>https://tryhackme.com/room/brooklynninenine
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.243.15
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
-    </item>
-    
-    <item>
-      <title>Agent sudo</title>
-      <link>/writeups/tryhackme/agent-sudo/</link>
-      <pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/writeups/tryhackme/agent-sudo/</guid>
-      <description>Bienvenido a otra sala CTF exclusiva de THM. Tu tarea es simple, captura las banderas. ¡Que te diviertas!
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Agent sudo</title><link>/writeups/tryhackme/agent-sudo/</link><pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/agent-sudo/</guid><description>Bienvenido a otra sala CTF exclusiva de THM. Tu tarea es simple, captura las banderas. ¡Que te diviertas!
 https://tryhackme.com/room/agentsudoctf
-IP Atacante = 10.</description>
-    </item>
-    
-  </channel>
-</rss>
+IP Atacante = 10.</description></item></channel></rss>

