@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fácil on d3bo</title><link>/tags/f%C3%A1cil/</link><description>Recent content in Fácil on d3bo</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright (c) 2023 Hyas</copyright><lastBuildDate>Tue, 14 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/f%C3%A1cil/index.xml" rel="self" type="application/rss+xml"/><item><title>Blue</title><link>/writeups/tryhackme/blue/</link><pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/blue/</guid><description>Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene
-❯ ping -c 1 10.</description></item><item><title>Jabita</title><link>/writeups/hackmyvm/jabita/</link><pubDate>Mon, 06 Mar 2023 00:00:00 +0000</pubDate><guid>/writeups/hackmyvm/jabita/</guid><description>https://hackmyvm.eu/machines/machine.php?vm=Jabita
-IP Atacante = 192.168.1.138
-IP víctima = 192.168.1.141
-Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Chill Hack</title><link>/writeups/tryhackme/chill-hack/</link><pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/chill-hack/</guid><description>https://tryhackme.com/room/chillhack
+❯ ping -c 1 10.</description></item><item><title>Chill Hack</title><link>/writeups/tryhackme/chill-hack/</link><pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/chill-hack/</guid><description>https://tryhackme.com/room/chillhack
 IP Atacante = 10.10.10.10
 IP víctima = 10.10.11.182
 Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Team</title><link>/writeups/tryhackme/team/</link><pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/team/</guid><description>https://tryhackme.com/room/teamcw
@@ -26,4 +23,7 @@ IP Víctima = 10.10.139.165
 Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Tomghost</title><link>/writeups/tryhackme/tomghost/</link><pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/tomghost/</guid><description>Link de la máquina
 IP Atacante = 10.10.10.10
 IP Víctima = 10.10.126.65
+Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item><item><title>Wgel</title><link>/writeups/tryhackme/wgel/</link><pubDate>Wed, 28 Dec 2022 00:00:00 +0000</pubDate><guid>/writeups/tryhackme/wgel/</guid><description>https://tryhackme.com/room/wgelctf
+IP Atacante = 10.10.10.10
+IP víctima = 10.10.176.77
 Reconocimiento Para empezar lo primero es comprobar si la máquina está activa y que OS tiene</description></item></channel></rss>
